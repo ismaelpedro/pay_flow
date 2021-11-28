@@ -9,7 +9,7 @@ class Routes {
 }
 
 class AppRoutes {
-  final pages = [
+  static final pages = [
     GetPage(
       name: Routes.login,
       page: () => const LoginPage(),

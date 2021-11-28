@@ -23,7 +23,6 @@ dependencies:
   flutter_signin_button: ^2.0.0
   shimmer: ^2.0.0
   dartz: ^0.10.0
-  url_launcher: ^6.0.15
   intl: ^0.17.0
   hasura_connect: ^3.0.6
 
