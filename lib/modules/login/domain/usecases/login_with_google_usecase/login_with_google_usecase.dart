@@ -19,6 +19,6 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
       );
       return Right(user);
     }
-    return Left(Exception());
+    return Left(Exception());  
   }
 }

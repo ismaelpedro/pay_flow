@@ -1,6 +1,4 @@
-import 'package:equatable/equatable.dart';
-
-class Ticket extends Equatable {
+class Ticket {
   final String id;
   final String name;
   final String date;
@@ -14,7 +12,4 @@ class Ticket extends Equatable {
     required this.code,
     required this.fkUser,
   });
-
-  @override
-  List<Object?> get props => [id, name, date, code, fkUser];
 }

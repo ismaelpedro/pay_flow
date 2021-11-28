@@ -12,19 +12,18 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  get: ^4.3.8
-  http: ^0.13.4
-  equatable: ^2.0.3
+  hasura_connect: ^3.0.6
   shared_preferences: ^2.0.9
-  mocktail: ^0.2.0
+  permission_handler: ^8.3.0
+  google_sign_in: ^5.2.1
   google_fonts: ^2.1.0
   google_ml_kit: ^0.7.3
-  google_sign_in: ^5.2.1
-  flutter_signin_button: ^2.0.0
+  mocktail: ^0.2.0
   shimmer: ^2.0.0
+  get: ^4.3.8
   dartz: ^0.10.0
   intl: ^0.17.0
-  hasura_connect: ^3.0.6
+  camera: ^0.9.4+5
 
 dev_dependencies:
   flutter_test:
