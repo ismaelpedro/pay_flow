@@ -1,6 +1,6 @@
 # PayFlow
 
-O PayFlow contém recursos como o uso de câmera e galeria, Machine Leaning com MLKit, Firebase Core e SignIn, Animações e Estilizações Personalizadas, entre vários outros pontos, como o uso do SharedPreferences.
+O PayFlow contém recursos como o uso de câmera e galeria, Machine Leaning com MLKit, SignIn, Hasura, Animações e Estilizações Personalizadas, entre vários outros pontos, como o uso do SharedPreferences.
 
 ## Layout
 
