@@ -11,10 +11,11 @@ O layout foi desenvolvido por [Tiago Luchtenberg](https://www.instagram.com/tiag
 
 ## Features implementadas
 
-- Realizar login com Google, via Firebase;
-- Listar extratos;
+- Realizar login com Google;
 - Leitura de código de barra;
 - Cadastrar novo boleto;
+- Listar Boletos;
+- Deletar boleto;
 - Menu de navegação.
 
 ## Como executar?
