@@ -41,7 +41,7 @@ class AppTextStyles {
   static final buttonPrimary = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
-    color: AppColors.primary,
+    color: AppColors.orange,
   );
   static final buttonHeading = GoogleFonts.inter(
     fontSize: 15,
@@ -61,7 +61,7 @@ class AppTextStyles {
   static final buttonBoldPrimary = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w700,
-    color: AppColors.primary,
+    color: AppColors.orange,
   );
   static final buttonBoldHeading = GoogleFonts.inter(
     fontSize: 15,

@@ -12,4 +12,9 @@ class User {
     required this.email,
     this.password,
   });
+
+  @override
+  String toString() {
+    return 'User(id: $id, name: $name, imageUrl: $imageUrl, email: $email, password: $password)';
+  }
 }
