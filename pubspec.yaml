@@ -17,7 +17,6 @@ dependencies:
   google_sign_in: ^5.2.1
   google_fonts: ^2.1.0
   google_ml_kit: ^0.7.3
-  mocktail: ^0.2.0
   shimmer: ^2.0.0
   get: ^4.3.8
   dartz: ^0.10.0
@@ -27,6 +26,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  mocktail: ^0.2.0
+  google_sign_in_mocks: ^0.2.1
 
 flutter:
   uses-material-design: true

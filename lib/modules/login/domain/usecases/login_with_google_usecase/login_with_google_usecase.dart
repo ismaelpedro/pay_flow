@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -9,6 +11,7 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
   Future<Either<Exception, User>?> call() async {
     try {
       final googleSignIn = GoogleSignIn(scopes: ['email']);
+      googleSignIn.signOut();
       final userGoogle = await googleSignIn.signIn();
 
       if (userGoogle != null) {
@@ -18,10 +21,13 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
           imageUrl: userGoogle.photoUrl,
           email: userGoogle.email,
         );
-        return right(user);
+        log('$user');
+        return Right(user);
+      } else {
+        return null;
       }
     } catch (e) {
-      return left(Exception('$e'));
+      return Left(Exception('$e'));
     }
   }
 }
