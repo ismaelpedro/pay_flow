@@ -4,9 +4,11 @@ class AppTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         AppTranslationStrings.englishLanguage: {
+          AppTranslationStrings.ptBr: 'Portuguese',
+          AppTranslationStrings.enUS: 'English',
           AppTranslationStrings.loginButtonText: 'Login with Google',
           AppTranslationStrings.loginTitleCenter:
-              'Organize your slips in one place',
+              'Organize your bank slips in one place',
           AppTranslationStrings.hello: 'Hello, ',
           AppTranslationStrings.accountUpTodate:
               'Keep your accounts up to date',
@@ -15,6 +17,8 @@ class AppTranslations extends Translations {
           AppTranslationStrings.willExpire: 'Will expire in',
         },
         AppTranslationStrings.portugueseLanguage: {
+          AppTranslationStrings.ptBr: 'Português',
+          AppTranslationStrings.enUS: 'Inglês',
           AppTranslationStrings.loginButtonText: 'Entrar com Google',
           AppTranslationStrings.loginTitleCenter:
               'Organize seus boletos em um só lugar',
@@ -30,6 +34,8 @@ class AppTranslations extends Translations {
 class AppTranslationStrings {
   static const portugueseLanguage = 'pt_BR';
   static const englishLanguage = 'en_US';
+  static const ptBr = 'ptBr';
+  static const enUS = 'enUS';
   static const loginButtonText = 'loginButtonText';
   static const loginTitleCenter = 'loginTitleCenter';
   static const hello = 'hello';

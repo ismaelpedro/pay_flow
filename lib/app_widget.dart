@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      enableLog: true,
+      locale: const Locale('pt', 'BR'),
       debugShowCheckedModeBanner: false,
       translations: AppTranslations(),
       initialBinding: AppInjection(),
