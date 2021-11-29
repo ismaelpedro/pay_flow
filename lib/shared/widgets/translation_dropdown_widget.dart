@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/core/app_text_styles.dart';
+import 'package:pay_flow/core/app_colors.dart';
 
 import '../../core/app_images.dart';
 import '../../core/app_translations.dart';
@@ -14,8 +14,13 @@ class TranslationDropdownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: DropdownButton<String>(
-        style: AppTextStyles.titleListTile,
         elevation: 0,
+        style: const TextStyle(
+          fontSize: 17,
+          fontWeight: FontWeight.w600,
+          color: AppColors.stroke,
+        ),
+        dropdownColor: AppColors.orange,
         borderRadius: BorderRadius.circular(35),
         value: controller.dropdownvalue.value,
         items: [
