@@ -1,8 +1,7 @@
 import 'dart:convert';
+import 'package:pay_flow/domain/entities/user_entity.dart';
 
-import 'package:pay_flow/domain/entities/user.dart';
-
-class UserDto extends UserEntitie {
+class UserDto extends UserEntity {
   final String idDto;
   final String nameDto;
   String? imageUrlDto;
@@ -17,7 +16,7 @@ class UserDto extends UserEntitie {
 
   @override
   String toString() {
-    return 'UserEntitie(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
+    return 'UserEntity(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
   }
 
   Map<String, dynamic> toMap() {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/domain/entities/user.dart';
+import 'package:pay_flow/infra/dtos/user_dto.dart';
 import 'package:pay_flow/presenter/config/app_colors.dart';
 import 'package:pay_flow/presenter/config/app_text_styles.dart';
 import 'package:pay_flow/presenter/config/app_translations.dart';
@@ -10,7 +10,7 @@ import 'home_controller.dart';
 
 class HomePage extends GetView<HomeController> {
   HomePage({Key? key}) : super(key: key);
-  final UserEntitie user = Get.arguments;
+  final UserDto user = Get.arguments;
 
   waiting() async {
     await Future.delayed(const Duration(seconds: 2));
