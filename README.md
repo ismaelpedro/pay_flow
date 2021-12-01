@@ -25,3 +25,5 @@ O layout foi desenvolvido por [Tiago Luchtenberg](https://www.instagram.com/tiag
 - Execute `flutter pub get` para instalar todas as dependências/pacotes do projeto;
 - Inicie um emulador de dispositivo móvel ou conecte seu smartphone no computador (certifique-se que seu aparelho está com a Depuração USB ativada);
 - Execute `flutter run` para executar o aplicativo no seu dispositivo conectado (ou emulado).
+
+- OBS: Versão do Flutter utilizada foi 2.5.3
