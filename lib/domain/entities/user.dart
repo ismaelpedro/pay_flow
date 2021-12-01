@@ -1,20 +1,18 @@
-class User {
+class UserEntitie {
   final String id;
   final String name;
-  final String? imageUrl;
+  String? imageUrl;
   final String email;
-  final String? password;
 
-  const User({
+  UserEntitie({
     required this.id,
     required this.name,
     this.imageUrl,
     required this.email,
-    this.password,
   });
 
   @override
   String toString() {
-    return 'User(id: $id, name: $name, imageUrl: $imageUrl, email: $email, password: $password)';
+    return 'UserEntitie(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
   }
 }

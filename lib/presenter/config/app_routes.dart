@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-
-import '../modules/home/presenter/home_binding.dart';
-import '../modules/home/presenter/home_page.dart';
-import '../modules/login/presenter/login_binding.dart';
-import '../modules/login/presenter/login_page.dart';
+import 'package:pay_flow/presenter/modules/home/presenter/home_binding.dart';
+import 'package:pay_flow/presenter/modules/home/presenter/home_page.dart';
+import 'package:pay_flow/presenter/modules/login/presenter/login_binding.dart';
+import 'package:pay_flow/presenter/modules/login/presenter/login_page.dart';
 
 class Routes {
   static const login = '/login';
@@ -17,12 +16,12 @@ class AppRoutes {
     GetPage(
       name: Routes.login,
       page: () => const LoginPage(),
-      binding: LoginBinding()
+      binding: LoginBinding(),
     ),
     GetPage(
       name: Routes.home,
-      page: () => const HomePage(),
-      binding: HomeBinding()
+      page: () => HomePage(),
+      binding: HomeBinding(),
     ),
   ];
 }

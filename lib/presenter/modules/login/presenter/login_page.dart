@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/presenter/config/app_colors.dart';
+import 'package:pay_flow/presenter/config/app_images.dart';
+import 'package:pay_flow/presenter/config/app_text_styles.dart';
+import 'package:pay_flow/presenter/config/app_translations.dart';
+import 'package:pay_flow/presenter/widgets/translation_dropdown_widget.dart';
 
-import '../../../core/app_colors.dart';
-import '../../../core/app_images.dart';
-import '../../../core/app_text_styles.dart';
-import '../../../core/app_translations.dart';
-import '../../../shared/widgets/translation_dropdown_widget.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -27,7 +27,10 @@ class LoginPage extends GetView<LoginController> {
                 ),
                 child: Container(
                   alignment: Alignment.topRight,
-                  child: TranslationDropdownWidget(),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10, right: 10),
+                    child: TranslationDropdownWidget(),
+                  ),
                 ),
               ),
               const Spacer(),

@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
- import '../domain/usecases/login_with_google_usecase/login_with_google_usecase.dart';
+
+import '../../../../domain/usecases/login_with_google_usecase/login_with_google_usecase.dart';
 import 'login_controller.dart';
 
 class LoginBinding implements Bindings {

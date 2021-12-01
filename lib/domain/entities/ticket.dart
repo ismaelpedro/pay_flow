@@ -12,4 +12,9 @@ class Ticket {
     required this.code,
     required this.fkUser,
   });
+
+  @override
+  String toString() {
+    return 'Ticket(id: $id, name: $name, date: $date, code: $code, fkUser: $fkUser)';
+  }
 }
