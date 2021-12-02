@@ -6,8 +6,8 @@ import 'package:pay_flow/presenter/config/app_translations.dart';
 import 'package:pay_flow/presenter/modules/login/presenter/login_controller.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
-  TranslationDropdownWidget({Key? key}) : super(key: key);
   final controller = Get.find<LoginController>();
+  TranslationDropdownWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

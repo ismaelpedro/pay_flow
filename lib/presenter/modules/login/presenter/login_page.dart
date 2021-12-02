@@ -61,29 +61,29 @@ class LoginPage extends GetView<LoginController> {
                       primary: AppColors.secondary,
                     ),
                     onPressed: () async {
-                      await controller.loginWithGoogleUsecase();
+                      await controller.login();
                     }),
               ),
               const SizedBox(height: 80),
             ],
           ),
           Positioned(
-            top: 70,
+            top: 110,
             left: 0,
             right: 0,
             bottom: 372,
             child: Image.asset(AppImages.person),
           ),
-          Positioned(
-            left: 59,
-            bottom: 530,
-            child: Image.asset(AppImages.add),
-          ),
-          Positioned(
-            right: 65,
-            bottom: 580,
-            child: Image.asset(AppImages.doc),
-          ),
+          // Positioned(
+          //   left: 59,
+          //   bottom: 530,
+          //   child: Image.asset(AppImages.add),
+          // ),
+          // Positioned(
+          //   right: 65,
+          //   bottom: 580,
+          //   child: Image.asset(AppImages.doc),
+          // ),
         ],
       ),
     );

@@ -46,7 +46,7 @@ class HomePage extends GetView<HomeController> {
                               style: AppTextStyles.titleRegular,
                               children: [
                                 TextSpan(
-                                  text: user.name.split(' ')[0],
+                                  text: user.returnFirstNameOnly,
                                   style: AppTextStyles.titleBoldBackground,
                                 ),
                               ],
