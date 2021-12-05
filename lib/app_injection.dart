@@ -10,8 +10,10 @@ import 'domain/usecases/save_user_in_hasura_usecase/save_user_in_hasura_usecase.
 class AppInjection implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HasuraConnect(AppConstants.hasuraApi,
-        headers: AppConstants.hasuraHeaders));
+    Get.lazyPut(() => HasuraConnect(
+          AppConstants.hasuraApi,
+          headers: AppConstants.hasuraHeaders,
+        ));
     Get.lazyPut(() => GetUserFromHasuraUsecase(Get.find<HasuraConnect>()));
     Get.lazyPut(() => GetTicketFromHasuraUsecase(Get.find<HasuraConnect>()));
     Get.lazyPut(() => SaveUserInHasuraUsecase(Get.find<HasuraConnect>()));

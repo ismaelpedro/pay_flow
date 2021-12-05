@@ -7,7 +7,6 @@ import '../../../config/app_translations.dart';
 class LoginController extends GetxController {
   final ILoginWithGoogleUsecase loginWithGoogleUsecase;
   final ISaveUserInHasuraUsecase saveUserInHasuraUsecase;
-
   var dropdownvalue = AppTranslationStrings.ptBr.tr.obs;
 
   LoginController(this.loginWithGoogleUsecase, this.saveUserInHasuraUsecase);

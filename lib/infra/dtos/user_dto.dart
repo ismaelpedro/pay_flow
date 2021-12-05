@@ -18,7 +18,7 @@ class UserDto extends UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
+    return 'UserDto(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
   }
 
   Map<String, dynamic> toMap() {
