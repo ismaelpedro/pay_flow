@@ -6,6 +6,8 @@ class AppTranslations extends Translations {
         AppTranslationStrings.englishLanguage: {
           AppTranslationStrings.ptBr: 'Portuguese',
           AppTranslationStrings.enUS: 'English',
+          AppTranslationStrings.youHave: 'You have ',
+          AppTranslationStrings.registrationsToPay: 'registrations to pay',
           AppTranslationStrings.loginButtonText: 'Login with Google',
           AppTranslationStrings.loginTitleCenter:
               'Organize your bank slips in one place',
@@ -15,10 +17,14 @@ class AppTranslations extends Translations {
           AppTranslationStrings.myTickets: 'My Tickets',
           AppTranslationStrings.inTotal: 'in total',
           AppTranslationStrings.willExpire: 'Will expire in',
+          AppTranslationStrings.tickets: 'tickets',
+          AppTranslationStrings.money: '\$',
         },
         AppTranslationStrings.portugueseLanguage: {
           AppTranslationStrings.ptBr: 'Português',
           AppTranslationStrings.enUS: 'Inglês',
+          AppTranslationStrings.youHave: 'Você tem ',
+          AppTranslationStrings.registrationsToPay: 'cadastros para pagar',
           AppTranslationStrings.loginButtonText: 'Entrar com Google',
           AppTranslationStrings.loginTitleCenter:
               'Organize seus boletos em um só lugar',
@@ -27,6 +33,8 @@ class AppTranslations extends Translations {
           AppTranslationStrings.myTickets: 'Meus Boletos',
           AppTranslationStrings.inTotal: 'ao total',
           AppTranslationStrings.willExpire: 'Vence em',
+          AppTranslationStrings.tickets: 'boletos',
+          AppTranslationStrings.money: 'R\$',
         },
       };
 }
@@ -43,4 +51,8 @@ class AppTranslationStrings {
   static const myTickets = 'myTickets';
   static const inTotal = 'inTotal';
   static const willExpire = 'willExpire';
+  static const youHave = 'youHave';
+  static const registrationsToPay = 'registrationsToPay';
+  static const tickets = 'tickets';
+  static const money = 'money';
 }

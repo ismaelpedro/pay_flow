@@ -17,8 +17,6 @@ dependencies:
   google_sign_in: ^5.2.1
   google_fonts: ^2.1.0
   google_ml_barcode_scanner: ^0.0.2
-  flutter_masked_text2: ^0.9.1
-  animated_card: ^2.0.0
   shimmer: ^2.0.0
   camera: ^0.8.1+7
   get: ^4.3.8
