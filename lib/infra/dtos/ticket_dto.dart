@@ -1,49 +1,52 @@
 import 'dart:convert';
-
-import 'package:pay_flow/domain/entities/ticket_entity.dart';
+import '../../domain/entities/ticket_entity.dart';
 
 class TicketDto extends TicketEntity {
   final String idDto;
-  final String nameDto;
+  final String titleDto;
   final String dateDto;
   final String codeDto;
   final String fkUserDto;
+  final String valueDto;
 
   TicketDto({
     required this.idDto,
-    required this.nameDto,
+    required this.titleDto,
     required this.dateDto,
     required this.codeDto,
+    required this.valueDto,
     required this.fkUserDto,
   }) : super(
           id: idDto,
-          name: nameDto,
+          name: titleDto,
           date: dateDto,
           code: codeDto,
+          value: valueDto,
           fkUser: fkUserDto,
         );
 
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'name': name,
-      'date': date,
-      'code': code,
-      'fkUser': fkUser,
+      'title': titleDto,
+      'date': dateDto,
+      'code': codeDto,
+      'fkUser': fkUserDto,
     };
   }
 
   @override
   String toString() {
-    return 'TicketDto(id: $id, name: $name, date: $date, code: $code, fkUser: $fkUser)';
+    return 'TicketDto(id: $id, title: $titleDto, date: $date, code: $code, fkUser: $fkUser)';
   }
 
   factory TicketDto.fromMap(Map<String, dynamic> map) {
     return TicketDto(
       idDto: map['id'],
-      nameDto: map['name'],
+      titleDto: map['title'],
       dateDto: map['date'],
       codeDto: map['code'],
+      valueDto: map['value'],
       fkUserDto: map['fkUser'],
     );
   }

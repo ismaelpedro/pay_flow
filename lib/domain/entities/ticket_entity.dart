@@ -3,6 +3,7 @@ class TicketEntity {
   final String name;
   final String date;
   final String code;
+  final String value;
   final String fkUser;
 
   const TicketEntity({
@@ -10,6 +11,7 @@ class TicketEntity {
     required this.name,
     required this.date,
     required this.code,
+    required this.value,
     required this.fkUser,
   });
 }

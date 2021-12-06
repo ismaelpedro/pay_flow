@@ -14,7 +14,7 @@ class UserDto extends UserEntity {
     required this.emailDto,
   }) : super(id: idDto, name: nameDto, imageUrl: imageUrlDto, email: emailDto);
 
-  String get returnFirstNameOnly => nameDto.split(' ')[0];
+  String get firstNameOnly => nameDto.split(' ')[0];
 
   @override
   String toString() {
