@@ -10,4 +10,6 @@ class UserEntity {
     this.imageUrl,
     required this.email,
   });
+
+  String get firstNameOnly => name.split(' ')[0];
 }

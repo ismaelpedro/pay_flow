@@ -7,8 +7,8 @@ import 'package:pay_flow/presenter/modules/login/presenter/login_page.dart';
 class Routes {
   static const login = '/login';
   static const home = '/home';
-  static const barcodeScan = '/barcodeScan';
-  static const registrationBankSplip = '/registrationBankSplip';
+  static const barcodeScan = '/barcode_scan';
+  static const registrationBankSplip = '/registration_bank_splip';
 }
 
 class AppRoutes {
@@ -20,7 +20,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.home,
-      page: () => HomePage(),
+      page: () => const HomePage(),
       binding: HomeBinding(),
     ),
   ];

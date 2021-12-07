@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/infra/dtos/user_dto.dart';
+import 'package:pay_flow/domain/entities/user_entity.dart';
 import 'package:pay_flow/presenter/config/app_colors.dart';
 import 'package:pay_flow/presenter/config/app_images.dart';
 import 'package:pay_flow/presenter/config/app_text_styles.dart';
 import 'package:pay_flow/presenter/config/app_translations.dart';
 
 class CustomAppBar extends StatelessWidget {
-  final UserDto user;
+  final UserEntity user;
   final int ticketsCount = 1;
 
   const CustomAppBar({Key? key, required this.user}) : super(key: key);

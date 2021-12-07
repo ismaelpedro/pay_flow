@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'i_save_ticket_in_hasura_usecase.dart';
 
 class SaveTicketInHasuraUsecase implements ISaveTicketInHasuraUsecase {
-  HasuraConnect _hasuraConnect;
+  final HasuraConnect _hasuraConnect;
   SaveTicketInHasuraUsecase(this._hasuraConnect);
 
   @override

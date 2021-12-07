@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/domain/entities/user_entity.dart';
 import 'package:pay_flow/infra/dtos/ticket_dto.dart';
 import 'package:pay_flow/presenter/config/app_colors.dart';
-import 'package:pay_flow/presenter/widgets/translation_dropdown_widget.dart';
 
-import '../../../../infra/dtos/user_dto.dart';
 import '../../../config/app_text_styles.dart';
 import '../../../config/app_translations.dart';
 import 'home_controller.dart';
@@ -20,7 +19,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final UserDto user = Get.arguments;
+    final UserEntity user = Get.arguments;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -141,13 +140,13 @@ class HomePage extends GetView<HomeController> {
           items: const [
             BottomNavigationBarItem(
               label: '',
-              icon: Icon(Icons.house),
               tooltip: '',
+              icon: Icon(Icons.house),
             ),
             BottomNavigationBarItem(
               label: '',
-              icon: Icon(Icons.document_scanner_outlined),
               tooltip: '',
+              icon: Icon(Icons.person),
             ),
           ],
         ),

@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'i_get_user_from_hasura.dart';
 
 class GetUserFromHasuraUsecase implements IGetUserFromHasuraUsecase {
-  HasuraConnect _hasuraConnect;
+  final HasuraConnect _hasuraConnect;
   GetUserFromHasuraUsecase(this._hasuraConnect);
 
   @override

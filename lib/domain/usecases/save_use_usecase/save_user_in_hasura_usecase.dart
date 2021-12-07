@@ -1,5 +1,5 @@
 import 'package:hasura_connect/hasura_connect.dart';
-import 'package:pay_flow/infra/dtos/user_dto.dart';
+import 'package:pay_flow/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
 import 'i_save_user_in_hasura_usecase.dart';
 
@@ -8,16 +8,16 @@ class SaveUserInHasuraUsecase implements ISaveUserInHasuraUsecase {
   SaveUserInHasuraUsecase(this._hasura);
 
   @override
-  Future<Either<Exception, UserDto>?> call(UserDto userDto) async {
+  Future<Either<Exception, UserEntity>?> call(UserEntity user) async {
     try {
       await _hasura.mutation(
         '''
         mutation {
           insert_users_one(object: {
-            email: "${userDto.emailDto}", 
-            id: "${userDto.idDto}", 
-            imageUrl: "${userDto.imageUrlDto}", 
-            name: "${userDto.name}"}) {
+            email: "${user.email}", 
+            id: "${user.id}", 
+            imageUrl: "${user.imageUrl}", 
+            name: "${user.name}"}) {
               email
               id
               imageUrl
