@@ -1,13 +1,13 @@
 class TicketEntity {
-  final String id;
+  final String? id;
   final String name;
   final String date;
   final String code;
-  final String value;
+  final double value;
   final String fkUser;
 
   const TicketEntity({
-    required this.id,
+    this.id,
     required this.name,
     required this.date,
     required this.code,

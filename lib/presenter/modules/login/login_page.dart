@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../config/app_colors.dart';
-import '../../../config/app_images.dart';
-import '../../../config/app_text_styles.dart';
-import '../../../config/app_translations.dart';
-import '../../../widgets/translation_dropdown_widget.dart';
+import '../../config/app_colors.dart';
+import '../../config/app_images.dart';
+import '../../config/app_text_styles.dart';
+import '../../config/app_translations.dart';
+import '../../widgets/translation_dropdown_widget.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {
@@ -14,7 +14,6 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       body: Stack(
         children: [
           Column(
@@ -55,6 +54,7 @@ class LoginPage extends GetView<LoginController> {
                       child: Text(
                         AppTranslationStrings.loginButtonText.tr,
                         style: AppTextStyles.buttonGray,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(

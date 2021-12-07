@@ -8,4 +8,5 @@ class AppImages {
   static const doc = 'assets/images/doc.png';
   static const eua = 'assets/images/eua.png';
   static const br = 'assets/images/br.png';
+  static const es = 'assets/images/spain.png';
 }

@@ -13,8 +13,10 @@ class AppWidget extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.orange,
+        scaffoldBackgroundColor: Colors.white,
       ),
-      locale: const Locale('pt', 'BR'),
+      locale: Get.deviceLocale,
+      fallbackLocale: const Locale('en', 'US'),
       debugShowCheckedModeBanner: false,
       translations: AppTranslations(),
       initialBinding: AppInjection(),

@@ -8,9 +8,13 @@ import 'package:pay_flow/presenter/config/app_translations.dart';
 
 class CustomAppBar extends StatelessWidget {
   final UserEntity user;
-  final int ticketsCount = 1;
+  final int ticketsCount;
 
-  const CustomAppBar({Key? key, required this.user}) : super(key: key);
+  const CustomAppBar({
+    Key? key,
+    required this.user,
+    required this.ticketsCount,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

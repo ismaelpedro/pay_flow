@@ -2,23 +2,22 @@ import 'dart:convert';
 import '../../domain/entities/ticket_entity.dart';
 
 class TicketDto extends TicketEntity {
-  final String idDto;
-  final String titleDto;
+  final String? idDto;
+  final String nameDto;
   final String dateDto;
   final String codeDto;
   final String fkUserDto;
-  final String valueDto;
+  final double valueDto;
 
   TicketDto({
-    required this.idDto,
-    required this.titleDto,
+    this.idDto,
+    required this.nameDto,
     required this.dateDto,
     required this.codeDto,
     required this.valueDto,
     required this.fkUserDto,
   }) : super(
-          id: idDto,
-          name: titleDto,
+          name: nameDto,
           date: dateDto,
           code: codeDto,
           value: valueDto,
@@ -27,23 +26,24 @@ class TicketDto extends TicketEntity {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'title': titleDto,
+      'id': idDto,
+      'name': nameDto,
       'date': dateDto,
       'code': codeDto,
+      'value': valueDto,
       'fkUser': fkUserDto,
     };
   }
 
   @override
   String toString() {
-    return 'TicketDto(id: $id, title: $titleDto, date: $date, code: $code, fkUser: $fkUser)';
+    return 'TicketDto(id: $id, name: $nameDto, date: $date, code: $code, fkUser: $fkUser)';
   }
 
   factory TicketDto.fromMap(Map<String, dynamic> map) {
     return TicketDto(
       idDto: map['id'],
-      titleDto: map['title'],
+      nameDto: map['name'],
       dateDto: map['date'],
       codeDto: map['code'],
       valueDto: map['value'],

@@ -14,9 +14,9 @@ class AppInjection implements Bindings {
           AppConstants.hasuraApi,
           headers: AppConstants.hasuraHeaders,
         ));
-    Get.lazyPut(() => GetUserFromHasuraUsecase(Get.find<HasuraConnect>()));
-    Get.lazyPut(() => GetTicketFromHasuraUsecase(Get.find<HasuraConnect>()));
+    Get.lazyPut(() => GetTicketFromHasuraUsecase());
+    Get.lazyPut(() => SaveTicketInHasuraUsecase());
+    Get.lazyPut(() => GetUserFromHasuraUsecase());
     Get.lazyPut(() => SaveUserInHasuraUsecase(Get.find<HasuraConnect>()));
-    Get.lazyPut(() => SaveTicketInHasuraUsecase(Get.find<HasuraConnect>()));
   }
 }

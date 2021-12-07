@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/presenter/modules/home/home_controller.dart';
+
 import '../../../../../infra/dtos/ticket_dto.dart';
-import '../../../../config/app_text_styles.dart';
-import '../../../../config/app_translations.dart';
+import '../../../config/app_text_styles.dart';
+import '../../../config/app_translations.dart';
 
 class TicketCard extends StatelessWidget {
   final TicketDto ticket;
@@ -14,18 +16,20 @@ class TicketCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
+
     return ListTile(
-      onTap: () {},
       title: Text(
-        ticket.titleDto,
+        ticket.nameDto,
         style: AppTextStyles.titleListTile,
       ),
-      subtitle:
-          Text('${AppTranslationStrings.willExpire.tr} ${ticket.dateDto}'),
+      subtitle: Text(
+          '${AppTranslationStrings.willExpire.tr} ${controller.getDateFormat().format(DateTime.parse(ticket.dateDto))}'),
       trailing: Text(
-        '${AppTranslationStrings.money.tr} ${ticket.valueDto}',
+        controller.getCurrencyFormat().format(ticket.valueDto),
         style: AppTextStyles.trailingRegular,
       ),
+      onTap: () {},
     );
   }
 }
