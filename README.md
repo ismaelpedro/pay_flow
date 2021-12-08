@@ -7,7 +7,8 @@ PayFlow contains features such as using Camera and Gallery, Sign In, Custom Anim
 <img src=".github/layout.png" alt="Layout App PayFlow">
 <br>
 
-The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: [Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu /PayFlow)
+The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: 
+[Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu)
 
 ## Features implemented
 
