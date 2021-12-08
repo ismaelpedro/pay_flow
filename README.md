@@ -1,29 +1,27 @@
 # PayFlow
 
-O PayFlow contém recursos como o uso de câmera e galeria, Machine Leaning com MLKit, Firebase Core e SignIn, Animações e Estilizações Personalizadas, entre vários outros pontos, como o uso do SharedPreferences.
+PayFlow contains features such as using Camera and Gallery, Sign In, Custom Animations and Stylizations.
 
 ## Layout
 
 <img src=".github/layout.png" alt="Layout App PayFlow">
 <br>
 
-O layout foi desenvolvido por [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), e você pode acessá-lo no Figma: [Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu/PayFlow)
+The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: [Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu /PayFlow)
 
-## Features implementadas
+## Features implemented
 
-- Realizar login com Google;
-- Leitura de código de barra;
-- Cadastrar novo boleto;
-- Listar Boletos;
-- Deletar boleto;
-- Menu de navegação.
+- Log in with Google;
+- Barcode reading;
+- Register a new bank slip;
+- List Boletos;
+- Delete billet;
+- Navigation menu.
 
-## Como executar?
+## How to run?
 
-- Clone o repositório;
-- Entre na pasta do projeto;
-- Execute `flutter pub get` para instalar todas as dependências/pacotes do projeto;
-- Inicie um emulador de dispositivo móvel ou conecte seu smartphone no computador (certifique-se que seu aparelho está com a Depuração USB ativada);
-- Execute `flutter run` para executar o aplicativo no seu dispositivo conectado (ou emulado).
-
-- OBS: Versão do Flutter utilizada foi 2.5.3
+- Clone the repository;
+- Enter the project folder;
+- Run `flutter pub get` to install all project dependencies/packages;
+- Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
+- Run `flutter run` to run the app on your connected (or emulated) device.
