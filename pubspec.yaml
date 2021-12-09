@@ -17,7 +17,7 @@ dependencies:
   google_sign_in: ^5.2.1
   google_fonts: ^2.1.0
   shimmer: ^2.0.0
-  camera: ^0.8.1+7
+  camera: ^0.8.0
   get: ^4.3.8
   dartz: ^0.10.0
   intl: ^0.17.0

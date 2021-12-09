@@ -1,16 +1,17 @@
-import 'package:hasura_connect/hasura_connect.dart';
-import 'package:pay_flow/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
+
+import '../../entities/user_entity.dart';
+import '../../repositories/user_repositories/i_save_user_respository.dart';
 import 'i_save_user_in_hasura_usecase.dart';
 
-class SaveUserInHasuraUsecase implements ISaveUserInHasuraUsecase {
-  final HasuraConnect _hasura;
-  SaveUserInHasuraUsecase(this._hasura);
+class SaveUserUsecase implements ISaveUserUsecase {
+  ISaveUserRepository repository;
+  SaveUserUsecase(this.repository);
 
   @override
   Future<Either<Exception, UserEntity>?> call(UserEntity user) async {
     try {
-      await _hasura.mutation(
+      await repository(
         '''
         mutation {
           insert_users_one(object: {
