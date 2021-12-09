@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 import 'package:hasura_connect/hasura_connect.dart';
-import 'package:pay_flow/infra/repositories/services/hasura/hasura_service.dart';
 
 import 'app_constants.dart';
-import 'domain/usecases/get_ticket_usecase/get_ticket_from_hasura_usecase.dart';
-import 'domain/usecases/get_user_usecase/get_user_from_hasura.dart';
-import 'domain/usecases/save_ticket_usecase/save_ticket_in_hasura_usecase.dart';
+import 'domain/usecases/get_ticket_usecase/get_ticket_usecase.dart';
+import 'domain/usecases/get_user_usecase/get_user_usecase.dart';
+import 'domain/usecases/save_ticket_usecase/save_ticket_usecase.dart';
+import 'infra/services/hasura/hasura_service.dart';
 
 class AppInjection implements Bindings {
   @override
@@ -14,9 +14,9 @@ class AppInjection implements Bindings {
           AppConstants.hasuraApi,
           headers: AppConstants.hasuraHeaders,
         ));
-    Get.lazyPut(() => GetTicketFromHasuraUsecase());
-    Get.lazyPut(() => SaveTicketInHasuraUsecase());
-    Get.lazyPut(() => GetUserFromHasuraUsecase());
+    Get.lazyPut(() => GetTicketUsecase());
+    Get.lazyPut(() => SaveTicketUsecase());
+    Get.lazyPut(() => GetUserUsecase());
     Get.lazyPut(() => HasuraService(Get.find<HasuraConnect>()));
   }
 }

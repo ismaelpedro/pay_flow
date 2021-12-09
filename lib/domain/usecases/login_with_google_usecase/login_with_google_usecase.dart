@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../presenter/config/app_routes.dart';
-import '../../entities/user_entity.dart';
+import '../../entities/user.dart';
 import 'i_login_with_google_usecase.dart';
 
 class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
@@ -11,13 +11,13 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
   LoginWithGoogleUsecase(this._googleSignIn);
 
   @override
-  Future<Either<Exception, UserEntity>?> call() async {
+  Future<Either<Exception, User>?> call() async {
     try {
       await _googleSignIn.signOut();
       final userGoogleSignIn = await _googleSignIn.signIn();
 
       if (userGoogleSignIn != null) {
-        final user = UserEntity(
+        final user = User(
           id: userGoogleSignIn.id,
           name: userGoogleSignIn.displayName!,
           imageUrl: userGoogleSignIn.photoUrl,

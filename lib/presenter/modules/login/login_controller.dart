@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pay_flow/domain/usecases/save_user_usecase/i_save_user_in_hasura_usecase.dart';
+import 'package:pay_flow/domain/usecases/save_user_usecase/i_save_user_usecase.dart';
 
 import '../../../../domain/usecases/login_with_google_usecase/i_login_with_google_usecase.dart';
 import '../../config/app_translations.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../domain/entities/user_entity.dart';
+import '../../../domain/entities/user.dart';
 import '../../../infra/dtos/ticket_dto.dart';
 import '../../config/app_colors.dart';
 import '../../config/app_routes.dart';
@@ -16,7 +16,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final UserEntity user = Get.arguments;
+    final User user = Get.arguments;
     const listSize = 20;
 
     return Scaffold(

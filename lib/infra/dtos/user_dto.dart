@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:pay_flow/domain/entities/user_entity.dart';
+import 'package:pay_flow/domain/entities/user.dart';
 
-class UserDto extends UserEntity {
+class UserDto extends User {
   final String idDto;
   final String nameDto;
   String? imageUrlDto;

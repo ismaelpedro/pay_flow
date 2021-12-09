@@ -1,10 +1,10 @@
-class UserEntity {
+class User {
   final String id;
   final String name;
   String? imageUrl;
   final String email;
 
-  UserEntity({
+  User({
     required this.id,
     required this.name,
     this.imageUrl,
