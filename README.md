@@ -14,8 +14,8 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Log in with Google;
 - Barcode reading;
 - Register a new bank slip;
-- List Boletos;
-- Delete billet;
+- List bank slip;
+- Delete bank slip;
 - Navigation menu.
 
 ## How to run?
