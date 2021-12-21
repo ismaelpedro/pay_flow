@@ -5,9 +5,14 @@ import 'app_injection.dart';
 import 'presenter/config/app_routes.dart';
 import 'presenter/config/app_translations.dart';
 
-class AppWidget extends StatelessWidget {
+class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
 
+  @override
+  State<AppWidget> createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

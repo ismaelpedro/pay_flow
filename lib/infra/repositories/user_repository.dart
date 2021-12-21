@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/i_user_repository.dart';
 import '../services/hasura/i_hasura_service.dart';
@@ -15,14 +14,14 @@ class UserRepository implements IUserRepository {
         '''
         mutation {
           insert_users_one(object: {
-            email: "${user.email}", 
             id: "${user.id}", 
-            imageUrl: "${user.imageUrl}", 
-            name: "${user.name}"}) {
-              email
+            email: "${user.email}", 
+            name: "${user.name}", 
+            imageUrl: "${user.imageUrl}"}) {
               id
-              imageUrl
               name
+              email
+              imageUrl
           }
         }
         ''',

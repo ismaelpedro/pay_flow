@@ -4,7 +4,7 @@ import 'package:pay_flow/infra/dtos/ticket_dto.dart';
 
 class TicketRepository implements ITicketRepository {
   @override
-  Future<Either<Exception, TicketDto>>? getTicket() {
+  Future<Either<Exception, TicketDto>>? getTickets() {
     throw UnimplementedError();
   }
 

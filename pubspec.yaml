@@ -12,8 +12,7 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   hasura_connect: ^3.0.6
-  shared_preferences: ^2.0.9
-  google_ml_barcode_scanner: ^0.0.2
+  google_ml_kit: ^0.7.3
   google_sign_in: ^5.2.1
   google_fonts: ^2.1.0
   shimmer: ^2.0.0

@@ -7,9 +7,14 @@ import '../../config/app_translations.dart';
 class LoginController extends GetxController {
   final ILoginWithGoogleUsecase loginWithGoogleUsecase;
   final ISaveUserUsecase saveUserUsecase;
-  var dropdownvalue = AppTranslationStrings.ptBr.tr.obs;
 
-  LoginController(this.loginWithGoogleUsecase, this.saveUserUsecase);
+  LoginController(
+    this.loginWithGoogleUsecase,
+    this.saveUserUsecase,
+  );
+
+  var dropdownvalue = AppTranslationStrings.ptBr.tr.obs;
+  var isLoading = false.obs;
 
   Future<void> login() async {
     try {

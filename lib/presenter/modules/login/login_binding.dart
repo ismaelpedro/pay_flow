@@ -10,13 +10,13 @@ import 'login_controller.dart';
 class LoginBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => GoogleSignIn());
     Get.lazyPut(() => LoginWithGoogleUsecase(Get.find<GoogleSignIn>()));
-    Get.lazyPut(() => UserRepository(Get.find<HasuraService>()));
     Get.lazyPut(() => SaveUserUsecase(Get.find<UserRepository>()));
     Get.lazyPut(() => LoginController(
           Get.find<LoginWithGoogleUsecase>(),
           Get.find<SaveUserUsecase>(),
         ));
+    Get.lazyPut(() => GoogleSignIn());
+    Get.lazyPut(() => UserRepository(Get.find<HasuraService>()));
   }
 }
