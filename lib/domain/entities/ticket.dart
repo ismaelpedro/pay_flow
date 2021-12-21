@@ -1,16 +1,17 @@
-import 'package:equatable/equatable.dart';
+class TicketEntity {
+  final String? id;
+  final String name;
+  final String date;
+  final String code;
+  final double value;
+  final String fkUser;
 
-class Ticket extends Equatable {
-  final String? name;
-  final String? date;
-  final String? code;
-
-  const Ticket({
+  const TicketEntity({
+    this.id,
     required this.name,
     required this.date,
     required this.code,
+    required this.value,
+    required this.fkUser,
   });
-
-  @override
-  List<Object?> get props => [name, date, code];
 }
