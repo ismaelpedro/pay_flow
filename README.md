@@ -1,13 +1,14 @@
 # PayFlow
 
-PayFlow contains features such as using Camera and Gallery, Machine Leaning with MLKit, SignIn, Hasura, Custom Animations and Stylizations, among several other points such as using SharedPreferences.
+PayFlow contains features such as using Camera and Gallery, Sign In, Custom Animations and Stylizations.
 
 ## Layout
 
 <img src=".github/layout.png" alt="Layout App PayFlow">
 <br>
 
-The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: [Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu /PayFlow)
+The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: 
+[Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu)
 
 ## Features implemented
 
