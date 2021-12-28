@@ -216,13 +216,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_launcher_icons:
-    dependency: "direct dev"
-    description:
-      name: flutter_launcher_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -275,13 +268,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
-  google_ml_kit:
-    dependency: "direct main"
-    description:
-      name: google_ml_kit
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.3"
   google_sign_in:
     dependency: "direct main"
     description:
