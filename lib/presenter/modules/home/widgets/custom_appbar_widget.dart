@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/domain/entities/user.dart';
-import 'package:pay_flow/presenter/config/app_colors.dart';
-import 'package:pay_flow/presenter/config/app_images.dart';
-import 'package:pay_flow/presenter/config/app_text_styles.dart';
-import 'package:pay_flow/presenter/config/app_translations.dart';
 
-class CustomAppBar extends StatelessWidget {
+import '../../../../domain/entities/user.dart';
+import '../../../config/app_colors.dart';
+import '../../../config/app_images.dart';
+import '../../../config/app_text_styles.dart';
+import '../../../config/app_translations.dart';
+
+class CustomAppBarWidget extends StatelessWidget {
   final User user;
   final int ticketsCount;
 
-  const CustomAppBar({
+  const CustomAppBarWidget({
     Key? key,
     required this.user,
     required this.ticketsCount,

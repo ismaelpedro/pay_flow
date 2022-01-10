@@ -3,6 +3,10 @@ import 'package:intl/intl.dart';
 import 'package:pay_flow/presenter/config/app_translations.dart';
 
 class HomeController extends GetxController {
+  final _isLoading = true.obs;
+  bool get isLoading => _isLoading.value;
+  set isLoading(bool newValue) => _isLoading.value = newValue;
+
   DateFormat getDateFormat() {
     final languageCode = Get.locale!.languageCode;
 
@@ -35,5 +39,12 @@ class HomeController extends GetxController {
     } else {
       return _currencySpain;
     }
+  }
+
+  @override
+  void onInit() async {
+    super.onInit();
+    await Future.delayed(const Duration(seconds: 3));
+    isLoading = false;
   }
 }

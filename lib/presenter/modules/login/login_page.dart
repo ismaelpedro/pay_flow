@@ -5,7 +5,7 @@ import '../../config/app_colors.dart';
 import '../../config/app_images.dart';
 import '../../config/app_text_styles.dart';
 import '../../config/app_translations.dart';
-import '../../widgets/translation_dropdown_widget.dart';
+import '../../shared/widgets/translation_dropdown_widget.dart';
 import 'login_controller.dart';
 
 class LoginPage extends GetView<LoginController> {

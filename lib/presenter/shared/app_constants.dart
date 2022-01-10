@@ -1,5 +1,5 @@
 class AppConstants {
-  static const hasuraApi = 'https://pay-flow-project.hasura.app/v1/graphql';
+  static const hasuraApi = 'https://pay-flow.hasura.app/v1/graphql';
   static const hasuraHeaders = {
     'content-type': 'application/json',
     'x-hasura-admin-secret':

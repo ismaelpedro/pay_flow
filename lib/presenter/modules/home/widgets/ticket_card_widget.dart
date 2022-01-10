@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/presenter/modules/home/home_controller.dart';
 
 import '../../../../../infra/dtos/ticket_dto.dart';
 import '../../../config/app_text_styles.dart';
 import '../../../config/app_translations.dart';
+import '../home_controller.dart';
 
-class TicketCard extends StatelessWidget {
+class TicketCardWidget extends StatelessWidget {
   final TicketDto ticket;
 
-  const TicketCard({
+  const TicketCardWidget({
     Key? key,
     required this.ticket,
   }) : super(key: key);

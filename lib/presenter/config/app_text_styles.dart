@@ -1,109 +1,129 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
-  static final titleHome = GoogleFonts.lexendDeca(
+  static const titleHome = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 32,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static final titleRegular = GoogleFonts.lexendDeca(
+  static const titleRegular = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 20,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static final titleBoldHeading = GoogleFonts.lexendDeca(
+  static const titleBoldHeading = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static final titleBoldBackground = GoogleFonts.lexendDeca(
+  static const titleBoldBackground = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.background,
   );
-  static final titleListTile = GoogleFonts.lexendDeca(
+  static const titleListTile = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 17,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static final trailingRegular = GoogleFonts.lexendDeca(
+  static const trailingRegular = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
-  static final trailingBold = GoogleFonts.lexendDeca(
+  static const trailingBold = TextStyle(
+    fontFamily: 'LexendDeca',
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static final buttonPrimary = GoogleFonts.inter(
+  static const buttonPrimary = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.orange,
   );
-  static final buttonHeading = GoogleFonts.inter(
+  static const buttonHeading = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
-  static final buttonGray = GoogleFonts.inter(
+  static const buttonGray = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.grey,
   );
-  static final buttonBackground = GoogleFonts.inter(
+  static const buttonBackground = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static final buttonBoldPrimary = GoogleFonts.inter(
+  static const buttonBoldPrimary = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.orange,
   );
-  static final buttonBoldHeading = GoogleFonts.inter(
+  static const buttonBoldHeading = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.heading,
   );
-  static final buttonBoldGray = GoogleFonts.inter(
+  static const buttonBoldGray = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.grey,
   );
-  static final buttonBoldBackground = GoogleFonts.inter(
+  static const buttonBoldBackground = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.background,
   );
-  static final captionBackground = GoogleFonts.inter(
+  static const captionBackground = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static final captionShape = GoogleFonts.inter(
+  static const captionShape = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w400,
     color: AppColors.shape,
   );
-  static final captionBody = GoogleFonts.inter(
+  static const captionBody = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w400,
     color: AppColors.body,
   );
-  static final captionBoldBackground = GoogleFonts.inter(
+  static const captionBoldBackground = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.background,
   );
-  static final captionBoldShape = GoogleFonts.inter(
+  static const captionBoldShape = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.shape,
   );
-  static final captionBoldBody = GoogleFonts.inter(
+  static const captionBoldBody = TextStyle(
+    fontFamily: 'Inter',
     fontSize: 13,
     fontWeight: FontWeight.w600,
     color: AppColors.body,

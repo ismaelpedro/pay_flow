@@ -1,4 +1,5 @@
 import 'package:hasura_connect/hasura_connect.dart';
+
 import 'i_hasura_service.dart';
 
 class HasuraService implements IHasuraService {
