@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/presenter/config/app_images.dart';
-import 'package:pay_flow/presenter/config/app_translations.dart';
+
+import '../../config/app_images.dart';
+import '../../config/app_translations.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   const TranslationDropdownWidget({Key? key}) : super(key: key);

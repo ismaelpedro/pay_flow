@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/domain/entities/user.dart';
-import 'package:pay_flow/infra/dtos/ticket_dto.dart';
-import 'package:pay_flow/presenter/config/app_text_styles.dart';
-import 'package:pay_flow/presenter/config/app_translations.dart';
-import 'package:pay_flow/presenter/modules/home/widgets/ticket_card_widget.dart';
 
+import '../../../../domain/entities/user.dart';
+import '../../../../infra/dtos/ticket_dto.dart';
+import '../../../config/app_text_styles.dart';
+import '../../../config/app_translations.dart';
 import 'custom_appbar_widget.dart';
+import 'ticket_card_widget.dart';
 
 class BodyHomeWidget extends StatelessWidget {
   const BodyHomeWidget({Key? key}) : super(key: key);

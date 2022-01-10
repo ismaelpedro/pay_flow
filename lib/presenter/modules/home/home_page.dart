@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/presenter/modules/home/widgets/body_home_widget.dart';
-import 'package:pay_flow/presenter/modules/home/widgets/skeleton_home_widget.dart';
 
 import '../../config/app_colors.dart';
 import '../../config/app_routes.dart';
 import 'home_controller.dart';
+import 'widgets/body_home_widget.dart';
+import 'widgets/skeleton_home_widget.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:pay_flow/presenter/config/app_translations.dart';
+
+import '../../config/app_translations.dart';
 
 class HomeController extends GetxController {
   final _isLoading = true.obs;
