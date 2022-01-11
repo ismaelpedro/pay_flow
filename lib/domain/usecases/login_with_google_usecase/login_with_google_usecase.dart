@@ -11,24 +11,19 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
   LoginWithGoogleUsecase(this._googleSignIn);
 
   @override
-  Future<Either<Exception, User>?> call() async {
-    try {
-      await _googleSignIn.signOut();
-      final userGoogleSignIn = await _googleSignIn.signIn();
+  Future<Either<Exception, User>> call() async {
+    final userGoogleSignIn = await _googleSignIn.signIn();
 
-      if (userGoogleSignIn != null) {
-        final user = User(
-          id: userGoogleSignIn.id,
-          name: userGoogleSignIn.displayName!,
-          imageUrl: userGoogleSignIn.photoUrl,
-          email: userGoogleSignIn.email,
-        );
-        Get.toNamed(Routes.home, arguments: user);
-
-        return Right(user);
-      }
-    } catch (e) {
-      return Left(Exception('$e'));
+    if (userGoogleSignIn != null) {
+      final user = User(
+        id: userGoogleSignIn.id,
+        name: userGoogleSignIn.displayName!,
+        imageUrl: userGoogleSignIn.photoUrl,
+        email: userGoogleSignIn.email,
+      );
+      Get.toNamed(Routes.home, arguments: user);
+      return Right(user);
     }
+    return Left(Exception());
   }
 }

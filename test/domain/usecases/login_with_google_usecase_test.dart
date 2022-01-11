@@ -1,31 +1,33 @@
+import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:google_sign_in_mocks/google_sign_in_mocks.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:pay_flow/domain/usecases/login_with_google_usecase/login_with_google_usecase.dart';
+
+class GoogleSignInMock extends Mock implements GoogleSignIn {}
 
 main() {
-  late MockGoogleSignIn _googleSignIn;
+  late GoogleSignInMock _googleSignIn;
+  late LoginWithGoogleUsecase usecase;
 
   setUp(() {
-    _googleSignIn = MockGoogleSignIn();
+    _googleSignIn = GoogleSignInMock();
+    usecase = LoginWithGoogleUsecase(_googleSignIn);
   });
 
-  test('Should return a GoogleSignInAccount', () async {
-    final _signInAccount = await _googleSignIn.signIn();
-    expect(_signInAccount, isA<GoogleSignInAccount>());
-  });
-  test('Should return null when login is cancelled', () async {
-    _googleSignIn.setIsCancelled(true);
-    final _signInAccount = await _googleSignIn.signIn();
-    expect(_signInAccount, isNull);
-  });
-  test('Should return idToken when authenticating', () async {
-    final _signInAccount = await _googleSignIn.signIn();
-    final _signInAuthentication = await _signInAccount!.authentication;
-    expect(_signInAuthentication.idToken, isNotNull);
-  });
-  test('Should return accessToken when authenticating', () async {
-    final _signInAccount = await _googleSignIn.signIn();
-    final _signInAuthentication = await _signInAccount!.authentication;
-    expect(_signInAuthentication.accessToken, isNotNull);
+  test('Should return a Left with Exception if user return is null', () async {
+    //ESTAMOS SIMULANDO O COMPORTAMENTO DO MOCK
+    when(() => _googleSignIn.signIn()).thenAnswer((_) async => null);
+
+    final result = await usecase();
+
+    //VERIFICA O COMPORTAMENTO DO MOCK
+    verify(() => _googleSignIn.signIn()).called(1);
+
+    //ESTAMOS TESTANDO SE O RESULTADO DA MINHA CLASSE É O ESPERADO
+    //ESPERO QUE RETORNE UMA EXCECAO
+    expect(result, equals(Left(Exception())));
   });
 }

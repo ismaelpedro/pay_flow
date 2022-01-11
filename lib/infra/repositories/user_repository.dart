@@ -1,7 +1,7 @@
 import 'dart:developer';
 import '../../domain/entities/user.dart';
 import '../../domain/repositories/i_user_repository.dart';
-import '../services/hasura/i_hasura_service.dart';
+import '../../domain/repositories/i_hasura_service.dart';
 
 class UserRepository implements IUserRepository {
   IHasuraService service;

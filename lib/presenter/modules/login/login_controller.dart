@@ -19,12 +19,10 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       final user = await loginWithGoogleUsecase();
-      if (user != null) {
-        await user.fold(
-          (l) => null,
-          (r) async => await saveUserUsecase(r),
-        );
-      }
+      await user.fold(
+        (l) => null,
+        (r) async => await saveUserUsecase(r),
+      );
     } catch (e) {
       Exception('$e');
     }

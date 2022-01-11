@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.4
   hasura_connect: ^4.0.0+2
   google_sign_in: ^5.2.1
-  camera: ^0.8.0
+  camera: ^0.9.4+5
   shimmer: ^2.0.0
   get: ^4.6.1
   dartz: ^0.10.1
@@ -24,7 +24,6 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
   mocktail: ^0.2.0
-  google_sign_in_mocks: ^0.2.1
 
 flutter:
   uses-material-design: true
