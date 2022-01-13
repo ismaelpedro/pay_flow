@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:pay_flow/domain/entities/user.dart';
+
+import '../../entities/user.dart';
+import '../../exceptions/hasura_exception.dart';
 
 abstract class ISaveUserUsecase {
-  Future<Either<Exception, User>?> call(User user);
+  Future<Either<HasuraException, User>> call(User user);
 }

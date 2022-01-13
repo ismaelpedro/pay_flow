@@ -1,18 +1,21 @@
+import 'package:dartz/dartz.dart';
 import 'package:hasura_connect/hasura_connect.dart';
 
-import '../../domain/repositories/i_hasura_service.dart';
+import '../../domain/exceptions/hasura_exception.dart';
+import '../../domain/services/i_hasura_service.dart';
+import '../dtos/user_dto.dart';
 
 class HasuraService implements IHasuraService {
   HasuraConnect hasura;
   HasuraService(this.hasura);
 
   @override
-  Future<void> mutation(String mutation) async {
-    await hasura.mutation(mutation);
+  Future<Either<HasuraException, UserDto>> mutation(String mutation) async {
+    return await hasura.mutation(mutation);
   }
 
   @override
-  Future<void> query(String query) async {
-    await hasura.query(query);
+  Future<Either<HasuraException, UserDto>> query(String query) async {
+    return await hasura.query(query);
   }
 }

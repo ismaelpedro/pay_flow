@@ -1,4 +1,4 @@
-class TicketEntity {
+class Ticket {
   final String? id;
   final String name;
   final String date;
@@ -6,7 +6,7 @@ class TicketEntity {
   final double value;
   final String fkUser;
 
-  const TicketEntity({
+  const Ticket({
     this.id,
     required this.name,
     required this.date,

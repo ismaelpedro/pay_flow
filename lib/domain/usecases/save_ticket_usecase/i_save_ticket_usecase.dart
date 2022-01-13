@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
-import '../../../infra/dtos/user_dto.dart';
+
+import '../../entities/user.dart';
+import '../../exceptions/hasura_exception.dart';
 
 abstract class ISaveTicketUsecase {
-  Future<Either<Exception, UserDto>?> call();
+  Future<Either<HasuraException, User>> call();
 }

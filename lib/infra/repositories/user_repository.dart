@@ -1,17 +1,18 @@
-import 'dart:developer';
+import 'package:dartz/dartz.dart';
+
 import '../../domain/entities/user.dart';
+import '../../domain/exceptions/hasura_exception.dart';
 import '../../domain/repositories/i_user_repository.dart';
-import '../../domain/repositories/i_hasura_service.dart';
+import '../../domain/services/i_hasura_service.dart';
 
 class UserRepository implements IUserRepository {
   IHasuraService service;
   UserRepository(this.service);
 
   @override
-  Future<void> saveUser(User user) async {
-    try {
-      await service.mutation(
-        '''
+  Future<Either<HasuraException, User>> saveUser(User user) async {
+    final response = await service.mutation(
+      '''
         mutation {
           insert_users_one(object: {
             id: "${user.id}", 
@@ -25,14 +26,16 @@ class UserRepository implements IUserRepository {
           }
         }
         ''',
-      );
-    } catch (e) {
-      log('$e');
-    }
+    );
+
+    return response.fold(
+      (exception) => Left(exception),
+      (user) => Right(user),
+    );
   }
 
   @override
-  Future<void> getUser() {
+  Future<Either<HasuraException, User>> getUser() {
     throw UnimplementedError();
   }
 }

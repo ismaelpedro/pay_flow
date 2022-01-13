@@ -1,29 +1,33 @@
 import 'package:dartz/dartz.dart';
-import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../presenter/config/app_routes.dart';
+import '../../../infra/services/google_sign_in_service.dart';
 import '../../entities/user.dart';
+import '../../exceptions/login_exception.dart';
 import 'i_login_with_google_usecase.dart';
 
 class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
-  final GoogleSignIn _googleSignIn;
+  final GoogleSignInService _googleSignIn;
   LoginWithGoogleUsecase(this._googleSignIn);
 
   @override
-  Future<Either<Exception, User>> call() async {
+  Future<Either<LoginException, User>> call() async {
+    await _googleSignIn.signOut();
     final userGoogleSignIn = await _googleSignIn.signIn();
 
-    if (userGoogleSignIn != null) {
-      final user = User(
-        id: userGoogleSignIn.id,
-        name: userGoogleSignIn.displayName!,
-        imageUrl: userGoogleSignIn.photoUrl,
-        email: userGoogleSignIn.email,
-      );
-      Get.toNamed(Routes.home, arguments: user);
-      return Right(user);
-    }
-    return Left(Exception());
+    return userGoogleSignIn.fold(
+      (exception) => Left(exception),
+      (googleUser) {
+        if (googleUser != null) {
+          final user = User(
+            id: googleUser.id,
+            name: googleUser.displayName ?? '',
+            imageUrl: googleUser.photoUrl,
+            email: googleUser.email,
+          );
+          return Right(user);
+        }
+        return const Left(LoginException());
+      },
+    );
   }
 }

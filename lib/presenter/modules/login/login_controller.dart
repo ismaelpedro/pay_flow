@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:pay_flow/domain/usecases/save_user_usecase/i_save_user_usecase.dart';
-
 import '../../../../domain/usecases/login_with_google_usecase/i_login_with_google_usecase.dart';
+import '../../../domain/usecases/save_user_usecase/i_save_user_usecase.dart';
+import '../../config/app_routes.dart';
 import '../../config/app_translations.dart';
 
 class LoginController extends GetxController {
@@ -17,14 +17,13 @@ class LoginController extends GetxController {
   var isLoading = false.obs;
 
   Future<void> login() async {
-    try {
-      final user = await loginWithGoogleUsecase();
-      await user.fold(
-        (l) => null,
-        (r) async => await saveUserUsecase(r),
-      );
-    } catch (e) {
-      Exception('$e');
-    }
+    final usecase = await loginWithGoogleUsecase();
+
+    return await usecase.fold(
+      (exception) => exception,
+      (userRight) async {
+        Get.toNamed(Routes.home, arguments: userRight);
+      },
+    );
   }
 }

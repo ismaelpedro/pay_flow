@@ -16,8 +16,9 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   shimmer: ^2.0.0
   get: ^4.6.1
-  dartz: ^0.10.1
   intl: ^0.17.0
+  dartz: ^0.10.1
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:

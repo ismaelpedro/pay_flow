@@ -1,6 +1,9 @@
-import 'package:pay_flow/domain/entities/user.dart';
+import 'package:dartz/dartz.dart';
+
+import '../entities/user.dart';
+import '../exceptions/hasura_exception.dart';
 
 abstract class IUserRepository {
-  Future<void> saveUser(User user);
-  Future<void> getUser();
+  Future<Either<HasuraException, User>> saveUser(User user);
+  Future<Either<HasuraException, User>> getUser();
 }

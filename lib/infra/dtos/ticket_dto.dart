@@ -1,7 +1,7 @@
 import 'dart:convert';
 import '../../domain/entities/ticket.dart';
 
-class TicketDto extends TicketEntity {
+class TicketDto extends Ticket {
   final String? idDto;
   final String nameDto;
   final String dateDto;
