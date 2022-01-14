@@ -1,6 +1,6 @@
 # PayFlow
 
-PayFlow contains features such as using Camera and Gallery, Sign In, Custom Animations and Stylizations.
+PayFlow contains features such as using Camera, Sign In, Custom Animations and Stylizations.
 
 ## Layout
 
