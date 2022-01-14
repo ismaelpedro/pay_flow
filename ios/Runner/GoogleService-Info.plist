@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>485520241191-vnm72gk007rhe9fb5gr8e8julvilfihu.apps.googleusercontent.com</string>
+	<string>884582069094-os0vgrdum1rs47ks1lt643l6bg3gn19o.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.485520241191-vnm72gk007rhe9fb5gr8e8julvilfihu</string>
+	<string>com.googleusercontent.apps.884582069094-os0vgrdum1rs47ks1lt643l6bg3gn19o</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>884582069094-bgnog3e60glui9mrelgifu2tl0gi1i8q.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyB4ANHSmrT2sWVYn1bA5Q0oxtpEOUmQnl4</string>
+	<string>AIzaSyDB3itQJJHwf9NAdoDVCC6tOrjrO9wFM-Y</string>
 	<key>GCM_SENDER_ID</key>
-	<string>485520241191</string>
+	<string>884582069094</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ismael.payflow</string>
+	<string>br.com.ismael.pay-flow</string>
 	<key>PROJECT_ID</key>
-	<string>payflow-7cf2f</string>
+	<string>pay-flow-e6662</string>
 	<key>STORAGE_BUCKET</key>
-	<string>payflow-7cf2f.appspot.com</string>
+	<string>pay-flow-e6662.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:485520241191:ios:6e8a620f60e4a02cae5402</string>
+	<string>1:884582069094:ios:45d5785eafcded52394ea7</string>
 </dict>
 </plist>

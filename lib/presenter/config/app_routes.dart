@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
+import 'package:pay_flow/presenter/modules/ticket_form/ticket_form_binding.dart';
+import 'package:pay_flow/presenter/modules/ticket_form/ticket_form_page.dart';
 
-import '../modules/barcode_scanner/barcode_scanner_binding.dart';
-import '../modules/barcode_scanner/barcode_scanner_page.dart';
 import '../modules/home/home_binding.dart';
 import '../modules/home/home_page.dart';
 import '../modules/login/login_binding.dart';
@@ -10,8 +10,7 @@ import '../modules/login/login_page.dart';
 class Routes {
   static const login = '/login';
   static const home = '/home';
-  static const barcodeScan = '/barcode_scan';
-  static const registrationBankSplip = '/registration_bank_splip';
+  static const ticketForm = '/ticketForm';
 }
 
 class AppRoutes {
@@ -27,9 +26,9 @@ class AppRoutes {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: Routes.barcodeScan,
-      page: () => const BarcodeScannerPage(),
-      binding: BarcodeScannerBinding(),
+      name: Routes.ticketForm,
+      page: () => const TicketFormPage(),
+      binding: TicketFormBinding(),
     ),
   ];
 }

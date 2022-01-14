@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../config/app_colors.dart';
-import '../../config/app_routes.dart';
 import 'home_controller.dart';
 import 'widgets/body_home_widget.dart';
 import 'widgets/skeleton_home_widget.dart';
@@ -17,7 +16,7 @@ class HomePage extends GetView<HomeController> {
         return Container(
           child: controller.isLoading
               ? const SkeletonHomeWidget()
-              : const BodyHomeWidget(),
+              : BodyHomeWidget(),
         );
       }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -28,8 +27,8 @@ class HomePage extends GetView<HomeController> {
           Icons.add_box_outlined,
           color: Colors.white,
         ),
-        onPressed: () {
-          Get.toNamed(Routes.barcodeScan);
+        onPressed: () async {
+          await controller.scanBarCode();
         },
       ),
       bottomNavigationBar: BottomNavigationBar(

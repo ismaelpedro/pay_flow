@@ -1,5 +1,7 @@
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:pay_flow/presenter/config/app_routes.dart';
 
 import '../../config/app_translations.dart';
 
@@ -39,6 +41,19 @@ class HomeController extends GetxController {
       return _currencyDolar;
     } else {
       return _currencySpain;
+    }
+  }
+
+  Future<void> scanBarCode() async {
+    String barcodeScanResult = await FlutterBarcodeScanner.scanBarcode(
+      '#FFFFFF',
+      'Cancel',
+      true,
+      ScanMode.BARCODE,
+    );
+
+    if (barcodeScanResult != '-1') {
+      Get.toNamed(Routes.ticketForm, arguments: barcodeScanResult);
     }
   }
 

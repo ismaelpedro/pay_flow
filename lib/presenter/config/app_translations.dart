@@ -19,6 +19,13 @@ class AppTranslations extends Translations {
           AppTranslationStrings.inTotal: 'in total',
           AppTranslationStrings.willExpire: 'Will expire in',
           AppTranslationStrings.tickets: 'tickets',
+          AppTranslationStrings.fillTickets: 'Fill in the\nticket details',
+          AppTranslationStrings.value: 'Value',
+          AppTranslationStrings.expiration: 'Expiration',
+          AppTranslationStrings.code: 'Code',
+          AppTranslationStrings.ticket: 'Ticket name',
+          AppTranslationStrings.cancel: 'Cancel',
+          AppTranslationStrings.register: 'Register',
         },
         AppTranslationStrings.portugueseLanguage: {
           AppTranslationStrings.ptBr: 'Português',
@@ -35,6 +42,13 @@ class AppTranslations extends Translations {
           AppTranslationStrings.inTotal: 'ao total',
           AppTranslationStrings.willExpire: 'Vence em',
           AppTranslationStrings.tickets: 'boletos',
+          AppTranslationStrings.fillTickets: 'Preencha os dados\ndo boleto',
+          AppTranslationStrings.value: 'Valor',
+          AppTranslationStrings.expiration: 'Vencimento',
+          AppTranslationStrings.code: 'Código',
+          AppTranslationStrings.ticket: 'Nome do boleto',
+          AppTranslationStrings.cancel: 'Cancelar',
+          AppTranslationStrings.register: 'Cadastrar',
         },
         AppTranslationStrings.spanishLanguage: {
           AppTranslationStrings.ptBr: 'Portugués',
@@ -52,6 +66,13 @@ class AppTranslations extends Translations {
           AppTranslationStrings.inTotal: 'en total',
           AppTranslationStrings.willExpire: 'Expira en',
           AppTranslationStrings.tickets: 'resbalones',
+          AppTranslationStrings.fillTickets: 'Rellene los\ndetalles del ticket',
+          AppTranslationStrings.value: 'Valor',
+          AppTranslationStrings.expiration: 'Vencimiento',
+          AppTranslationStrings.code: 'Código',
+          AppTranslationStrings.ticket: 'Nombre del billete',
+          AppTranslationStrings.cancel: 'Cancelar',
+          AppTranslationStrings.register: 'Registrar',
         },
       };
 }
@@ -73,4 +94,11 @@ class AppTranslationStrings {
   static const youHave = 'youHave';
   static const registrationsToPay = 'registrationsToPay';
   static const tickets = 'tickets';
+  static const fillTickets = 'fillTickets';
+  static const value = 'value';
+  static const expiration = 'expiration';
+  static const code = 'code';
+  static const ticket = 'ticket';
+  static const cancel = 'cancel';
+  static const register = 'register';
 }

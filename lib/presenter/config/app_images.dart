@@ -9,4 +9,8 @@ class AppImages {
   static const eua = 'assets/images/eua.png';
   static const br = 'assets/images/br.png';
   static const es = 'assets/images/spain.png';
+  static const ticket = 'assets/images/ticket.png';
+  static const close = 'assets/images/close.png';
+  static const wallet = 'assets/images/wallet.png';
+  static const barcode = 'assets/images/barcode.png';
 }

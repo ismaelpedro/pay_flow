@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pay_flow/presenter/config/app_colors.dart';
-import 'package:pay_flow/presenter/config/app_images.dart';
-import 'package:pay_flow/presenter/config/app_text_styles.dart';
-import 'package:pay_flow/presenter/config/app_translations.dart';
 import 'package:shimmer/shimmer.dart';
+
+import '../../../config/app_colors.dart';
+import '../../../config/app_images.dart';
+import '../../../config/app_text_styles.dart';
+import '../../../config/app_translations.dart';
 
 class SkeletonHomeWidget extends StatelessWidget {
   const SkeletonHomeWidget({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                               )
                             ],
                           ),
-                          const SizedBox(width: 80),
+                          const Spacer(),
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: SizedBox(
