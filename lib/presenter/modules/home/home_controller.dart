@@ -47,7 +47,7 @@ class HomeController extends GetxController {
   Future<void> scanBarCode() async {
     String barcodeScanResult = await FlutterBarcodeScanner.scanBarcode(
       '#FFFFFF',
-      'Cancel',
+      AppTranslationStrings.cancel.tr,
       true,
       ScanMode.BARCODE,
     );

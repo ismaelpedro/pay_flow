@@ -76,6 +76,7 @@ class TicketFormPage extends GetView<TicketFormController> {
             BottomButtonWidget(
               label: AppTranslationStrings.cancel.tr,
               style: AppTextStyles.buttonGray,
+              onPressed: () => Get.back(),
             ),
             BottomButtonWidget(
               label: AppTranslationStrings.register.tr,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class TicketFormController extends GetxController {
   final barCode = Get.arguments as String?;
+
   final nameEC = TextEditingController();
   final expirationEC = TextEditingController();
   final valueEC = TextEditingController();
@@ -12,5 +13,14 @@ class TicketFormController extends GetxController {
   void onInit() {
     super.onInit();
     codeEC.text = barCode ?? '';
+  }
+
+  @override
+  void onClose() {
+    nameEC.dispose();
+    expirationEC.dispose();
+    valueEC.dispose();
+    codeEC.dispose();
+    super.onClose();
   }
 }

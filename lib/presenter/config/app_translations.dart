@@ -26,6 +26,11 @@ class AppTranslations extends Translations {
           AppTranslationStrings.ticket: 'Ticket name',
           AppTranslationStrings.cancel: 'Cancel',
           AppTranslationStrings.register: 'Register',
+          AppTranslationStrings.registerTicket:
+              'How do you want to register your new ticket?',
+          AppTranslationStrings.manually: 'Manually',
+          AppTranslationStrings.scan: 'Scan',
+          AppTranslationStrings.warning: 'Warning',
         },
         AppTranslationStrings.portugueseLanguage: {
           AppTranslationStrings.ptBr: 'Português',
@@ -49,6 +54,11 @@ class AppTranslations extends Translations {
           AppTranslationStrings.ticket: 'Nome do boleto',
           AppTranslationStrings.cancel: 'Cancelar',
           AppTranslationStrings.register: 'Cadastrar',
+          AppTranslationStrings.registerTicket:
+              'Como desejar registrar seu novo boleto?',
+          AppTranslationStrings.manually: 'Manualmente',
+          AppTranslationStrings.scan: 'Escanear',
+          AppTranslationStrings.warning: 'Aviso',
         },
         AppTranslationStrings.spanishLanguage: {
           AppTranslationStrings.ptBr: 'Portugués',
@@ -73,6 +83,11 @@ class AppTranslations extends Translations {
           AppTranslationStrings.ticket: 'Nombre del billete',
           AppTranslationStrings.cancel: 'Cancelar',
           AppTranslationStrings.register: 'Registrar',
+          AppTranslationStrings.registerTicket:
+              '¿Cómo quieres registrar tu nuevo billete?',
+          AppTranslationStrings.manually: 'A mano',
+          AppTranslationStrings.scan: 'Escanear',
+          AppTranslationStrings.warning: 'Advertencia',
         },
       };
 }
@@ -101,4 +116,8 @@ class AppTranslationStrings {
   static const ticket = 'ticket';
   static const cancel = 'cancel';
   static const register = 'register';
+  static const registerTicket = 'registerTicket';
+  static const manually = 'manually';
+  static const scan = 'scan';
+  static const warning = 'warning';
 }
