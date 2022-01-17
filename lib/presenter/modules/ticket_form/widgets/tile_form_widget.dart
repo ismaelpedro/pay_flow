@@ -37,7 +37,9 @@ class TileFormWidget extends StatelessWidget {
                 AppTranslationStrings.value.tr,
                 AppTranslationStrings.expiration.tr
               ].contains(hintText)
-                  ? [FilteringTextInputFormatter.digitsOnly]
+                  ? [
+                      FilteringTextInputFormatter.digitsOnly,
+                    ]
                   : null,
               controller: controller,
               initialValue: initialValue,

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "884582069094-bgnog3e60glui9mrelgifu2tl0gi1i8q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ismael.pay_flow",
+            "certificate_hash": "9900f0a4a0c92af87f132c7dc65982480666c97e"
+          }
+        },
+        {
           "client_id": "884582069094-gkvuhsh9hoc0uf7mapkp2542rp1298o5.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "884582069094-gkvuhsh9hoc0uf7mapkp2542rp1298o5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "884582069094-os0vgrdum1rs47ks1lt643l6bg3gn19o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.ismael.pay-flow"
+              }
             }
           ]
         }
