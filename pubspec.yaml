@@ -13,6 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.4
   hasura_connect: ^4.0.0+2
   google_sign_in: ^5.2.3
+  flutter_masked_text2: ^0.9.1
   flutter_barcode_scanner: ^2.0.0
   shimmer: ^2.0.0
   get: ^4.6.1

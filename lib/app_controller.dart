@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import 'domain/entities/ticket.dart';
 import 'domain/entities/user.dart';
 

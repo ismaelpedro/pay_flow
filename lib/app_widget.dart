@@ -20,7 +20,7 @@ class AppWidget extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       translations: AppTranslations(),
       initialBinding: AppInjection(),
-      initialRoute: Routes.login,
+      initialRoute: Routes.ticketForm,
       getPages: AppRoutes.pages,
     );
   }

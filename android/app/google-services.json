@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "884582069094-bgnog3e60glui9mrelgifu2tl0gi1i8q.apps.googleusercontent.com",
+          "client_id": "884582069094-fusp9t1fvuf870s9335lkqvpe2ni5q9f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.com.ismael.pay_flow",
-            "certificate_hash": "9900f0a4a0c92af87f132c7dc65982480666c97e"
+            "certificate_hash": "20214283b97e0a540706de8cc325b245fa94a9d7"
           }
         },
         {
