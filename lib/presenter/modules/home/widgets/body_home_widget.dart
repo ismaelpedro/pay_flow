@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/domain/entities/ticket_entity.dart';
 
 import '../../../../app_controller.dart';
-import '../../../../infra/dtos/ticket_dto.dart';
 import '../../../config/app_text_styles.dart';
 import '../../../config/app_translations.dart';
 import 'custom_appbar_widget.dart';
@@ -44,14 +44,14 @@ class BodyHomeWidget extends StatelessWidget {
                         itemCount: 20,
                         itemBuilder: (_, index) {
                           return TicketCardWidget(
-                            ticket: TicketDto(
-                              nameDto: index % 2 == 0
+                            ticket: TicketEntity(
+                              name: index % 2 == 0
                                   ? 'League of Legends'
                                   : 'Conta de Luz',
-                              dateDto: DateTime.now().toString(),
-                              valueDto: index % 2 == 0 ? 2000 : 35200,
-                              codeDto: '',
-                              fkUserDto: '',
+                              date: DateTime.now().toString(),
+                              value: index % 2 == 0 ? 2000 : 35200,
+                              code: '',
+                              fkUser: '',
                             ),
                           );
                         },

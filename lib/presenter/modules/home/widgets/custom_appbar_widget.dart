@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../domain/entities/user.dart';
+import '../../../../domain/entities/user_entity.dart';
 import '../../../config/app_colors.dart';
 import '../../../config/app_images.dart';
 import '../../../config/app_text_styles.dart';
 import '../../../config/app_translations.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
-  final User user;
+  final UserEntity user;
   final int ticketsCount;
 
   const CustomAppBarWidget({

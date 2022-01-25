@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/domain/entities/ticket_entity.dart';
 
-import '../../../../../infra/dtos/ticket_dto.dart';
 import '../../../config/app_text_styles.dart';
 import '../../../config/app_translations.dart';
 import '../home_controller.dart';
 
 class TicketCardWidget extends StatelessWidget {
-  final TicketDto ticket;
+  final TicketEntity ticket;
 
   const TicketCardWidget({
     Key? key,
@@ -20,13 +20,13 @@ class TicketCardWidget extends StatelessWidget {
 
     return ListTile(
       title: Text(
-        ticket.nameDto,
+        ticket.name,
         style: AppTextStyles.titleListTile,
       ),
       subtitle: Text(
-          '${AppTranslationStrings.willExpire.tr} ${controller.getDateFormat().format(DateTime.parse(ticket.dateDto))}'),
+          '${AppTranslationStrings.willExpire.tr} ${controller.getDateFormat().format(DateTime.parse(ticket.date))}'),
       trailing: Text(
-        controller.getCurrencyFormat().format(ticket.valueDto),
+        controller.getCurrencyFormat().format(ticket.value),
         style: AppTextStyles.trailingRegular,
       ),
       onTap: () {},

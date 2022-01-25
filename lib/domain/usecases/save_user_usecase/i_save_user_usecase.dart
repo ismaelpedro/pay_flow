@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 
-import '../../entities/user.dart';
+import '../../entities/user_entity.dart';
 import '../../exceptions/hasura_exception.dart';
 
 abstract class ISaveUserUsecase {
-  Future<Either<HasuraException, User>> call(User user);
+  Future<Either<HasuraException, UserEntity>> call(UserEntity user);
 }

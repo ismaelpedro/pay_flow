@@ -14,11 +14,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "884582069094-fusp9t1fvuf870s9335lkqvpe2ni5q9f.apps.googleusercontent.com",
+          "client_id": "884582069094-j18iaunn5n8p0v69nm7vbj22l96le3sl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.com.ismael.pay_flow",
-            "certificate_hash": "20214283b97e0a540706de8cc325b245fa94a9d7"
+            "certificate_hash": "067369234a2ad9f914f2d187d89a066e0248e8de"
+          }
+        },
+        {
+          "client_id": "884582069094-mf8eoq114vphv4rrcr896e1rar4ctu4d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ismael.pay_flow",
+            "certificate_hash": "9900f0a4a0c92af87f132c7dc65982480666c97e"
           }
         },
         {

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 
 import '../../../infra/services/google_sign_in_service.dart';
-import '../../entities/user.dart';
+import '../../entities/user_entity.dart';
 import '../../exceptions/login_exception.dart';
 import 'i_login_with_google_usecase.dart';
 
@@ -10,7 +10,7 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
   LoginWithGoogleUsecase(this._googleSignIn);
 
   @override
-  Future<Either<LoginException, User>> call() async {
+  Future<Either<LoginException, UserEntity>> call() async {
     await _googleSignIn.signOut();
     final userGoogleSignIn = await _googleSignIn.signIn();
 
@@ -18,7 +18,7 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
       (exception) => Left(exception),
       (googleUser) {
         if (googleUser != null) {
-          final user = User(
+          final user = UserEntity(
             id: googleUser.id,
             name: googleUser.displayName ?? '',
             imageUrl: googleUser.photoUrl,

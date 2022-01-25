@@ -1,4 +1,4 @@
-class Ticket {
+class TicketEntity {
   final String? id;
   final String name;
   final String date;
@@ -6,7 +6,7 @@ class Ticket {
   final double value;
   final String fkUser;
 
-  const Ticket({
+  const TicketEntity({
     this.id,
     required this.name,
     required this.date,
@@ -14,4 +14,9 @@ class Ticket {
     required this.value,
     required this.fkUser,
   });
+
+  @override
+  String toString() {
+    return 'TicketEntity(id: $id, name: $name, date: $date, code: $code, value: $value, fkUser: $fkUser)';
+  }
 }

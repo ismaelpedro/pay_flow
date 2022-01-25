@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 
-import '../../domain/entities/user.dart';
+import '../../domain/entities/user_entity.dart';
 import '../../domain/exceptions/hasura_exception.dart';
 import '../../domain/repositories/i_user_repository.dart';
 import '../../domain/services/i_hasura_service.dart';
@@ -10,7 +10,7 @@ class UserRepository implements IUserRepository {
   UserRepository(this.service);
 
   @override
-  Future<Either<HasuraException, User>> saveUser(User user) async {
+  Future<Either<HasuraException, UserEntity>> saveUser(UserEntity user) async {
     final response = await service.mutation(
       '''
         mutation {
@@ -35,7 +35,7 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<Either<HasuraException, User>> getUser() {
+  Future<Either<HasuraException, UserEntity>> getUser() {
     throw UnimplementedError();
   }
 }

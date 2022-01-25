@@ -1,45 +1,21 @@
-import 'dart:convert';
-import 'package:pay_flow/domain/entities/user.dart';
+import '../../domain/entities/user_entity.dart';
 
-class UserDto extends User {
-  final String idDto;
-  final String nameDto;
-  String? imageUrlDto;
-  final String emailDto;
-
-  UserDto({
-    required this.idDto,
-    required this.nameDto,
-    this.imageUrlDto,
-    required this.emailDto,
-  }) : super(id: idDto, name: nameDto, imageUrl: imageUrlDto, email: emailDto);
-
-  @override
-  String toString() {
-    return 'UserDto(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
-  }
-
-  Map<String, dynamic> toMap() {
+extension UserDto on UserEntity {
+  Map<String, dynamic> toJson() {
     return {
-      'id': idDto,
-      'name': nameDto,
-      'imageUrl': imageUrlDto,
-      'email': emailDto,
+      'id': id,
+      'name': name,
+      'imageUrl': imageUrl,
+      'email': email,
     };
   }
 
-  factory UserDto.fromMap(Map<String, dynamic> map) {
-    return UserDto(
-      idDto: map['id'],
-      nameDto: map['name'],
-      imageUrlDto: map['imageUrl'],
-      emailDto: map['email'],
+  static UserEntity fromJson(Map<String, dynamic> map) {
+    return UserEntity(
+      id: map['id'],
+      name: map['name'],
+      imageUrl: map['imageUrl'],
+      email: map['email'],
     );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory UserDto.fromJson(String source) {
-    return UserDto.fromMap(json.decode(source));
   }
 }

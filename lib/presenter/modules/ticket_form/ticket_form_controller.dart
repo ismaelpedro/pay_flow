@@ -6,7 +6,7 @@ class TicketFormController extends GetxController {
   final barCode = Get.arguments as String?;
 
   final nameEC = TextEditingController();
-  final expirationEC = MaskedTextController(mask: '00/00/0000');
+  final expirationEC = MaskedTextController(mask: '##/##/####');
   final valueEC = MoneyMaskedTextController(leftSymbol: 'R\$ ');
   final codeEC = TextEditingController();
 
