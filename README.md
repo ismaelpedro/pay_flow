@@ -24,5 +24,6 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
+- Fill your hasura data in assets/.env
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
 - Run `flutter run` to run the app on your connected (or emulated) device.
