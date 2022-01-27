@@ -15,6 +15,7 @@ dependencies:
   hasura_connect: ^4.0.0+2
   flutter_barcode_scanner: ^2.0.0
   flutter_masked_text2: ^0.9.1
+  flutter_dotenv: ^5.0.2
   intl: ^0.17.0
   shimmer: ^2.0.0
   get: ^4.6.1
@@ -32,6 +33,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/.env
 
   fonts:
     - family: Inter
