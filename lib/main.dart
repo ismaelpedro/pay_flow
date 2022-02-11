@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'app_widget.dart';
+
+import 'core/presenter/app_widget.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,6 +10,6 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
-  await dotenv.load(fileName: 'assets/.env');
+  await dotenv.load(fileName: 'assets/hasura_settings.env');
   runApp(const AppWidget());
 }

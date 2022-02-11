@@ -33,7 +33,7 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/.env
+    - assets/hasura_settings.env
 
   fonts:
     - family: Inter
