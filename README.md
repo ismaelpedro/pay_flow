@@ -29,6 +29,8 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 
 ## How to run?
 
+ ```
+
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
@@ -38,6 +40,8 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Put your "GoogleService-Info.plist" in "/ios/Runner/";
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
 - Run `flutter run` to run the app on your connected (or emulated) device;
+
+ ```
 
 <h2 align="center">How to Contribute 💪</h2>
 
