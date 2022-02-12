@@ -4,8 +4,9 @@ PayFlow contains features such as using Camera, Sign In, Custom Animations and S
 I'm using: 
 - Clean Architecture; 
 - Unitary Tests;
-- GetX (for state management, dependency injection and internationalization);
 - Hasura
+- GetX (for state management, dependency injection and internationalization);
+
 
 ## Layout
 
