@@ -39,24 +39,25 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
 - Run `flutter run` to run the app on your connected (or emulated) device;
 
-<h2 align="center">How to Use 🤔</h2>
+<h2 align="center">How to Contribute 💪</h2>
 
    ```
-   First of all, correctly configure the Flutter development environment on your machine, see https://flutter.dev/docs/get-started/install
-   
-   - Clone this repository:
-   $ git clone https://github.com/felipecastrosales/DevQuiz DevQuiz
+   - Fork the project 
 
-   - Enter in directory:
-   $ cd DevQuiz
+   - Create a new branch with your changes:
+   $ git checkout -b my-feature
 
-   - For install dependencies:
-   $ flutter pub get
+   - Save your changes and create a commit message telling you what you did:
+   $ git commit -m "feature: My new feature"
 
-   - Run the app: 
-   $ flutter run
+   - Submit your changes:
+   $ git push origin my-feature
    ```
 
 ---
 
-<h2 align="center">How to Contribute 💪</h2>
+<h2 align="center">License 📝</h2>
+
+<p align="center">
+   This repository is under MIT license. You can see the <a href="https://github.com/felipecastrosales/DevQuiz/blob/master/LICENSE">LICENSE</a> file for more details. 😉
+</p>
