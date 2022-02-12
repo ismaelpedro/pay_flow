@@ -46,7 +46,7 @@ app.*.map.json
 /android/app/release
 
 # keys 
-# /**/assets/hasura_settings.env
+/**/assets/hasura_settings.env
 /android/app/keystore.jks
 /android/app/google-services.json
 /ios/Runner/GoogleService-Info.plist
