@@ -1,6 +1,11 @@
 # PayFlow
 
-PayFlow contains features such as using Camera, Sign In, Custom Animations and Stylizations.
+PayFlow contains features such as using Camera, Sign In, Custom Animations and Stylizations. 
+I'm using: 
+- Clean Architecture; 
+- Unitary Tests;
+- GetX (for state management, dependency injection and internationalization);
+- Hasura
 
 ## Layout
 
