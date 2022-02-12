@@ -38,3 +38,25 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Put your "GoogleService-Info.plist" in "/ios/Runner/";
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
 - Run `flutter run` to run the app on your connected (or emulated) device;
+
+<h2 align="center">How to Use 🤔</h2>
+
+   ```
+   First of all, correctly configure the Flutter development environment on your machine, see https://flutter.dev/docs/get-started/install
+   
+   - Clone this repository:
+   $ git clone https://github.com/felipecastrosales/DevQuiz DevQuiz
+
+   - Enter in directory:
+   $ cd DevQuiz
+
+   - For install dependencies:
+   $ flutter pub get
+
+   - Run the app: 
+   $ flutter run
+   ```
+
+---
+
+<h2 align="center">How to Contribute 💪</h2>
