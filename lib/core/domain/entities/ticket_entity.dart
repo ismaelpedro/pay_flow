@@ -1,18 +1,18 @@
 class TicketEntity {
-  final String? id;
+  late String? id;
   final String name;
   final String date;
   final String code;
   final double value;
-  final String fkUser;
+  late String? fkUser;
 
-  const TicketEntity({
+  TicketEntity({
     this.id,
     required this.name,
     required this.date,
     required this.code,
     required this.value,
-    required this.fkUser,
+    this.fkUser,
   });
 
   @override

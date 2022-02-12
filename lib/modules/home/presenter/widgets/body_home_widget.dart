@@ -9,8 +9,8 @@ import 'custom_appbar_widget.dart';
 import 'ticket_card_widget.dart';
 
 class BodyHomeWidget extends StatelessWidget {
-  final appController = Get.find<AppController>();
   BodyHomeWidget({Key? key}) : super(key: key);
+  final appController = Get.find<AppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,6 @@ class BodyHomeWidget extends StatelessWidget {
                               date: DateTime.now().toString(),
                               value: index % 2 == 0 ? 2000 : 35200,
                               code: '',
-                              fkUser: '',
                             ),
                           );
                         },

@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,8 +8,6 @@ import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
 import '../../../../core/presenter/config/app_translations.dart';
-
-
 
 class CustomAppBarWidget extends StatelessWidget {
   final UserEntity user;
@@ -59,9 +59,15 @@ class CustomAppBarWidget extends StatelessWidget {
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.network(
-                        user.imageUrl!,
+                      child: CachedNetworkImage(
                         height: 60,
+                        imageUrl: user.imageUrl!,
+                        placeholder: (_, error) {
+                          return const CupertinoActivityIndicator();
+                        },
+                        errorWidget: (_, __, error) {
+                          return const Icon(Icons.error);
+                        },
                       ),
                     ),
                   ],

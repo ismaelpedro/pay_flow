@@ -14,6 +14,7 @@ dependencies:
   google_sign_in: ^5.2.3
   hasura_connect: ^4.0.0+2
   flutter_barcode_scanner: ^2.0.0
+  cached_network_image: ^3.2.0
   flutter_masked_text2: ^0.9.1
   flutter_dotenv: ^5.0.2
   intl: ^0.17.0
@@ -21,6 +22,7 @@ dependencies:
   get: ^4.6.1
   equatable: ^2.0.3
   dartz: ^0.10.1
+  uuid: ^3.0.5
 
 dev_dependencies:
   flutter_test:
