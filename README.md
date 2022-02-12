@@ -12,18 +12,22 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 
 ## Features implemented
 
-- Log in with Google;
+- Login with Google;
 - Barcode reading;
 - Register a new bank slip;
 - List bank slip;
 - Delete bank slip;
-- Navigation menu.
+- Navigation menu;
+- Internationalization (PT-BR, EN-US, ES-ES);
 
 ## How to run?
 
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
-- Fill your hasura data in assets/.env
+- Find "hasura_settings_example.env" in "assets/hasura_settings_example.env", and rename to "hasura_settings.env" and fill your hasura data;
+- Put your "google-services.json" in "/android/app/google-services.json";
+- Put your "keystore.jks" in "/android/app/keystore.jks";
+- Put your "GoogleService-Info.plist" in "/ios/Runner/GoogleService-Info.plist";
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
-- Run `flutter run` to run the app on your connected (or emulated) device.
+- Run `flutter run` to run the app on your connected (or emulated) device;
