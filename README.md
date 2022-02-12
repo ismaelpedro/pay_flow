@@ -19,6 +19,7 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Delete bank slip;
 - Navigation menu;
 - Internationalization (PT-BR, EN-US, ES-ES);
+- Shimmer effects on loads;
 
 ## How to run?
 
