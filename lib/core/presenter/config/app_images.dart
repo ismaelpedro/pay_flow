@@ -13,4 +13,5 @@ class AppImages {
   static const close = 'assets/images/close.png';
   static const wallet = 'assets/images/wallet.png';
   static const barcode = 'assets/images/barcode.png';
+  static const noTickets = 'assets/images/no-tickets.gif';
 }

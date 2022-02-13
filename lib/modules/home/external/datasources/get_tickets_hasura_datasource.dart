@@ -14,7 +14,7 @@ class GetTicketsHasuraDatasource implements IGetTicketsDatasource {
     final response = await _hasuraDriver.query(
       ''' 
       query {
-        tickets_by_pk(id: $id) {
+        tickets((where: {fkUser: {_eq: "$id"}}}) {
           code
           date
           fkUser
@@ -26,7 +26,7 @@ class GetTicketsHasuraDatasource implements IGetTicketsDatasource {
       ''',
     );
 
-    if (response['data']['tickets_by_pk'] != null) {
+    if (response['data']['tickets'] != null) {
       return const Right(<TicketEntity>[]);
     }
     return const Left(HasuraException());

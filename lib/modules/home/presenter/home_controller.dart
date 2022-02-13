@@ -1,11 +1,27 @@
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:pay_flow/core/presenter/app_controller.dart';
 
 import '../../../core/presenter/config/app_routes.dart';
 import '../../../core/presenter/config/app_translations.dart';
+import '../domain/usecases/delete_ticket_usecase/i_delete_ticket_usecase.dart';
+import '../domain/usecases/get_tickets_usecase/i_get_tickets_usecase.dart';
 
 class HomeController extends GetxController {
+  final IGetTicketsUsecase _getTicketUsecase;
+  final IDeleteTicketUsecase _deleteTicketUsecase;
+  HomeController(this._getTicketUsecase, this._deleteTicketUsecase);
+
+  getTickets() async {
+    final tickets =
+        await _getTicketUsecase(Get.find<AppController>().currentUser.id);
+    tickets.fold(
+      (l) => null,
+      (ticketsList) => Get.find<AppController>().tickets.value = ticketsList,
+    );
+  }
+
   final _isLoading = true.obs;
   bool get isLoading => _isLoading.value;
   set isLoading(bool newValue) => _isLoading.value = newValue;
@@ -59,8 +75,8 @@ class HomeController extends GetxController {
 
   @override
   void onInit() async {
-    super.onInit();
     await Future.delayed(const Duration(seconds: 3));
     isLoading = false;
+    super.onInit();
   }
 }
