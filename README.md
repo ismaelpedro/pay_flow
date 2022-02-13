@@ -55,11 +55,3 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
    - Submit your changes:
    $ git push origin my-feature
    ```
-
----
-
-<h2>License 📝</h2>
-
-<p align="center">
-   This repository is under MIT license. You can see the <a href="https://github.com/felipecastrosales/DevQuiz/blob/master/LICENSE">LICENSE</a> file for more details. 😉
-</p>
