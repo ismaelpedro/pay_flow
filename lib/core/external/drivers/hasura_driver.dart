@@ -6,12 +6,33 @@ class HasuraDriver implements IHasuraDriver {
   HasuraDriver(this._hasura);
 
   @override
-  Future<dynamic> mutation(String mutation) async {
-    return await _hasura.mutation(mutation);
+  Future<dynamic> mutation(
+    String mutation, {
+    Map<String, dynamic>? variables,
+    bool tryAgain = true,
+    String? key,
+    Map<String, String>? headers,
+  }) async {
+    return await _hasura.mutation(
+      mutation,
+      variables: variables,
+      tryAgain: tryAgain,
+      key: key,
+      headers: headers,
+    );
   }
 
   @override
-  Future<dynamic> query(String query) async {
-    return await _hasura.query(query);
+  Future<dynamic> query(
+    String query, {
+    key,
+    Map<String, dynamic>? variables,
+    Map<String, String>? headers,
+  }) async {
+    return await _hasura.query(
+      query,
+      variables: variables,
+      headers: headers,
+    );
   }
 }

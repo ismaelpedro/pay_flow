@@ -1,9 +1,5 @@
-import 'package:equatable/equatable.dart';
 
-class HasuraException extends Equatable implements Exception {
+class HasuraException implements Exception {
   final String message;
   const HasuraException({this.message = ''});
-
-  @override
-  List<Object> get props => [message];
 }

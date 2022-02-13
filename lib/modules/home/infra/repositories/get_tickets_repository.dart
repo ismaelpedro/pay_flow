@@ -9,7 +9,7 @@ class GetTicketsRepository implements IGetTicketsRepository {
   GetTicketsRepository(this._datasource);
 
   @override
-  Future<Either<Exception, List<TicketEntity>>> call() async {
-    return await _datasource();
+  Future<Either<Exception, List<TicketEntity>>> call(String id) async {
+    return await _datasource(id);
   }
 }

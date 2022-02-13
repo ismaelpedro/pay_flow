@@ -1,17 +1,14 @@
-import 'package:get/get.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
-import 'package:uuid/uuid.dart';
 import '../../domain/entities/ticket_entity.dart';
 
 extension TicketDto on TicketEntity {
   Map<String, dynamic> toJson() {
     return {
-      'id': const Uuid().v4(),
+      'id': id,
       'name': name,
       'date': date,
       'code': code,
       'value': value,
-      'fkUser': Get.find<AppController>().currentUser.id,
+      'fkUser': fkUser
     };
   }
 

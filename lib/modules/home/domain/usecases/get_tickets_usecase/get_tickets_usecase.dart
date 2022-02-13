@@ -9,7 +9,7 @@ class GetTicketsUsecase implements IGetTicketsUsecase {
   GetTicketsUsecase(this._repository);
 
   @override
-  Future<Either<Exception, List<TicketEntity>>> call() async {
-    return await _repository();
+  Future<Either<Exception, List<TicketEntity>>> call(String id) async {
+    return await _repository(id);
   }
 }
