@@ -27,10 +27,9 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Internationalization (PT-BR, EN-US, ES-ES);
 - Shimmer effects on loads;
 
-## How to run?
+<h2> How to run? 🚀</h2>
 
  ```
-
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
@@ -40,10 +39,9 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 - Put your "GoogleService-Info.plist" in "/ios/Runner/";
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
 - Run `flutter run` to run the app on your connected (or emulated) device;
-
  ```
 
-<h2 align="center">How to Contribute 💪</h2>
+<h2>How to Contribute 💪</h2>
 
    ```
    - Fork the project 
@@ -60,7 +58,7 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
 
 ---
 
-<h2 align="center">License 📝</h2>
+<h2>License 📝</h2>
 
 <p align="center">
    This repository is under MIT license. You can see the <a href="https://github.com/felipecastrosales/DevQuiz/blob/master/LICENSE">LICENSE</a> file for more details. 😉
