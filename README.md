@@ -16,7 +16,7 @@ I'm using:
 The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: 
 [Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu)
 
-## Features implemented
+<h2> Features implemented 🔥 </h2>
 
 - Login with Google;
 - Barcode reading;
