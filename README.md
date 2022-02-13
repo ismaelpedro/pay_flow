@@ -32,13 +32,13 @@ The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagol
  ```
 - Clone the repository;
 - Enter the project folder;
-- Run `flutter pub get` to install all project dependencies/packages;
+- Run flutter pub get to install all project dependencies/packages;
 - Find "hasura_settings_example.env" in "assets/", and rename to "hasura_settings.env" and fill your hasura data;
 - Put your "google-services.json" in "/android/app/";
 - Put your "keystore.jks" in "/android/app/";
 - Put your "GoogleService-Info.plist" in "/ios/Runner/";
 - Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
-- Run `flutter run` to run the app on your connected (or emulated) device;
+- Run flutter run to run the app on your connected (or emulated) device;
  ```
 
 <h2>How to Contribute 💪</h2>
