@@ -33,14 +33,13 @@ I'm using:
 
 <h2> How to run? 🚀</h2>
 
- ```
 - Clone the repository;
 - Enter the project folder;
-- Run flutter pub get to install all project dependencies/packages;
-- Find "hasura_settings_example.env" in "assets/", and rename to "hasura_settings.env" and fill your hasura data;
-- Launch a mobile device emulator or connect your smartphone to the computer (make sure your device has USB Debugging enabled);
-- Run flutter run to run the app on your connected (or emulated) device;
- ```
+- Run `flutter pub get` to install all project dependencies/packages;
+- Find `"hasura_settings_example.env"` in "assets/", and rename to `"hasura_settings.env"` and fill your hasura data;
+- Launch a mobile device emulator or connect your smartphone to the computer `(make sure your device has USB Debugging enabled)`;
+- Run `flutter run` to run the app on your connected (or emulated) device;
+
 
 <h2>How to Contribute 💪</h2>
 
