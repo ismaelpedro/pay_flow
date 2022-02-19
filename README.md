@@ -36,7 +36,8 @@ I'm using:
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
-- Find `"hasura_settings_example.env"` in "assets/", and rename to `"hasura_settings.env"` and fill your hasura data;
+- Find `"hasura_settings_example.env"` in "assets/", rename to `"hasura_settings.env"`;
+- Fill your hasura data in `"hasura_settings.env"`;
 - Launch a mobile device emulator or connect your smartphone to the computer `(make sure your device has USB Debugging enabled)`;
 - Run `flutter run` to run the app on your connected (or emulated) device;
 
