@@ -22,10 +22,7 @@ class BodyHomeWidget extends GetView<HomeController> {
       height: Get.height,
       child: Column(
         children: [
-          CustomAppBarWidget(
-            user: appController.currentUser,
-            ticketsCount: appController.tickets.length,
-          ),
+          CustomAppBarWidget(user: appController.currentUser),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -39,43 +36,38 @@ class BodyHomeWidget extends GetView<HomeController> {
                   ),
                   const SizedBox(height: 16),
                   const Divider(thickness: 2),
-                  Expanded(
-                    child: appController.tickets.isEmpty
-                        ? Center(child: Image.asset(AppImages.noTickets))
-                        : FutureBuilder(
-                            future: controller.getTickets(),
-                            builder: (context, snapshot) {
+                  Obx(() {
+                    return Expanded(
+                      child: appController.tickets.isEmpty
+                          ? Center(child: Image.asset(AppImages.noTickets))
+                          : FutureBuilder<List<TicketEntity>>(
+                              // future: controller.getTickets(),
+                              builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CupertinoActivityIndicator());
+                              } else if (snapshot.hasError) {
+                                return Center(
+                                  child: Text('${snapshot.error}'),
+                                );
+                              }
                               return Scrollbar(
                                 isAlwaysShown: true,
                                 child: ListView.builder(
                                   physics: const BouncingScrollPhysics(),
                                   itemCount: appController.tickets.length,
                                   itemBuilder: (_, index) {
-                                    if (snapshot.connectionState ==
-                                        ConnectionState.waiting) {
-                                      return const Center(
-                                          child: CupertinoActivityIndicator());
-                                    } else if (snapshot.hasError) {
-                                      return Center(
-                                          child:
-                                              Text(snapshot.error.toString()));
-                                    }
+                                    final ticket = Get.find<AppController>()
+                                        .tickets[index];
 
-                                    return TicketCardWidget(
-                                      ticket: TicketEntity(
-                                        name: index % 2 == 0
-                                            ? 'League of Legends'
-                                            : 'Conta de Luz',
-                                        date: DateTime.now().toString(),
-                                        value: index % 2 == 0 ? 2000 : 35200,
-                                        code: '',
-                                      ),
-                                    );
+                                    return TicketCardWidget(ticket: ticket);
                                   },
                                 ),
                               );
                             }),
-                  ),
+                    );
+                  })
                 ],
               ),
             ),

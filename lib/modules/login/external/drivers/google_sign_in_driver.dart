@@ -12,6 +12,7 @@ class GoogleSignInDriver implements IGoogleSignInDriver {
   @override
   Future<Either<LoginException, UserEntity?>> signIn() async {
     final googleAccount = await _googleSignIn.signIn();
+
     if (googleAccount != null) {
       final user = UserEntity(
         id: googleAccount.id,
@@ -21,6 +22,7 @@ class GoogleSignInDriver implements IGoogleSignInDriver {
       );
       return Right(user);
     }
+
     return const Left(LoginException());
   }
 

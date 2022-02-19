@@ -3,7 +3,7 @@ class TicketEntity {
   final String name;
   final String date;
   final String code;
-  final double value;
+  final String value;
   late String? fkUser;
 
   TicketEntity({

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pay_flow/core/domain/entities/ticket_entity.dart';
+import 'package:pay_flow/core/presenter/app_controller.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../core/presenter/config/app_colors.dart';
 import '../../../core/presenter/config/app_images.dart';
@@ -47,22 +50,22 @@ class TicketFormPage extends GetView<TicketFormController> {
                       TileFormWidget(
                         imagePrefix: AppImages.ticket,
                         hintText: AppTranslationStrings.ticket.tr,
-                        controller: controller.nameEC,
+                        textEditingcontroller: controller.nameEC,
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.close,
                         hintText: AppTranslationStrings.expiration.tr,
-                        controller: controller.expirationEC,
+                        textEditingcontroller: controller.expirationEC,
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.wallet,
                         hintText: AppTranslationStrings.value.tr,
-                        controller: controller.valueEC,
+                        textEditingcontroller: controller.valueEC,
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.barcode,
                         hintText: AppTranslationStrings.code.tr,
-                        controller: controller.codeEC,
+                        textEditingcontroller: controller.codeEC,
                       ),
                     ],
                   ),
@@ -81,6 +84,18 @@ class TicketFormPage extends GetView<TicketFormController> {
             BottomButtonWidget(
               label: AppTranslationStrings.register.tr,
               style: AppTextStyles.buttonPrimary,
+              onPressed: () async {
+                final ticket = TicketEntity(
+                  id: const Uuid().v4(),
+                  name: controller.nameEC.text,
+                  date: controller.expirationEC.text,
+                  code: controller.codeEC.text,
+                  value: controller.valueEC.text,
+                );
+
+                Get.find<AppController>().tickets.add(ticket);
+                Get.back();
+              },
             ),
           ],
         ),

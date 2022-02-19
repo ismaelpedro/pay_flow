@@ -17,7 +17,7 @@ class HomeController extends GetxController {
     final tickets =
         await _getTicketUsecase(Get.find<AppController>().currentUser.id);
     tickets.fold(
-      (l) => null,
+      (l) => l,
       (ticketsList) => Get.find<AppController>().tickets.value = ticketsList,
     );
   }
@@ -75,7 +75,6 @@ class HomeController extends GetxController {
 
   @override
   void onInit() async {
-    await Future.delayed(const Duration(seconds: 3));
     isLoading = false;
     super.onInit();
   }

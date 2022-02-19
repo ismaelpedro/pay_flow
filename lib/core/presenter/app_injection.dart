@@ -8,7 +8,6 @@ import 'app_controller.dart';
 class AppInjection implements Bindings {
   @override
   void dependencies() {
-    Get.put(AppController(), permanent: true);
     Get.put(
       HasuraConnect(
         dotenv.get('HASURA_URL'),
@@ -19,5 +18,6 @@ class AppInjection implements Bindings {
       ),
     );
     Get.put(HasuraDriver(Get.find<HasuraConnect>()));
+    Get.put(AppController(), permanent: true);
   }
 }

@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
-import 'package:pay_flow/modules/login/external/drivers/google_sign_in_driver.dart';
 
 import '../../../../../core/domain/entities/user_entity.dart';
+import '../../../infra/interfaces/drivers/i_google_sign_in_driver.dart';
 import '../../exceptions/login_exception.dart';
 import 'i_login_with_google_usecase.dart';
 
 class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
-  final GoogleSignInDriver _googleSignInDriver;
+  final IGoogleSignInDriver _googleSignInDriver;
   LoginWithGoogleUsecase(this._googleSignInDriver);
 
   @override

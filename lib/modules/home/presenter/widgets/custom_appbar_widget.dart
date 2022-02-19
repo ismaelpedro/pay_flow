@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/domain/entities/user_entity.dart';
+import '../../../../core/presenter/app_controller.dart';
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
@@ -11,12 +12,10 @@ import '../../../../core/presenter/config/app_translations.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final UserEntity user;
-  final int ticketsCount;
 
   const CustomAppBarWidget({
     Key? key,
     required this.user,
-    required this.ticketsCount,
   }) : super(key: key);
 
   @override
@@ -111,20 +110,22 @@ class CustomAppBarWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      RichText(
-                        overflow: TextOverflow.ellipsis,
-                        text: TextSpan(
-                          text: AppTranslationStrings.youHave.tr,
-                          style: AppTextStyles.captionShape,
-                          children: [
-                            TextSpan(
-                              text:
-                                  '$ticketsCount ${AppTranslationStrings.tickets.tr}',
-                              style: AppTextStyles.captionBoldBackground,
-                            ),
-                          ],
-                        ),
-                      ),
+                      Obx(() {
+                        return RichText(
+                          overflow: TextOverflow.ellipsis,
+                          text: TextSpan(
+                            text: AppTranslationStrings.youHave.tr,
+                            style: AppTextStyles.captionShape,
+                            children: [
+                              TextSpan(
+                                text:
+                                    '${Get.find<AppController>().tickets.length} ${AppTranslationStrings.tickets.tr}',
+                                style: AppTextStyles.captionBoldBackground,
+                              ),
+                            ],
+                          ),
+                        );
+                      }),
                       Text(
                         AppTranslationStrings.registrationsToPay.tr,
                         style: AppTextStyles.captionShape,
