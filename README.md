@@ -1,29 +1,33 @@
-# PayFlow
+<img src=".github/layout.png" alt="Layout App PayFlow">
+<br>
 
+<h2>Layout 🗺️</h2>
+
+The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: 
+[Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu)
+
+<h2>Tecnologies ✨</h2> 
+
+This project was developed with the following technologies:
+
+- [Flutter](https://flutter.dev/)
+- [Dart](https://dart.dev/)
+- [Hasura](https://hasura.io/)
+
+<h2>Project 💻</h2>
+
+It was developed to facilitate the handling and storage of boletos, a very common means of payment in Brazil. 
 PayFlow contains features such as using Camera, Sign In, Custom Animations and Stylizations. 
 I'm using: 
 - Clean Architecture; 
 - Unitary Tests;
-- Hasura
+- Hasura for BaaS;
 - GetX (for state management, dependency injection and internationalization);
-
-
-## Layout
-
-<img src=".github/layout.png" alt="Layout App PayFlow">
-<br>
-
-The layout was developed by [Tiago Luchtenberg](https://www.instagram.com/tiagoluchtenberg/), and you can access it on Figma: 
-[Layout](https://www.figma.com/file/kLK7FYnWKMoN68sQXcSniu)
 
 <h2> Features implemented 🔥 </h2>
 
 - Login with Google;
 - Barcode reading;
-- Register a new bank slip;
-- List bank slip;
-- Delete bank slip;
-- Navigation menu;
 - Internationalization (PT-BR, EN-US, ES-ES);
 - Shimmer effects on loads;
 
