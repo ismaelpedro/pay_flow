@@ -70,6 +70,8 @@ class HomeController extends GetxController {
 
     if (barcodeScanResult != '-1') {
       Get.toNamed(Routes.ticketForm, arguments: barcodeScanResult);
+      // 00190000090326892600745185860173589210000022428
+      // 00195892100000224280000003268926004518586017
     }
   }
 

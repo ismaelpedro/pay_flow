@@ -10,15 +10,17 @@ import '../../../../core/presenter/config/app_translations.dart';
 class TileFormWidget extends GetView<TicketFormController> {
   final String hintText;
   final String imagePrefix;
-  final String? initialValue;
-  final TextEditingController textEditingcontroller;
+  final TextEditingController textEditingController;
+  final String? Function(String?)? validator;
+  final bool readOnly;
 
   const TileFormWidget({
     Key? key,
     required this.imagePrefix,
     required this.hintText,
-    required this.textEditingcontroller,
-    this.initialValue,
+    required this.textEditingController,
+    this.validator,
+    this.readOnly = false,
   }) : super(key: key);
 
   @override
@@ -29,6 +31,10 @@ class TileFormWidget extends GetView<TicketFormController> {
         children: [
           Expanded(
             child: TextFormField(
+              readOnly: readOnly,
+              validator: validator,
+              controller: textEditingController,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
               keyboardType: [
                 AppTranslationStrings.value.tr,
                 AppTranslationStrings.expiration.tr
@@ -39,12 +45,8 @@ class TileFormWidget extends GetView<TicketFormController> {
                 AppTranslationStrings.value.tr,
                 AppTranslationStrings.expiration.tr,
               ].contains(hintText)
-                  ? [
-                      FilteringTextInputFormatter.digitsOnly,
-                    ]
+                  ? [FilteringTextInputFormatter.digitsOnly]
                   : null,
-              controller: textEditingcontroller,
-              initialValue: initialValue,
               maxLength:
                   [AppTranslationStrings.expiration.tr].contains(hintText)
                       ? 10

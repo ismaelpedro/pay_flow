@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import 'app_injection.dart';
@@ -23,6 +24,15 @@ class AppWidget extends StatelessWidget {
       ),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('en', 'US'),
+      supportedLocales: const [
+        Locale('pt', 'BR'),
+        Locale('en', 'US'),
+      ],
+      localizationsDelegates: const [
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+      ],
       debugShowCheckedModeBanner: false,
       translations: AppTranslations(),
       initialBinding: AppInjection(),

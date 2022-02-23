@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:pay_flow/core/domain/entities/ticket_entity.dart';
 import 'package:pay_flow/core/presenter/app_controller.dart';
 import 'package:uuid/uuid.dart';
@@ -45,27 +47,76 @@ class TicketFormPage extends GetView<TicketFormController> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Form(
+                  key: controller.formKey,
                   child: Column(
                     children: [
                       TileFormWidget(
                         imagePrefix: AppImages.ticket,
                         hintText: AppTranslationStrings.ticket.tr,
-                        textEditingcontroller: controller.nameEC,
+                        textEditingController: controller.nameEC,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Nome obrigatório';
+                          }
+                          return null;
+                        },
                       ),
-                      TileFormWidget(
-                        imagePrefix: AppImages.close,
-                        hintText: AppTranslationStrings.expiration.tr,
-                        textEditingcontroller: controller.expirationEC,
+                      InkWell(
+                        onTap: () {
+                          showCupertinoModalPopup(
+                            context: context,
+                            builder: (builder) {
+                              return SizedBox(
+                                height: 255,
+                                width: double.infinity,
+                                child: CupertinoDatePicker(
+                                  backgroundColor: Colors.white,
+                                  mode: CupertinoDatePickerMode.date,
+                                  onDateTimeChanged: (value) {
+                                    controller.expirationEC.text =
+                                        DateFormat('dd/MM/yyyy').format(value);
+                                  },
+                                ),
+                              );
+                            },
+                          );
+                        },
+                        child: AbsorbPointer(
+                          child: TileFormWidget(
+                            readOnly: true,
+                            imagePrefix: AppImages.close,
+                            hintText: AppTranslationStrings.expiration.tr,
+                            textEditingController: controller.expirationEC,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Vencimento obrigatório';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.wallet,
                         hintText: AppTranslationStrings.value.tr,
-                        textEditingcontroller: controller.valueEC,
+                        textEditingController: controller.valueEC,
+                        validator: (value) {
+                          if (value!.isEmpty || value == 'R\$ 0,00') {
+                            return 'Valor obrigatório';
+                          }
+                          return null;
+                        },
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.barcode,
                         hintText: AppTranslationStrings.code.tr,
-                        textEditingcontroller: controller.codeEC,
+                        textEditingController: controller.codeEC,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Código obrigatório';
+                          }
+                          return null;
+                        },
                       ),
                     ],
                   ),
@@ -85,16 +136,18 @@ class TicketFormPage extends GetView<TicketFormController> {
               label: AppTranslationStrings.register.tr,
               style: AppTextStyles.buttonPrimary,
               onPressed: () async {
-                final ticket = TicketEntity(
-                  id: const Uuid().v4(),
-                  name: controller.nameEC.text,
-                  date: controller.expirationEC.text,
-                  code: controller.codeEC.text,
-                  value: controller.valueEC.text,
-                );
+                if (controller.formKey.currentState!.validate()) {
+                  final ticket = TicketEntity(
+                    id: const Uuid().v4(),
+                    name: controller.nameEC.text,
+                    date: controller.expirationEC.text,
+                    code: controller.codeEC.text,
+                    value: controller.valueEC.text,
+                  );
 
-                Get.find<AppController>().tickets.add(ticket);
-                Get.back();
+                  Get.find<AppController>().tickets.add(ticket);
+                  Get.back();
+                }
               },
             ),
           ],
