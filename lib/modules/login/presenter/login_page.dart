@@ -48,21 +48,22 @@ class LoginPage extends GetView<LoginController> {
                 width: 295,
                 height: 56,
                 child: ElevatedButton.icon(
-                    icon: Image.asset(AppImages.google),
-                    label: Padding(
-                      padding: const EdgeInsets.only(left: 45, right: 45),
-                      child: Text(
-                        AppTranslationStrings.loginButtonText.tr,
-                        style: AppTextStyles.buttonGray,
-                        textAlign: TextAlign.center,
-                      ),
+                  icon: Image.asset(AppImages.google),
+                  label: Padding(
+                    padding: const EdgeInsets.only(left: 45, right: 45),
+                    child: Text(
+                      AppTranslationStrings.loginButtonText.tr,
+                      style: AppTextStyles.buttonGray,
+                      textAlign: TextAlign.center,
                     ),
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColors.secondary,
-                    ),
-                    onPressed: () async {
-                      await controller.login();
-                    }),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.secondary,
+                  ),
+                  onPressed: () async {
+                    await controller.login();
+                  },
+                ),
               ),
               const SizedBox(height: 80),
             ],

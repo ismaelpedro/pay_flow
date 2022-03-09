@@ -28,26 +28,29 @@ class LoginController extends GetxController {
     loginUsecase.fold(
       (exception) => exception,
       (userGoogleLogin) async {
-        final responseGetUser = await _getUserUsecase(userGoogleLogin.id);
+        if (userGoogleLogin != null) {
+          final responseGetUser = await _getUserUsecase(userGoogleLogin.id);
 
-        responseGetUser.fold(
-          (l) => l,
-          (userPicked) async {
-            if (userPicked == null) {
-              final responseSaveUser = await _saveUserUsecase(userGoogleLogin);
+          responseGetUser.fold(
+            (l) => l,
+            (userPicked) async {
+              if (userPicked == null) {
+                final responseSaveUser =
+                    await _saveUserUsecase(userGoogleLogin);
 
-              responseSaveUser.fold(
-                (exception) => exception,
-                (userRight) {
-                  appController.currentUser = userRight;
-                },
-              );
-            } else {
-              appController.currentUser = userPicked;
-            }
-            Get.toNamed(Routes.home);
-          },
-        );
+                responseSaveUser.fold(
+                  (exception) => exception,
+                  (userRight) {
+                    appController.currentUser = userRight;
+                  },
+                );
+              } else {
+                appController.currentUser = userPicked;
+              }
+              Get.offAllNamed(Routes.home);
+            },
+          );
+        }
       },
     );
   }

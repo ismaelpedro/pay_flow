@@ -10,7 +10,7 @@ class LoginWithGoogleUsecase implements ILoginWithGoogleUsecase {
   LoginWithGoogleUsecase(this._googleSignInDriver);
 
   @override
-  Future<Either<LoginException, UserEntity>> call() async {
+  Future<Either<LoginException, UserEntity?>> call() async {
     await _googleSignInDriver.signOut();
     final userGoogleSignIn = await _googleSignInDriver.signIn();
 
