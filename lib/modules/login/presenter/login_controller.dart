@@ -45,9 +45,9 @@ class LoginController extends GetxController {
             } else {
               appController.currentUser = userPicked;
             }
+            Get.toNamed(Routes.home);
           },
         );
-        Get.toNamed(Routes.home);
       },
     );
   }
