@@ -21,7 +21,6 @@ dependencies:
   firebase_core: ^1.13.1
   firebase_crashlytics: ^2.5.3
   hasura_connect: ^4.0.0+2
-  equatable: ^2.0.3
   dartz: ^0.10.1
   shimmer: ^2.0.0
   intl: ^0.17.0

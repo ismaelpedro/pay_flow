@@ -1,6 +1,5 @@
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:pay_flow/core/presenter/app_controller.dart';
 
 import '../../../core/presenter/config/app_routes.dart';
@@ -11,53 +10,24 @@ import '../domain/usecases/get_tickets_usecase/i_get_tickets_usecase.dart';
 class HomeController extends GetxController {
   final IGetTicketsUsecase _getTicketUsecase;
   final IDeleteTicketUsecase _deleteTicketUsecase;
-  HomeController(this._getTicketUsecase, this._deleteTicketUsecase);
+
+  HomeController(
+    this._getTicketUsecase,
+    this._deleteTicketUsecase,
+  );
+
+  final isLoading = false.obs;
+  final currentIndex = 0.obs;
 
   getTickets() async {
-    final tickets =
-        await _getTicketUsecase(Get.find<AppController>().currentUser.id);
+    final tickets = await _getTicketUsecase(
+      Get.find<AppController>().currentUser.id,
+    );
+
     tickets.fold(
       (l) => l,
       (ticketsList) => Get.find<AppController>().tickets.value = ticketsList,
     );
-  }
-
-  final _isLoading = true.obs;
-  bool get isLoading => _isLoading.value;
-  set isLoading(bool newValue) => _isLoading.value = newValue;
-
-  DateFormat getDateFormat() {
-    final languageCode = Get.locale!.languageCode;
-
-    final _dateFormatBrazil = DateFormat('dd/MM/yyyy');
-    final _dateFormatSpain = DateFormat('dd-MM-yyyy');
-    final _dateFormatEua = DateFormat('yyyy-MM-dd');
-
-    if (languageCode == AppTranslationStrings.ptBr) {
-      return _dateFormatBrazil;
-    } else if (languageCode == AppTranslationStrings.esES) {
-      return _dateFormatSpain;
-    } else {
-      return _dateFormatEua;
-    }
-  }
-
-  NumberFormat getCurrencyFormat() {
-    final languageCode = Get.locale!.languageCode;
-
-    final _currencyDolar = NumberFormat.simpleCurrency();
-    final _currencyBrazil = NumberFormat.simpleCurrency(
-        locale: AppTranslationStrings.portugueseLanguage);
-    final _currencySpain = NumberFormat.simpleCurrency(
-        locale: AppTranslationStrings.spanishLanguage);
-
-    if (languageCode == AppTranslationStrings.ptBr) {
-      return _currencyBrazil;
-    } else if (languageCode == AppTranslationStrings.enUS) {
-      return _currencyDolar;
-    } else {
-      return _currencySpain;
-    }
   }
 
   Future<void> scanBarCode() async {
@@ -70,14 +40,6 @@ class HomeController extends GetxController {
 
     if (barcodeScanResult != '-1') {
       Get.toNamed(Routes.ticketForm, arguments: barcodeScanResult);
-      // 00190000090326892600745185860173589210000022428
-      // 00195892100000224280000003268926004518586017
     }
-  }
-
-  @override
-  void onInit() async {
-    isLoading = false;
-    super.onInit();
   }
 }

@@ -3,14 +3,14 @@ import 'package:pay_flow/modules/login/presenter/login_binding.dart';
 import 'package:pay_flow/modules/login/presenter/login_page.dart';
 
 import '../../../modules/home/presenter/home_binding.dart';
-import '../../../modules/home/presenter/home_page.dart';
+import '../../../modules/home/presenter/pages/home_page.dart';
 import '../../../modules/ticket_form/presenter/ticket_form_binding.dart';
 import '../../../modules/ticket_form/presenter/ticket_form_page.dart';
 
 class Routes {
   static const login = '/login';
   static const home = '/home';
-  static const ticketForm = '/ticketForm';
+  static const ticketForm = '/ticket-form';
 }
 
 class AppRoutes {
@@ -22,7 +22,7 @@ class AppRoutes {
     ),
     GetPage(
       name: Routes.home,
-      page: () => const HomePage(),
+      page: () => HomePage(),
       binding: HomeBinding(),
     ),
     GetPage(
