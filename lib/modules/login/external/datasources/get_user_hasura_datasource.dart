@@ -1,7 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:pay_flow/core/domain/entities/user_entity.dart';
 import 'package:pay_flow/core/infra/interfaces/drivers/i_hasura_driver.dart';
-import 'package:pay_flow/modules/login/domain/exceptions/login_exception.dart';
 import 'package:pay_flow/modules/login/infra/interfaces/datasources/i_get_user_datasource.dart';
 
 import '../../../../core/infra/dtos/user_dto.dart';
@@ -11,7 +9,7 @@ class GetUserHasuraDatasource implements IGetUserDatasource {
   GetUserHasuraDatasource(this._hasuraDriver);
 
   @override
-  Future<Either<LoginException, UserEntity?>> call(String id) async {
+  Future<UserEntity?> call(String id) async {
     final response = await _hasuraDriver.query(
       '''
         query {
@@ -25,8 +23,8 @@ class GetUserHasuraDatasource implements IGetUserDatasource {
         ''',
     );
     if (response['data']['users_by_pk'] != null) {
-      return Right(UserDto.fromJson(response['data']['users_by_pk']));
+      return UserDto.fromJson(response['data']['users_by_pk']);
     }
-    return const Right(null);
+    return null;
   }
 }

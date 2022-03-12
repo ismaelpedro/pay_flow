@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:pay_flow/modules/login/domain/exceptions/login_exception.dart';
 import 'package:pay_flow/modules/login/domain/interfaces/repositories/i_get_user_repository.dart';
 
 import '../../../../../core/domain/entities/user_entity.dart';
@@ -9,7 +9,11 @@ class GetUserUsecase implements IGetUserUsecase {
   GetUserUsecase(this._repository);
 
   @override
-  Future<Either<Exception, UserEntity?>> call(String id) async {
-    return await _repository(id);
+  Future<UserEntity?> call(String id) async {
+    try {
+      return await _repository(id);
+    } catch (e) {
+      throw const LoginException();
+    }
   }
 }
