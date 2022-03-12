@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:pay_flow/modules/login/external/drivers/google_sign_in_driver.dart';
+import 'package:pay_flow/modules/login/infra/service/google_sign_in_service.dart';
 import 'package:pay_flow/modules/login/domain/exceptions/login_exception.dart';
 import 'package:pay_flow/modules/login/domain/usecases/login_with_google_usecase/login_with_google_usecase.dart';
 
-class GoogleSignInMock extends Mock implements GoogleSignInDriver {}
+class GoogleSignInMock extends Mock implements GoogleSignInService {}
 
 main() {
   late GoogleSignInMock _googleSignIn;
