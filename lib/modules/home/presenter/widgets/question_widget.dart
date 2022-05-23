@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../../../core/presenter/config/app_routes.dart';
 import '../../../../core/presenter/config/app_translations.dart';
-import '../home_controller.dart';
 
 class QuestionWidget extends StatelessWidget {
   const QuestionWidget({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class QuestionWidget extends StatelessWidget {
           child: Text(AppTranslationStrings.scan.tr),
           onPressed: () async {
             Get.back();
-            await Get.find<HomeController>().scanBarCode();
+            // await Get.find<HomeController>().scanBarCode();
           },
         ),
         CupertinoDialogAction(

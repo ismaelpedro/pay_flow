@@ -7,8 +7,6 @@ import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
 import '../../../../core/presenter/config/app_translations.dart';
 
-
-
 class SkeletonHomeWidget extends StatelessWidget {
   const SkeletonHomeWidget({Key? key}) : super(key: key);
 
@@ -166,7 +164,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                   const Divider(thickness: 2),
                   Expanded(
                     child: Scrollbar(
-                      isAlwaysShown: true,
+                      thumbVisibility: true,
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         itemCount: 6,

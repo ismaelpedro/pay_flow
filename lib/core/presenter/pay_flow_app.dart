@@ -7,8 +7,8 @@ import 'app_injection.dart';
 import 'config/app_routes.dart';
 import 'config/app_translations.dart';
 
-class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+class PayFlowApp extends StatelessWidget {
+  const PayFlowApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,9 @@ class AppWidget extends StatelessWidget {
 
     return GetMaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.orange,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
+        // primarySwatch: Colors.orange,
         scaffoldBackgroundColor: Colors.white,
       ),
       locale: Get.deviceLocale,

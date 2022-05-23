@@ -53,7 +53,7 @@ class BodyHomeWidget extends GetView<HomeController> {
                                 );
                               }
                               return Scrollbar(
-                                isAlwaysShown: true,
+                                thumbVisibility: true,
                                 child: ListView.builder(
                                   physics: const BouncingScrollPhysics(),
                                   itemCount: appController.tickets.length,

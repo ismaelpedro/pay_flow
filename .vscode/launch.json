@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Pay Flow",
+      "request": "launch",
+      "type": "dart",
+      "args": [
+        "--dart-define=HASURA_URL=https://pay-flow.hasura.app/v1/graphql",
+        "--dart-define=ADMIN_SECRET=2PlX5qF4sO9Kjg70dqbkLvw6ASKs6nnBm1jQOZogbzjzlr0QCE6NAuk0Fi1tSUht",
+      ]
+    },
+  ]
+}

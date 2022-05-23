@@ -17,4 +17,20 @@ class UserEntity {
   String toString() {
     return 'UserEntity(id: $id, name: $name, imageUrl: $imageUrl, email: $email)';
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is UserEntity &&
+        other.id == id &&
+        other.name == name &&
+        other.imageUrl == imageUrl &&
+        other.email == email;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^ name.hashCode ^ imageUrl.hashCode ^ email.hashCode;
+  }
 }
