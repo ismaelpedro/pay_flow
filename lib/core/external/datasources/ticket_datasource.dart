@@ -8,12 +8,12 @@ class TicketDatasource implements ITicketDatasource {
   }
 
   @override
-  Future<TicketEntity> removeTicket() async {
+  Future<void> deleteTicket() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<TicketEntity> saveTicket() async {
+  Future<void> saveTicket() async {
     throw UnimplementedError();
   }
 }

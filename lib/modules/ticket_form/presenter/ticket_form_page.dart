@@ -1,21 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import 'package:pay_flow/core/domain/entities/ticket_entity.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
-import 'package:uuid/uuid.dart';
 
 import '../../../core/presenter/config/app_colors.dart';
 import '../../../core/presenter/config/app_images.dart';
 import '../../../core/presenter/config/app_text_styles.dart';
-import '../../../core/presenter/config/app_translations.dart';
-import 'ticket_form_controller.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
-class TicketFormPage extends GetView<TicketFormController> {
+class TicketFormPage extends StatefulWidget {
   const TicketFormPage({Key? key}) : super(key: key);
+
+  @override
+  State<TicketFormPage> createState() => _TicketFormPageState();
+}
+
+class _TicketFormPageState extends State<TicketFormPage> {
+  final nameEC = TextEditingController();
+  final valueEC = TextEditingController();
+  final expirationEC = TextEditingController();
+  final codeEC = TextEditingController();
+
+  @override
+  void dispose() {
+    nameEC.dispose();
+    expirationEC.dispose();
+    valueEC.dispose();
+    codeEC.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +38,7 @@ class TicketFormPage extends GetView<TicketFormController> {
           backgroundColor: AppColors.background,
           elevation: 0,
           leading: IconButton(
-            onPressed: () => Get.back(),
+            onPressed: () => Navigator.pop(context),
             icon: const Icon(
               Icons.arrow_back_ios,
               color: AppColors.grey,
@@ -36,9 +48,9 @@ class TicketFormPage extends GetView<TicketFormController> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Center(
+              const Center(
                 child: Text(
-                  AppTranslationStrings.fillTickets.tr,
+                  'AppTranslationStrings.fillTickets.tr',
                   style: AppTextStyles.titleBoldHeading,
                   textAlign: TextAlign.center,
                 ),
@@ -47,13 +59,12 @@ class TicketFormPage extends GetView<TicketFormController> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Form(
-                  key: controller.formKey,
                   child: Column(
                     children: [
                       TileFormWidget(
                         imagePrefix: AppImages.ticket,
-                        hintText: AppTranslationStrings.ticket.tr,
-                        textEditingController: controller.nameEC,
+                        hintText: 'AppTranslationStrings.ticket.tr',
+                        textEditingController: nameEC,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Nome obrigatório';
@@ -73,8 +84,8 @@ class TicketFormPage extends GetView<TicketFormController> {
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (value) {
-                                    controller.expirationEC.text =
-                                        DateFormat('dd/MM/yyyy').format(value);
+                                    // controller.expirationEC.text =
+                                    //     DateFormat('dd/MM/yyyy').format(value);
                                   },
                                 ),
                               );
@@ -85,8 +96,8 @@ class TicketFormPage extends GetView<TicketFormController> {
                           child: TileFormWidget(
                             readOnly: true,
                             imagePrefix: AppImages.close,
-                            hintText: AppTranslationStrings.expiration.tr,
-                            textEditingController: controller.expirationEC,
+                            hintText: 'AppTranslationStrings.expiration.tr',
+                            textEditingController: expirationEC,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Vencimento obrigatório';
@@ -98,8 +109,8 @@ class TicketFormPage extends GetView<TicketFormController> {
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.wallet,
-                        hintText: AppTranslationStrings.value.tr,
-                        textEditingController: controller.valueEC,
+                        hintText: 'AppTranslationStrings.value.tr',
+                        textEditingController: valueEC,
                         validator: (value) {
                           if (value!.isEmpty || value == 'R\$ 0,00') {
                             return 'Valor obrigatório';
@@ -109,8 +120,8 @@ class TicketFormPage extends GetView<TicketFormController> {
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.barcode,
-                        hintText: AppTranslationStrings.code.tr,
-                        textEditingController: controller.codeEC,
+                        hintText: 'AppTranslationStrings.code.tr',
+                        textEditingController: codeEC,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Código obrigatório';
@@ -128,26 +139,26 @@ class TicketFormPage extends GetView<TicketFormController> {
         bottomNavigationBar: Row(
           children: [
             BottomButtonWidget(
-              label: AppTranslationStrings.cancel.tr,
+              label: 'AppTranslationStrings.cancel.tr',
               style: AppTextStyles.buttonGray,
-              onPressed: () => Get.back(),
+              onPressed: () => Navigator.pop(context),
             ),
             BottomButtonWidget(
-              label: AppTranslationStrings.register.tr,
+              label: 'AppTranslationStrings.register.tr',
               style: AppTextStyles.buttonPrimary,
               onPressed: () async {
-                if (controller.formKey.currentState!.validate()) {
-                  final ticket = TicketEntity(
-                    id: const Uuid().v4(),
-                    name: controller.nameEC.text,
-                    date: controller.expirationEC.text,
-                    code: controller.codeEC.text,
-                    value: controller.valueEC.text,
-                  );
+                // if (controller.formKey.currentState!.validate()) {
+                //   final ticket = TicketEntity(
+                //     id: const Uuid().v4(),
+                //     name: nameEC.text,
+                //     date: expirationEC.text,
+                //     code: codeEC.text,
+                //     value: valueEC.text,
+                //   );
 
-                  Get.find<AppController>().tickets.add(ticket);
-                  Get.back();
-                }
+                //   Get.find<AppController>().tickets.add(ticket);
+                //   Get.back();
+                // }
               },
             ),
           ],

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../config/app_images.dart';
-import '../config/app_translations.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   const TranslationDropdownWidget({Key? key}) : super(key: key);
@@ -27,10 +25,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   const SizedBox(width: 10),
-                  Text(AppTranslationStrings.ptBr.tr),
+                  const Text('AppTranslationStrings.ptBr.tr'),
                 ],
               ),
-              onTap: () => Get.updateLocale(const Locale('pt', 'BR')),
+              onTap: () {},
             ),
             PopupMenuItem(
               value: 2,
@@ -42,10 +40,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   const SizedBox(width: 10),
-                  Text(AppTranslationStrings.enUS.tr),
+                  const Text('AppTranslationStrings.enUS.tr'),
                 ],
               ),
-              onTap: () => Get.updateLocale(const Locale('en', 'US')),
+              onTap: () {},
             ),
             PopupMenuItem(
               value: 3,
@@ -57,10 +55,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   const SizedBox(width: 10),
-                  Text(AppTranslationStrings.esES.tr),
+                  const Text('AppTranslationStrings.esES.tr'),
                 ],
               ),
-              onTap: () => Get.updateLocale(const Locale('es', 'ES')),
+              onTap: () {},
             ),
           ];
         },

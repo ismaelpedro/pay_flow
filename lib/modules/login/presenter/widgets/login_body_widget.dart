@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pay_flow/modules/login/presenter/login_controller.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../../../../core/presenter/config/app_translations.dart';
 import '../../../../core/presenter/widgets/translation_dropdown_widget.dart';
 
-class LoginBodyWidget extends GetView<LoginController> {
+class LoginBodyWidget extends StatelessWidget {
   const LoginBodyWidget({Key? key}) : super(key: key);
 
   @override
@@ -34,10 +31,10 @@ class LoginBodyWidget extends GetView<LoginController> {
             const Spacer(),
             Image.asset(AppImages.logomini),
             const SizedBox(height: 24),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 70),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 70),
               child: Text(
-                AppTranslationStrings.loginTitleCenter.tr,
+                'AppTranslationStrings.loginTitleCenter.tr',
                 style: AppTextStyles.titleHome,
                 textAlign: TextAlign.center,
               ),
@@ -48,10 +45,10 @@ class LoginBodyWidget extends GetView<LoginController> {
               height: 56,
               child: ElevatedButton.icon(
                 icon: Image.asset(AppImages.google),
-                label: Padding(
-                  padding: const EdgeInsets.only(left: 45, right: 45),
+                label: const Padding(
+                  padding: EdgeInsets.only(left: 45, right: 45),
                   child: Text(
-                    AppTranslationStrings.loginButtonText.tr,
+                    'AppTranslationStrings.loginButtonText.tr',
                     style: AppTextStyles.buttonGray,
                     textAlign: TextAlign.center,
                   ),
@@ -59,9 +56,7 @@ class LoginBodyWidget extends GetView<LoginController> {
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.secondary,
                 ),
-                onPressed: () async {
-                  await controller.login();
-                },
+                onPressed: () async {},
               ),
             ),
             const SizedBox(height: 80),

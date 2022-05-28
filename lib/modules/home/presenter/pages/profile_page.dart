@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:pay_flow/core/presenter/app_controller.dart';
 import 'package:pay_flow/core/presenter/config/app_images.dart';
-import 'package:pay_flow/core/presenter/config/app_routes.dart';
 import 'package:pay_flow/core/presenter/widgets/translation_dropdown_widget.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../home_controller.dart';
 
-class ProfilePage extends GetView<HomeController> {
+class ProfilePage extends StatelessWidget {
   ProfilePage({Key? key}) : super(key: key);
 
-  final appController = Get.find<AppController>();
+  final appController = AppController();
 
   @override
   Widget build(BuildContext context) {
@@ -84,14 +81,6 @@ class ProfilePage extends GetView<HomeController> {
                     onTap: () async {
                       await Clipboard.setData(const ClipboardData(
                           text: 'bc1qlm4knqc2t0xdqumfcsezqmcswvf282rlx5cq7r'));
-
-                      Get.snackbar(
-                        'Info.',
-                        'Código Bitcoin copiado!',
-                        snackPosition: SnackPosition.BOTTOM,
-                        colorText: Colors.white,
-                        backgroundColor: Colors.blue,
-                      );
                     },
                     child: Image.asset(
                       AppImages.donateBtc,
@@ -103,14 +92,6 @@ class ProfilePage extends GetView<HomeController> {
                     onTap: () async {
                       await Clipboard.setData(const ClipboardData(
                           text: '4483c72c-1b90-4b4f-b4b1-aac30aa078ed'));
-
-                      Get.snackbar(
-                        'Info.',
-                        'Chave pix copiada!',
-                        snackPosition: SnackPosition.BOTTOM,
-                        colorText: Colors.white,
-                        backgroundColor: Colors.blue,
-                      );
                     },
                     child: Image.asset(
                       AppImages.pix,
@@ -123,6 +104,8 @@ class ProfilePage extends GetView<HomeController> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: Colors.red),
+                  onPressed: () {},
                   child: Text(
                     'Sair',
                     style: AppTextStyles.titleBoldHeading.copyWith(
@@ -130,8 +113,6 @@ class ProfilePage extends GetView<HomeController> {
                       fontSize: 20,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(primary: Colors.red),
-                  onPressed: () => Get.offAllNamed(Routes.login),
                 ),
               ),
               const SizedBox(height: 60),

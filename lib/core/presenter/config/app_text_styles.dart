@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
+  AppTextStyles._();
+
   static const titleHome = TextStyle(
     fontFamily: 'LexendDeca',
     fontSize: 32,

@@ -1,14 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/domain/entities/user_entity.dart';
-import '../../../../core/presenter/app_controller.dart';
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../../../../core/presenter/config/app_translations.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final UserEntity user;
@@ -40,7 +37,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         RichText(
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
-                            text: AppTranslationStrings.hello.tr,
+                            text: 'AppTranslationStrings.hello.tr',
                             style: AppTextStyles.titleRegular,
                             children: [
                               TextSpan(
@@ -50,8 +47,8 @@ class CustomAppBarWidget extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Text(
-                          AppTranslationStrings.accountUpTodate.tr,
+                        const Text(
+                          'AppTranslationStrings.accountUpTodate.tr',
                           style: AppTextStyles.captionShape,
                         ),
                       ],
@@ -110,24 +107,21 @@ class CustomAppBarWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Obx(() {
-                        return RichText(
-                          overflow: TextOverflow.ellipsis,
-                          text: TextSpan(
-                            text: AppTranslationStrings.youHave.tr,
-                            style: AppTextStyles.captionShape,
-                            children: [
-                              TextSpan(
-                                text:
-                                    '${Get.find<AppController>().tickets.length} ${AppTranslationStrings.tickets.tr}',
-                                style: AppTextStyles.captionBoldBackground,
-                              ),
-                            ],
-                          ),
-                        );
-                      }),
-                      Text(
-                        AppTranslationStrings.registrationsToPay.tr,
+                      RichText(
+                        overflow: TextOverflow.ellipsis,
+                        text: const TextSpan(
+                          text: ' AppTranslationStrings.youHave.tr',
+                          style: AppTextStyles.captionShape,
+                          children: [
+                            TextSpan(
+                              text: '1',
+                              style: AppTextStyles.captionBoldBackground,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Text(
+                        'AppTranslationStrings.registrationsToPay.tr',
                         style: AppTextStyles.captionShape,
                       ),
                     ],

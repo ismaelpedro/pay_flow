@@ -7,17 +7,17 @@ class TicketRepository implements ITicketRepository {
   TicketRepository(this._datasource);
 
   @override
-  Future<TicketEntity> deleteTicket() {
+  Future<void> deleteTicket() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<TicketEntity> getTicket() {
+  Future<TicketEntity> getTicket() async {
     throw UnimplementedError();
   }
 
   @override
-  Future<TicketEntity> saveTicket() {
-    throw UnimplementedError();
+  Future<void> saveTicket() async {
+    return await _datasource.saveTicket();
   }
 }

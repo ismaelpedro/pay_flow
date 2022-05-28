@@ -8,8 +8,8 @@ class UserRepository implements IUserRepository {
   UserRepository(this._datasource);
 
   @override
-  Future<UserEntity> deleteUser() async {
-    throw UnimplementedError();
+  Future<void> saveUser() async {
+    return await _datasource.saveUser();
   }
 
   @override

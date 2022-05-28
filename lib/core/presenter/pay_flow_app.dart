@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get/get.dart';
 
-import 'app_injection.dart';
 import 'config/app_routes.dart';
-import 'config/app_translations.dart';
 
 class PayFlowApp extends StatelessWidget {
   const PayFlowApp({Key? key}) : super(key: key);
@@ -17,15 +14,13 @@ class PayFlowApp extends StatelessWidget {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
 
-    return GetMaterialApp(
+    return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
         // primarySwatch: Colors.orange,
         scaffoldBackgroundColor: Colors.white,
       ),
-      locale: Get.deviceLocale,
-      fallbackLocale: const Locale('en', 'US'),
       supportedLocales: const [
         Locale('pt', 'BR'),
         Locale('en', 'US'),
@@ -36,10 +31,7 @@ class PayFlowApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       debugShowCheckedModeBanner: false,
-      translations: AppTranslations(),
-      initialBinding: AppInjection(),
       initialRoute: Routes.login,
-      getPages: AppRoutes.pages,
     );
   }
 }

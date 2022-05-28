@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/domain/entities/ticket_entity.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../../../../core/presenter/config/app_translations.dart';
-import '../home_controller.dart';
 
-class TicketCardWidget extends GetView<HomeController> {
+class TicketCardWidget extends StatelessWidget {
   final TicketEntity ticket;
 
   const TicketCardWidget({
@@ -21,10 +18,7 @@ class TicketCardWidget extends GetView<HomeController> {
         ticket.name,
         style: AppTextStyles.titleListTile,
       ),
-      subtitle: Text(
-        // '${AppTranslationStrings.willExpire.tr} ${controller.getDateFormat().format(DateTime.parse(ticket.date))}',
-        '${AppTranslationStrings.willExpire.tr} ${ticket.date}',
-      ),
+      subtitle: const Text(''),
       trailing: Text(
         // controller.getCurrencyFormat().format(ticket.value),
         ticket.value,

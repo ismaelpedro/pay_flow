@@ -1,4 +1,6 @@
 class AppImages {
+  AppImages._();
+
   static const logoFull = 'assets/images/logofull.png';
   static const logomini = 'assets/images/logomini.png';
   static const union = 'assets/images/union.png';

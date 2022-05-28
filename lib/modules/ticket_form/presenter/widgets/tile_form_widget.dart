@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:pay_flow/modules/ticket_form/presenter/ticket_form_controller.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../../../../core/presenter/config/app_translations.dart';
 
-class TileFormWidget extends GetView<TicketFormController> {
+class TileFormWidget extends StatelessWidget {
   final String hintText;
   final String imagePrefix;
   final TextEditingController textEditingController;
@@ -36,21 +33,18 @@ class TileFormWidget extends GetView<TicketFormController> {
               controller: textEditingController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               keyboardType: [
-                AppTranslationStrings.value.tr,
-                AppTranslationStrings.expiration.tr
+                'AppTranslationStrings.value.tr',
+                'AppTranslationStrings.expiration.tr'
               ].contains(hintText)
                   ? TextInputType.number
                   : null,
               inputFormatters: [
-                AppTranslationStrings.value.tr,
-                AppTranslationStrings.expiration.tr,
+                'AppTranslationStrings.value.tr',
+                'AppTranslationStrings.expiration.tr',
               ].contains(hintText)
                   ? [FilteringTextInputFormatter.digitsOnly]
                   : null,
-              maxLength:
-                  [AppTranslationStrings.expiration.tr].contains(hintText)
-                      ? 10
-                      : null,
+              maxLength: ['Vencimento'].contains(hintText) ? 10 : null,
               decoration: InputDecoration(
                 counterText: '',
                 hintText: hintText,

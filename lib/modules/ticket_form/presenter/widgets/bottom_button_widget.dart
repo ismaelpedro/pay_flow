@@ -18,11 +18,11 @@ class BottomButtonWidget extends StatelessWidget {
       child: SizedBox(
         height: 80,
         child: OutlinedButton(
+          onPressed: onPressed ?? () {},
           child: Text(
             label,
             style: style,
           ),
-          onPressed: onPressed ?? () {},
         ),
       ),
     );

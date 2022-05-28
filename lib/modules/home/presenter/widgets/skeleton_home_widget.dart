@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_images.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
-import '../../../../core/presenter/config/app_translations.dart';
 
 class SkeletonHomeWidget extends StatelessWidget {
   const SkeletonHomeWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context).size;
+
     return SizedBox(
-      width: Get.width,
-      height: Get.height,
+      width: mediaQuery.width,
+      height: mediaQuery.height,
       child: Column(
         children: [
           Stack(
@@ -155,8 +155,8 @@ class SkeletonHomeWidget extends StatelessWidget {
                   Shimmer.fromColors(
                     baseColor: Colors.grey[350]!,
                     highlightColor: Colors.grey[100]!,
-                    child: Text(
-                      AppTranslationStrings.myTickets.tr,
+                    child: const Text(
+                      'AppTranslationStrings.myTickets.tr',
                       style: AppTextStyles.titleBoldHeading,
                     ),
                   ),
