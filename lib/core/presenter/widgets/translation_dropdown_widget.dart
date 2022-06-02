@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get_it/get_it.dart';
+import 'package:pay_flow/core/presenter/app_controller.dart';
 import '../config/app_images.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
@@ -7,6 +9,8 @@ class TranslationDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final getIt = GetIt.I;
+
     return SafeArea(
       child: PopupMenuButton(
         tooltip: '',
@@ -25,10 +29,12 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   const SizedBox(width: 10),
-                  const Text('AppTranslationStrings.ptBr.tr'),
+                  Text(AppLocalizations.of(context)!.ptBr),
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                getIt.get<AppController>().setLocale(const Locale('pt', 'BR'));
+              },
             ),
             PopupMenuItem(
               value: 2,
@@ -40,10 +46,12 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   const SizedBox(width: 10),
-                  const Text('AppTranslationStrings.enUS.tr'),
+                  Text(AppLocalizations.of(context)!.enUS),
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                getIt.get<AppController>().setLocale(const Locale('en', 'US'));
+              },
             ),
             PopupMenuItem(
               value: 3,
@@ -54,11 +62,15 @@ class TranslationDropdownWidget extends StatelessWidget {
                     height: 35,
                     width: 35,
                   ),
+
+                  
                   const SizedBox(width: 10),
-                  const Text('AppTranslationStrings.esES.tr'),
+                  Text(AppLocalizations.of(context)!.esES),
                 ],
               ),
-              onTap: () {},
+              onTap: () {
+                getIt.get<AppController>().setLocale(const Locale('en', 'EN'));
+              },
             ),
           ];
         },

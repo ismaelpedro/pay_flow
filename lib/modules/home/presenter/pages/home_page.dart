@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
 
   final tabs = [
     const MyTicketsPage(),
-    ProfilePage(),
+    const ProfilePage(),
   ];
 
   @override

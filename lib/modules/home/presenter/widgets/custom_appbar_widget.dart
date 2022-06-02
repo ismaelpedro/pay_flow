@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -55,25 +54,28 @@ class CustomAppBarWidget extends StatelessWidget {
                     ),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: CachedNetworkImage(
-                        height: 60,
-                        imageUrl: user.imageUrl!,
-                        placeholder: (_, error) {
-                          return const CupertinoActivityIndicator();
-                        },
-                        errorWidget: (_, __, error) {
-                          return const Icon(Icons.error);
-                        },
+                      child: Container(
+                        color: Colors.grey[200],
+                        child: Image.network(
+                          user.imageUrl!,
+                          loadingBuilder: (_, child, progress) {
+                            if (progress == null) {
+                              return child;
+                            }
+                            return const Center(
+                                child: CupertinoActivityIndicator());
+                          },
+                          height: 60,
+                          width: 60,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            Container(
-              height: 40,
-              color: Colors.white,
-            ),
+            Container(height: 40, color: Colors.white),
           ],
         ),
         Positioned(
@@ -81,7 +83,6 @@ class CustomAppBarWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Container(
               height: 80,
-              // width: 327,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.grey,

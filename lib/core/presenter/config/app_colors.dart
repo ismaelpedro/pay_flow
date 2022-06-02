@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   AppColors._();
+
   static const orange = Color(0xFFFF941A);
   static const secondary = Color(0xFFFAFAFC);
   static const delete = Color(0xFFE83F5B);
