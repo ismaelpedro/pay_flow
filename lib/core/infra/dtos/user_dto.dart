@@ -2,7 +2,7 @@ import '../../domain/entities/user_entity.dart';
 
 extension UserDto on UserEntity {
   Map<String, dynamic> toJson() {
-    return {
+    return <String, dynamic>{
       'id': id,
       'name': name,
       'imageUrl': imageUrl,

@@ -1,4 +1,4 @@
-import 'package:pay_flow/modules/login/presenter/login_page.dart';
+import '../../../modules/login/presenter/login_page.dart';
 
 import '../../../modules/home/presenter/pages/home_page.dart';
 import '../../../modules/ticket_form/presenter/ticket_form_page.dart';
@@ -15,7 +15,7 @@ class AppRoutes {
 
 class Routes {
   Routes._();
-  
+
   static const login = '/login';
   static const home = '/home';
   static const ticketForm = '/ticket-form';

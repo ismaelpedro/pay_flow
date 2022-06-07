@@ -7,11 +7,11 @@ class TicketEntity {
   late String? fkUser;
 
   TicketEntity({
-    this.id,
     required this.name,
     required this.date,
     required this.code,
     required this.value,
+    this.id,
     this.fkUser,
   });
 

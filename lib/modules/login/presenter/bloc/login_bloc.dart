@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:pay_flow/core/domain/entities/user_entity.dart';
+import '../../../../core/domain/entities/user_entity.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';

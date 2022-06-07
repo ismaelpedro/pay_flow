@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
+import '../app_controller.dart';
 import '../config/app_images.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
@@ -62,8 +62,6 @@ class TranslationDropdownWidget extends StatelessWidget {
                     height: 35,
                     width: 35,
                   ),
-
-                  
                   const SizedBox(width: 10),
                   Text(AppLocalizations.of(context)!.esES),
                 ],

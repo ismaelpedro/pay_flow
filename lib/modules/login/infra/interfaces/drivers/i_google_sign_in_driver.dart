@@ -1,4 +1,6 @@
+import 'package:google_sign_in/google_sign_in.dart';
+
 abstract class IGoogleSignInDriver {
-  Future<dynamic> signIn();
-  Future<dynamic> signOut();
+  Future<GoogleSignInAccount?> signIn();
+  Future<GoogleSignInAccount?> signOut();
 }

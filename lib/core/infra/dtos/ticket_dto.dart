@@ -2,7 +2,7 @@ import '../../domain/entities/ticket_entity.dart';
 
 extension TicketDto on TicketEntity {
   Map<String, dynamic> toJson() {
-    return {
+    return <String, dynamic>{
       'id': id,
       'name': name,
       'date': date,

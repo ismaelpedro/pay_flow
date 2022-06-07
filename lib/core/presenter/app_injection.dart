@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
-import 'package:pay_flow/modules/login/presenter/login_controller.dart';
+import 'app_controller.dart';
+import '../../modules/login/presenter/login_controller.dart';
 
 class AppInjection {
   static GetIt getIt = GetIt.instance;

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
+import 'app_controller.dart';
 import 'config/app_colors.dart';
 import 'config/app_routes.dart';
 

@@ -1,5 +1,5 @@
 import 'package:hasura_connect/hasura_connect.dart';
-import 'package:pay_flow/core/infra/interfaces/drivers/i_hasura_driver.dart';
+import '../../infra/interfaces/drivers/i_hasura_driver.dart';
 
 class HasuraDriver implements IHasuraDriver {
   final HasuraConnect _hasura;
@@ -25,7 +25,6 @@ class HasuraDriver implements IHasuraDriver {
   @override
   Future<dynamic> query(
     String query, {
-    key,
     Map<String, dynamic>? variables,
     Map<String, String>? headers,
   }) async {

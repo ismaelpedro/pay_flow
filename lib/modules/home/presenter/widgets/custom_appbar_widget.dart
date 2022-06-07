@@ -63,7 +63,8 @@ class CustomAppBarWidget extends StatelessWidget {
                               return child;
                             }
                             return const Center(
-                                child: CupertinoActivityIndicator());
+                              child: CupertinoActivityIndicator(),
+                            );
                           },
                           height: 60,
                           width: 60,

@@ -1,14 +1,14 @@
 class UserEntity {
   final String id;
   final String name;
-  String? imageUrl;
   final String email;
+  String? imageUrl;
 
   UserEntity({
     required this.id,
     required this.name,
-    this.imageUrl,
     required this.email,
+    this.imageUrl,
   });
 
   String get firstNameOnly => name.split(' ')[0];

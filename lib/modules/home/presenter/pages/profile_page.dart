@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pay_flow/core/presenter/config/app_images.dart';
-import 'package:pay_flow/core/presenter/widgets/translation_dropdown_widget.dart';
+import '../../../../core/presenter/config/app_images.dart';
+import '../../../../core/presenter/widgets/translation_dropdown_widget.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';
@@ -76,8 +76,11 @@ class ProfilePage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      await Clipboard.setData(const ClipboardData(
-                          text: 'bc1qlm4knqc2t0xdqumfcsezqmcswvf282rlx5cq7r'));
+                      await Clipboard.setData(
+                        const ClipboardData(
+                          text: 'bc1qlm4knqc2t0xdqumfcsezqmcswvf282rlx5cq7r',
+                        ),
+                      );
                     },
                     child: Image.asset(
                       AppImages.donateBtc,
@@ -87,8 +90,11 @@ class ProfilePage extends StatelessWidget {
                   const SizedBox(width: 20),
                   GestureDetector(
                     onTap: () async {
-                      await Clipboard.setData(const ClipboardData(
-                          text: '4483c72c-1b90-4b4f-b4b1-aac30aa078ed'));
+                      await Clipboard.setData(
+                        const ClipboardData(
+                          text: '4483c72c-1b90-4b4f-b4b1-aac30aa078ed',
+                        ),
+                      );
                     },
                     child: Image.asset(
                       AppImages.pix,

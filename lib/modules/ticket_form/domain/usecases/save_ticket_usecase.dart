@@ -1,4 +1,4 @@
-import 'package:pay_flow/core/domain/interfaces/repositories/ticket_repository.dart';
+import '../../../../core/domain/interfaces/repositories/ticket_repository.dart';
 
 class SaveTicketUsecase {
   final ITicketRepository _repository;

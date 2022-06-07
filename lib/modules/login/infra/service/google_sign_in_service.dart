@@ -1,4 +1,4 @@
-import 'package:pay_flow/core/domain/entities/user_entity.dart';
+import '../../../../core/domain/entities/user_entity.dart';
 
 import '../../domain/interfaces/services/i_google_sign_in_service.dart';
 import '../interfaces/drivers/i_google_sign_in_driver.dart';

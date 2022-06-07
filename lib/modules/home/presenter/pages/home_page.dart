@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pay_flow/modules/home/presenter/pages/profile_page.dart';
+import 'profile_page.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import 'my_tickets_page.dart';
@@ -7,10 +7,7 @@ import 'my_tickets_page.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
 
-  final tabs = [
-    const MyTicketsPage(),
-    const ProfilePage(),
-  ];
+  final tabs = [const MyTicketsPage(), const ProfilePage()];
 
   @override
   Widget build(BuildContext context) {

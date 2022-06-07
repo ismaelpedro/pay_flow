@@ -1,4 +1,4 @@
-import 'package:pay_flow/core/domain/entities/ticket_entity.dart';
+import '../../domain/entities/ticket_entity.dart';
 import '../../domain/interfaces/repositories/ticket_repository.dart';
 import '../interfaces/datasources/i_ticket_datasource.dart';
 

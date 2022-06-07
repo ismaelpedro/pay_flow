@@ -1,5 +1,5 @@
-import 'package:pay_flow/core/domain/entities/ticket_entity.dart';
-import 'package:pay_flow/core/infra/interfaces/datasources/i_ticket_datasource.dart';
+import '../../domain/entities/ticket_entity.dart';
+import '../../infra/interfaces/datasources/i_ticket_datasource.dart';
 
 class TicketDatasource implements ITicketDatasource {
   @override

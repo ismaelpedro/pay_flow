@@ -6,12 +6,12 @@ class GoogleSignInDriver implements IGoogleSignInDriver {
   GoogleSignInDriver(this._googleSignIn);
 
   @override
-  signIn() async {
+  Future<GoogleSignInAccount?> signIn() async {
     return await _googleSignIn.signIn();
   }
 
   @override
-  signOut() async {
+  Future<GoogleSignInAccount?> signOut() async {
     return await _googleSignIn.signOut();
   }
 }
