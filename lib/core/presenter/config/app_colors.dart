@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors {
+abstract class AppColors {
   AppColors._();
 
   static const orange = Color(0xFFFF941A);

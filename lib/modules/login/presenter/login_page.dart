@@ -16,60 +16,62 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Column(
-            children: [
-              Container(
-                height: 316,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: AppColors.orange,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(60),
-                    bottomRight: Radius.circular(60),
-                  ),
-                ),
-                child: Container(
-                  alignment: Alignment.topRight,
-                  child: const Padding(
-                    padding: EdgeInsets.only(top: 10, right: 10),
-                    child: TranslationDropdownWidget(),
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Image.asset(AppImages.logomini),
-              const SizedBox(height: 24),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 70),
-                child: Text(
-                  AppLocalizations.of(context)!.loginTitleCenter,
-                  style: AppTextStyles.titleHome,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(height: 40),
-              SizedBox(
-                width: 295,
-                height: 56,
-                child: ElevatedButton.icon(
-                  icon: Image.asset(AppImages.google),
-                  label: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 45),
-                    child: Text(
-                      AppLocalizations.of(context)!.loginButtonText,
-                      style: AppTextStyles.buttonGray,
-                      textAlign: TextAlign.center,
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 316,
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: AppColors.orange,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(60),
+                      bottomRight: Radius.circular(60),
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    elevation: 3,
-                    primary: AppColors.secondary,
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    child: const Padding(
+                      padding: EdgeInsets.only(top: 10, right: 10),
+                      child: TranslationDropdownWidget(),
+                    ),
                   ),
-                  onPressed: () async {},
                 ),
-              ),
-              const SizedBox(height: 40),
-            ],
+                const SizedBox(height: 130),
+                Image.asset(AppImages.logomini),
+                const SizedBox(height: 24),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 70),
+                  child: Text(
+                    AppLocalizations.of(context)!.loginTitleCenter,
+                    style: AppTextStyles.titleHome,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                SizedBox(
+                  width: 295,
+                  height: 56,
+                  child: ElevatedButton.icon(
+                    icon: Image.asset(AppImages.google),
+                    label: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 45),
+                      child: Text(
+                        AppLocalizations.of(context)!.loginButtonText,
+                        style: AppTextStyles.buttonGray,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      elevation: 3,
+                      primary: AppColors.secondary,
+                    ),
+                    onPressed: () async {},
+                  ),
+                ),
+                const SizedBox(height: 40),
+              ],
+            ),
           ),
           Center(
             child: Padding(
@@ -80,13 +82,6 @@ class LoginPage extends StatelessWidget {
               ),
             ),
           ),
-          // Positioned(
-          //   top: 110,
-          //   left: 0,
-          //   right: 0,
-          //   bottom: 372,
-          //   child: Image.asset(AppImages.person),
-          // ),
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-class AppTextStyles {
+abstract class AppTextStyles {
   AppTextStyles._();
 
   static const titleHome = TextStyle(

@@ -3,7 +3,7 @@ import '../../../modules/login/presenter/login_page.dart';
 import '../../../modules/home/presenter/pages/home_page.dart';
 import '../../../modules/ticket_form/presenter/ticket_form_page.dart';
 
-class AppRoutes {
+abstract class AppRoutes {
   AppRoutes._();
 
   static final pages = {
@@ -13,7 +13,7 @@ class AppRoutes {
   };
 }
 
-class Routes {
+abstract class Routes {
   Routes._();
 
   static const login = '/login';

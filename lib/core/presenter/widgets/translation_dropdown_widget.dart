@@ -67,7 +67,7 @@ class TranslationDropdownWidget extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                getIt.get<AppController>().setLocale(const Locale('en', 'EN'));
+                getIt.get<AppController>().setLocale(const Locale('es', 'ES'));
               },
             ),
           ];

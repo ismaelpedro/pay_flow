@@ -1,4 +1,4 @@
-class Environments {
+abstract class Environments {
   Environments._();
 
   static const String hasuraUrl = String.fromEnvironment('HASURA_URL');

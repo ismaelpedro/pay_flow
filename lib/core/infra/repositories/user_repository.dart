@@ -13,7 +13,7 @@ class UserRepository implements IUserRepository {
   }
 
   @override
-  Future<UserEntity> getUser() async {
+  Future<UserEntity> getUser(String id) async {
     throw UnimplementedError();
   }
 }

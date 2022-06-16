@@ -1,4 +1,4 @@
-class AppImages {
+abstract class AppImages {
   AppImages._();
 
   static const logoFull = 'assets/images/logofull.png';
