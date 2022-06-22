@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: const Text('Perfil', style: AppTextStyles.titleBoldHeading),
+        title:  Text('Perfil', style: AppTextStyles.titleBoldHeading),
         centerTitle: true,
         actions: const [
           TranslationDropdownWidget(),

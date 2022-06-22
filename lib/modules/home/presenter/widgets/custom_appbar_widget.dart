@@ -46,7 +46,7 @@ class CustomAppBarWidget extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Text(
+                         Text(
                           'AppTranslationStrings.accountUpTodate.tr',
                           style: AppTextStyles.captionShape,
                         ),
@@ -111,7 +111,7 @@ class CustomAppBarWidget extends StatelessWidget {
                     children: [
                       RichText(
                         overflow: TextOverflow.ellipsis,
-                        text: const TextSpan(
+                        text:  TextSpan(
                           text: ' AppTranslationStrings.youHave.tr',
                           style: AppTextStyles.captionShape,
                           children: [
@@ -122,7 +122,7 @@ class CustomAppBarWidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const Text(
+                       Text(
                         'AppTranslationStrings.registrationsToPay.tr',
                         style: AppTextStyles.captionShape,
                       ),

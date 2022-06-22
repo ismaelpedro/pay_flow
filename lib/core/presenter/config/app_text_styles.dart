@@ -1,132 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app_colors.dart';
 
 abstract class AppTextStyles {
   AppTextStyles._();
 
-  static const titleHome = TextStyle(
+  static final titleHome = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 32,
+    fontSize: 32.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static const titleRegular = TextStyle(
+  static final titleRegular = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static const titleBoldHeading = TextStyle(
+  static final titleBoldHeading = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static const titleBoldBackground = TextStyle(
+  static final titleBoldBackground = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 20,
+    fontSize: 20.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.background,
   );
-  static const titleListTile = TextStyle(
+  static final titleListTile = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 17,
+    fontSize: 17.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static const trailingRegular = TextStyle(
+  static final trailingRegular = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
-  static const trailingBold = TextStyle(
+  static final trailingBold = TextStyle(
     fontFamily: 'LexendDeca',
-    fontSize: 16,
+    fontSize: 16.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
-  static const buttonPrimary = TextStyle(
+  static final buttonPrimary = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.orange,
   );
-  static const buttonHeading = TextStyle(
+  static final buttonHeading = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
-  static const buttonGray = TextStyle(
+  static final buttonGray = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.grey,
   );
-  static const buttonBackground = TextStyle(
+  static final buttonBackground = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static const buttonBoldPrimary = TextStyle(
+  static final buttonBoldPrimary = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.orange,
   );
-  static const buttonBoldHeading = TextStyle(
+  static final buttonBoldHeading = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.heading,
   );
-  static const buttonBoldGray = TextStyle(
+  static final buttonBoldGray = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.grey,
   );
-  static const buttonBoldBackground = TextStyle(
+  static final buttonBoldBackground = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 15,
+    fontSize: 15.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.background,
   );
-  static const captionBackground = TextStyle(
+  static final captionBackground = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.background,
   );
-  static const captionShape = TextStyle(
+  static final captionShape = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.shape,
   );
-  static const captionBody = TextStyle(
+  static final captionBody = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w400,
     color: AppColors.body,
   );
-  static const captionBoldBackground = TextStyle(
+  static final captionBoldBackground = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.background,
   );
-  static const captionBoldShape = TextStyle(
+  static final captionBoldShape = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.shape,
   );
-  static const captionBoldBody = TextStyle(
+  static final captionBoldBody = TextStyle(
     fontFamily: 'Inter',
-    fontSize: 13,
+    fontSize: 13.sp,
     fontWeight: FontWeight.w600,
     color: AppColors.body,
   );

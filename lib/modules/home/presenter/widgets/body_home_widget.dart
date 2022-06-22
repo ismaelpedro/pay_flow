@@ -20,14 +20,14 @@ class BodyHomeWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  SizedBox(height: 32),
+                children: [
+                  const SizedBox(height: 32),
                   Text(
                     'AppTranslationStrings.myTickets.tr',
                     style: AppTextStyles.titleBoldHeading,
                   ),
-                  SizedBox(height: 16),
-                  Divider(thickness: 2),
+                  const SizedBox(height: 16),
+                  const Divider(thickness: 2),
                   // Expanded(
                   //   child: appController.tickets.isEmpty
                   //       ? Center(child: Image.asset(AppImages.noTickets))

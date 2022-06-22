@@ -13,9 +13,6 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.height);
-    print(MediaQuery.of(context).size.width);
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(

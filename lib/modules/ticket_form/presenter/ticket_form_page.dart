@@ -48,7 +48,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const Center(
+              Center(
                 child: Text(
                   'AppTranslationStrings.fillTickets.tr',
                   style: AppTextStyles.titleBoldHeading,

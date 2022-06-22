@@ -155,7 +155,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                   Shimmer.fromColors(
                     baseColor: Colors.grey[350]!,
                     highlightColor: Colors.grey[100]!,
-                    child: const Text(
+                    child:  Text(
                       'AppTranslationStrings.myTickets.tr',
                       style: AppTextStyles.titleBoldHeading,
                     ),
