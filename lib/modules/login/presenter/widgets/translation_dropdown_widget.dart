@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get_it/get_it.dart';
-import '../app_controller.dart';
-import '../config/app_images.dart';
+import '../../../../core/presenter/app_controller.dart';
+import '../../../../core/presenter/config/app_images.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   const TranslationDropdownWidget({Key? key}) : super(key: key);
@@ -13,6 +13,7 @@ class TranslationDropdownWidget extends StatelessWidget {
 
     return SafeArea(
       child: PopupMenuButton(
+        key: const ValueKey('pt-option'),
         tooltip: '',
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),

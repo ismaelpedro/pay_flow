@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../../core/presenter/config/app_images.dart';
-import '../../../../core/presenter/widgets/translation_dropdown_widget.dart';
+import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
 
 import '../../../../core/presenter/config/app_colors.dart';
 import '../../../../core/presenter/config/app_text_styles.dart';

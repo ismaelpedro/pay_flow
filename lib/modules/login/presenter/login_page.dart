@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/presenter/config/app_colors.dart';
 import '../../../core/presenter/config/app_images.dart';
 import '../../../core/presenter/config/app_text_styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/presenter/widgets/translation_dropdown_widget.dart';
+import 'widgets/translation_dropdown_widget.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
+    print(MediaQuery.of(context).size.width);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -20,42 +24,42 @@ class LoginPage extends StatelessWidget {
             child: Column(
               children: [
                 Container(
-                  height: 316,
+                  height: 316.h,
                   width: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: AppColors.orange,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(60),
-                      bottomRight: Radius.circular(60),
+                      bottomLeft: Radius.circular(60.h),
+                      bottomRight: Radius.circular(60.h),
                     ),
                   ),
                   child: Container(
                     alignment: Alignment.topRight,
-                    child: const Padding(
-                      padding: EdgeInsets.only(top: 10, right: 10),
-                      child: TranslationDropdownWidget(),
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 10.h, right: 10.w),
+                      child: const TranslationDropdownWidget(),
                     ),
                   ),
                 ),
-                const SizedBox(height: 130),
+                SizedBox(height: 130.h),
                 Image.asset(AppImages.logomini),
-                const SizedBox(height: 24),
+                SizedBox(height: 24.h),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 70),
+                  padding: EdgeInsets.symmetric(horizontal: 70.w),
                   child: Text(
                     AppLocalizations.of(context)!.loginTitleCenter,
                     style: AppTextStyles.titleHome,
                     textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 SizedBox(
-                  width: 295,
-                  height: 56,
+                  width: 295.w,
+                  height: 56.h,
                   child: ElevatedButton.icon(
                     icon: Image.asset(AppImages.google),
                     label: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 45),
+                      padding: EdgeInsets.symmetric(horizontal: 45.w),
                       child: Text(
                         AppLocalizations.of(context)!.loginButtonText,
                         style: AppTextStyles.buttonGray,
@@ -63,22 +67,22 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      elevation: 3,
+                      elevation: 3.h,
                       primary: AppColors.secondary,
                     ),
                     onPressed: () async {},
                   ),
                 ),
-                const SizedBox(height: 40),
+                SizedBox(height: 40.h),
               ],
             ),
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 300),
+              padding: EdgeInsets.only(bottom: 300.h),
               child: Image.asset(
                 AppImages.person,
-                height: 300,
+                height: 300.h,
               ),
             ),
           ),
