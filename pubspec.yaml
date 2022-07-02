@@ -40,11 +40,10 @@ flutter:
   generate: true
 
   assets:
-    # - assets/fonts
-    # - assets/i18n
-    # - assets/images
-    # - assets/lotties
-    - assets/
+    - assets/fonts/
+    - assets/i18n/
+    - assets/images/
+    - assets/lotties/
 
   fonts:
     - family: Inter
