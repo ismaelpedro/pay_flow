@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/presenter/config/app_colors.dart';
-import '../../../../core/presenter/config/app_text_styles.dart';
+import '../../../../core/presenter/configs/app_colors.dart';
+import '../../../../core/presenter/configs/app_text_styles.dart';
 
 class TileFormWidget extends StatelessWidget {
   final String hintText;
@@ -23,7 +24,7 @@ class TileFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 40),
+      padding: EdgeInsets.only(bottom: 40.h),
       child: Row(
         children: [
           Expanded(
@@ -56,7 +57,7 @@ class TileFormWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(imagePrefix),
-                        const SizedBox(width: 15),
+                        SizedBox(width: 15.w),
                         const VerticalDivider(
                           thickness: 1.5,
                           color: AppColors.input,

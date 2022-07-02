@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../core/presenter/config/app_images.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/presenter/configs/app_images.dart';
 import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
 
-import '../../../../core/presenter/config/app_colors.dart';
-import '../../../../core/presenter/config/app_text_styles.dart';
+import '../../../../core/presenter/configs/app_colors.dart';
+import '../../../../core/presenter/configs/app_text_styles.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title:  Text('Perfil', style: AppTextStyles.titleBoldHeading),
+        title: Text('Perfil', style: AppTextStyles.titleBoldHeading),
         centerTitle: true,
         actions: const [
           TranslationDropdownWidget(),
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               // ClipRRect(
               //   borderRadius: BorderRadius.circular(50),
               //   child: Image.network(appController.currentUser.imageUrl!),
@@ -41,9 +42,9 @@ class ProfilePage extends StatelessWidget {
               //   appController.currentUser.email,
               //   style: AppTextStyles.titleBoldHeading,
               // ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               const Divider(thickness: 2),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               // Obx(() {
               //   return CupertinoFormRow(
               //     padding: EdgeInsets.zero,
@@ -70,7 +71,7 @@ class ProfilePage extends StatelessWidget {
                   color: AppColors.heading,
                 ),
               ),
-              const SizedBox(height: 15),
+              SizedBox(height: 15.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -84,10 +85,10 @@ class ProfilePage extends StatelessWidget {
                     },
                     child: Image.asset(
                       AppImages.donateBtc,
-                      height: 50,
+                      height: 50.h,
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
                   GestureDetector(
                     onTap: () async {
                       await Clipboard.setData(
@@ -98,7 +99,7 @@ class ProfilePage extends StatelessWidget {
                     },
                     child: Image.asset(
                       AppImages.pix,
-                      height: 50,
+                      height: 50.h,
                     ),
                   ),
                 ],
@@ -113,7 +114,7 @@ class ProfilePage extends StatelessWidget {
                     'Sair',
                     style: AppTextStyles.titleBoldHeading.copyWith(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 20.sp,
                     ),
                   ),
                 ),

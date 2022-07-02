@@ -17,5 +17,5 @@ abstract class AppImages {
   static const barcode = 'assets/images/barcode.png';
   static const noTickets = 'assets/images/no-tickets.gif';
   static const donateBtc = 'assets/images/donate-btc.jpg';
-  static const pix = 'assets/images/pix.jpg';
+  static const pix = 'assets/images/pix.png';
 }

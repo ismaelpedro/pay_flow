@@ -4,8 +4,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'app_controller.dart';
-import 'config/app_colors.dart';
-import 'config/app_routes.dart';
+import 'configs/app_colors.dart';
+import 'configs/app_routes.dart';
 
 class PayFlowApp extends StatelessWidget {
   const PayFlowApp({Key? key}) : super(key: key);

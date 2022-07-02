@@ -1,5 +1,5 @@
-import '../../domain/entities/ticket_entity.dart';
-import '../../infra/interfaces/datasources/i_ticket_datasource.dart';
+import '../../../domain/entities/ticket_entity.dart';
+import 'i_ticket_datasource.dart';
 
 class TicketDatasource implements ITicketDatasource {
   @override

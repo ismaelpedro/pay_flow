@@ -1,4 +1,4 @@
-import '../../entities/ticket_entity.dart';
+import '../entities/ticket_entity.dart';
 
 abstract class ITicketRepository {
   Future<TicketEntity> getTicket();

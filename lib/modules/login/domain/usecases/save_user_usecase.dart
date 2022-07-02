@@ -1,6 +1,5 @@
-import '../../../../core/domain/interfaces/repositories/user_repository.dart';
-
 import '../../../../core/domain/entities/user_entity.dart';
+import '../../../../core/domain/repositories/i_user_repository.dart';
 
 class SaveUserUsecase {
   final IUserRepository _repository;

@@ -1,7 +1,7 @@
 import '../../domain/entities/user_entity.dart';
 
-import '../../domain/interfaces/repositories/user_repository.dart';
-import '../interfaces/datasources/i_user_datasource.dart';
+import '../../domain/repositories/i_user_repository.dart';
+import '../datasources/user_datasource/i_user_datasource.dart';
 
 class UserRepository implements IUserRepository {
   final IUserDatasource _datasource;

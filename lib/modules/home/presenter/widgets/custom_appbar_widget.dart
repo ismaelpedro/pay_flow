@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/domain/entities/user_entity.dart';
-import '../../../../core/presenter/config/app_colors.dart';
-import '../../../../core/presenter/config/app_images.dart';
-import '../../../../core/presenter/config/app_text_styles.dart';
+import '../../../../core/presenter/configs/app_colors.dart';
+import '../../../../core/presenter/configs/app_images.dart';
+import '../../../../core/presenter/configs/app_text_styles.dart';
 
 class CustomAppBarWidget extends StatelessWidget {
   final UserEntity user;
@@ -23,9 +24,9 @@ class CustomAppBarWidget extends StatelessWidget {
           children: [
             Container(
               color: AppColors.orange,
-              height: 184,
+              height: 184.h,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -40,13 +41,13 @@ class CustomAppBarWidget extends StatelessWidget {
                             style: AppTextStyles.titleRegular,
                             children: [
                               TextSpan(
-                                text: user.firstNameOnly,
+                                text: user.firstName,
                                 style: AppTextStyles.titleBoldBackground,
                               ),
                             ],
                           ),
                         ),
-                         Text(
+                        Text(
                           'AppTranslationStrings.accountUpTodate.tr',
                           style: AppTextStyles.captionShape,
                         ),
@@ -66,8 +67,8 @@ class CustomAppBarWidget extends StatelessWidget {
                               child: CupertinoActivityIndicator(),
                             );
                           },
-                          height: 60,
-                          width: 60,
+                          height: 60.h,
+                          width: 60.w,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -76,14 +77,14 @@ class CustomAppBarWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Container(height: 40, color: Colors.white),
+            Container(height: 40.h, color: Colors.white),
           ],
         ),
         Positioned(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Container(
-              height: 80,
+              height: 80.h,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: AppColors.grey,
@@ -91,27 +92,27 @@ class CustomAppBarWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
                   Image.asset(
                     AppImages.logomini,
                     color: Colors.white,
                   ),
                   const SizedBox(width: 24),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 24.h),
                     child: VerticalDivider(
                       color: Colors.white,
-                      width: 2,
+                      width: 2.w,
                     ),
                   ),
-                  const SizedBox(width: 24),
+                  SizedBox(width: 24.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       RichText(
                         overflow: TextOverflow.ellipsis,
-                        text:  TextSpan(
+                        text: TextSpan(
                           text: ' AppTranslationStrings.youHave.tr',
                           style: AppTextStyles.captionShape,
                           children: [
@@ -122,7 +123,7 @@ class CustomAppBarWidget extends StatelessWidget {
                           ],
                         ),
                       ),
-                       Text(
+                      Text(
                         'AppTranslationStrings.registrationsToPay.tr',
                         style: AppTextStyles.captionShape,
                       ),

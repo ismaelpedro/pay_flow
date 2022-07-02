@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import '../../../../core/presenter/app_controller.dart';
-import '../../../../core/presenter/config/app_images.dart';
+import '../../../../core/presenter/configs/app_images.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   const TranslationDropdownWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final getIt = GetIt.I;
+    final appController = GetIt.I.get<AppController>();
 
     return SafeArea(
       child: PopupMenuButton(
@@ -26,15 +27,15 @@ class TranslationDropdownWidget extends StatelessWidget {
                 children: [
                   Image.asset(
                     AppImages.br,
-                    height: 35,
-                    width: 35,
+                    height: 35.h,
+                    width: 35.w,
                   ),
                   const SizedBox(width: 10),
                   Text(AppLocalizations.of(context)!.ptBr),
                 ],
               ),
               onTap: () {
-                getIt.get<AppController>().setLocale(const Locale('pt', 'BR'));
+                appController.setLocale(const Locale('pt', 'BR'));
               },
             ),
             PopupMenuItem(
@@ -46,12 +47,12 @@ class TranslationDropdownWidget extends StatelessWidget {
                     height: 35,
                     width: 35,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Text(AppLocalizations.of(context)!.enUS),
                 ],
               ),
               onTap: () {
-                getIt.get<AppController>().setLocale(const Locale('en', 'US'));
+                appController.setLocale(const Locale('en', 'US'));
               },
             ),
             PopupMenuItem(
@@ -60,15 +61,15 @@ class TranslationDropdownWidget extends StatelessWidget {
                 children: [
                   Image.asset(
                     AppImages.es,
-                    height: 35,
-                    width: 35,
+                    height: 35.h,
+                    width: 35.w,
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Text(AppLocalizations.of(context)!.esES),
                 ],
               ),
               onTap: () {
-                getIt.get<AppController>().setLocale(const Locale('es', 'ES'));
+                appController.setLocale(const Locale('es', 'ES'));
               },
             ),
           ];

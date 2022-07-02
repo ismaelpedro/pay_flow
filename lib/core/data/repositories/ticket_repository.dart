@@ -1,6 +1,6 @@
 import '../../domain/entities/ticket_entity.dart';
-import '../../domain/interfaces/repositories/ticket_repository.dart';
-import '../interfaces/datasources/i_ticket_datasource.dart';
+import '../../domain/repositories/i_ticket_repository.dart';
+import '../datasources/ticket_datasource/i_ticket_datasource.dart';
 
 class TicketRepository implements ITicketRepository {
   final ITicketDatasource _datasource;

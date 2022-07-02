@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/presenter/config/app_colors.dart';
-import '../../../core/presenter/config/app_images.dart';
-import '../../../core/presenter/config/app_text_styles.dart';
+import '../../../core/presenter/configs/app_colors.dart';
+import '../../../core/presenter/configs/app_images.dart';
+import '../../../core/presenter/configs/app_text_styles.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
@@ -55,9 +56,9 @@ class _TicketFormPageState extends State<TicketFormPage> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Form(
                   child: Column(
                     children: [
@@ -78,7 +79,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                             context: context,
                             builder: (builder) {
                               return SizedBox(
-                                height: 255,
+                                height: 255.h,
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
                                   backgroundColor: Colors.white,

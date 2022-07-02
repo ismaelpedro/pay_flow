@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import '../../modules/login/domain/usecases/login_usecase.dart';
 import 'app_controller.dart';
 import '../../modules/login/presenter/login_controller.dart';
 
@@ -7,6 +8,7 @@ class AppInjection {
 
   static void setUp() {
     getIt.registerLazySingleton(() => AppController());
+    getIt.registerFactory(() => LoginUsecase());
     getIt.registerFactory(() => LoginController());
   }
 }

@@ -1,4 +1,4 @@
-import '../../../../core/domain/interfaces/repositories/ticket_repository.dart';
+import '../../../../core/domain/repositories/i_ticket_repository.dart';
 
 class SaveTicketUsecase {
   final ITicketRepository _repository;

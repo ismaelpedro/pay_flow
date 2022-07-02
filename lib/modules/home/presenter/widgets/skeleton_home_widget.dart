@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../core/presenter/config/app_colors.dart';
-import '../../../../core/presenter/config/app_images.dart';
-import '../../../../core/presenter/config/app_text_styles.dart';
+import '../../../../core/presenter/configs/app_colors.dart';
+import '../../../../core/presenter/configs/app_images.dart';
+import '../../../../core/presenter/configs/app_text_styles.dart';
 
 class SkeletonHomeWidget extends StatelessWidget {
   const SkeletonHomeWidget({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                 children: [
                   Container(
                     color: AppColors.orange,
-                    height: 184,
+                    height: 184.h,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
@@ -34,8 +35,8 @@ class SkeletonHomeWidget extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
-                                height: 10,
-                                width: 200,
+                                height: 10.h,
+                                width: 200.w,
                                 child: Shimmer.fromColors(
                                   baseColor: Colors.grey[350]!,
                                   highlightColor: Colors.grey[100]!,
@@ -46,10 +47,10 @@ class SkeletonHomeWidget extends StatelessWidget {
                               ),
                               Column(
                                 children: [
-                                  const SizedBox(height: 5),
+                                  SizedBox(height: 5.h),
                                   SizedBox(
-                                    height: 10,
-                                    width: 200,
+                                    height: 10.h,
+                                    width: 200.w,
                                     child: Shimmer.fromColors(
                                       baseColor: Colors.grey[350]!,
                                       highlightColor: Colors.grey[100]!,
@@ -66,8 +67,8 @@ class SkeletonHomeWidget extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: SizedBox(
-                              height: 60,
-                              width: 60,
+                              height: 60.h,
+                              width: 60.w,
                               child: Shimmer.fromColors(
                                 baseColor: Colors.grey[350]!,
                                 highlightColor: Colors.grey[100]!,
@@ -82,16 +83,16 @@ class SkeletonHomeWidget extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 40,
+                    height: 40.h,
                     color: Colors.white,
                   ),
                 ],
               ),
               Positioned(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  padding: EdgeInsets.symmetric(horizontal: 24.w),
                   child: Container(
-                    height: 80,
+                    height: 80.h,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: AppColors.grey,
@@ -99,20 +100,20 @@ class SkeletonHomeWidget extends StatelessWidget {
                     ),
                     child: Row(
                       children: [
-                        const SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         Image.asset(
                           AppImages.logomini,
                           color: Colors.white,
                         ),
-                        const SizedBox(width: 24),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(vertical: 24),
+                        SizedBox(width: 24.w),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 24.h),
                           child: VerticalDivider(
                             color: Colors.white,
-                            width: 2,
+                            width: 2.w,
                           ),
                         ),
-                        const SizedBox(width: 24),
+                        SizedBox(width: 24.w),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -122,18 +123,18 @@ class SkeletonHomeWidget extends StatelessWidget {
                               highlightColor: Colors.grey[100]!,
                               child: Container(
                                 color: Colors.white,
-                                height: 10,
-                                width: 170,
+                                height: 10.h,
+                                width: 170.w,
                               ),
                             ),
-                            const SizedBox(height: 5),
+                            SizedBox(height: 5.h),
                             Shimmer.fromColors(
                               baseColor: Colors.grey[350]!,
                               highlightColor: Colors.grey[100]!,
                               child: Container(
                                 color: Colors.white,
-                                height: 10,
-                                width: 170,
+                                height: 10.h,
+                                width: 170.w,
                               ),
                             ),
                           ],
@@ -147,20 +148,20 @@ class SkeletonHomeWidget extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 32),
+                  SizedBox(height: 32.h),
                   Shimmer.fromColors(
                     baseColor: Colors.grey[350]!,
                     highlightColor: Colors.grey[100]!,
-                    child:  Text(
+                    child: Text(
                       'AppTranslationStrings.myTickets.tr',
                       style: AppTextStyles.titleBoldHeading,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   const Divider(thickness: 2),
                   Expanded(
                     child: Scrollbar(
@@ -182,8 +183,8 @@ class SkeletonHomeWidget extends StatelessWidget {
                               ),
                             ),
                             subtitle: SizedBox(
-                              height: 10,
-                              width: 50,
+                              height: 10.h,
+                              width: 50.w,
                               child: Shimmer.fromColors(
                                 baseColor: Colors.grey[350]!,
                                 highlightColor: Colors.grey[100]!,
@@ -193,8 +194,8 @@ class SkeletonHomeWidget extends StatelessWidget {
                               ),
                             ),
                             trailing: SizedBox(
-                              height: 10,
-                              width: 100,
+                              height: 10.h,
+                              width: 100.w,
                               child: Shimmer.fromColors(
                                 baseColor: Colors.grey[350]!,
                                 highlightColor: Colors.grey[100]!,

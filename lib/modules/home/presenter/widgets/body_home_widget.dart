@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/presenter/config/app_text_styles.dart';
+import '../../../../core/presenter/configs/app_text_styles.dart';
 
 class BodyHomeWidget extends StatelessWidget {
   const BodyHomeWidget({Key? key}) : super(key: key);
@@ -17,16 +18,16 @@ class BodyHomeWidget extends StatelessWidget {
           // CustomAppBarWidget(user: appController.currentUser),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 32),
+                  SizedBox(height: 32.h),
                   Text(
                     'AppTranslationStrings.myTickets.tr',
                     style: AppTextStyles.titleBoldHeading,
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16.h),
                   const Divider(thickness: 2),
                   // Expanded(
                   //   child: appController.tickets.isEmpty
