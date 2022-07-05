@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:pay_flow/core/presenter/app_controller.dart';
-import 'package:pay_flow/core/presenter/pay_flow_app.dart';
+import 'package:pay_flow/core/presenter/presenter.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../core/presenter/configs/app_images.dart';
-import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
 
-import '../../../../core/presenter/configs/app_colors.dart';
-import '../../../../core/presenter/configs/app_text_styles.dart';
+import '../../../../core/presenter/assets/app_images.dart';
+import '../../../../core/presenter/theme/app_colors.dart';
+import '../../../../core/presenter/theme/app_text_styles.dart';
+import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);

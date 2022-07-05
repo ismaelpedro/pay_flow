@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
+
 import 'app_controller.dart';
-import 'configs/app_colors.dart';
-import 'configs/app_routes.dart';
+import 'navigation/pages.dart';
+import 'navigation/routes.dart';
+import 'theme/app_colors.dart';
 
 class PayFlowApp extends StatelessWidget {
   const PayFlowApp({Key? key}) : super(key: key);
@@ -36,7 +38,7 @@ class PayFlowApp extends StatelessWidget {
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               initialRoute: Routes.login,
-              routes: AppRoutes.pages,
+              routes: Pages.pages,
             );
           },
         );

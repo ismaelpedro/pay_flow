@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import '../configs/app_colors.dart';
+
+import '../theme/app_colors.dart';
 
 class ShimmerContainer extends StatelessWidget {
   final double? width;

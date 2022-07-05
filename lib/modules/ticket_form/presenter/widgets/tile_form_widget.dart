@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/presenter/configs/app_colors.dart';
-import '../../../../core/presenter/configs/app_text_styles.dart';
+import '../../../../core/presenter/theme/app_colors.dart';
+import '../../../../core/presenter/theme/app_text_styles.dart';
+
 
 class TileFormWidget extends StatelessWidget {
   final String hintText;

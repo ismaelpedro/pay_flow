@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/presenter/configs/app_colors.dart';
-import '../../../core/presenter/configs/app_images.dart';
-import '../../../core/presenter/configs/app_text_styles.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
+import '../../../core/presenter/assets/app_images.dart';
+import '../../../core/presenter/theme/app_colors.dart';
+import '../../../core/presenter/theme/app_text_styles.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
 class LoginPage extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/domain/entities/ticket_entity.dart';
-import '../../../../core/presenter/configs/app_text_styles.dart';
+import '../../../../core/presenter/theme/app_text_styles.dart';
 
 class TicketCardWidget extends StatelessWidget {
   final TicketEntity ticket;

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/presenter/configs/app_text_styles.dart';
+import '../../../../core/presenter/theme/app_text_styles.dart';
+
 
 class BodyHomeWidget extends StatelessWidget {
   const BodyHomeWidget({Key? key}) : super(key: key);
