@@ -31,9 +31,9 @@ class PayFlowApp extends StatelessWidget {
               locale: snapshot.data,
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                useMaterial3: true,
+                // useMaterial3: true,
                 colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
-                scaffoldBackgroundColor: AppColors.shape,
+                scaffoldBackgroundColor: Colors.white,
               ),
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,

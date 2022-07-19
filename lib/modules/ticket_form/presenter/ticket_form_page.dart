@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/presenter/assets/app_images.dart';
 import '../../../core/presenter/theme/app_colors.dart';
@@ -51,7 +52,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
             children: [
               Center(
                 child: Text(
-                  'AppTranslationStrings.fillTickets.tr',
+                  'Preencha os daos\ndo boleto',
                   style: AppTextStyles.titleBoldHeading,
                   textAlign: TextAlign.center,
                 ),
@@ -64,7 +65,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                     children: [
                       TileFormWidget(
                         imagePrefix: AppImages.ticket,
-                        hintText: 'AppTranslationStrings.ticket.tr',
+                        hintText: 'Nome do boleto',
                         textEditingController: nameEC,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -85,8 +86,8 @@ class _TicketFormPageState extends State<TicketFormPage> {
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (value) {
-                                    // controller.expirationEC.text =
-                                    //     DateFormat('dd/MM/yyyy').format(value);
+                                    expirationEC.text =
+                                        DateFormat('dd/MM/yyyy').format(value);
                                   },
                                 ),
                               );
@@ -97,7 +98,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                           child: TileFormWidget(
                             readOnly: true,
                             imagePrefix: AppImages.close,
-                            hintText: 'AppTranslationStrings.expiration.tr',
+                            hintText: 'Vencimento',
                             textEditingController: expirationEC,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -110,7 +111,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.wallet,
-                        hintText: 'AppTranslationStrings.value.tr',
+                        hintText: 'Valor',
                         textEditingController: valueEC,
                         validator: (value) {
                           if (value!.isEmpty || value == 'R\$ 0,00') {
@@ -121,7 +122,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.barcode,
-                        hintText: 'AppTranslationStrings.code.tr',
+                        hintText: 'Código',
                         textEditingController: codeEC,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -140,27 +141,14 @@ class _TicketFormPageState extends State<TicketFormPage> {
         bottomNavigationBar: Row(
           children: [
             BottomButtonWidget(
-              label: 'AppTranslationStrings.cancel.tr',
+              label: 'Cancelar',
               style: AppTextStyles.buttonGray,
               onPressed: () => Navigator.pop(context),
             ),
             BottomButtonWidget(
-              label: 'AppTranslationStrings.register.tr',
+              label: 'Cadastrar',
               style: AppTextStyles.buttonPrimary,
-              onPressed: () async {
-                // if (controller.formKey.currentState!.validate()) {
-                //   final ticket = TicketEntity(
-                //     id: const Uuid().v4(),
-                //     name: nameEC.text,
-                //     date: expirationEC.text,
-                //     code: codeEC.text,
-                //     value: valueEC.text,
-                //   );
-
-                //   Get.find<AppController>().tickets.add(ticket);
-                //   Get.back();
-                // }
-              },
+              onPressed: () async {},
             ),
           ],
         ),

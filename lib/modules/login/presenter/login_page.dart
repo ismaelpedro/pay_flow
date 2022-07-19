@@ -71,7 +71,7 @@ class LoginPage extends StatelessWidget {
                       primary: AppColors.secondary,
                     ),
                     onPressed: () async {
-                      await controller.loginWithGoogle();
+                      await controller.loginWithGoogle(context);
                     },
                   ),
                 ),

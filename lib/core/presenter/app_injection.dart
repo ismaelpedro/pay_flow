@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../../modules/home/presenter/home_controller.dart';
 import '../../modules/login/domain/interfaces/services/google_sign_in_service.dart';
 import '../../modules/login/domain/usecases/login_with_google_usecase.dart';
 import 'app_controller.dart';
@@ -17,6 +18,7 @@ class AppInjection {
     getIt.registerFactory(
       () => LoginWithGoogleUsecase(getIt.get<GoogleSignInService>()),
     );
+    getIt.registerFactory(() => HomeController());
     getIt.registerFactory(
       () => LoginController(getIt.get<LoginWithGoogleUsecase>()),
     );

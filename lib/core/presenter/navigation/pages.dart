@@ -6,7 +6,7 @@ import 'routes.dart';
 abstract class Pages {
   static final pages = {
     Routes.login: (_) => const LoginPage(),
-    Routes.home: (_) => HomePage(),
+    Routes.home: (_) => const HomePage(),
     Routes.ticketForm: (_) => const TicketFormPage(),
   };
 }

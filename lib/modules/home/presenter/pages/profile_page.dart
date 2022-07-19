@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 
+import '../../../../core/presenter/app_controller.dart';
 import '../../../../core/presenter/assets/app_images.dart';
 import '../../../../core/presenter/theme/app_colors.dart';
 import '../../../../core/presenter/theme/app_text_styles.dart';
 import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
+import '../home_controller.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  final controller = GetIt.I.get<HomeController>();
+  final appController = GetIt.I.get<AppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +27,10 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Text('Perfil', style: AppTextStyles.titleBoldHeading),
+        title: Text(
+          'Perfil',
+          style: AppTextStyles.titleBoldHeading,
+        ),
         centerTitle: true,
         actions: const [
           TranslationDropdownWidget(),
@@ -28,20 +42,20 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20.h),
-              // ClipRRect(
-              //   borderRadius: BorderRadius.circular(50),
-              //   child: Image.network(appController.currentUser.imageUrl!),
-              // ),
-              // const SizedBox(height: 20),
-              // Text(
-              //   appController.currentUser.name,
-              //   style: AppTextStyles.titleBoldHeading,
-              // ),
-              // const SizedBox(height: 10),
-              // Text(
-              //   appController.currentUser.email,
-              //   style: AppTextStyles.titleBoldHeading,
-              // ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50),
+                child: Image.network(appController.currentUser.imageUrl!),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                appController.currentUser.name,
+                style: AppTextStyles.titleBoldHeading,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                appController.currentUser.email,
+                style: AppTextStyles.titleBoldHeading,
+              ),
               SizedBox(height: 20.h),
               const Divider(thickness: 2),
               SizedBox(height: 20.h),

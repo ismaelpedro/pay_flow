@@ -37,7 +37,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         RichText(
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
-                            text: 'AppTranslationStrings.hello.tr',
+                            text: 'Olá, ',
                             style: AppTextStyles.titleRegular,
                             children: [
                               TextSpan(
@@ -48,7 +48,7 @@ class CustomAppBarWidget extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'AppTranslationStrings.accountUpTodate.tr',
+                          'Mantenha suas contas em dia',
                           style: AppTextStyles.captionShape,
                         ),
                       ],
@@ -77,7 +77,10 @@ class CustomAppBarWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Container(height: 40.h, color: Colors.white),
+            Container(
+              height: 40.h,
+              color: Colors.white,
+            ),
           ],
         ),
         Positioned(
@@ -113,18 +116,18 @@ class CustomAppBarWidget extends StatelessWidget {
                       RichText(
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          text: ' AppTranslationStrings.youHave.tr',
+                          text: 'Voce tem ',
                           style: AppTextStyles.captionShape,
                           children: [
                             TextSpan(
-                              text: '1',
+                              text: '2 boletos',
                               style: AppTextStyles.captionBoldBackground,
                             ),
                           ],
                         ),
                       ),
                       Text(
-                        'AppTranslationStrings.registrationsToPay.tr',
+                        'cadastrados para pagar',
                         style: AppTextStyles.captionShape,
                       ),
                     ],

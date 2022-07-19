@@ -1,4 +1,4 @@
-package br.com.pay-flow
+package br.com.pay_flow
 
 import io.flutter.embedding.android.FlutterActivity
 

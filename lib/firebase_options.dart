@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '6140613373',
     projectId: 'pay-flow-6d6da',
     storageBucket: 'pay-flow-6d6da.appspot.com',
-    iosClientId: '6140613373-kv3gqnvr7bson2i8bu965h7g6ogokvtb.apps.googleusercontent.com',
-    iosBundleId: 'br.com.pay-flow',
+    iosClientId:
+        '6140613373-kv3gqnvr7bson2i8bu965h7g6ogokvtb.apps.googleusercontent.com',
+    iosBundleId: 'br.com.pay_flow',
   );
 }
