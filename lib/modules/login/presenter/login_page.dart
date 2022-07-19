@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../core/presenter/assets/app_images.dart';
 import '../../../core/presenter/theme/app_colors.dart';
 import '../../../core/presenter/theme/app_text_styles.dart';
+import 'login_controller.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -12,6 +14,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = GetIt.I.get<LoginController>();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -63,10 +67,12 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      elevation: 3.h,
+                      elevation: 3,
                       primary: AppColors.secondary,
                     ),
-                    onPressed: () async {},
+                    onPressed: () async {
+                      await controller.loginWithGoogle();
+                    },
                   ),
                 ),
                 SizedBox(height: 40.h),
