@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 abstract class AppColors {
   AppColors._();
 
-  static const orange = Color(0xFFFF941A);
-  static const secondary = Color(0xFFFAFAFC);
-  static const delete = Color(0xFFE83F5B);
-  static const grey = Color(0xFF585666);
-  static const heading = Color(0xFF585666);
-  static const body = Color(0xFF706E7A);
-  static const stroke = Color(0xFFE3E3E6);
-  static const shape = Color(0xFFFAFAFC);
-  static const background = Color(0xFFFFFFFF);
-  static const input = Color(0xFFB1B0B8);
+  static const Color orange = Color(0xFFFF941A);
+  static const Color secondary = Color(0xFFFAFAFC);
+  static const Color delete = Color(0xFFE83F5B);
+  static const Color grey = Color(0xFF585666);
+  static const Color heading = Color(0xFF585666);
+  static const Color body = Color(0xFF706E7A);
+  static const Color stroke = Color(0xFFE3E3E6);
+  static const Color shape = Color(0xFFFAFAFC);
+  static const Color background = Color(0xFFFFFFFF);
+  static const Color input = Color(0xFFB1B0B8);
 }

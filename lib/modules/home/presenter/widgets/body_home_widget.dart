@@ -21,21 +21,21 @@ class BodyHomeWidget extends StatefulWidget {
 class _BodyHomeWidgetState extends State<BodyHomeWidget> {
   @override
   Widget build(BuildContext context) {
-    final mediquery = MediaQuery.of(context).size;
-    final appController = GetIt.I.get<AppController>();
+    Size mediquery = MediaQuery.of(context).size;
+    AppController appController = GetIt.I.get<AppController>();
 
     return SizedBox(
       width: mediquery.width,
       height: mediquery.height,
       child: Column(
-        children: [
+        children: <Widget>[
           CustomAppBarWidget(user: appController.currentUser),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   SizedBox(height: 32.h),
                   Text(
                     AppLocalizations.of(context)!.myTickets,
@@ -49,7 +49,10 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                         : FutureBuilder<List<TicketEntity>>(
                             future: null,
                             // future: controller.getTickets(),
-                            builder: (context, snapshot) {
+                            builder: (
+                              BuildContext context,
+                              AsyncSnapshot<List<TicketEntity>> snapshot,
+                            ) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {
                                 return const Center(
@@ -65,8 +68,9 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                                 child: ListView.builder(
                                   physics: const BouncingScrollPhysics(),
                                   itemCount: appController.tickets.length,
-                                  itemBuilder: (_, index) {
-                                    final ticket = appController.tickets[index];
+                                  itemBuilder: (_, int index) {
+                                    final TicketEntity ticket =
+                                        appController.tickets[index];
                                     return TicketCardWidget(ticket: ticket);
                                   },
                                 ),

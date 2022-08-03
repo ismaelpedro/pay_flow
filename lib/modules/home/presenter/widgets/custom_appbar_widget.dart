@@ -19,9 +19,9 @@ class CustomAppBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.bottomCenter,
-      children: [
+      children: <Widget>[
         Column(
-          children: [
+          children: <Widget>[
             Container(
               color: AppColors.orange,
               height: 184.h,
@@ -29,17 +29,17 @@ class CustomAppBarWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         RichText(
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
                             text: 'Olá, ',
                             style: AppTextStyles.titleRegular,
-                            children: [
+                            children: <InlineSpan>[
                               TextSpan(
                                 text: user.firstName,
                                 style: AppTextStyles.titleBoldBackground,
@@ -59,7 +59,8 @@ class CustomAppBarWidget extends StatelessWidget {
                         color: Colors.grey[200],
                         child: Image.network(
                           user.imageUrl!,
-                          loadingBuilder: (_, child, progress) {
+                          loadingBuilder:
+                              (_, Widget child, ImageChunkEvent? progress) {
                             if (progress == null) {
                               return child;
                             }
@@ -94,7 +95,7 @@ class CustomAppBarWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
-                children: [
+                children: <Widget>[
                   SizedBox(width: 20.w),
                   Image.asset(
                     AppImages.logomini,
@@ -112,13 +113,13 @@ class CustomAppBarWidget extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       RichText(
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
                           text: 'Voce tem ',
                           style: AppTextStyles.captionShape,
-                          children: [
+                          children: <InlineSpan>[
                             TextSpan(
                               text: '2 boletos',
                               style: AppTextStyles.captionBoldBackground,

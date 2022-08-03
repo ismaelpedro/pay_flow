@@ -7,10 +7,10 @@ import '../domain/entities/user_entity.dart';
 
 class AppController {
   late UserEntity currentUser;
-  final locateGlobal = StreamController<Locale>();
-  var tickets = <TicketEntity>[];
+  final StreamController<Locale> locateGlobal = StreamController<Locale>();
+  List<TicketEntity> tickets = <TicketEntity>[];
 
-  Stream<Locale> setLocale(Locale locale) {
+  Stream<Locale> setLocale(Locale locale ) {
     locateGlobal.sink.add(locale);
     return locateGlobal.stream;
   }

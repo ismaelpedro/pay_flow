@@ -15,14 +15,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final tabs = [
+  final List<Widget> tabs = <Widget>[
     const MyTicketsPage(),
     const ProfilePage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    final controller = GetIt.I.get<HomeController>();
+    HomeController controller = GetIt.I.get<HomeController>();
 
     return Scaffold(
       body: tabs[controller.currentIndex],
@@ -46,8 +46,8 @@ class _HomePageState extends State<HomePage> {
         child: BottomNavigationBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          onTap: (index) {},
-          items: const [
+          onTap: (int index) {},
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               label: '',
               icon: Icon(Icons.house),

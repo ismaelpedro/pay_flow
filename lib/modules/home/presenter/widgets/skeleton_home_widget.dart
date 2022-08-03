@@ -11,35 +11,35 @@ class SkeletonHomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context).size;
+    Size mediaQuery = MediaQuery.of(context).size;
 
     return SizedBox(
       width: mediaQuery.width,
       height: mediaQuery.height,
       child: Column(
-        children: [
+        children: <Widget>[
           Stack(
             alignment: Alignment.bottomCenter,
-            children: [
+            children: <Widget>[
               Column(
-                children: [
+                children: <Widget>[
                   Container(
                     color: AppColors.orange,
                     height: 184.h,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
-                        children: [
+                        children: <Widget>[
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: <Widget>[
                               ShimmerContainer(
                                 height: 10.h,
                                 width: 200.w,
                               ),
                               Column(
-                                children: [
+                                children: <Widget>[
                                   SizedBox(height: 5.h),
                                   ShimmerContainer(
                                     height: 10.h,
@@ -78,7 +78,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
-                      children: [
+                      children: <Widget>[
                         SizedBox(width: 24.w),
                         Image.asset(
                           AppImages.logomini,
@@ -96,7 +96,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: <Widget>[
                             ShimmerContainer(
                               height: 10.h,
                               width: 170.w,
@@ -120,7 +120,7 @@ class SkeletonHomeWidget extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 24.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   SizedBox(height: 32.h),
                   ShimmerContainer(
                     child: Text(
@@ -136,7 +136,7 @@ class SkeletonHomeWidget extends StatelessWidget {
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         itemCount: 6,
-                        itemBuilder: (_, index) {
+                        itemBuilder: (_, int index) {
                           return ListTile(
                             title: const ShimmerContainer(
                               height: 10,

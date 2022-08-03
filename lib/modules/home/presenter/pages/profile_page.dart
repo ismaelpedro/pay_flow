@@ -18,8 +18,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final controller = GetIt.I.get<HomeController>();
-  final appController = GetIt.I.get<AppController>();
+  HomeController controller = GetIt.I.get<HomeController>();
+  AppController appController = GetIt.I.get<AppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
           style: AppTextStyles.titleBoldHeading,
         ),
         centerTitle: true,
-        actions: const [
+        actions: const <Widget>[
           TranslationDropdownWidget(),
         ],
       ),
@@ -40,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Column(
-            children: [
+            children: <Widget>[
               SizedBox(height: 20.h),
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
@@ -88,7 +88,7 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(height: 15.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   GestureDetector(
                     onTap: () async {
                       await Clipboard.setData(

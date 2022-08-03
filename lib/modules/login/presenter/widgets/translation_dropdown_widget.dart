@@ -11,21 +11,21 @@ class TranslationDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final appController = GetIt.I.get<AppController>();
+    AppController appController = GetIt.I.get<AppController>();
 
     return SafeArea(
-      child: PopupMenuButton(
-        key: const ValueKey('pt-option'),
+      child: PopupMenuButton<int>(
+        key: const ValueKey<String>('pt-option'),
         tooltip: '',
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),
         ),
-        itemBuilder: (context) {
-          return [
-            PopupMenuItem(
+        itemBuilder: (BuildContext context) {
+          return <PopupMenuEntry<int>>[
+            PopupMenuItem<int>(
               value: 1,
               child: Row(
-                children: [
+                children: <Widget>[
                   Image.asset(
                     AppImages.br,
                     height: 35.h,
@@ -39,10 +39,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                 appController.setLocale(const Locale('pt', 'BR'));
               },
             ),
-            PopupMenuItem(
+            PopupMenuItem<int>(
               value: 2,
               child: Row(
-                children: [
+                children: <Widget>[
                   Image.asset(
                     AppImages.eua,
                     height: 35,
@@ -56,10 +56,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                 appController.setLocale(const Locale('en', 'US'));
               },
             ),
-            PopupMenuItem(
+            PopupMenuItem<int>(
               value: 3,
               child: Row(
-                children: [
+                children: <Widget>[
                   Image.asset(
                     AppImages.es,
                     height: 35.h,

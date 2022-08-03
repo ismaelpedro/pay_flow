@@ -10,9 +10,9 @@ class GoogleSignInService implements IGoogleSignInService {
   @override
   Future<UserEntity?> signIn() async {
     googleSignIn?.signOut();
-    final googleUser = await googleSignIn?.signIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn?.signIn();
     if (googleSignIn != null) {
-      final user = UserEntity(
+      UserEntity user = UserEntity(
         id: googleUser!.id,
         name: googleUser.displayName!,
         email: googleUser.email,

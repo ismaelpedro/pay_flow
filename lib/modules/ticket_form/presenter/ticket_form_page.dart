@@ -17,10 +17,10 @@ class TicketFormPage extends StatefulWidget {
 }
 
 class _TicketFormPageState extends State<TicketFormPage> {
-  final nameEC = TextEditingController();
-  final valueEC = TextEditingController();
-  final expirationEC = TextEditingController();
-  final codeEC = TextEditingController();
+  TextEditingController nameEC = TextEditingController();
+  TextEditingController valueEC = TextEditingController();
+  TextEditingController expirationEC = TextEditingController();
+  TextEditingController codeEC = TextEditingController();
 
   @override
   void dispose() {
@@ -49,7 +49,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: [
+            children: <Widget>[
               Center(
                 child: Text(
                   'Preencha os daos\ndo boleto',
@@ -62,12 +62,12 @@ class _TicketFormPageState extends State<TicketFormPage> {
                 padding: EdgeInsets.symmetric(horizontal: 24.w),
                 child: Form(
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       TileFormWidget(
                         imagePrefix: AppImages.ticket,
                         hintText: 'Nome do boleto',
                         textEditingController: nameEC,
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value!.isEmpty) {
                             return 'Nome obrigatório';
                           }
@@ -78,14 +78,14 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         onTap: () {
                           showCupertinoModalPopup(
                             context: context,
-                            builder: (builder) {
+                            builder: (BuildContext builder) {
                               return SizedBox(
                                 height: 255.h,
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
-                                  onDateTimeChanged: (value) {
+                                  onDateTimeChanged: (DateTime value) {
                                     expirationEC.text =
                                         DateFormat('dd/MM/yyyy').format(value);
                                   },
@@ -100,7 +100,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                             imagePrefix: AppImages.close,
                             hintText: 'Vencimento',
                             textEditingController: expirationEC,
-                            validator: (value) {
+                            validator: (String? value) {
                               if (value!.isEmpty) {
                                 return 'Vencimento obrigatório';
                               }
@@ -113,7 +113,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         imagePrefix: AppImages.wallet,
                         hintText: 'Valor',
                         textEditingController: valueEC,
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value!.isEmpty || value == 'R\$ 0,00') {
                             return 'Valor obrigatório';
                           }
@@ -124,7 +124,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         imagePrefix: AppImages.barcode,
                         hintText: 'Código',
                         textEditingController: codeEC,
-                        validator: (value) {
+                        validator: (String? value) {
                           if (value!.isEmpty) {
                             return 'Código obrigatório';
                           }
@@ -139,7 +139,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
           ),
         ),
         bottomNavigationBar: Row(
-          children: [
+          children: <Widget>[
             BottomButtonWidget(
               label: 'Cancelar',
               style: AppTextStyles.buttonGray,

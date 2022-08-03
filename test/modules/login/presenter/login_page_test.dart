@@ -14,13 +14,13 @@ void main() {
 
     testWidgets(
       'Should change language to portuguese',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(const PayFlowApp());
         await tester.pumpAndSettle();
 
         expect(
           find.byKey(
-            const ValueKey('pt-option'),
+            const ValueKey<String>('pt-option'),
           ),
           findsOneWidget,
         );

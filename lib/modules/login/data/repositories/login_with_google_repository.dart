@@ -10,7 +10,7 @@ class LoginWithGoogleRepository implements ILoginWithGoogleRepository {
 
   @override
   Future<UserEntity?> call(BuildContext context) async {
-    final user = await _service.signIn();
+    UserEntity? user = await _service.signIn();
     return user;
   }
 }

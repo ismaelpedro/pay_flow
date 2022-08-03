@@ -8,7 +8,7 @@ class QuestionWidget extends StatelessWidget {
     return CupertinoAlertDialog(
       title: const Text('AppTranslationStrings.warning.tr'),
       content: const Text('AppTranslationStrings.registerTicket.tr'),
-      actions: [
+      actions: <Widget>[
         CupertinoDialogAction(
           child: const Text('AppTranslationStrings.scan.tr'),
           onPressed: () async {

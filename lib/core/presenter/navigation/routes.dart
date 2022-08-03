@@ -1,5 +1,5 @@
 abstract class Routes {
-  static const login = '/login';
-  static const home = '/home';
-  static const ticketForm = '/ticket-form';
+  static const String login = '/login';
+  static const String home = '/home';
+  static const String ticketForm = '/ticket-form';
 }

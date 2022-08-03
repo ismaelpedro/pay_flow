@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/presenter/theme/app_colors.dart';
 import '../../../../core/presenter/theme/app_text_styles.dart';
 
-
 class TileFormWidget extends StatelessWidget {
   final String hintText;
   final String imagePrefix;
@@ -27,26 +26,26 @@ class TileFormWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 40.h),
       child: Row(
-        children: [
+        children: <Widget>[
           Expanded(
             child: TextFormField(
               readOnly: readOnly,
               validator: validator,
               controller: textEditingController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              keyboardType: [
+              keyboardType: <String>[
                 'AppTranslationStrings.value.tr',
                 'AppTranslationStrings.expiration.tr'
               ].contains(hintText)
                   ? TextInputType.number
                   : null,
-              inputFormatters: [
+              inputFormatters: <String>[
                 'AppTranslationStrings.value.tr',
                 'AppTranslationStrings.expiration.tr',
               ].contains(hintText)
-                  ? [FilteringTextInputFormatter.digitsOnly]
+                  ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
                   : null,
-              maxLength: ['Vencimento'].contains(hintText) ? 10 : null,
+              maxLength: <String>['Vencimento'].contains(hintText) ? 10 : null,
               decoration: InputDecoration(
                 counterText: '',
                 hintText: hintText,
@@ -56,7 +55,7 @@ class TileFormWidget extends StatelessWidget {
                   child: IntrinsicHeight(
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: [
+                      children: <Widget>[
                         Image.asset(imagePrefix),
                         SizedBox(width: 15.w),
                         const VerticalDivider(

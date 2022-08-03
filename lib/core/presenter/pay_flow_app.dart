@@ -14,7 +14,9 @@ class PayFlowApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    SystemChrome.setPreferredOrientations(
+      <DeviceOrientation>[DeviceOrientation.portraitUp],
+    );
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
@@ -26,7 +28,7 @@ class PayFlowApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return StreamBuilder<Locale>(
           stream: GetIt.I.get<AppController>().locateGlobal.stream,
-          builder: (context, snapshot) {
+          builder: (BuildContext context, AsyncSnapshot<Locale> snapshot) {
             return MaterialApp(
               locale: snapshot.data,
               debugShowCheckedModeBanner: false,

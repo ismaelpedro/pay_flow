@@ -13,7 +13,7 @@ class MyTicketsPage extends StatefulWidget {
 }
 
 class _MyTicketsPageState extends State<MyTicketsPage> {
-  final controller = GetIt.I.get<HomeController>();
+  HomeController controller = GetIt.I.get<HomeController>();
 
   @override
   Widget build(BuildContext context) {

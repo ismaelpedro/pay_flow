@@ -14,15 +14,15 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = GetIt.I.get<LoginController>();
+    LoginController controller = GetIt.I.get<LoginController>();
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
-        children: [
+        children: <Widget>[
           SingleChildScrollView(
             child: Column(
-              children: [
+              children: <Widget>[
                 Container(
                   height: 316.h,
                   width: double.infinity,

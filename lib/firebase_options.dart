@@ -50,21 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAHCJXheJDhnLqhWIevmz8rtqbO7j7LE3Q',
-    appId: '1:6140613373:android:6e30db5f7a322d96f12494',
-    messagingSenderId: '6140613373',
-    projectId: 'pay-flow-6d6da',
-    storageBucket: 'pay-flow-6d6da.appspot.com',
+    apiKey: 'AIzaSyDFNipLwT6Zybto85NcYuL6mS-M1J5_Apo',
+    appId: '1:561717721756:android:88ac3d223025e8e2094b59',
+    messagingSenderId: '561717721756',
+    projectId: 'pay-flow-1bde1',
+    storageBucket: 'pay-flow-1bde1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD4fmNsmsrKopv5or-WcoLCgru1SLxVRqY',
-    appId: '1:6140613373:ios:0f298d05f82d41cef12494',
-    messagingSenderId: '6140613373',
-    projectId: 'pay-flow-6d6da',
-    storageBucket: 'pay-flow-6d6da.appspot.com',
-    iosClientId:
-        '6140613373-kv3gqnvr7bson2i8bu965h7g6ogokvtb.apps.googleusercontent.com',
-    iosBundleId: 'br.com.pay_flow',
+    apiKey: 'AIzaSyBjdOKtgpyyyBVtfbZkTIckuaVK9sxjXtA',
+    appId: '1:561717721756:ios:42e8775da20e91d4094b59',
+    messagingSenderId: '561717721756',
+    projectId: 'pay-flow-1bde1',
+    storageBucket: 'pay-flow-1bde1.appspot.com',
+    iosClientId: '561717721756-0q7tji6l0fnmf0aurha2q8n56aoh4qbp.apps.googleusercontent.com',
+    iosBundleId: 'br.com.pay-flow',
   );
 }
