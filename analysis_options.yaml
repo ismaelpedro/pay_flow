@@ -12,8 +12,5 @@ linter:
     always_declare_return_types: true
     always_specify_types: true
     no_logic_in_create_state: true
-    leading_newlines_in_multiline_strings: true
-    curly_braces_in_flow_control_structures: true
-    cancel_subscriptions: true
     require_trailing_commas: true
     prefer_relative_imports: true
