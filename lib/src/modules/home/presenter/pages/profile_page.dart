@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 
-import '../../../core/presenter/app_controller.dart';
 import '../../../core/presenter/assets/app_images.dart';
 import '../../../core/presenter/theme/app_colors.dart';
 import '../../../core/presenter/theme/app_text_styles.dart';
 import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
-import '../home_controller.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -18,8 +15,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  HomeController controller = GetIt.I.get<HomeController>();
-  AppController appController = GetIt.I.get<AppController>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,18 +39,18 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(height: 20.h),
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
-                child: Image.network(appController.currentUser.imageUrl!),
+                // child: Image.network(appController.currentUser.imageUrl!),
               ),
               const SizedBox(height: 20),
-              Text(
-                appController.currentUser.name,
-                style: AppTextStyles.titleBoldHeading,
-              ),
+              // Text(
+              //   appController.currentUser.name,
+              //   style: AppTextStyles.titleBoldHeading,
+              // ),
               const SizedBox(height: 10),
-              Text(
-                appController.currentUser.email,
-                style: AppTextStyles.titleBoldHeading,
-              ),
+              // Text(
+              //   appController.currentUser.email,
+              //   style: AppTextStyles.titleBoldHeading,
+              // ),
               SizedBox(height: 20.h),
               const Divider(thickness: 2),
               SizedBox(height: 20.h),

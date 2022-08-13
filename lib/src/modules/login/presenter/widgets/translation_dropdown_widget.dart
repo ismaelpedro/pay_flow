@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 
-import '../../../core/presenter/app_controller.dart';
 import '../../../core/presenter/assets/app_images.dart';
 
 
@@ -12,7 +10,6 @@ class TranslationDropdownWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppController appController = GetIt.I.get<AppController>();
 
     return SafeArea(
       child: PopupMenuButton<int>(
@@ -37,7 +34,6 @@ class TranslationDropdownWidget extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                appController.setLocale(const Locale('pt', 'BR'));
               },
             ),
             PopupMenuItem<int>(
@@ -54,7 +50,6 @@ class TranslationDropdownWidget extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                appController.setLocale(const Locale('en', 'US'));
               },
             ),
             PopupMenuItem<int>(
@@ -71,7 +66,6 @@ class TranslationDropdownWidget extends StatelessWidget {
                 ],
               ),
               onTap: () {
-                appController.setLocale(const Locale('es', 'ES'));
               },
             ),
           ];

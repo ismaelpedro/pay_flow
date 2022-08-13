@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 
-import 'app_controller.dart';
 import 'navigation/pages.dart';
 import 'navigation/routes.dart';
 import 'theme/app_colors.dart';
@@ -27,7 +25,7 @@ class PayFlowApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return StreamBuilder<Locale>(
-          stream: GetIt.I.get<AppController>().locateGlobal.stream,
+          stream: null,
           builder: (BuildContext context, AsyncSnapshot<Locale> snapshot) {
             return MaterialApp(
               locale: snapshot.data,

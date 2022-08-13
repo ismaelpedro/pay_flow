@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../../core/presenter/navigation/routes.dart';
 import '../../../core/presenter/theme/app_colors.dart';
-import '../home_controller.dart';
 import 'my_tickets_page.dart';
 import 'profile_page.dart';
 
@@ -22,10 +20,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    HomeController controller = GetIt.I.get<HomeController>();
 
     return Scaffold(
-      body: tabs[controller.currentIndex],
+      // body: tabs[controller.currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.orange,

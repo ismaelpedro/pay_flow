@@ -59,11 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBjdOKtgpyyyBVtfbZkTIckuaVK9sxjXtA',
-    appId: '1:561717721756:ios:42e8775da20e91d4094b59',
+    appId: '1:561717721756:ios:785da1a185ebd91e094b59',
     messagingSenderId: '561717721756',
     projectId: 'pay-flow-1bde1',
     storageBucket: 'pay-flow-1bde1.appspot.com',
-    iosClientId: '561717721756-0q7tji6l0fnmf0aurha2q8n56aoh4qbp.apps.googleusercontent.com',
-    iosBundleId: 'br.com.pay-flow',
+    iosClientId: '561717721756-qjfb8pf2dbivlvr1un8kbu0qn30d0910.apps.googleusercontent.com',
+    iosBundleId: 'br.com.ismael.payFlow',
   );
 }

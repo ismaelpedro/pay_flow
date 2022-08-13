@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import '../domain/entities/ticket_entity.dart';
 import '../domain/entities/user_entity.dart';
 
