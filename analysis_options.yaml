@@ -4,13 +4,17 @@ analyzer:
   errors:
     require_trailing_commas: error
     unused_import: error
+    directives_ordering: error
+    prefer_single_quotes: error
+    always_declare_return_types: error
+    always_specify_types: error
+    prefer_relative_imports: error
 
 linter:
   rules:
-    avoid_print: false
     prefer_single_quotes: true
     always_declare_return_types: true
     always_specify_types: true
-    no_logic_in_create_state: true
     require_trailing_commas: true
     prefer_relative_imports: true
+    directives_ordering: true
