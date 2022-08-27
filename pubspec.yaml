@@ -22,6 +22,7 @@ dependencies:
   # google_mobile_ads: ^2.0.1
   intl: ^0.17.0
   shimmer: ^2.0.0
+  local_auth: ^2.1.2
   cached_network_image: ^3.2.1
   dio: ^4.0.6
 
