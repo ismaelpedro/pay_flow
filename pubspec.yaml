@@ -13,8 +13,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  firebase_core: ^1.20.1
-  firebase_crashlytics: ^2.8.7
+  firebase_core: ^1.21.1
+  firebase_crashlytics: ^2.8.9
   flutter_masked_text2: ^0.9.1
   flutter_barcode_scanner: ^2.0.0
   flutter_screenutil: ^5.5.3+2
