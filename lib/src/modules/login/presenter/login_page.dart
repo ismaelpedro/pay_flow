@@ -64,7 +64,7 @@ class LoginPage extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                       elevation: 3,
-                      primary: AppColors.secondary,
+                      backgroundColor: AppColors.secondary,
                     ),
                     onPressed: () async {},
                   ),

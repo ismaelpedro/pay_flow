@@ -14,17 +14,17 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.5
   # google_mobile_ads: ^2.0.1
-  firebase_core: ^1.21.1
-  firebase_crashlytics: ^2.8.9
-  firebase_analytics: ^9.3.3
-  firebase_performance: ^0.8.2+4
+  google_sign_in: ^5.4.1
+  firebase_core: ^1.22.0
+  firebase_crashlytics: ^2.8.10
+  firebase_analytics: ^9.3.4
+  firebase_performance: ^0.8.3
   flutter_masked_text2: ^0.9.1
   flutter_barcode_scanner: ^2.0.0
   flutter_screenutil: ^5.5.4
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
   cached_network_image: ^3.2.2
-  google_sign_in: ^5.4.1
   intl: ^0.17.0
   shimmer: ^2.0.0
   local_auth: ^2.1.2
