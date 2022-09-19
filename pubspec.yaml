@@ -17,7 +17,7 @@ dependencies:
   google_sign_in: ^5.4.1
   firebase_core: ^1.22.0
   firebase_crashlytics: ^2.8.10
-  firebase_analytics: ^9.3.4
+  firebase_analytics: ^9.3.5
   firebase_performance: ^0.8.3
   flutter_masked_text2: ^0.9.1
   flutter_barcode_scanner: ^2.0.0
