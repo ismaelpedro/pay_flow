@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/presenter/presenter.dart';
-import '../../../core/presenter/theme/app_text_styles.dart';
+import '../../../core/core.dart';
 
 class BodyHomeWidget extends StatefulWidget {
   const BodyHomeWidget({Key? key}) : super(key: key);

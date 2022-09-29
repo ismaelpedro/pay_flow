@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../core/presenter/assets/app_images.dart';
-import '../../../core/presenter/presenter.dart';
-import '../../../core/presenter/theme/app_colors.dart';
-import '../../../core/presenter/theme/app_text_styles.dart';
+import '../../../core/core.dart';
 
 class SkeletonHomeWidget extends StatelessWidget {
   const SkeletonHomeWidget({Key? key}) : super(key: key);
