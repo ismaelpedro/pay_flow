@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../core/presenter/assets/app_images.dart';
+import '../../core/presenter/presenter.dart';
 import '../../core/presenter/theme/app_colors.dart';
 import '../../core/presenter/theme/app_text_styles.dart';
 import 'widgets/translation_dropdown_widget.dart';
@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 70.w),
                   child: Text(
-                    AppLocalizations.of(context)!.loginTitleCenter,
+                    context.i18n.loginTitleCenter,
                     style: AppTextStyles.titleHome,
                     textAlign: TextAlign.center,
                   ),
@@ -57,7 +57,7 @@ class LoginPage extends StatelessWidget {
                     label: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 45.w),
                       child: Text(
-                        AppLocalizations.of(context)!.loginButtonText,
+                        context.i18n.loginButtonText,
                         style: AppTextStyles.buttonGray,
                         textAlign: TextAlign.center,
                       ),

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/presenter/assets/app_images.dart';
-
+import '../../../core/presenter/presenter.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   const TranslationDropdownWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: PopupMenuButton<int>(
         key: const ValueKey<String>('pt-option'),
@@ -30,11 +28,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35.w,
                   ),
                   const SizedBox(width: 10),
-                  Text(AppLocalizations.of(context)!.ptBr),
+                  Text(context.i18n.ptBr),
                 ],
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
             PopupMenuItem<int>(
               value: 2,
@@ -46,11 +43,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   SizedBox(width: 10.w),
-                  Text(AppLocalizations.of(context)!.enUS),
+                  Text(context.i18n.enUS),
                 ],
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
             PopupMenuItem<int>(
               value: 3,
@@ -62,11 +58,10 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35.w,
                   ),
                   SizedBox(width: 10.w),
-                  Text(AppLocalizations.of(context)!.esES),
+                  Text(context.i18n.esES),
                 ],
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
           ];
         },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/presenter/presenter.dart';
 import '../../../core/presenter/theme/app_text_styles.dart';
 
 class BodyHomeWidget extends StatefulWidget {
@@ -30,7 +30,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                 children: <Widget>[
                   SizedBox(height: 32.h),
                   Text(
-                    AppLocalizations.of(context)!.myTickets,
+                    context.i18n.myTickets,
                     style: AppTextStyles.titleBoldHeading,
                   ),
                   SizedBox(height: 16.h),
