@@ -13,14 +13,14 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.5
+  google_mobile_ads: ^2.0.1
   google_sign_in: ^5.4.2
   firebase_core: ^1.24.0
   firebase_crashlytics: ^2.8.12
   flutter_screenutil: ^5.5.4
-  flutter_native_splash: ^2.2.10+1
   flutter_bloc: ^8.1.1
+  flutter_barcode_scanner: ^2.0.0
   bloc: ^8.1.0
-  mask_text_input_formatter: ^2.4.0
   freezed_annotation: ^2.1.0
   cached_network_image: ^3.2.2
   intl: ^0.17.0
@@ -48,13 +48,6 @@ flutter:
     - assets/fonts/
     - assets/i18n/
     - assets/images/
-
-flutter_native_splash:
-  color: "#ffffff"
-  image: assets/images/splash.png
-  android: true
-  android12: true
-  ios: true
 
   fonts:
     - family: Inter
