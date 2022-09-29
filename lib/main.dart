@@ -1,24 +1,22 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'firebase_options.dart';
 import 'src/modules/core/presenter/pay_flow_app.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
-  await Future.wait(<Future<Object?>>[
-    MobileAds.instance.initialize(),
-    Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
-    if (kDebugMode)
-      MobileAds.instance.updateRequestConfiguration(
-        RequestConfiguration(
-          testDeviceIds: <String>['13C133C1-87A7-4B37-9C06-BB1AE9458E30'],
-        ),
-      ),
-  ]);
-
-  runApp(const PayFlowApp());
+    runApp(const PayFlowApp());
+  }, (Object error, StackTrace stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack);
+  });
 }

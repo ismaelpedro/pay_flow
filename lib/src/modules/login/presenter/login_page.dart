@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/presenter/assets/app_images.dart';
 import '../../core/presenter/theme/app_colors.dart';
 import '../../core/presenter/theme/app_text_styles.dart';
-import '../../core/presenter/widgets/custom_banner_ad.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -71,7 +70,6 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 40.h),
-                const CustomBannerAd(),
               ],
             ),
           ),

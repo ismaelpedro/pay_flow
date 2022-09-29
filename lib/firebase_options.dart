@@ -50,20 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDFNipLwT6Zybto85NcYuL6mS-M1J5_Apo',
-    appId: '1:561717721756:android:88ac3d223025e8e2094b59',
-    messagingSenderId: '561717721756',
-    projectId: 'pay-flow-1bde1',
-    storageBucket: 'pay-flow-1bde1.appspot.com',
+    apiKey: 'AIzaSyCFMN5n2B7ylb4RvTho7WHGkY2YgLixcE4',
+    appId: '1:911161269065:android:82226b1c88dd3243275898',
+    messagingSenderId: '911161269065',
+    projectId: 'payflow-333802',
+    storageBucket: 'payflow-333802.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBjdOKtgpyyyBVtfbZkTIckuaVK9sxjXtA',
-    appId: '1:561717721756:ios:785da1a185ebd91e094b59',
-    messagingSenderId: '561717721756',
-    projectId: 'pay-flow-1bde1',
-    storageBucket: 'pay-flow-1bde1.appspot.com',
-    iosClientId: '561717721756-qjfb8pf2dbivlvr1un8kbu0qn30d0910.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDVK4Ns1xMulJf3tS51Rje5XS_0PiI9gxM',
+    appId: '1:911161269065:ios:d91e61602735ce9c275898',
+    messagingSenderId: '911161269065',
+    projectId: 'payflow-333802',
+    storageBucket: 'payflow-333802.appspot.com',
+    androidClientId: '911161269065-k3kk1pp6gjc8ivi2kcvr9urlmuk9e1c6.apps.googleusercontent.com',
+    iosClientId: '911161269065-1gamcv9d3lk6effqk4r3v6gfffrmo493.apps.googleusercontent.com',
     iosBundleId: 'br.com.ismael.payFlow',
   );
 }

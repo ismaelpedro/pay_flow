@@ -83,19 +83,6 @@ class _ProfilePageState extends State<ProfilePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  GestureDetector(
-                    onTap: () async {
-                      await Clipboard.setData(
-                        const ClipboardData(
-                          text: 'bc1qlm4knqc2t0xdqumfcsezqmcswvf282rlx5cq7r',
-                        ),
-                      );
-                    },
-                    child: Image.asset(
-                      AppImages.donateBtc,
-                      height: 50.h,
-                    ),
-                  ),
                   SizedBox(width: 20.w),
                   GestureDetector(
                     onTap: () async {

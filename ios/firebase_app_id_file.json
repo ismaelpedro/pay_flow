@@ -1,7 +1,7 @@
 {
   "file_generated_by": "FlutterFire CLI",
   "purpose": "FirebaseAppID & ProjectID for this Firebase app in this directory",
-  "GOOGLE_APP_ID": "1:561717721756:ios:785da1a185ebd91e094b59",
-  "FIREBASE_PROJECT_ID": "pay-flow-1bde1",
-  "GCM_SENDER_ID": "561717721756"
+  "GOOGLE_APP_ID": "1:911161269065:ios:d91e61602735ce9c275898",
+  "FIREBASE_PROJECT_ID": "payflow-333802",
+  "GCM_SENDER_ID": "911161269065"
 }

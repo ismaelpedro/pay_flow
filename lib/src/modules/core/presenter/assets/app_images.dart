@@ -13,7 +13,5 @@ abstract class AppImages {
   static const String close = 'assets/images/close.png';
   static const String wallet = 'assets/images/wallet.png';
   static const String barcode = 'assets/images/barcode.png';
-  static const String noTickets = 'assets/images/no-tickets.gif';
-  static const String donateBtc = 'assets/images/donate-btc.jpg';
   static const String pix = 'assets/images/pix.png';
 }
