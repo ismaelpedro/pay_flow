@@ -7,7 +7,6 @@ import '../../../core/presenter/assets/app_images.dart';
 import '../../../core/presenter/theme/app_colors.dart';
 import '../../../core/presenter/theme/app_text_styles.dart';
 
-
 class CustomAppBarWidget extends StatelessWidget {
   final UserEntity user;
 
@@ -42,7 +41,7 @@ class CustomAppBarWidget extends StatelessWidget {
                             style: AppTextStyles.titleRegular,
                             children: <InlineSpan>[
                               TextSpan(
-                                text: user.firstName,
+                                text: user.name[0],
                                 style: AppTextStyles.titleBoldBackground,
                               ),
                             ],
