@@ -12,7 +12,6 @@ This project was developed with the following technologies:
 
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
-- [Hasura](https://hasura.io/)
 
 <h2>Project 💻</h2>
 
@@ -27,6 +26,13 @@ I'm using:
 <h2> Features implemented 🔥 </h2>
 
 - Login with Google;
+- Payment with Google Pay
+- CI/CD with CodeMagic
+- BLoC State Management
+- Firebase crashlytics & analytics
+- Notifications
+- Mobile advertising
+- Face Id
 - Barcode reading;
 - Internationalization (PT-BR, EN-US, ES-ES);
 - Shimmer effects on loads;
@@ -36,10 +42,8 @@ I'm using:
 - Clone the repository;
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
-- Find `"hasura_settings_example.env"` in "assets/", rename to `"hasura_settings.env"`;
-- Fill your hasura data in `"hasura_settings.env"`;
 - Launch a mobile device emulator or connect your smartphone to the computer <br>
-  `(make sure your device has USB Debugging enabled)`;
+  `(make sure your device has USB Debugging enabled and Flutter version equal to or greater than 3.3.8)`;
 - Run `flutter run` to run the app on your connected (or emulated) device;
 
 
