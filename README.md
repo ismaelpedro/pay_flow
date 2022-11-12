@@ -12,6 +12,7 @@ This project was developed with the following technologies:
 
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
+- [Firebase](https://firebase.google.com/)
 
 <h2>Project 💻</h2>
 
@@ -20,8 +21,6 @@ PayFlow contains features such as using Camera, Sign In, Custom Animations and S
 I'm using: 
 - Clean Architecture; 
 - Unitary Tests;
-- Hasura for BaaS;
-- GetX (for state management, dependency injection and internationalization);
 
 <h2> Features implemented 🔥 </h2>
 
