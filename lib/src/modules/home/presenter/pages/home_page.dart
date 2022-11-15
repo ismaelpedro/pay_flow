@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/infrastructure/service_locator/service_locator.dart';
 import '../../../core/presenter/navigation/routes.dart';
 import '../../../core/presenter/theme/app_colors.dart';
+import '../home_controller.dart';
 import 'my_tickets_page.dart';
 import 'profile_page.dart';
 
@@ -20,9 +22,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    HomeController controller = serviceLocator.get<HomeController>();
 
     return Scaffold(
-      // body: tabs[controller.currentIndex],
+      body: tabs[controller.currentIndex],
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.orange,
@@ -40,21 +43,43 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: SizedBox(
         height: 70,
-        child: BottomNavigationBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          onTap: (int index) {},
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
+        child: NavigationBar(
+          destinations: const <Widget>[
+            NavigationDestination(
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 3),
+                child: Icon(
+                  Icons.home,
+                ),
+              ),
               label: '',
-              icon: Icon(Icons.house),
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
+              icon: Padding(
+                padding: EdgeInsets.symmetric(vertical: 3),
+                child: Icon(
+                  Icons.person,
+                ),
+              ),
               label: '',
-              icon: Icon(Icons.person),
             ),
           ],
         ),
+        // child: BottomNavigationBar(
+        //   elevation: 0,
+        //   backgroundColor: Colors.white,
+        //   onTap: (int index) {},
+        //   items: const <BottomNavigationBarItem>[
+        //     BottomNavigationBarItem(
+        //       label: '',
+        //       icon: Icon(Icons.home),
+        //     ),
+        //     BottomNavigationBarItem(
+        //       label: '',
+        //       icon: Icon(Icons.person),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }

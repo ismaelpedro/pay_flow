@@ -1,4 +1,4 @@
 class HomeController {
-  int currentIndex = 0;
+  int currentIndex = 1;
   bool isLoading = false;
 }

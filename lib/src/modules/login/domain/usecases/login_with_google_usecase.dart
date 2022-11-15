@@ -1,8 +1,8 @@
 import '../../../core/domain/domain.dart';
-import '../interfaces/services/i_google_sign_in_service.dart';
+import '../../../core/infrastructure/google_sign_in/google_sign_in_adapter.dart';
 
 class LoginWithGoogleUsecase {
-  final IGoogleSignInService _googleSignService;
+  final GoogleSignInAdapter _googleSignService;
   LoginWithGoogleUsecase(this._googleSignService);
 
   Future<UserEntity?> call() async {

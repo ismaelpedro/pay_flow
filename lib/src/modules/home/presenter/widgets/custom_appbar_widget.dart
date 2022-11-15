@@ -41,7 +41,7 @@ class CustomAppBarWidget extends StatelessWidget {
                             style: AppTextStyles.titleRegular,
                             children: <InlineSpan>[
                               TextSpan(
-                                text: user.name[0],
+                                text: user.firstName,
                                 style: AppTextStyles.titleBoldBackground,
                               ),
                             ],
@@ -56,6 +56,7 @@ class CustomAppBarWidget extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Container(
+                        height: 50,
                         color: Colors.grey[200],
                         child: Image.network(
                           user.imageUrl!,

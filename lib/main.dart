@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'firebase_options.dart';
+import 'src/modules/core/infrastructure/service_locator/service_locator.dart';
 import 'src/modules/core/presenter/pay_flow_app.dart';
 
 Future<void> main() async {
@@ -15,6 +16,7 @@ Future<void> main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    setUpInjections();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(const PayFlowApp());

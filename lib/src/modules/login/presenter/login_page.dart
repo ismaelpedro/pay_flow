@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get_it/get_it.dart';
 import '../../core/core.dart';
+import 'login_controller.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
 class LoginPage extends StatelessWidget {
@@ -8,6 +10,8 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoginController controller = GetIt.I.get<LoginController>();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -62,7 +66,9 @@ class LoginPage extends StatelessWidget {
                       elevation: 3,
                       backgroundColor: AppColors.secondary,
                     ),
-                    onPressed: () async {},
+                    onPressed: () async {
+                      await controller.loginWithGoogle(context);
+                    },
                   ),
                 ),
                 SizedBox(height: 40.h),
