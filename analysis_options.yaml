@@ -1,6 +1,10 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  exclude:
+    - '**.freezed.dart'
+    - '**.g.dart'
+    - '**/generated_plugin_registrant.dart'
   errors:
     require_trailing_commas: error
     unused_import: error

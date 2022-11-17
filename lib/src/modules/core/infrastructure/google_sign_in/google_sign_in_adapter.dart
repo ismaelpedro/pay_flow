@@ -13,7 +13,7 @@ class GoogleSignInAdapter {
         id: googleUser.id,
         name: googleUser.displayName!,
         email: googleUser.email,
-        imageUrl: googleUser.photoUrl,
+        imageUrl: googleUser.photoUrl!,
       );
     }
     return null;

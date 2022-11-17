@@ -1,21 +1,25 @@
-import '../../domain/entities/user_entity.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../core.dart';
+part 'user_dto.freezed.dart';
+part 'user_dto.g.dart';
 
-extension UserDto on UserEntity {
-  Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'id': id,
-      'name': name,
-      'imageUrl': imageUrl,
-      'email': email,
-    };
-  }
+@freezed
+abstract class UserDto with _$UserDto {
+  factory UserDto({
+    required String id,
+    required String name,
+    required String email,
+    required String imageUrl,
+  }) = _UserDto;
+  factory UserDto.fromJson(Map<String, dynamic> json) =>
+      _$UserDtoFromJson(json);
 
-  static UserEntity fromJson(Map<String, dynamic> map) {
+  UserEntity toEntity() {
     return UserEntity(
-      id: map['id'],
-      name: map['name'],
-      imageUrl: map['imageUrl'],
-      email: map['email'],
+      id: id,
+      name: name,
+      email: email,
+      imageUrl: imageUrl,
     );
   }
 }

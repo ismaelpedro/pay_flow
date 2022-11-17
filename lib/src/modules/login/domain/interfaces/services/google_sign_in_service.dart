@@ -16,7 +16,7 @@ class GoogleSignInService implements IGoogleSignInService {
         id: googleUser!.id,
         name: googleUser.displayName!,
         email: googleUser.email,
-        imageUrl: googleUser.photoUrl,
+        imageUrl: googleUser.photoUrl!,
       );
       return user;
     }

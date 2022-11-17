@@ -13,7 +13,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.5
-  google_mobile_ads: ^2.2.0
+  google_mobile_ads: ^2.3.0
   google_sign_in: ^5.4.2
   firebase_core: ^2.2.0
   firebase_crashlytics: ^3.0.5
@@ -21,7 +21,7 @@ dependencies:
   firebase_performance: ^0.9.0+5
   flutter_screenutil: ^5.6.0
   flutter_barcode_scanner: ^2.0.0
-  flutter_local_notifications: ^12.0.3
+  flutter_local_notifications: ^12.0.3+1
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
   pay: ^1.0.11
@@ -35,6 +35,7 @@ dependencies:
   local_auth: ^2.1.2
   dio: ^4.0.6
   dartz: ^0.10.1
+  freezed_annotation: ^2.2.0
 
 dev_dependencies:
   flutter_lints: ^2.0.1
@@ -43,7 +44,9 @@ dev_dependencies:
   integration_test:
     sdk: flutter
   mockito: ^5.3.2
+  freezed: ^2.2.1
   build_runner: ^2.3.2
+  json_serializable: ^6.5.4
   faker: ^2.0.0
 
 flutter:

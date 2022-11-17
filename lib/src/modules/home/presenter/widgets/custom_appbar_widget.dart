@@ -41,7 +41,7 @@ class CustomAppBarWidget extends StatelessWidget {
                             style: AppTextStyles.titleRegular,
                             children: <InlineSpan>[
                               TextSpan(
-                                text: user.firstName,
+                                text: user.name,
                                 style: AppTextStyles.titleBoldBackground,
                               ),
                             ],
@@ -59,7 +59,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         height: 50,
                         color: Colors.grey[200],
                         child: Image.network(
-                          user.imageUrl!,
+                          user.imageUrl,
                           loadingBuilder:
                               (_, Widget child, ImageChunkEvent? progress) {
                             if (progress == null) {
