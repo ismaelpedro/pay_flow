@@ -125,12 +125,13 @@ class __$$_UserDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserDto implements _UserDto {
+class _$_UserDto extends _UserDto {
   _$_UserDto(
       {required this.id,
       required this.name,
       required this.email,
-      required this.imageUrl});
+      required this.imageUrl})
+      : super._();
 
   factory _$_UserDto.fromJson(Map<String, dynamic> json) =>
       _$$_UserDtoFromJson(json);
@@ -179,12 +180,13 @@ class _$_UserDto implements _UserDto {
   }
 }
 
-abstract class _UserDto implements UserDto {
+abstract class _UserDto extends UserDto {
   factory _UserDto(
       {required final String id,
       required final String name,
       required final String email,
       required final String imageUrl}) = _$_UserDto;
+  _UserDto._() : super._();
 
   factory _UserDto.fromJson(Map<String, dynamic> json) = _$_UserDto.fromJson;
 
