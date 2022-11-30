@@ -49,13 +49,10 @@ android {
     }
 
     defaultConfig {
-        def latestGooglePlayBuildNumber = Integer.valueOf(System.env.LATEST_GOOGLE_PLAY_BUILD_NUMBER ?: System.env.BUILD_NUMBER ?: 0)
-
         applicationId "br.com.ismael.pay_flow"
         minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
-        // versionCode latestGooglePlayBuildNumber + 1
         versionName flutterVersionName
         multiDexEnabled = true
     }
