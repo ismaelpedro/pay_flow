@@ -3,8 +3,8 @@ workflows:
     name: Android Workflow
     max_build_duration: 120
     environment:
-      android_signing:
-        - upload-keystore.jks
+      # android_signing:
+      #   - upload-keystore.jks
       groups:
         - google_credentials
       vars:
