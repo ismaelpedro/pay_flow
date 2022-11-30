@@ -15,17 +15,17 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Get Flutter packages
+      - name: Clean and Get Flutter packages
         script: |
-          flutter packages pub get
+         flutter clean && flutter packages pub get
       # - name: Flutter analyze
       #   script: |
       #     flutter analyze
       # - name: Flutter unit tests
       #   script: |
       #     flutter test
-        ignore_failure: true
-      - name: Build AAB with Flutter
+        ignore_failure: false
+      - name: Build AAB
         script: |
           BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))      
           flutter build appbundle --release \
