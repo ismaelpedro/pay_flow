@@ -11,8 +11,6 @@ workflows:
         PACKAGE_NAME: "br.com.ismael.pay_flow"
         GOOGLE_PLAY_TRACK: "production"
       flutter: stable
-      xcode: lasted
-      cocoapods: lasted
     scripts:
       - name: Set up local.properties
         script: |
