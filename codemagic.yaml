@@ -3,8 +3,8 @@ workflows:
     name: Android Workflow
     max_build_duration: 120
     environment:
-      # android_signing:
-      #   - upload-keystore.jks
+      android_signing:
+        - pay-flow-keystore
       groups:
         - google_credentials
       vars:
@@ -18,9 +18,9 @@ workflows:
       - name: Clean and Get Flutter packages
         script: |
          flutter clean && flutter packages pub get
-      # - name: Flutter analyze
-      #   script: |
-      #     flutter analyze
+      - name: Flutter analyze
+        script: |
+          flutter analyze
       # - name: Flutter unit tests
       #   script: |
       #     flutter test
@@ -28,7 +28,9 @@ workflows:
       - name: Build AAB
         script: |
           BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))      
-          flutter build appbundle --release
+          flutter build appbundle --release \
+            --build-name=2.0.$BUILD_NUMBER \
+            --build-number=$BUILD_NUMBER
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
