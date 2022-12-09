@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:codigo_emergencia/app/modules/core/infra/extensions/int_to_http_status_enum.dart';
-import 'package:uno/uno.dart';
+import 'package:dio/dio.dart';
 
+import 'extensions/int_to_http_status_enum.dart';
 import 'http.dart';
 
 class HttpAdapter implements HttpClient {
-  final Uno client;
+  final Dio client;
   final String baseUrl;
   final Map<String, String> headers;
-  final List<HttpInterceptor> interceptors = [];
+  final List<HttpInterceptor> interceptors = <HttpInterceptor>[];
 
   HttpAdapter({
     required this.client,
@@ -17,67 +17,77 @@ class HttpAdapter implements HttpClient {
     this.headers = _defaultHeaders,
   });
 
-  static const _defaultConnectionTimeout = Duration(seconds: 10);
+  static const Duration _defaultConnectionTimeout = Duration(seconds: 10);
 
-  static const _defaultHeaders = {
+  static const Map<String, String> _defaultHeaders = <String, String>{
     'content-type': 'application/json; charset=utf-8',
     'accept': 'application/json',
   };
 
   Future<HttpResponse> _handleRequest(HttpOptions httpOptions) async {
-    late Response response;
+    late Response<dynamic> response;
     final String url = baseUrl + httpOptions.path;
 
     switch (httpOptions.method) {
       case HttpMethod.get:
         response = await client.get(
           url,
-          params: httpOptions.query ?? {},
-          headers: httpOptions.headers ?? _defaultHeaders,
-          timeout: _defaultConnectionTimeout,
+          queryParameters: httpOptions.query ?? <String, String>{},
+          options: Options(
+            headers: httpOptions.headers ?? _defaultHeaders,
+            sendTimeout: _defaultConnectionTimeout.inSeconds,
+          ),
         );
         break;
       case HttpMethod.post:
         response = await client.post(
           url,
           data: httpOptions.data,
-          params: httpOptions.query ?? {},
-          headers: httpOptions.headers ?? _defaultHeaders,
-          timeout: _defaultConnectionTimeout,
+          queryParameters: httpOptions.query ?? <String, String>{},
+          options: Options(
+            headers: httpOptions.headers ?? _defaultHeaders,
+            sendTimeout: _defaultConnectionTimeout.inSeconds,
+          ),
         );
         break;
       case HttpMethod.put:
         response = await client.put(
           url,
           data: httpOptions.data,
-          params: httpOptions.query ?? {},
-          headers: httpOptions.headers ?? _defaultHeaders,
-          timeout: _defaultConnectionTimeout,
+          queryParameters: httpOptions.query ?? <String, String>{},
+          options: Options(
+            headers: httpOptions.headers ?? _defaultHeaders,
+            sendTimeout: _defaultConnectionTimeout.inSeconds,
+          ),
         );
         break;
       case HttpMethod.patch:
         response = await client.patch(
           url,
           data: httpOptions.data,
-          params: httpOptions.query ?? {},
-          headers: httpOptions.headers ?? _defaultHeaders,
-          timeout: _defaultConnectionTimeout,
+          queryParameters: httpOptions.query ?? <String, String>{},
+          options: Options(
+            headers: httpOptions.headers ?? _defaultHeaders,
+            sendTimeout: _defaultConnectionTimeout.inSeconds,
+          ),
         );
         break;
       case HttpMethod.delete:
         response = await client.delete(
           url,
           data: httpOptions.data,
-          params: httpOptions.query ?? {},
-          headers: httpOptions.headers ?? _defaultHeaders,
-          timeout: _defaultConnectionTimeout,
+          queryParameters: httpOptions.query ?? <String, String>{},
+          options: Options(
+            headers: httpOptions.headers ?? _defaultHeaders,
+            sendTimeout: _defaultConnectionTimeout.inSeconds,
+          ),
         );
         break;
     }
 
     return HttpResponse(
       data: response.data,
-      status: response.status.convertToHttpStatus(),
+      status: response.statusCode!.convertToHttpStatus(),
     );
   }
 

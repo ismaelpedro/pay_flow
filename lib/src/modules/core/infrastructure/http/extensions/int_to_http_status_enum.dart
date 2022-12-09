@@ -1,7 +1,7 @@
-import '../http/http_enums.dart';
+import '../http.dart';
 
 extension IntToHttpStatusEnum on int {
-  convertToHttpStatus() {
+  HttpStatus convertToHttpStatus() {
     switch (this) {
       case 200:
         return HttpStatus.ok;
@@ -20,6 +20,7 @@ extension IntToHttpStatusEnum on int {
       case 504:
         return HttpStatus.gatewayTimeout;
       default:
+        return HttpStatus.ok;
     }
   }
 }
