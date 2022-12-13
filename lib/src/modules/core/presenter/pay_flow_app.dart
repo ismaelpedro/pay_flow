@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../infrastructure/service_locator/service_locator.dart';
+import '../services/firebase_messaging_service.dart';
 import 'navigation/pages.dart';
 import 'navigation/routes.dart';
 import 'theme/app_colors.dart';
@@ -17,6 +19,8 @@ class PayFlowApp extends StatefulWidget {
 class _PayFlowAppState extends State<PayFlowApp> {
   @override
   void initState() {
+    serviceLocator.get<FirebaseMessagingService>().initialize();
+
     SystemChrome.setPreferredOrientations(
       <DeviceOrientation>[DeviceOrientation.portraitUp],
     );

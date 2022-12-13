@@ -6,6 +6,8 @@ import '../../../home/presenter/home_controller.dart';
 import '../../../login/domain/usecases/login_with_google_usecase.dart';
 import '../../../login/presenter/login_controller.dart';
 import '../../core.dart';
+import '../../services/firebase_messaging_service.dart';
+import '../../services/notification_service.dart';
 import '../google_sign_in/google_sign_in_adapter.dart';
 
 final GetIt serviceLocator = GetIt.instance;
@@ -13,6 +15,8 @@ final GetIt serviceLocator = GetIt.instance;
 void setUpInjections() {
   ///[Packages]
   serviceLocator.registerSingleton(GoogleSignIn());
+  serviceLocator.registerSingleton(NotificationService());
+  serviceLocator.registerSingleton(FirebaseMessagingService(serviceLocator.get()));
 
   /// [DataSources]
   /// Consist of remote and local Data Sources. Remote Data Source will perform HTTP requests on the API. While local Data Source will cache or persist data.
