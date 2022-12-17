@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
@@ -5,6 +6,7 @@ import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
 
 import '../domain/entities/custom_notification.dart';
+import '../presenter/pay_flow_app.dart';
 
 class NotificationService {
   late FlutterLocalNotificationsPlugin _localNotification;
@@ -29,9 +31,37 @@ class NotificationService {
   Future<void> _initializeNotifications() async {
     const AndroidInitializationSettings android =
         AndroidInitializationSettings('@mipmap/ic_launcher');
+
+    DarwinInitializationSettings iOs = DarwinInitializationSettings(
+      onDidReceiveLocalNotification: onDidReceiveLocalNotification,
+    );
+
     await _localNotification.initialize(
-      const InitializationSettings(android: android),
+      InitializationSettings(android: android, iOS: iOs),
       onDidReceiveNotificationResponse: onDidReceiveNotificationResponse,
+    );
+  }
+
+  void onDidReceiveLocalNotification(
+    int id,
+    String? title,
+    String? body,
+    String? payload,
+  ) async {
+    // display a dialog with the notification details, tap ok to go to another page
+    showDialog(
+      context: navigatorKey.currentContext!,
+      builder: (BuildContext context) => CupertinoAlertDialog(
+        title: Text(title ?? ''),
+        content: Text(body ?? ''),
+        actions: <Widget>[
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            child: const Text('Ok'),
+            onPressed: () async {},
+          )
+        ],
+      ),
     );
   }
 

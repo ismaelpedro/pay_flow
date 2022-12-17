@@ -8,6 +8,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'firebase_options.dart';
 import 'src/modules/core/infrastructure/service_locator/service_locator.dart';
 import 'src/modules/core/presenter/pay_flow_app.dart';
+import 'src/modules/core/services/firebase_messaging_service.dart';
 
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
@@ -17,6 +18,8 @@ Future<void> main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     setUpInjections();
+
+    await serviceLocator.get<FirebaseMessagingService>().initialize();
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(const PayFlowApp());

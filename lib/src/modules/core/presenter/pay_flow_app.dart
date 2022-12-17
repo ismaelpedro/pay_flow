@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../infrastructure/service_locator/service_locator.dart';
-import '../services/firebase_messaging_service.dart';
 import 'navigation/pages.dart';
 import 'navigation/routes.dart';
 import 'theme/app_colors.dart';
+
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class PayFlowApp extends StatefulWidget {
   const PayFlowApp({Key? key}) : super(key: key);
@@ -19,8 +19,6 @@ class PayFlowApp extends StatefulWidget {
 class _PayFlowAppState extends State<PayFlowApp> {
   @override
   void initState() {
-    serviceLocator.get<FirebaseMessagingService>().initialize();
-
     SystemChrome.setPreferredOrientations(
       <DeviceOrientation>[DeviceOrientation.portraitUp],
     );
@@ -48,6 +46,7 @@ class _PayFlowAppState extends State<PayFlowApp> {
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           initialRoute: Routes.login,
+          navigatorKey: navigatorKey,
           routes: Pages.pages,
         );
       },
