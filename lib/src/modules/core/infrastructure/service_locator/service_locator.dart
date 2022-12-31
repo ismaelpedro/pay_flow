@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../home/presenter/home_controller.dart';
+import '../../../home/presenter/home_store.dart';
 import '../../../login/domain/usecases/login_with_google_usecase.dart';
 import '../../../login/presenter/login_store.dart';
 import '../../core.dart';
@@ -33,6 +33,7 @@ void setUpInjections() {
   /// Actual implementations of the repositories in the Domain layer. Repositories are responsible to coordinate data from the different Data Sources.
 
   /// [Adapters]
+  /// Convert the interface of a class into another interface clients expect. Adapter lets classes work together that wouldn't otherwise because of incompatible interfaces.
   serviceLocator.registerFactory(() => GoogleSignInAdapter(_i()));
   serviceLocator.registerFactory(() => NotificationService());
   serviceLocator.registerSingleton(FirebaseMessagingService(_i()));
@@ -43,9 +44,9 @@ void setUpInjections() {
 
   /// [Controllers]
   /// Controllers are a means to give control to the parent widget over its child state.
-  serviceLocator.registerSingleton(AppStore());
   serviceLocator.registerFactory(() => LoginStore(_i(), _i()));
-  serviceLocator.registerFactory(() => HomeController());
+  serviceLocator.registerFactory(() => HomeStore());
+  serviceLocator.registerSingleton(AppStore());
 
   debugPrint('-- Set Up All Injections!');
 }

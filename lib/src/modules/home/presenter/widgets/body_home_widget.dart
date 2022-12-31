@@ -15,17 +15,24 @@ class BodyHomeWidget extends StatefulWidget {
 }
 
 class _BodyHomeWidgetState extends State<BodyHomeWidget> {
+  late AppStore _appStore;
+
+  @override
+  void initState() {
+    _appStore = serviceLocator.get<AppStore>();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    Size mediquery = MediaQuery.of(context).size;
-    AppStore appController = serviceLocator.get<AppStore>();
+    Size mediquery = context.mediaQuery;
 
     return SizedBox(
       width: mediquery.width,
       height: mediquery.height,
       child: Column(
         children: <Widget>[
-          CustomAppBarWidget(user: appController.currentUser),
+          const CustomAppBarWidget(),
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24.w),
@@ -61,11 +68,11 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                           thumbVisibility: true,
                           child: ListView.builder(
                             physics: const BouncingScrollPhysics(),
-                            itemCount: appController.tickets.length,
+                            itemCount: _appStore.tickets.value?.length,
                             itemBuilder: (_, int index) {
-                              final TicketEntity ticket =
-                                  appController.tickets[index];
-                              return TicketCardWidget(ticket: ticket);
+                              final TicketEntity? ticket =
+                                  _appStore.tickets.value?[index];
+                              return TicketCardWidget(ticket: ticket!);
                             },
                           ),
                         );

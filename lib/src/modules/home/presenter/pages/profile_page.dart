@@ -14,7 +14,13 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  AppStore appController = serviceLocator.get<AppStore>();
+  late AppStore _appStore;
+
+  @override
+  void initState() {
+    _appStore = serviceLocator.get<AppStore>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +46,19 @@ class _ProfilePageState extends State<ProfilePage> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(50),
                 child: Image.network(
-                  appController.currentUser.imageUrl,
+                  _appStore.user!.imageUrl,
                   // width: 100,
                   // height: 100,
                 ),
               ),
               const SizedBox(height: 20),
               Text(
-                appController.currentUser.name,
+                _appStore.user!.name,
                 style: AppTextStyles.titleBoldHeading,
               ),
               const SizedBox(height: 10),
               Text(
-                appController.currentUser.email,
+                _appStore.user!.email,
                 style: AppTextStyles.titleBoldHeading,
               ),
               SizedBox(height: 20.h),

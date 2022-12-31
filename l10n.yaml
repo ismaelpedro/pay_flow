@@ -1,3 +1,0 @@
-arb-dir: assets/i18n
-template-arb-file: i18n_en.arb
-output-localization-file: app_localizations.dart

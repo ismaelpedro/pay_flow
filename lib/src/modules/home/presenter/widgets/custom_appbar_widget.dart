@@ -1,19 +1,26 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pay_flow/src/modules/core/core.dart';
+import 'package:pay_flow/src/modules/core/infrastructure/service_locator/service_locator.dart';
 
-import '../../../core/domain/domain.dart';
-import '../../../core/presenter/assets/app_images.dart';
-import '../../../core/presenter/theme/app_colors.dart';
-import '../../../core/presenter/theme/app_text_styles.dart';
-
-class CustomAppBarWidget extends StatelessWidget {
-  final UserEntity user;
-
+class CustomAppBarWidget extends StatefulWidget {
   const CustomAppBarWidget({
     Key? key,
-    required this.user,
   }) : super(key: key);
+
+  @override
+  State<CustomAppBarWidget> createState() => _CustomAppBarWidgetState();
+}
+
+class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
+  late AppStore _appStore;
+
+  @override
+  void initState() {
+    _appStore = serviceLocator.get<AppStore>();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,20 +42,15 @@ class CustomAppBarWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         RichText(
-                          overflow: TextOverflow.ellipsis,
-                          text: TextSpan(
-                            text: 'Olá, ',
-                            style: AppTextStyles.titleRegular,
-                            children: <InlineSpan>[
-                              TextSpan(
-                                text: user.name,
-                                style: AppTextStyles.titleBoldBackground,
-                              ),
-                            ],
+                          text: context.i18n.hello(
+                            name: TextSpan(
+                              text: _appStore.user!.name,
+                              style: AppTextStyles.titleBoldBackground,
+                            ),
                           ),
                         ),
                         Text(
-                          'Mantenha suas contas em dia',
+                          context.i18n.accountUpTodate,
                           style: AppTextStyles.captionShape,
                         ),
                       ],
@@ -60,7 +62,7 @@ class CustomAppBarWidget extends StatelessWidget {
                         width: 60,
                         color: Colors.grey[200],
                         child: Image.network(
-                          user.imageUrl,
+                          _appStore.user!.imageUrl,
                           loadingBuilder:
                               (_, Widget child, ImageChunkEvent? progress) {
                             if (progress == null) {
@@ -119,15 +121,15 @@ class CustomAppBarWidget extends StatelessWidget {
                       RichText(
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          text: 'Voce tem ',
+                          text: context.i18n.youHave,
                           style: AppTextStyles.captionShape,
                           children: <InlineSpan>[
                             TextSpan(
-                              text: '2 boletos\n',
+                              text: '',
                               style: AppTextStyles.captionBoldBackground,
                             ),
                             TextSpan(
-                              text: 'cadastrados para pagar',
+                              text: context.i18n.registrationsToPay,
                               style: AppTextStyles.captionBoldBackground,
                             ),
                           ],

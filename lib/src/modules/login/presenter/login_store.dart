@@ -17,17 +17,13 @@ abstract class LoginStoreBase with Store {
     this._appStore,
   );
 
-  Future<void> loginWithGoogle(
-    BuildContext context, [
-    bool mounted = true,
-  ]) async {
-    UserEntity? user = await _loginUsecase();
+  Future<void> loginWithGoogle() async {
+    UserEntity? loginUser = await _loginUsecase();
 
-    if (user != null) {
-      _appStore.currentUser = user;
-      if (!mounted) return;
+    if (loginUser != null) {
+      _appStore.user = loginUser;
       Navigator.pushNamed(
-        context,
+        navigatorKey.currentState!.context,
         Routes.home,
       );
     }

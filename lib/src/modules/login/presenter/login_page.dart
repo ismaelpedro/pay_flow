@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: AppColors.secondary,
                     ),
                     onPressed: () async {
-                      await _store.loginWithGoogle(context);
+                      await _store.loginWithGoogle();
                     },
                   ),
                 ),

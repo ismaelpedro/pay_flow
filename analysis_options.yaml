@@ -2,9 +2,9 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
-    - '**.freezed.dart'
-    - '**.g.dart'
-    - '**/generated_plugin_registrant.dart'
+    - "**.freezed.dart"
+    - "**.g.dart"
+    - "**/generated_plugin_registrant.dart"
   errors:
     require_trailing_commas: error
     unused_import: error
@@ -12,7 +12,6 @@ analyzer:
     prefer_single_quotes: error
     always_declare_return_types: error
     always_specify_types: error
-    prefer_relative_imports: error
 
 linter:
   rules:
@@ -20,5 +19,4 @@ linter:
     always_declare_return_types: true
     always_specify_types: true
     require_trailing_commas: true
-    prefer_relative_imports: true
     directives_ordering: true

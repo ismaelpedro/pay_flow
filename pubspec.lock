@@ -204,6 +204,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.2"
+  csv:
+    dependency: transitive
+    description:
+      name: csv
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -406,7 +413,7 @@ packages:
     source: hosted
     version: "6.0.0"
   flutter_localizations:
-    dependency: "direct main"
+    dependency: transitive
     description: flutter
     source: sdk
     version: "0.0.0"
@@ -609,6 +616,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
+  json2yaml:
+    dependency: transitive
+    description:
+      name: json2yaml
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   json_annotation:
     dependency: transitive
     description:
@@ -929,6 +943,27 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slang:
+    dependency: "direct main"
+    description:
+      name: slang
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.7.0"
+  slang_build_runner:
+    dependency: "direct dev"
+    description:
+      name: slang_build_runner
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.7.0"
+  slang_flutter:
+    dependency: "direct main"
+    description:
+      name: slang_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.7.0"
   source_gen:
     dependency: transitive
     description:
@@ -1061,7 +1096,7 @@ packages:
       name: watcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   web_socket_channel:
     dependency: transitive
     description:

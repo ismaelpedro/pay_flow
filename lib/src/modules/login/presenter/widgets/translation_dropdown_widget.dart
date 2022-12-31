@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../../../core/core.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
@@ -26,7 +27,7 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35.w,
                   ),
                   const SizedBox(width: 10),
-                  Text(context.i18n.ptBr),
+                  const Text('context.i18n.ptBr'),
                 ],
               ),
               onTap: () {},
@@ -41,7 +42,7 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35,
                   ),
                   SizedBox(width: 10.w),
-                  Text(context.i18n.enUS),
+                  const Text('context.i18n.enUS'),
                 ],
               ),
               onTap: () {},
@@ -56,7 +57,7 @@ class TranslationDropdownWidget extends StatelessWidget {
                     width: 35.w,
                   ),
                   SizedBox(width: 10.w),
-                  Text(context.i18n.esES),
+                  const Text('context.i18n.esES'),
                 ],
               ),
               onTap: () {},

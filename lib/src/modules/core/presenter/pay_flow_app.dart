@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'navigation/pages.dart';
@@ -36,15 +35,13 @@ class _PayFlowAppState extends State<PayFlowApp> {
       splitScreenMode: true,
       builder: (BuildContext context, Widget? child) {
         return MaterialApp(
-          locale: const Locale('pt', 'BR'),
+          locale: const Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             // useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
             scaffoldBackgroundColor: Colors.white,
           ),
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
           initialRoute: Routes.login,
           navigatorKey: navigatorKey,
           routes: Pages.pages,
