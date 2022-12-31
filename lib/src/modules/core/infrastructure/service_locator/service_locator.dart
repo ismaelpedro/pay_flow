@@ -13,11 +13,12 @@ import '../google_sign_in/google_sign_in_adapter.dart';
 import '../http/http.dart';
 
 final GetIt serviceLocator = GetIt.instance;
+GetIt get _i => serviceLocator;
 
 void setUpInjections() {
   ///[Packages]
   /// External Packages
-  serviceLocator.registerSingleton(GoogleSignIn());
+  serviceLocator.registerFactory(() => GoogleSignIn());
   serviceLocator.registerSingleton(
     HttpAdapter(
       baseUrl: 'https://localhost',
@@ -32,21 +33,19 @@ void setUpInjections() {
   /// Actual implementations of the repositories in the Domain layer. Repositories are responsible to coordinate data from the different Data Sources.
 
   /// [Adapters]
-  serviceLocator.registerSingleton(GoogleSignInAdapter(serviceLocator.get()));
-  serviceLocator.registerSingleton(NotificationService());
-  serviceLocator
-      .registerSingleton(FirebaseMessagingService(serviceLocator.get()));
+  serviceLocator.registerFactory(() => GoogleSignInAdapter(_i()));
+  serviceLocator.registerFactory(() => NotificationService());
+  serviceLocator.registerSingleton(FirebaseMessagingService(_i()));
 
   /// [Usecases]
   /// Application-specific business rules
-  serviceLocator
-      .registerSingleton(LoginWithGoogleUsecase(serviceLocator.get()));
+  serviceLocator.registerFactory(() => LoginWithGoogleUsecase(_i()));
 
   /// [Controllers]
   /// Controllers are a means to give control to the parent widget over its child state.
-  serviceLocator.registerSingleton(LoginStore(serviceLocator.get(), serviceLocator.get(),));
-  serviceLocator.registerSingleton(HomeController());
   serviceLocator.registerSingleton(AppStore());
+  serviceLocator.registerFactory(() => LoginStore(_i(), _i()));
+  serviceLocator.registerFactory(() => HomeController());
 
   debugPrint('-- Set Up All Injections!');
 }

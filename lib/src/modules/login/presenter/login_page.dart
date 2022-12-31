@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get_it/get_it.dart';
 
 import '../../core/core.dart';
+import '../../core/infrastructure/service_locator/service_locator.dart';
 import 'login_store.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
@@ -18,7 +18,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-    _store = GetIt.I.get<LoginStore>();
+    _store = serviceLocator.get<LoginStore>();
     super.initState();
   }
 

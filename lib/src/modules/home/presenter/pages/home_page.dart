@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       bottomNavigationBar: SizedBox(
-        height: 70,
+        height: 100,
         child: NavigationBar(
           destinations: const <Widget>[
             NavigationDestination(
