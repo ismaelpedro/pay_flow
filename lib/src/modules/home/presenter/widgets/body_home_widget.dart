@@ -18,7 +18,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
   @override
   Widget build(BuildContext context) {
     Size mediquery = MediaQuery.of(context).size;
-    AppController appController = serviceLocator.get<AppController>();
+    AppStore appController = serviceLocator.get<AppStore>();
 
     return SizedBox(
       width: mediquery.width,

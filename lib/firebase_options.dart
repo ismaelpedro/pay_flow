@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '911161269065',
     projectId: 'payflow-333802',
     storageBucket: 'payflow-333802.appspot.com',
-    androidClientId: '911161269065-k3kk1pp6gjc8ivi2kcvr9urlmuk9e1c6.apps.googleusercontent.com',
+    androidClientId: '911161269065-2ivlmt3ivig9o27o3kjc04po2ej24lbn.apps.googleusercontent.com',
     iosClientId: '911161269065-1gamcv9d3lk6effqk4r3v6gfffrmo493.apps.googleusercontent.com',
     iosBundleId: 'br.com.ismael.payFlow',
   );

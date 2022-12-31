@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
+
 import '../../core/core.dart';
-import 'login_controller.dart';
+import 'login_store.dart';
 import 'widgets/translation_dropdown_widget.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    LoginController controller = GetIt.I.get<LoginController>();
+  State<LoginPage> createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
+  late LoginStore _store;
+
+  @override
+  void initState() {
+    _store = GetIt.I.get<LoginStore>();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -67,7 +79,7 @@ class LoginPage extends StatelessWidget {
                       backgroundColor: AppColors.secondary,
                     ),
                     onPressed: () async {
-                      await controller.loginWithGoogle(context);
+                      await _store.loginWithGoogle(context);
                     },
                   ),
                 ),

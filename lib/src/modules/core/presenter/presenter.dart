@@ -1,4 +1,4 @@
-export 'app_controller.dart';
+export 'app_store.dart';
 export 'assets/assets.dart';
 export 'extensions/extensions.dart';
 export 'navigation/navigation.dart';

@@ -14,7 +14,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  AppController appController = serviceLocator.get<AppController>();
+  AppStore appController = serviceLocator.get<AppStore>();
 
   @override
   Widget build(BuildContext context) {

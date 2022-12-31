@@ -9,6 +9,7 @@ class FirebaseMessagingService {
   FirebaseMessagingService(this._notificationSettings);
 
   Future<void> initialize() async {
+    await FirebaseMessaging.instance.subscribeToTopic('all');
     await FirebaseMessaging.instance.requestPermission();
     await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
       badge: true,

@@ -5,7 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../home/presenter/home_controller.dart';
 import '../../../login/domain/usecases/login_with_google_usecase.dart';
-import '../../../login/presenter/login_controller.dart';
+import '../../../login/presenter/login_store.dart';
 import '../../core.dart';
 import '../../services/firebase_messaging_service.dart';
 import '../../services/notification_service.dart';
@@ -34,17 +34,19 @@ void setUpInjections() {
   /// [Adapters]
   serviceLocator.registerSingleton(GoogleSignInAdapter(serviceLocator.get()));
   serviceLocator.registerSingleton(NotificationService());
-  serviceLocator.registerSingleton(FirebaseMessagingService(serviceLocator.get()));
+  serviceLocator
+      .registerSingleton(FirebaseMessagingService(serviceLocator.get()));
 
   /// [Usecases]
   /// Application-specific business rules
-  serviceLocator.registerSingleton(LoginWithGoogleUsecase(serviceLocator.get()));
+  serviceLocator
+      .registerSingleton(LoginWithGoogleUsecase(serviceLocator.get()));
 
   /// [Controllers]
   /// Controllers are a means to give control to the parent widget over its child state.
-  serviceLocator.registerSingleton(LoginController(serviceLocator.get()));
+  serviceLocator.registerSingleton(LoginStore(serviceLocator.get(), serviceLocator.get(),));
   serviceLocator.registerSingleton(HomeController());
-  serviceLocator.registerSingleton(AppController());
+  serviceLocator.registerSingleton(AppStore());
 
   debugPrint('-- Set Up All Injections!');
 }

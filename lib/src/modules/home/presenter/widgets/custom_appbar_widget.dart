@@ -56,7 +56,8 @@ class CustomAppBarWidget extends StatelessWidget {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: Container(
-                        height: 50,
+                        height: 60,
+                        width: 60,
                         color: Colors.grey[200],
                         child: Image.network(
                           user.imageUrl,
@@ -122,15 +123,15 @@ class CustomAppBarWidget extends StatelessWidget {
                           style: AppTextStyles.captionShape,
                           children: <InlineSpan>[
                             TextSpan(
-                              text: '2 boletos',
+                              text: '2 boletos\n',
+                              style: AppTextStyles.captionBoldBackground,
+                            ),
+                            TextSpan(
+                              text: 'cadastrados para pagar',
                               style: AppTextStyles.captionBoldBackground,
                             ),
                           ],
                         ),
-                      ),
-                      Text(
-                        'cadastrados para pagar',
-                        style: AppTextStyles.captionShape,
                       ),
                     ],
                   ),
