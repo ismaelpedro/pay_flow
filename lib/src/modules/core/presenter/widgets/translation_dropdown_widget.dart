@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/core.dart';
+import '../../core.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
-  const TranslationDropdownWidget({Key? key}) : super(key: key);
+  final Color? color;
+  const TranslationDropdownWidget({
+    Key? key,
+    this.color = Colors.white,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: PopupMenuButton<int>(
-        color: Colors.white,
+        icon: const Icon(
+          Icons.language_outlined,
+          color: AppColors.heading,
+        ),
         key: const ValueKey<String>('pt-option'),
+        color: Colors.white,
         tooltip: '',
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(25)),

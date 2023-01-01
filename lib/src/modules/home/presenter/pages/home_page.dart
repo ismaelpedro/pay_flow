@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pay_flow/src/modules/core/core.dart';
+import 'package:pay_flow/src/modules/home/presenter/widgets/body_home_widget.dart';
 
 import '../../../core/infrastructure/service_locator/service_locator.dart';
 import '../home_store.dart';
-import 'my_tickets_page.dart';
 import 'profile_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,8 +17,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late HomeStore _homeStore;
+
   final List<Widget> tabs = <Widget>[
-    const MyTicketsPage(),
+    const BodyHomeWidget(),
     const ProfilePage(),
   ];
 

@@ -1,22 +1,15 @@
-class TicketEntity {
-  final String? id;
-  final String? name;
-  final String date;
-  final String code;
-  final double value;
-  String? fkUser;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  TicketEntity({
-    this.id,
-    this.name,
-    required this.date,
-    required this.code,
-    required this.value,
-    this.fkUser,
-  });
+part 'ticket_entity.freezed.dart';
 
-  @override
-  String toString() {
-    return 'TicketEntity(id: $id, name: $name, date: $date, code: $code, value: $value, fkUser: $fkUser)';
-  }
+@freezed
+class TicketEntity with _$TicketEntity {
+  factory TicketEntity({
+    String? id,
+    String? name,
+    String? date,
+    String? code,
+    double? value,
+    String? fkUser,
+  }) = _TicketEntity;
 }

@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl/intl.dart';
 import 'package:pay_flow/src/modules/core/core.dart';
 import 'package:pay_flow/src/modules/core/infrastructure/service_locator/service_locator.dart';
-import 'package:pay_flow/src/modules/home/presenter/home_store.dart';
-import 'package:uuid/uuid.dart';
+import 'package:pay_flow/src/modules/ticket_form/presenter/ticket_form_controller.dart';
 
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
@@ -24,20 +22,18 @@ class TicketFormPage extends StatefulWidget {
 }
 
 class _TicketFormPageState extends State<TicketFormPage> {
-  late HomeStore _homeStore;
-  late AppStore _appStore;
+  late TicketFormController _ticketFormStore;
   late MoneyMaskedTextController _moneyController;
   late TextEditingController _expirationEc;
 
   @override
   void initState() {
-    _appStore = serviceLocator.get<AppStore>();
-    _homeStore = serviceLocator.get<HomeStore>();
-    _homeStore.onInitTicketFormPage(widget.ticket!);
-    _expirationEc = TextEditingController(text: _homeStore.expirationDate);
+    _ticketFormStore = serviceLocator.get<TicketFormController>();
+    _ticketFormStore.onInitTicketFormPage(widget.ticket!);
+    _expirationEc = TextEditingController(text: _ticketFormStore.expirationDate);
     _moneyController = MoneyMaskedTextController(
       leftSymbol: 'R\$ ',
-      initialValue: widget.ticket!.value,
+      initialValue: widget.ticket!.value!,
     );
     super.initState();
   }
@@ -45,6 +41,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
   @override
   void dispose() {
     _moneyController.dispose();
+    _expirationEc.dispose();
     super.dispose();
   }
 
@@ -81,10 +78,10 @@ class _TicketFormPageState extends State<TicketFormPage> {
                   child: Column(
                     children: <Widget>[
                       TileFormWidget(
-                        initialValue: _homeStore.name,
+                        initialValue: _ticketFormStore.name,
                         imagePrefix: AppImages.ticket,
                         hintText: context.i18n.billName,
-                        onChanged: _homeStore.setName,
+                        onChanged: _ticketFormStore.setName,
                         validator: (String? value) {
                           if (value!.isEmpty) {
                             return context.i18n.requiredField;
@@ -102,16 +99,14 @@ class _TicketFormPageState extends State<TicketFormPage> {
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
                                   initialDateTime:
-                                      DateTime.parse(widget.ticket!.date),
+                                      DateTime.parse(widget.ticket!.date!),
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (DateTime value) {
-                                    DateFormat dateFormat =
-                                        DateFormat('dd/MM/yyyy');
                                     _expirationEc.text =
-                                        dateFormat.format(value);
-                                    _homeStore.setExpirationDate(
-                                      dateFormat.format(value),
+                                        value.formatDateDDMMYYYY();
+                                    _ticketFormStore.setExpirationDate(
+                                      value.formatDateDDMMYYYY(),
                                     );
                                   },
                                 ),
@@ -126,7 +121,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                             readOnly: true,
                             imagePrefix: AppImages.close,
                             hintText: context.i18n.expiration,
-                            onChanged: _homeStore.setExpirationDate,
+                            onChanged: _ticketFormStore.setExpirationDate,
                             validator: (String? value) {
                               if (value!.isEmpty) {
                                 return context.i18n.requiredField;
@@ -140,22 +135,22 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         imagePrefix: AppImages.wallet,
                         hintText: context.i18n.value,
                         controller: _moneyController,
-                        onChanged: _homeStore.setValue,
+                        onChanged: _ticketFormStore.setValue,
                         validator: (String? value) {
                           if (value!.isEmpty) {
                             return context.i18n.requiredField;
                           }
                           if (_moneyController.numberValue < 5) {
-                            return 'Valor mínimo do boleto é de R\$ 5,00';
+                            return context.i18n.minValue5;
                           }
                           return null;
                         },
                       ),
                       TileFormWidget(
-                        initialValue: _homeStore.code,
+                        initialValue: _ticketFormStore.code,
                         imagePrefix: AppImages.barcode,
                         hintText: context.i18n.code,
-                        onChanged: _homeStore.setCode,
+                        onChanged: _ticketFormStore.setCode,
                         validator: (String? value) {
                           if (value!.isEmpty) {
                             return context.i18n.requiredField;
@@ -174,7 +169,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
           children: <Widget>[
             Expanded(
               child: BottomButtonWidget(
-                label: 'Cancelar',
+                label: context.i18n.cancel,
                 style: AppTextStyles.buttonGray,
                 onPressed: () => Navigator.pop(context),
               ),
@@ -183,21 +178,14 @@ class _TicketFormPageState extends State<TicketFormPage> {
               builder: (_) {
                 return Expanded(
                   child: Opacity(
-                    opacity: _homeStore.canSaveBill ? 1 : .3,
+                    opacity: _ticketFormStore.canSaveBill ? 1 : .3,
                     child: BottomButtonWidget(
-                      label: 'Cadastrar',
+                      label: context.i18n.register,
                       style: AppTextStyles.buttonPrimary,
-                      onPressed: _homeStore.canSaveBill
+                      onPressed: _ticketFormStore.canSaveBill
                           ? () async {
-                              final TicketEntity newTicket = TicketEntity(
-                                id: const Uuid().v4(),
-                                name: _homeStore.name,
-                                date: _homeStore.expirationDate,
-                                code: _homeStore.code,
-                                value: _moneyController.numberValue,
-                              );
-                              _appStore.setTickets(newTicket);
-                              Navigator.pop(context);
+                              _ticketFormStore
+                                  .saveBill(_moneyController.numberValue);
                             }
                           : null,
                     ),

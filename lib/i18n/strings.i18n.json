@@ -4,7 +4,7 @@
   "ptBr": "Portuguese",
   "enUS": "English",
   "esES": "Spanish",
-  "hello(rich)": "Hello, $name",
+  "hello(rich)": "Hello, $name!",
   "accountUpTodate": "Keep your accounts up to date",
   "registrationsToPay(param=count)": {
     "zero": "You have no bills to pay! 😵‍💫",
@@ -14,6 +14,7 @@
   "myTickets": "My bills",
   "willExpire": "Will expire in $date",
   "requiredField": "Required field",
+  "minValue5": "Minimum bill amount is é de R$ 5,00",
   "billName": "Bill name",
   "expiration": "Expiration",
   "value": "Value",

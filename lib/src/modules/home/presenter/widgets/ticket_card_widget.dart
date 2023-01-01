@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:pay_flow/src/modules/core/core.dart';
 
 class TicketCardWidget extends StatelessWidget {
@@ -27,11 +26,7 @@ class TicketCardWidget extends StatelessWidget {
         style: AppTextStyles.captionBody,
       ),
       trailing: Text(
-        NumberFormat.currency(
-          locale: 'pt_BR',
-          symbol: 'R\$',
-          decimalDigits: 2,
-        ).format(ticket.value),
+        ticket.value!.toCurrencyBRL(),
         style: AppTextStyles.trailingRegular,
       ),
       onTap: () {},
