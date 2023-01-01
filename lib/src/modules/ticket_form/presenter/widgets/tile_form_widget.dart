@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/presenter/theme/app_colors.dart';
 import '../../../core/presenter/theme/app_text_styles.dart';
 
-
 class TileFormWidget extends StatelessWidget {
   final String hintText;
   final String imagePrefix;
@@ -25,7 +24,7 @@ class TileFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 40.h),
+      padding: EdgeInsets.only(bottom: 25.h),
       child: Row(
         children: <Widget>[
           Expanded(

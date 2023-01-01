@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pay_flow/src/modules/core/core.dart';
-import 'package:pay_flow/src/modules/core/infrastructure/service_locator/service_locator.dart';
+
+import '../../../core/core.dart';
+import '../../../core/infrastructure/service_locator/service_locator.dart';
 
 class CustomAppBarWidget extends StatefulWidget {
   const CustomAppBarWidget({
@@ -82,10 +83,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                 ),
               ),
             ),
-            Container(
-              height: 40.h,
-              color: Colors.white,
-            ),
+            Container(height: 40.h, color: Colors.white),
           ],
         ),
         Positioned(
@@ -121,20 +119,25 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                       RichText(
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          text: context.i18n.youHave,
+                          text: context.i18n.registrationsToPay(
+                            count: _appStore.tickets.value?.length,
+                          ),
                           style: AppTextStyles.captionShape,
-                          children: <InlineSpan>[
-                            TextSpan(
-                              text: '',
-                              style: AppTextStyles.captionBoldBackground,
-                            ),
-                            TextSpan(
-                              text: context.i18n.registrationsToPay,
-                              style: AppTextStyles.captionBoldBackground,
-                            ),
-                          ],
                         ),
                       ),
+                      // RichText(
+                      //   overflow: TextOverflow.ellipsis,
+                      //   text: TextSpan(
+                      //     text: context.i18n.registrationsToPay,
+                      //     style: AppTextStyles.captionShape,
+                      //     children: <InlineSpan>[
+                      //       TextSpan(
+                      //         text: '',
+                      //         style: AppTextStyles.captionBoldBackground,
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
                     ],
                   ),
                 ],
