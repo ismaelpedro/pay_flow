@@ -10,6 +10,7 @@ class TranslationDropdownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: PopupMenuButton<int>(
+        color: Colors.white,
         key: const ValueKey<String>('pt-option'),
         tooltip: '',
         shape: const RoundedRectangleBorder(

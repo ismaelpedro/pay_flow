@@ -47,22 +47,20 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                   ),
                   SizedBox(height: 16.h),
                   const Divider(thickness: 2),
+                  SizedBox(height: 16.h),
                   Observer(
                     builder: (_) {
                       if (_appStore.tickets.isNotEmpty) {
-                        return Expanded(
-                          child: Scrollbar(
-                            thumbVisibility: true,
-                            child: ListView.builder(
-                              physics: const BouncingScrollPhysics(),
-                              itemCount: _appStore.tickets.length,
-                              itemBuilder: (_, int index) {
-                                final TicketEntity ticket =
-                                    _appStore.tickets[index];
-                                return TicketCardWidget(ticket: ticket);
-                              },
-                            ),
-                          ),
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: _appStore.tickets.length,
+                          itemBuilder: (_, int index) {
+                            final TicketEntity ticket =
+                                _appStore.tickets[index];
+                            return TicketCardWidget(ticket: ticket);
+                          },
                         );
                       }
                       return Center(child: Lottie.asset(AppImages.empty));

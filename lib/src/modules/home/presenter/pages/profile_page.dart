@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pay_flow/src/modules/core/utils.dart';
 
 import '../../../core/core.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
+import '../../../core/utils.dart';
+import '../../../login/presenter/widgets/translation_dropdown_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -136,6 +137,12 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.orange,
+        elevation: 0,
+        child: const TranslationDropdownWidget(),
+        onPressed: () {},
       ),
     );
   }
