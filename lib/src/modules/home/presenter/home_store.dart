@@ -73,7 +73,7 @@ abstract class HomeStoreBase with Store {
 
       String? result;
       result = await FlutterBarcodeScanner.scanBarcode(
-        '#ffffff',
+        '#ffa500',
         navigatorKey.currentContext?.i18n.cancel,
         true,
         ScanMode.BARCODE,

@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 1
-/// Strings: 22
+/// Strings: 20
 ///
-/// Built on 2023-01-01 at 04:04 UTC
+/// Built on 2023-01-01 at 04:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -160,20 +160,18 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	String registrationsToPay({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
 		zero: 'You have no bills to pay! 😵‍💫',
 		one: 'You have one bill to pay',
-		other: 'You have ${count} bills',
+		other: 'You have ${count} bills to pay',
 	);
 	String get requiredField => 'Required field';
 	String get myTickets => 'My bills';
-	String get inTotal => 'in total';
 	String willExpire({required Object date}) => 'Will expire in ${date}';
-	String get tickets => 'bills';
-	String get fillTickets => 'Fill in the\nticket details';
 	String get billName => 'Bill name';
 	String get expiration => 'Expiration';
 	String get value => 'Value';
 	String get code => 'Code';
 	String get cancel => 'Cancel';
 	String get register => 'Register';
+	String get perfil => 'Perfil';
 }
 
 /// Flat map(s) containing all translations.
@@ -195,20 +193,18 @@ extension on _StringsEn {
 			case 'registrationsToPay': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
 				zero: 'You have no bills to pay! 😵‍💫',
 				one: 'You have one bill to pay',
-				other: 'You have ${count} bills',
+				other: 'You have ${count} bills to pay',
 			);
 			case 'requiredField': return 'Required field';
 			case 'myTickets': return 'My bills';
-			case 'inTotal': return 'in total';
 			case 'willExpire': return ({required Object date}) => 'Will expire in ${date}';
-			case 'tickets': return 'bills';
-			case 'fillTickets': return 'Fill in the\nticket details';
 			case 'billName': return 'Bill name';
 			case 'expiration': return 'Expiration';
 			case 'value': return 'Value';
 			case 'code': return 'Code';
 			case 'cancel': return 'Cancel';
 			case 'register': return 'Register';
+			case 'perfil': return 'Perfil';
 			default: return null;
 		}
 	}

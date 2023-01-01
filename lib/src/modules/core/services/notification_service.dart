@@ -71,10 +71,6 @@ class NotificationService {
     if (notificationResponse.payload != null) {
       debugPrint('notification payload: $payload');
     }
-    // await Navigator.push(
-    //   context,
-    //   MaterialPageRoute<void>(builder: (context) => SecondScreen(payload)),
-    // );
   }
 
   Future<void> cleanAllNotifications() async {

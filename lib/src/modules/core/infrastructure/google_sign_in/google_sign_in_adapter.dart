@@ -20,6 +20,6 @@ class GoogleSignInAdapter {
   }
 
   Future<void> signOut() async {
-    await _googleSignIn.disconnect();
+    await _googleSignIn.signOut();
   }
 }

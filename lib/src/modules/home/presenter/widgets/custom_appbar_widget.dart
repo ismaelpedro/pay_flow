@@ -130,19 +130,6 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                           );
                         },
                       )
-                      // RichText(
-                      //   overflow: TextOverflow.ellipsis,
-                      //   text: TextSpan(
-                      //     text: context.i18n.registrationsToPay,
-                      //     style: AppTextStyles.captionShape,
-                      //     children: <InlineSpan>[
-                      //       TextSpan(
-                      //         text: '',
-                      //         style: AppTextStyles.captionBoldBackground,
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
                     ],
                   ),
                 ],

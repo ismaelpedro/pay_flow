@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pay_flow/src/modules/core/utils.dart';
 
 import '../../../home/presenter/home_store.dart';
 import '../../../login/domain/usecases/login_with_google_usecase.dart';
@@ -18,6 +19,7 @@ GetIt get _i => serviceLocator;
 void setUpInjections() {
   ///[Packages]
   /// External Packages
+  serviceLocator.registerLazySingleton(() => Utils());
   serviceLocator.registerFactory(() => GoogleSignIn());
   serviceLocator.registerSingleton(
     HttpAdapter(
@@ -36,7 +38,7 @@ void setUpInjections() {
   /// Convert the interface of a class into another interface clients expect. Adapter lets classes work together that wouldn't otherwise because of incompatible interfaces.
   serviceLocator.registerFactory(() => GoogleSignInAdapter(_i()));
   serviceLocator.registerFactory(() => NotificationService());
-  serviceLocator.registerSingleton(FirebaseMessagingService(_i()));
+  serviceLocator.registerLazySingleton(() => FirebaseMessagingService(_i()));
 
   /// [Usecases]
   /// Application-specific business rules
@@ -44,9 +46,9 @@ void setUpInjections() {
 
   /// [Controllers]
   /// Controllers are a means to give control to the parent widget over its child state.
-  serviceLocator.registerFactory(() => LoginStore(_i(), _i()));
+  serviceLocator.registerFactory(() => LoginStore(_i(), _i(), _i()));
   serviceLocator.registerFactory(() => HomeStore());
-  serviceLocator.registerSingleton(AppStore());
+  serviceLocator.registerLazySingleton(() => AppStore(_i()));
 
   debugPrint('-- Set Up All Injections!');
 }

@@ -9,18 +9,16 @@
   "registrationsToPay(param=count)": {
     "zero": "You have no bills to pay! 😵‍💫",
     "one": "You have one bill to pay",
-    "other": "You have $count bills"
+    "other": "You have $count bills to pay"
   },
-  "requiredField": "Required field",
   "myTickets": "My bills",
-  "inTotal": "in total",
   "willExpire": "Will expire in $date",
-  "tickets": "bills",
-  "fillTickets": "Fill in the\nticket details",
+  "requiredField": "Required field",
   "billName": "Bill name",
   "expiration": "Expiration",
   "value": "Value",
   "code": "Code",
   "cancel": "Cancel",
-  "register": "Register"
+  "register": "Register",
+  "perfil": "Perfil"
 }
