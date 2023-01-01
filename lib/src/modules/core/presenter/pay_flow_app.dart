@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'navigation/pages.dart';
 import 'navigation/routes.dart';
 import 'theme/app_colors.dart';
 
@@ -44,7 +43,7 @@ class _PayFlowAppState extends State<PayFlowApp> {
           ),
           initialRoute: Routes.login,
           navigatorKey: navigatorKey,
-          routes: Pages.pages,
+          onGenerateRoute: Routes.generateRoute,
         );
       },
     );

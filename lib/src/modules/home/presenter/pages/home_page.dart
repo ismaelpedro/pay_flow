@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pay_flow/src/modules/core/core.dart';
 
 import '../../../core/infrastructure/service_locator/service_locator.dart';
-import '../../../core/presenter/navigation/routes.dart';
-import '../../../core/presenter/theme/app_colors.dart';
 import '../home_store.dart';
 import 'my_tickets_page.dart';
 import 'profile_page.dart';
@@ -45,12 +44,7 @@ class _HomePageState extends State<HomePage> {
           Icons.add_box_outlined,
           color: Colors.white,
         ),
-        onPressed: () {
-          Navigator.pushNamed(
-            context,
-            Routes.ticketForm,
-          );
-        },
+        onPressed: () async => await _homeStore.scanBarCode(),
       ),
       bottomNavigationBar: Observer(
         builder: (_) {

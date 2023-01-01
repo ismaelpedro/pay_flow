@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
@@ -116,15 +117,19 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      RichText(
-                        overflow: TextOverflow.ellipsis,
-                        text: TextSpan(
-                          text: context.i18n.registrationsToPay(
-                            count: _appStore.tickets.value?.length,
-                          ),
-                          style: AppTextStyles.captionShape,
-                        ),
-                      ),
+                      Observer(
+                        builder: (_) {
+                          return RichText(
+                            overflow: TextOverflow.ellipsis,
+                            text: TextSpan(
+                              text: context.i18n.registrationsToPay(
+                                count: _appStore.tickets.length,
+                              ),
+                              style: AppTextStyles.captionShape,
+                            ),
+                          );
+                        },
+                      )
                       // RichText(
                       //   overflow: TextOverflow.ellipsis,
                       //   text: TextSpan(

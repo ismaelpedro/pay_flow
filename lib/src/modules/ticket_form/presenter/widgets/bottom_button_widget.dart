@@ -15,15 +15,13 @@ class BottomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SizedBox(
-        height: 80.h,
-        child: OutlinedButton(
-          onPressed: onPressed ?? () {},
-          child: Text(
-            label,
-            style: style,
-          ),
+    return SizedBox(
+      height: 80.h,
+      child: OutlinedButton(
+        onPressed: onPressed,
+        child: Text(
+          label,
+          style: style,
         ),
       ),
     );

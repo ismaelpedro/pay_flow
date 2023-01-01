@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../core/presenter/theme/app_colors.dart';
-import '../../../core/presenter/theme/app_text_styles.dart';
+import 'package:pay_flow/src/modules/core/core.dart';
 
 class TileFormWidget extends StatelessWidget {
   final String hintText;
   final String imagePrefix;
-  final TextEditingController textEditingController;
+  final String? initialValue;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
   final bool readOnly;
 
   const TileFormWidget({
     Key? key,
+    this.initialValue,
+    required this.onChanged,
     required this.imagePrefix,
     required this.hintText,
-    required this.textEditingController,
+    this.controller,
     this.validator,
     this.readOnly = false,
   }) : super(key: key);
@@ -29,23 +31,25 @@ class TileFormWidget extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: TextFormField(
+              initialValue: initialValue,
+              onChanged: onChanged,
               readOnly: readOnly,
               validator: validator,
-              controller: textEditingController,
+              controller: controller,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               keyboardType: <String>[
-                'AppTranslationStrings.value.tr',
-                'AppTranslationStrings.expiration.tr'
+                context.i18n.value,
+                context.i18n.expiration,
+                context.i18n.code
               ].contains(hintText)
                   ? TextInputType.number
                   : null,
               inputFormatters: <String>[
-                'AppTranslationStrings.value.tr',
-                'AppTranslationStrings.expiration.tr',
+                context.i18n.value,
+                context.i18n.code,
               ].contains(hintText)
                   ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
                   : null,
-              maxLength: <String>['Vencimento'].contains(hintText) ? 10 : null,
               decoration: InputDecoration(
                 counterText: '',
                 hintText: hintText,

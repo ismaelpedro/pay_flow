@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 1
-/// Strings: 25
+/// Strings: 22
 ///
-/// Built on 2022-12-31 at 21:26 UTC
+/// Built on 2023-01-01 at 04:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -160,23 +160,20 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	String registrationsToPay({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
 		zero: 'You have no bills to pay! 😵‍💫',
 		one: 'You have one bill to pay',
-		other: 'You have {count} bills',
+		other: 'You have ${count} bills',
 	);
+	String get requiredField => 'Required field';
 	String get myTickets => 'My bills';
 	String get inTotal => 'in total';
-	String get willExpire => 'Will expire in';
+	String willExpire({required Object date}) => 'Will expire in ${date}';
 	String get tickets => 'bills';
 	String get fillTickets => 'Fill in the\nticket details';
-	String get value => 'Value';
+	String get billName => 'Bill name';
 	String get expiration => 'Expiration';
+	String get value => 'Value';
 	String get code => 'Code';
-	String get ticket => 'Bill name';
 	String get cancel => 'Cancel';
 	String get register => 'Register';
-	String get registerTicket => 'How do you want to register your new ticket?';
-	String get manually => 'Manually';
-	String get scan => 'Scan';
-	String get warning => 'Warning';
 }
 
 /// Flat map(s) containing all translations.
@@ -198,23 +195,20 @@ extension on _StringsEn {
 			case 'registrationsToPay': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
 				zero: 'You have no bills to pay! 😵‍💫',
 				one: 'You have one bill to pay',
-				other: 'You have {count} bills',
+				other: 'You have ${count} bills',
 			);
+			case 'requiredField': return 'Required field';
 			case 'myTickets': return 'My bills';
 			case 'inTotal': return 'in total';
-			case 'willExpire': return 'Will expire in';
+			case 'willExpire': return ({required Object date}) => 'Will expire in ${date}';
 			case 'tickets': return 'bills';
 			case 'fillTickets': return 'Fill in the\nticket details';
-			case 'value': return 'Value';
+			case 'billName': return 'Bill name';
 			case 'expiration': return 'Expiration';
+			case 'value': return 'Value';
 			case 'code': return 'Code';
-			case 'ticket': return 'Bill name';
 			case 'cancel': return 'Cancel';
 			case 'register': return 'Register';
-			case 'registerTicket': return 'How do you want to register your new ticket?';
-			case 'manually': return 'Manually';
-			case 'scan': return 'Scan';
-			case 'warning': return 'Warning';
 			default: return null;
 		}
 	}

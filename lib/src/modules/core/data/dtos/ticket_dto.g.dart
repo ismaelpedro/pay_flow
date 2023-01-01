@@ -7,11 +7,11 @@ part of 'ticket_dto.dart';
 // **************************************************************************
 
 _$_TicketDto _$$_TicketDtoFromJson(Map<String, dynamic> json) => _$_TicketDto(
-      id: json['id'] as String,
-      name: json['name'] as String,
+      id: json['id'] as String?,
+      name: json['name'] as String?,
       date: json['date'] as String,
       code: json['code'] as String,
-      value: json['value'] as String,
+      value: (json['value'] as num).toDouble(),
       fkUser: json['fkUser'] as String,
     );
 

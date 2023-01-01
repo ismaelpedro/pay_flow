@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../core/core.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
@@ -46,38 +47,26 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
                   ),
                   SizedBox(height: 16.h),
                   const Divider(thickness: 2),
-                  Expanded(
-                    child: FutureBuilder<List<TicketEntity>>(
-                      future: null,
-                      // future: controller.getTickets(),
-                      builder: (
-                        BuildContext context,
-                        AsyncSnapshot<List<TicketEntity>> snapshot,
-                      ) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return const Center(
-                            child: CupertinoActivityIndicator(),
-                          );
-                        } else if (snapshot.hasError) {
-                          return Center(
-                            child: Text('${snapshot.error}'),
-                          );
-                        }
-                        return Scrollbar(
-                          thumbVisibility: true,
-                          child: ListView.builder(
-                            physics: const BouncingScrollPhysics(),
-                            itemCount: _appStore.tickets.value?.length,
-                            itemBuilder: (_, int index) {
-                              final TicketEntity? ticket =
-                                  _appStore.tickets.value?[index];
-                              return TicketCardWidget(ticket: ticket!);
-                            },
+                  Observer(
+                    builder: (_) {
+                      if (_appStore.tickets.isNotEmpty) {
+                        return Expanded(
+                          child: Scrollbar(
+                            thumbVisibility: true,
+                            child: ListView.builder(
+                              physics: const BouncingScrollPhysics(),
+                              itemCount: _appStore.tickets.length,
+                              itemBuilder: (_, int index) {
+                                final TicketEntity ticket =
+                                    _appStore.tickets[index];
+                                return TicketCardWidget(ticket: ticket);
+                              },
+                            ),
                           ),
                         );
-                      },
-                    ),
+                      }
+                      return Center(child: Lottie.asset(AppImages.empty));
+                    },
                   ),
                 ],
               ),

@@ -1,17 +1,17 @@
 class TicketEntity {
-  late String? id;
-  final String name;
+  final String? id;
+  final String? name;
   final String date;
   final String code;
-  final String value;
-  late String? fkUser;
+  final double value;
+  String? fkUser;
 
   TicketEntity({
-    required this.name,
+    this.id,
+    this.name,
     required this.date,
     required this.code,
     required this.value,
-    this.id,
     this.fkUser,
   });
 

@@ -9,14 +9,6 @@ part of 'app_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$AppStore on AppStoreBase, Store {
-  Computed<FutureStatus>? _$ticketsStatusComputed;
-
-  @override
-  FutureStatus get ticketsStatus => (_$ticketsStatusComputed ??=
-          Computed<FutureStatus>(() => super.ticketsStatus,
-              name: 'AppStoreBase.ticketsStatus'))
-      .value;
-
   late final _$userAtom = Atom(name: 'AppStoreBase.user', context: context);
 
   @override
@@ -36,13 +28,13 @@ mixin _$AppStore on AppStoreBase, Store {
       Atom(name: 'AppStoreBase.tickets', context: context);
 
   @override
-  ObservableFuture<List<TicketEntity>> get tickets {
+  List<TicketEntity> get tickets {
     _$ticketsAtom.reportRead();
     return super.tickets;
   }
 
   @override
-  set tickets(ObservableFuture<List<TicketEntity>> value) {
+  set tickets(List<TicketEntity> value) {
     _$ticketsAtom.reportWrite(value, super.tickets, () {
       super.tickets = value;
     });
@@ -52,11 +44,11 @@ mixin _$AppStore on AppStoreBase, Store {
       ActionController(name: 'AppStoreBase', context: context);
 
   @override
-  void setTickets(ObservableFuture<List<TicketEntity>> newTickets) {
+  void setTickets(TicketEntity newTicket) {
     final _$actionInfo = _$AppStoreBaseActionController.startAction(
         name: 'AppStoreBase.setTickets');
     try {
-      return super.setTickets(newTickets);
+      return super.setTickets(newTicket);
     } finally {
       _$AppStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -66,8 +58,7 @@ mixin _$AppStore on AppStoreBase, Store {
   String toString() {
     return '''
 user: ${user},
-tickets: ${tickets},
-ticketsStatus: ${ticketsStatus}
+tickets: ${tickets}
     ''';
   }
 }

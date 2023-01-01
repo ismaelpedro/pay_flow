@@ -11,13 +11,8 @@ abstract class AppStoreBase with Store {
   UserEntity? user;
 
   @observable
-  ObservableFuture<List<TicketEntity>> tickets =
-      ObservableFuture<List<TicketEntity>>.value(<TicketEntity>[]);
+  List<TicketEntity> tickets = <TicketEntity>[];
 
   @action
-  void setTickets(ObservableFuture<List<TicketEntity>> newTickets) =>
-      tickets = newTickets;
-
-  @computed
-  FutureStatus get ticketsStatus => tickets.status;
+  void setTickets(TicketEntity newTicket) => tickets = List<TicketEntity>.from(tickets..add(newTicket));
 }

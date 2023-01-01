@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../core/domain/domain.dart';
-import '../../../core/presenter/theme/app_text_styles.dart';
-
+import 'package:intl/intl.dart';
+import 'package:pay_flow/src/modules/core/core.dart';
 
 class TicketCardWidget extends StatelessWidget {
   final TicketEntity ticket;
@@ -15,14 +13,25 @@ class TicketCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
+      visualDensity: const VisualDensity(
+        horizontal: VisualDensity.minimumDensity,
+        vertical: VisualDensity.minimumDensity,
+      ),
       title: Text(
-        ticket.name,
+        ticket.name!,
         style: AppTextStyles.titleListTile,
       ),
-      subtitle: const Text(''),
+      subtitle: Text(
+        context.i18n.willExpire(date: ticket.date),
+        style: AppTextStyles.captionBody,
+      ),
       trailing: Text(
-        // controller.getCurrencyFormat().format(ticket.value),
-        ticket.value,
+        NumberFormat.currency(
+          locale: 'pt_BR',
+          symbol: 'R\$',
+          decimalDigits: 2,
+        ).format(ticket.value),
         style: AppTextStyles.trailingRegular,
       ),
       onTap: () {},

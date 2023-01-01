@@ -36,11 +36,11 @@ class TicketDto with _$TicketDto {
   const TicketDto._();
 
   factory TicketDto({
-    required String id,
-    required String name,
+     String? id,
+     String? name,
     required String date,
     required String code,
-    required String value,
+    required double value,
     required String fkUser,
   }) = _TicketDto;
 

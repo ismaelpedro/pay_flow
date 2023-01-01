@@ -1,33 +1,50 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
+import 'package:pay_flow/src/modules/core/core.dart';
+import 'package:pay_flow/src/modules/core/infrastructure/service_locator/service_locator.dart';
+import 'package:pay_flow/src/modules/home/presenter/home_store.dart';
+import 'package:uuid/uuid.dart';
 
-import '../../core/presenter/assets/app_images.dart';
-import '../../core/presenter/theme/app_colors.dart';
-import '../../core/presenter/theme/app_text_styles.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
 class TicketFormPage extends StatefulWidget {
-  const TicketFormPage({Key? key}) : super(key: key);
+  final TicketEntity? ticket;
+  const TicketFormPage({
+    Key? key,
+    this.ticket,
+  }) : super(key: key);
 
   @override
   State<TicketFormPage> createState() => _TicketFormPageState();
 }
 
 class _TicketFormPageState extends State<TicketFormPage> {
-  TextEditingController nameEC = TextEditingController();
-  TextEditingController valueEC = TextEditingController();
-  TextEditingController expirationEC = TextEditingController();
-  TextEditingController codeEC = TextEditingController();
+  late HomeStore _homeStore;
+  late AppStore _appStore;
+  late MoneyMaskedTextController _moneyController;
+  late TextEditingController _expirationEc;
+
+  @override
+  void initState() {
+    _appStore = serviceLocator.get<AppStore>();
+    _homeStore = serviceLocator.get<HomeStore>();
+    _homeStore.onInitTicketFormPage(widget.ticket!);
+    _expirationEc = TextEditingController(text: _homeStore.expirationDate);
+    _moneyController = MoneyMaskedTextController(
+      leftSymbol: 'R\$ ',
+      initialValue: widget.ticket!.value,
+    );
+    super.initState();
+  }
 
   @override
   void dispose() {
-    nameEC.dispose();
-    expirationEC.dispose();
-    valueEC.dispose();
-    codeEC.dispose();
+    _moneyController.dispose();
     super.dispose();
   }
 
@@ -64,12 +81,13 @@ class _TicketFormPageState extends State<TicketFormPage> {
                   child: Column(
                     children: <Widget>[
                       TileFormWidget(
+                        initialValue: _homeStore.name,
                         imagePrefix: AppImages.ticket,
-                        hintText: 'Nome do boleto',
-                        textEditingController: nameEC,
+                        hintText: context.i18n.billName,
+                        onChanged: _homeStore.setName,
                         validator: (String? value) {
                           if (value!.isEmpty) {
-                            return 'Nome obrigatório';
+                            return context.i18n.requiredField;
                           }
                           return null;
                         },
@@ -83,26 +101,35 @@ class _TicketFormPageState extends State<TicketFormPage> {
                                 height: 255.h,
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
+                                  initialDateTime:
+                                      DateTime.parse(widget.ticket!.date),
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (DateTime value) {
-                                    expirationEC.text =
-                                        DateFormat('dd/MM/yyyy').format(value);
+                                    DateFormat dateFormat =
+                                        DateFormat('dd/MM/yyyy');
+                                    _expirationEc.text =
+                                        dateFormat.format(value);
+                                    _homeStore.setExpirationDate(
+                                      dateFormat.format(value),
+                                    );
                                   },
                                 ),
                               );
                             },
                           );
                         },
-                        child: AbsorbPointer(
+                        child: IgnorePointer(
+                          ignoring: true,
                           child: TileFormWidget(
+                            controller: _expirationEc,
                             readOnly: true,
                             imagePrefix: AppImages.close,
-                            hintText: 'Vencimento',
-                            textEditingController: expirationEC,
+                            hintText: context.i18n.expiration,
+                            onChanged: _homeStore.setExpirationDate,
                             validator: (String? value) {
                               if (value!.isEmpty) {
-                                return 'Vencimento obrigatório';
+                                return context.i18n.requiredField;
                               }
                               return null;
                             },
@@ -111,22 +138,27 @@ class _TicketFormPageState extends State<TicketFormPage> {
                       ),
                       TileFormWidget(
                         imagePrefix: AppImages.wallet,
-                        hintText: 'Valor',
-                        textEditingController: valueEC,
+                        hintText: context.i18n.value,
+                        controller: _moneyController,
+                        onChanged: _homeStore.setValue,
                         validator: (String? value) {
-                          if (value!.isEmpty || value == 'R\$ 0,00') {
-                            return 'Valor obrigatório';
+                          if (value!.isEmpty) {
+                            return context.i18n.requiredField;
+                          }
+                          if (_moneyController.numberValue < 5) {
+                            return 'Valor mínimo do boleto é de R\$ 5,00';
                           }
                           return null;
                         },
                       ),
                       TileFormWidget(
+                        initialValue: _homeStore.code,
                         imagePrefix: AppImages.barcode,
-                        hintText: 'Código',
-                        textEditingController: codeEC,
+                        hintText: context.i18n.code,
+                        onChanged: _homeStore.setCode,
                         validator: (String? value) {
                           if (value!.isEmpty) {
-                            return 'Código obrigatório';
+                            return context.i18n.requiredField;
                           }
                           return null;
                         },
@@ -140,15 +172,38 @@ class _TicketFormPageState extends State<TicketFormPage> {
         ),
         bottomNavigationBar: Row(
           children: <Widget>[
-            BottomButtonWidget(
-              label: 'Cancelar',
-              style: AppTextStyles.buttonGray,
-              onPressed: () => Navigator.pop(context),
+            Expanded(
+              child: BottomButtonWidget(
+                label: 'Cancelar',
+                style: AppTextStyles.buttonGray,
+                onPressed: () => Navigator.pop(context),
+              ),
             ),
-            BottomButtonWidget(
-              label: 'Cadastrar',
-              style: AppTextStyles.buttonPrimary,
-              onPressed: () async {},
+            Observer(
+              builder: (_) {
+                return Expanded(
+                  child: Opacity(
+                    opacity: _homeStore.canSaveBill ? 1 : .3,
+                    child: BottomButtonWidget(
+                      label: 'Cadastrar',
+                      style: AppTextStyles.buttonPrimary,
+                      onPressed: _homeStore.canSaveBill
+                          ? () async {
+                              final TicketEntity newTicket = TicketEntity(
+                                id: const Uuid().v4(),
+                                name: _homeStore.name,
+                                date: _homeStore.expirationDate,
+                                code: _homeStore.code,
+                                value: _moneyController.numberValue,
+                              );
+                              _appStore.setTickets(newTicket);
+                              Navigator.pop(context);
+                            }
+                          : null,
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),

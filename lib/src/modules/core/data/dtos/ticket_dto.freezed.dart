@@ -20,11 +20,11 @@ TicketDto _$TicketDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TicketDto {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String get date => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
-  String get value => throw _privateConstructorUsedError;
+  double get value => throw _privateConstructorUsedError;
   String get fkUser => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,11 +39,11 @@ abstract class $TicketDtoCopyWith<$Res> {
       _$TicketDtoCopyWithImpl<$Res, TicketDto>;
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {String? id,
+      String? name,
       String date,
       String code,
-      String value,
+      double value,
       String fkUser});
 }
 
@@ -60,22 +60,22 @@ class _$TicketDtoCopyWithImpl<$Res, $Val extends TicketDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? date = null,
     Object? code = null,
     Object? value = null,
     Object? fkUser = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ class _$TicketDtoCopyWithImpl<$Res, $Val extends TicketDto>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       fkUser: null == fkUser
           ? _value.fkUser
           : fkUser // ignore: cast_nullable_to_non_nullable
@@ -104,11 +104,11 @@ abstract class _$$_TicketDtoCopyWith<$Res> implements $TicketDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
+      {String? id,
+      String? name,
       String date,
       String code,
-      String value,
+      double value,
       String fkUser});
 }
 
@@ -123,22 +123,22 @@ class __$$_TicketDtoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? name = freezed,
     Object? date = null,
     Object? code = null,
     Object? value = null,
     Object? fkUser = null,
   }) {
     return _then(_$_TicketDto(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -150,7 +150,7 @@ class __$$_TicketDtoCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       fkUser: null == fkUser
           ? _value.fkUser
           : fkUser // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$_TicketDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TicketDto extends _TicketDto {
   _$_TicketDto(
-      {required this.id,
-      required this.name,
+      {this.id,
+      this.name,
       required this.date,
       required this.code,
       required this.value,
@@ -175,15 +175,15 @@ class _$_TicketDto extends _TicketDto {
       _$$_TicketDtoFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String name;
+  final String? name;
   @override
   final String date;
   @override
   final String code;
   @override
-  final String value;
+  final double value;
   @override
   final String fkUser;
 
@@ -226,11 +226,11 @@ class _$_TicketDto extends _TicketDto {
 
 abstract class _TicketDto extends TicketDto {
   factory _TicketDto(
-      {required final String id,
-      required final String name,
+      {final String? id,
+      final String? name,
       required final String date,
       required final String code,
-      required final String value,
+      required final double value,
       required final String fkUser}) = _$_TicketDto;
   _TicketDto._() : super._();
 
@@ -238,15 +238,15 @@ abstract class _TicketDto extends TicketDto {
       _$_TicketDto.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get name;
+  String? get name;
   @override
   String get date;
   @override
   String get code;
   @override
-  String get value;
+  double get value;
   @override
   String get fkUser;
   @override
