@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
-import '../../../core/presenter/widgets/translation_dropdown_widget.dart';
+import '../../../core/presenter/ui/widgets/translation_dropdown_widget.dart';
 import '../../../core/utils.dart';
 
 class ProfilePage extends StatefulWidget {
