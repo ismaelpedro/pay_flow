@@ -245,7 +245,7 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.2.4"
+    version: "4.2.5"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
@@ -287,14 +287,14 @@ packages:
       name: firebase_crashlytics
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.9"
+    version: "3.0.11"
   firebase_crashlytics_platform_interface:
     dependency: transitive
     description:
       name: firebase_crashlytics_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.10"
+    version: "3.3.11"
   firebase_messaging:
     dependency: "direct main"
     description:
@@ -449,7 +449,7 @@ packages:
       name: google_sign_in
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.4.2"
+    version: "5.4.3"
   google_sign_in_android:
     dependency: transitive
     description:
@@ -568,7 +568,7 @@ packages:
       name: lottie
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   matcher:
     dependency: transitive
     description:
@@ -741,21 +741,21 @@ packages:
       name: slang
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.8.0"
   slang_build_runner:
     dependency: "direct dev"
     description:
       name: slang_build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.8.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.8.0"
   source_gen:
     dependency: transitive
     description:

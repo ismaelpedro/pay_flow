@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../core/core.dart';
 import '../../core/infrastructure/service_locator/service_locator.dart';
@@ -82,6 +83,18 @@ class _LoginPageState extends State<LoginPage> {
                       await _store.loginWithGoogle();
                     },
                   ),
+                ),
+                SizedBox(height: 40.h),
+                FutureBuilder<PackageInfo>(
+                  future: PackageInfo.fromPlatform(),
+                  // ignore: always_specify_types
+                  builder: (_, snapshot) {
+                    return Text(
+                      '${snapshot.data?.version}+${snapshot.data?.buildNumber}',
+                      style: AppTextStyles.titleListTile,
+                      textAlign: TextAlign.center,
+                    );
+                  },
                 ),
                 SizedBox(height: 40.h),
               ],
