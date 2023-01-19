@@ -12,11 +12,11 @@ import 'src/modules/core/services/firebase_messaging_service.dart';
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await MobileAds.instance.initialize();
+    MobileAds.instance.initialize();
     await Firebase.initializeApp();
     setUpInjections();
-
     await serviceLocator.get<FirebaseMessagingService>().initialize();
+
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(const PayFlowApp());
