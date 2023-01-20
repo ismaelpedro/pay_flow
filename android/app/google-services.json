@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "911161269065",
+    "project_id": "payflow-333802",
+    "storage_bucket": "payflow-333802.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911161269065:android:82226b1c88dd3243275898",
+        "android_client_info": {
+          "package_name": "br.com.ismael.pay_flow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911161269065-2ivlmt3ivig9o27o3kjc04po2ej24lbn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ismael.pay_flow",
+            "certificate_hash": "e80c0ba834a70efa0751cbecdbb190e581b73215"
+          }
+        },
+        {
+          "client_id": "911161269065-omn5s9auqq3ue0gooirij36k1j9d6ded.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ismael.pay_flow",
+            "certificate_hash": "4536cc309a4892c41927102e9ff2cc6beb09204e"
+          }
+        },
+        {
+          "client_id": "911161269065-3qa5ah590hndentsfoi0pbrf66a8l0ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFMN5n2B7ylb4RvTho7WHGkY2YgLixcE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911161269065-3qa5ah590hndentsfoi0pbrf66a8l0ej.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "911161269065-1gamcv9d3lk6effqk4r3v6gfffrmo493.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.ismael.payFlow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
