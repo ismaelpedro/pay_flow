@@ -8,8 +8,6 @@ import '../../../home/presenter/home_store.dart';
 import '../../../login/domain/usecases/login_with_google_usecase.dart';
 import '../../../login/presenter/login_store.dart';
 import '../../core.dart';
-import '../../services/firebase_messaging_service.dart';
-import '../../services/notification_service.dart';
 import '../google_sign_in/google_sign_in_adapter.dart';
 import '../http/http.dart';
 
@@ -37,8 +35,8 @@ void setUpInjections() {
   /// [Adapters]
   /// Convert the interface of a class into another interface clients expect. Adapter lets classes work together that wouldn't otherwise because of incompatible interfaces.
   serviceLocator.registerFactory(() => GoogleSignInAdapter(_i()));
-  serviceLocator.registerFactory(() => NotificationService());
-  serviceLocator.registerLazySingleton(() => FirebaseMessagingService(_i()));
+  // serviceLocator.registerFactory(() => NotificationService());
+  // serviceLocator.registerLazySingleton(() => FirebaseMessagingService(_i()));
 
   /// [Usecases]
   /// Application-specific business rules
