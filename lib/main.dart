@@ -11,9 +11,7 @@ import 'src/modules/core/presenter/pay_flow_app.dart';
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     setUpInjections();
     // await serviceLocator.get<FirebaseMessagingService>().initialize();
 
