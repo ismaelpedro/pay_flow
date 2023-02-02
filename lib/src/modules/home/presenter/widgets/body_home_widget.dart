@@ -26,11 +26,11 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Size mediquery = context.mediaQuery;
+    Size mediaQuery = context.mediaQuery;
 
     return SizedBox(
-      width: mediquery.width,
-      height: mediquery.height,
+      width: mediaQuery.width,
+      height: mediaQuery.height,
       child: Column(
         children: <Widget>[
           const CustomAppBarWidget(),

@@ -32,12 +32,12 @@ class _PayFlowAppState extends State<PayFlowApp> {
       designSize: const Size(390, 844),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (BuildContext context, Widget? child) {
+      builder: (BuildContext context, _) {
         return MaterialApp(
           locale: const Locale('en', 'US'),
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            // useMaterial3: true,
+            useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
             scaffoldBackgroundColor: Colors.white,
           ),

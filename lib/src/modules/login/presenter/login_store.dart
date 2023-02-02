@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pay_flow/src/modules/core/utils.dart';
 
 import '../../core/core.dart';
+import '../../core/utils.dart';
 import '../domain/usecases/login_with_google_usecase.dart';
 
 part 'login_store.g.dart';
@@ -26,7 +26,7 @@ abstract class LoginStoreBase with Store {
     if (loginUser != null) {
       _appStore.user = loginUser;
       await _utils.getVersionApp();
-      Navigator.pushNamed(
+      Navigator.pushReplacementNamed(
         navigatorKey.currentState!.context,
         Routes.home,
       );
