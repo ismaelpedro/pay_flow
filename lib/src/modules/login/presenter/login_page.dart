@@ -90,8 +90,8 @@ class _LoginPageState extends State<LoginPage> {
                   // ignore: always_specify_types
                   builder: (_, snapshot) {
                     return Text(
-                      '${snapshot.data?.version}+${snapshot.data?.buildNumber}',
-                      style: AppTextStyles.titleListTile,
+                      'Versāo ${snapshot.data?.version}',
+                      style: AppTextStyles.captionBoldBody,
                       textAlign: TextAlign.center,
                     );
                   },

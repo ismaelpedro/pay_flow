@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: always_specify_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
-import '../../../core/presenter/ui/widgets/translation_dropdown_widget.dart';
 import '../../../core/utils.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -28,117 +28,141 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 100,
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          context.i18n.perfil,
-          style: AppTextStyles.titleBoldHeading,
-        ),
-        actions: const <Widget>[
-          TranslationDropdownWidget(color: Colors.black),
-        ],
-      ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                SizedBox(height: 20.h),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    height: 100,
-                    width: 100,
-                    color: Colors.grey[200],
-                    child: Image.network(
-                      _appStore.user!.imageUrl,
-                      loadingBuilder:
-                          (_, Widget child, ImageChunkEvent? progress) {
-                        if (progress == null) {
-                          return child;
-                        }
-                        return const Center(
-                          child: CupertinoActivityIndicator(),
+        child: Center(
+          child: Column(
+            children: <Widget>[
+              Container(
+                color: AppColors.orange,
+                height: 184.h,
+              ),
+              SizedBox(height: 10.h),
+              ListTile(
+                title: Row(
+                  children: <Widget>[
+                    const Icon(
+                      Icons.language,
+                      color: AppColors.orange,
+                    ),
+                    const SizedBox(width: 30),
+                    Text(
+                      'Idioma',
+                      style: AppTextStyles.buttonHeading,
+                    ),
+                  ],
+                ),
+                // trailing: SizedBox(
+                //   height: 100,
+                //   child: DropdownButton<dynamic>(
+                //     items: const <DropdownMenuItem>[
+                //       DropdownMenuItem<String>(
+                //         child: Text('Portugues'),
+                //       ),
+                //       DropdownMenuItem<String>(
+                //         child: Text('Ingles'),
+                //       ),
+                //     ],
+                //     onChanged: (Object? value) {},
+                //   ),
+                // ),
+              ),
+              SwitchListTile.adaptive(
+                title: Row(
+                  children: <Widget>[
+                    const Icon(
+                      Icons.notifications_outlined,
+                      color: AppColors.orange,
+                    ),
+                    const SizedBox(width: 30),
+                    Text(
+                      'Notificaçōes',
+                      style: AppTextStyles.buttonHeading,
+                    ),
+                  ],
+                ),
+                value: true,
+                onChanged: (bool value) {},
+              ),
+              SwitchListTile.adaptive(
+                title: Row(
+                  children: <Widget>[
+                    const Icon(
+                      Icons.light_mode_outlined,
+                      color: AppColors.orange,
+                    ),
+                    const SizedBox(width: 30),
+                    Text(
+                      'Mode Light',
+                      style: AppTextStyles.buttonHeading,
+                    ),
+                  ],
+                ),
+                value: true,
+                onChanged: (bool value) {},
+              ),
+              SizedBox(height: 50.h),
+              Container(
+                height: 80.h,
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 16),
+                child: OutlinedButton.icon(
+                  icon: const Icon(
+                    Icons.attach_money_rounded,
+                    color: AppColors.orange,
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      side: const BorderSide(color: AppColors.orange),
+                    ),
+                  ),
+                  onPressed: () {},
+                  label: Text(
+                    'Doar',
+                    style: AppTextStyles.captionBoldBody
+                        .copyWith(color: AppColors.orange),
+                  ),
+                ),
+              ),
+              SizedBox(height: 50.h),
+              Container(
+                alignment: Alignment.bottomLeft,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16),
+                      child: Text(
+                        'Versāo ${_utils.version}',
+                        style: AppTextStyles.captionBoldBody,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.only(left: 16),
+                      ),
+                      icon: const Icon(
+                        Icons.exit_to_app,
+                        color: AppColors.orange,
+                      ),
+                      label: Text(
+                        'Sair',
+                        style: AppTextStyles.captionBoldBody
+                            .copyWith(color: AppColors.orange),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          Routes.login,
+                          (Object route) => false,
                         );
                       },
-                      height: 60.h,
-                      width: 60.w,
-                      fit: BoxFit.cover,
                     ),
-                  ),
+                  ],
                 ),
-                const SizedBox(height: 50),
-                IgnorePointer(
-                  ignoring: true,
-                  child: TextFormField(
-                    readOnly: true,
-                    initialValue: _appStore.user!.name,
-                    decoration: const InputDecoration(
-                      labelText: 'Nome completo',
-                      enabledBorder: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 30),
-                IgnorePointer(
-                  ignoring: true,
-                  child: TextFormField(
-                    readOnly: true,
-                    initialValue: _appStore.user!.email,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      enabledBorder: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  visualDensity: const VisualDensity(
-                    horizontal: VisualDensity.minimumDensity,
-                    vertical: VisualDensity.minimumDensity,
-                  ),
-                  leading: const Icon(
-                    Icons.exit_to_app_outlined,
-                    color: Colors.black,
-                  ),
-                  title: const Text(
-                    'Log out',
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    // style: AppTextStyles.titleListTile,
-                  ),
-                  onTap: () => _appStore.logOut(),
-                ),
-                const SizedBox(height: 20),
-                Opacity(
-                  opacity: .3,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Pay Flow - Developed by Ismael Pedro™ ©',
-                          style: AppTextStyles.captionBody,
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          'v${_utils.version}',
-                          style: AppTextStyles.captionBoldBody,
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

@@ -189,7 +189,7 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>pay_flow</string>
+		<string>Pay Flow</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
@@ -225,5 +225,7 @@
 		<true />
 		<key>UIStatusBarHidden</key>
 		<false />
-	</dict>
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+</dict>
 </plist>

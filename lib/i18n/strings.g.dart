@@ -3,7 +3,7 @@
 /// Locales: 3
 /// Strings: 63 (21 per locale)
 ///
-/// Built on 2023-01-01 at 17:00 UTC
+/// Built on 2023-02-02 at 12:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -100,8 +100,8 @@ class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
 	static AppLocale setLocale(AppLocale locale) => instance.setLocale(locale);
 	static AppLocale setLocaleRaw(String rawLocale) => instance.setLocaleRaw(rawLocale);
 	static AppLocale useDeviceLocale() => instance.useDeviceLocale();
-	static List<Locale> get supportedLocales => instance.supportedLocales;
-	static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
+	@Deprecated('Use [AppLocaleUtils.supportedLocales]') static List<Locale> get supportedLocales => instance.supportedLocales;
+	@Deprecated('Use [AppLocaleUtils.supportedLocalesRaw]') static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
 	static void setPluralResolver({String? language, AppLocale? locale, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver}) => instance.setPluralResolver(
 		language: language,
 		locale: locale,
@@ -120,6 +120,8 @@ class AppLocaleUtils extends BaseAppLocaleUtils<AppLocale, _StringsEn> {
 	static AppLocale parse(String rawLocale) => instance.parse(rawLocale);
 	static AppLocale parseLocaleParts({required String languageCode, String? scriptCode, String? countryCode}) => instance.parseLocaleParts(languageCode: languageCode, scriptCode: scriptCode, countryCode: countryCode);
 	static AppLocale findDeviceLocale() => instance.findDeviceLocale();
+	static List<Locale> get supportedLocales => instance.supportedLocales;
+	static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
 }
 
 // translations
@@ -157,7 +159,6 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	TextSpan hello({required InlineSpan name}) => TextSpan(children: [
 		const TextSpan(text: 'Hello, '),
 		name,
-		const TextSpan(text: '!'),
 	]);
 	String get accountUpTodate => 'Keep your accounts up to date';
 	String registrationsToPay({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
@@ -209,9 +210,8 @@ class _StringsEnEn implements _StringsEn {
 	@override String get enUS => 'Inglés';
 	@override String get esES => 'Español';
 	@override TextSpan hello({required InlineSpan name}) => TextSpan(children: [
-		const TextSpan(text: '¡Hola '),
+		const TextSpan(text: 'Hola '),
 		name,
-		const TextSpan(text: '!'),
 	]);
 	@override String get accountUpTodate => 'Mantén tus cuentas al día';
 	@override String registrationsToPay({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
@@ -265,7 +265,6 @@ class _StringsPtBr implements _StringsEn {
 	@override TextSpan hello({required InlineSpan name}) => TextSpan(children: [
 		const TextSpan(text: 'Olá, '),
 		name,
-		const TextSpan(text: '!'),
 	]);
 	@override String get accountUpTodate => 'Mantenha suas contas em dia';
 	@override String registrationsToPay({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count,
@@ -300,7 +299,6 @@ extension on _StringsEn {
 			case 'hello': return ({required InlineSpan name}) => TextSpan(children: [
 				const TextSpan(text: 'Hello, '),
 				name,
-				const TextSpan(text: '!'),
 			]);
 			case 'accountUpTodate': return 'Keep your accounts up to date';
 			case 'registrationsToPay': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
@@ -333,9 +331,8 @@ extension on _StringsEnEn {
 			case 'enUS': return 'Inglés';
 			case 'esES': return 'Español';
 			case 'hello': return ({required InlineSpan name}) => TextSpan(children: [
-				const TextSpan(text: '¡Hola '),
+				const TextSpan(text: 'Hola '),
 				name,
-				const TextSpan(text: '!'),
 			]);
 			case 'accountUpTodate': return 'Mantén tus cuentas al día';
 			case 'registrationsToPay': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(count,
@@ -370,7 +367,6 @@ extension on _StringsPtBr {
 			case 'hello': return ({required InlineSpan name}) => TextSpan(children: [
 				const TextSpan(text: 'Olá, '),
 				name,
-				const TextSpan(text: '!'),
 			]);
 			case 'accountUpTodate': return 'Mantenha suas contas em dia';
 			case 'registrationsToPay': return ({required num count}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(count,

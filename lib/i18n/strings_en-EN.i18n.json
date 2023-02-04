@@ -4,7 +4,7 @@
   "ptBr": "Portugués",
   "enUS": "Inglés",
   "esES": "Español",
-  "hello(rich)": "¡Hola $name!",
+  "hello(rich)": "Hola $name",
   "accountUpTodate": "Mantén tus cuentas al día",
   "registrationsToPay(param=count)": {
     "zero": "¡No tienes facturas que pagar! 😵‍💫",
