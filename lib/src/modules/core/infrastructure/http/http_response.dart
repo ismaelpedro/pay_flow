@@ -1,4 +1,4 @@
-import 'http_enums.dart';
+import 'http.dart';
 
 class HttpResponse {
   final HttpStatus status;

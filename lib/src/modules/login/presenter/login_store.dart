@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../core/core.dart';
-import '../../core/utils.dart';
+import '../../core/utils/utils.dart';
 import '../domain/usecases/login_with_google_usecase.dart';
 
 part 'login_store.g.dart';

@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/core.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
-import '../../../core/utils.dart';
+import '../../../core/utils/utils.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -15,6 +15,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  // ignore: unused_field
   late AppStore _appStore;
   late Utils _utils;
 

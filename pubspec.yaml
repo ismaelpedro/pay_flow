@@ -12,38 +12,41 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.5
   boleto_utils: ^1.0.2
-  sign_in_with_apple: ^4.3.0
   google_sign_in: ^5.4.4
   google_mobile_ads: ^2.3.0
-  firebase_core: ^2.4.1
-  firebase_crashlytics: ^3.0.11
-  firebase_messaging: ^14.2.1
+  firebase_core: ^2.6.1
+  firebase_crashlytics: ^3.0.14
+  firebase_messaging: ^14.2.4
   flutter_screenutil: ^5.6.1
   flutter_barcode_scanner: ^2.0.0
   flutter_masked_text2: ^0.9.1
   flutter_local_notifications: ^13.0.0
   flutter_facebook_auth: ^5.0.7
+  flutter_svg: ^2.0.1
   freezed_annotation: ^2.2.0
   flutter_mobx: ^2.0.6+5
-  mobx: ^2.1.3
-  package_info_plus: ^3.0.2
+  mobx: ^2.1.4
+  json_annotation: ^4.8.0
+  pretty_dio_logger: ^1.3.1
+  package_info_plus: ^3.0.3
   lottie: ^2.2.0
   timezone: ^0.9.1
   uuid: ^3.0.7
   intl: ^0.18.0
   get_it: ^7.2.0
   shimmer: ^2.0.0
-  dio: ^4.0.6
-  slang: ^3.11.1
-  slang_flutter: ^3.11.0
+  dio: ^5.0.0
+  slang: ^3.12.0
+  slang_flutter: ^3.12.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  faker: ^2.1.0
   mockito: ^5.3.2
   flutter_lints: ^2.0.1
   build_runner: ^2.3.3
-  slang_build_runner: ^3.11.0
+  slang_build_runner: ^3.12.0
   mobx_codegen: ^2.1.1
   freezed: ^2.3.2
   json_serializable: ^6.6.1

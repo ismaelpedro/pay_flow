@@ -4,6 +4,8 @@ abstract class AppImages {
   static const String union = 'assets/images/union.png';
   static const String person = 'assets/images/person.png';
   static const String google = 'assets/images/google.png';
+  static const String facebook = 'assets/images/facebook.png';
+  static const String apple = 'assets/images/apple.png';
   static const String add = 'assets/images/add.png';
   static const String doc = 'assets/images/doc.png';
   static const String eua = 'assets/images/eua.png';

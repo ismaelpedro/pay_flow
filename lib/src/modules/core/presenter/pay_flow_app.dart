@@ -40,6 +40,9 @@ class _PayFlowAppState extends State<PayFlowApp> {
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
             scaffoldBackgroundColor: Colors.white,
+            inputDecorationTheme: const InputDecorationTheme(
+              border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orange)),
+            ),
           ),
           initialRoute: Routes.login,
           navigatorKey: navigatorKey,
