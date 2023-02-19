@@ -184,6 +184,8 @@
 		<array>
 			<string>_dartobservatory._tcp</string>
 		</array>
+		<key>GADApplicationIdentifier</key>
+		<string>ca-app-pub-7753595933708072~6015295773</string>
 		<key>CFBundleIdentifier</key>
 		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 		<key>CFBundleInfoDictionaryVersion</key>
