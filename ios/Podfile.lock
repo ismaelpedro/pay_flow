@@ -13,14 +13,14 @@ PODS:
   - Firebase/Messaging (10.3.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 10.3.0)
-  - firebase_core (2.6.1):
+  - firebase_core (2.7.0):
     - Firebase/CoreOnly (= 10.3.0)
     - Flutter
-  - firebase_crashlytics (3.0.14):
+  - firebase_crashlytics (3.0.15):
     - Firebase/Crashlytics (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_messaging (14.2.4):
+  - firebase_messaging (14.2.5):
     - Firebase/Messaging (= 10.3.0)
     - firebase_core
     - Flutter
@@ -180,9 +180,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
-  firebase_core: 6242f038aefa4582e028536e71312f7e3a41e6bb
-  firebase_crashlytics: 0c975a4052e8a0dc4238b98fff3ac7208a45b20d
-  firebase_messaging: ee61b8065c395a117864224e3031729e656232af
+  firebase_core: 128d8c43c3a453a4a67463314fc3761bedff860b
+  firebase_crashlytics: 0a99d06e38030d769021340b551d8ac4b27345fc
+  firebase_messaging: 8ac28baba96e69a58ad26b4bb5f9ee67c3e5efe2
   FirebaseCore: 988754646ab3bd4bdcb740f1bfe26b9f6c0d5f2a
   FirebaseCoreInternal: e463f41bb935cd049505bf7e9a5bdd7dcea90df6
   FirebaseCrashlytics: f20d956f8229010b645e534693c39e0b7843c268
