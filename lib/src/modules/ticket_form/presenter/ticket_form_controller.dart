@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pay_flow/src/modules/core/core.dart';
-import 'package:uuid/uuid.dart';
+
+import '../../core/core.dart';
 
 part 'ticket_form_controller.g.dart';
 
-class TicketFormController = TicketFormControllerBase
-    with _$TicketFormController;
+class TicketFormController = TicketFormControllerBase with _$TicketFormController;
 
 abstract class TicketFormControllerBase with Store {
-    late final AppStore _appStore;
+  late final AppStore _appStore;
   TicketFormControllerBase(this._appStore);
 
   @observable
@@ -37,11 +36,7 @@ abstract class TicketFormControllerBase with Store {
   void setCode(String newCode) => code = newCode;
 
   @computed
-  bool get canSaveBill =>
-      name.isNotEmpty &&
-      value.isNotEmpty &&
-      expirationDate.isNotEmpty &&
-      code.isNotEmpty;
+  bool get canSaveBill => name.isNotEmpty && value.isNotEmpty && expirationDate.isNotEmpty && code.isNotEmpty;
 
   void onInitTicketFormPage(TicketEntity ticket) {
     String valueFormatted = ticket.value!.toCurrencyBRL();
@@ -54,7 +49,6 @@ abstract class TicketFormControllerBase with Store {
 
   void saveBill(double value) {
     final TicketEntity newTicket = TicketEntity(
-      id: const Uuid().v4(),
       name: name,
       date: expirationDate,
       code: code,

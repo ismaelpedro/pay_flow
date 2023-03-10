@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:pay_flow/src/modules/core/utils/admob_id.dart';
 
 import '../../core/core.dart';
 import '../../core/infrastructure/service_locator/service_locator.dart';
+import '../../core/utils/admob_id.dart';
 import 'login_store.dart';
 
 class LoginPage extends StatefulWidget {
@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Center(
                 child: Padding(
-                  padding: EdgeInsets.only(bottom: 380.h),
+                  padding: EdgeInsets.only(bottom: 320.h),
                   child: Image.asset(AppImages.person, height: 280.h),
                 ),
               ),
