@@ -11,12 +11,10 @@ analyzer:
     directives_ordering: error
     prefer_single_quotes: error
     always_declare_return_types: error
-    always_specify_types: error
 
 linter:
   rules:
     prefer_single_quotes: true
     always_declare_return_types: true
-    always_specify_types: true
     require_trailing_commas: true
     directives_ordering: true

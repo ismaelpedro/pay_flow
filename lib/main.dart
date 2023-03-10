@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pay_flow/firebase_options.dart';
 
-import 'src/modules/core/infrastructure/service_locator/service_locator.dart';
-import 'src/modules/core/presenter/pay_flow_app.dart';
-import 'src/modules/core/services/firebase_messaging_service.dart';
+import 'src/core/domain/services/firebase_messaging_service.dart';
+import 'src/core/infrastructure/service_locator/service_locator.dart';
+import 'src/core/presenter/pay_flow_app.dart';
 
 Future<void> main() async {
   runZonedGuarded<Future<void>>(() async {

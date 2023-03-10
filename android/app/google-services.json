@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "911161269065-skf2jv9eepkhu67cb4vdio7oa24qj0kb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.ismael.pay_flow",
+            "certificate_hash": "9419451598f17a0c98ba8c41961162ec0187c653"
+          }
+        },
+        {
           "client_id": "911161269065-3qa5ah590hndentsfoi0pbrf66a8l0ej.apps.googleusercontent.com",
           "client_type": 3
         }
