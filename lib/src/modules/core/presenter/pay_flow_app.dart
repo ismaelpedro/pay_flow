@@ -25,7 +25,7 @@ class _PayFlowAppState extends State<PayFlowApp> {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(390, 844),
+      designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (BuildContext context, _) {
