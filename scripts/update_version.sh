@@ -25,7 +25,8 @@ else
 fi
 
 # Commit changes to git
-if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push; then
+# if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push; then
+if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]"; then
   echo "Changes committed and pushed"
 else
   echo "Failed to commit and push changes to GitHub"
