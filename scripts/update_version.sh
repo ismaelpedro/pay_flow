@@ -1,24 +1,19 @@
 #!/bin/bash
 
-# Obtém a versão atual do aplicativo
-version=$(cat pubspec.yaml | grep -o '^[ ]*version:.*' | awk '{print $2}')
+# Get current version from pubspec.yaml
+VERSION=$(grep 'version: ' pubspec.yaml | awk '{print $2}' | tr -d '[:space:]')
 
-# Remove o sinal de "+" da versão, se presente
-version=$(echo $version | sed 's/\+//g')
+# Split version number into major, minor and patch
+MAJOR=$(echo $VERSION | cut -d. -f1)
+MINOR=$(echo $VERSION | cut -d. -f2)
+PATCH=$(echo $VERSION | cut -d. -f3)
 
-# Separa a versão em major, minor e patch
-major=$(echo $version | cut -d '.' -f 1)
-minor=$(echo $version | cut -d '.' -f 2)
-patch=$(echo $version | cut -d '.' -f 3)
+# Increment patch version by 1
+PATCH=$((PATCH+1))
 
-# Incrementa o valor de build em 1
-build_number=$(expr ${FCI_BUILD_NUMBER} + 1)
+# Update version in pubspec.yaml
+sed -i "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}/g" pubspec.yaml
 
-# Atualiza a versão do aplicativo com o valor de build incrementado
-version="$major.$minor.$patch+$build_number"
-
-# Atualiza a versão no arquivo pubspec.yaml
-sed -i '' "s/version: .*/version: $version/" pubspec.yaml
-
-# Exibe a nova versão atualizada no console
-echo "Nova versão: $version"
+# Commit changes
+git add pubspec.yaml
+git commit -m "Incremented build version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}"
