@@ -1,21 +1,19 @@
 #!/bin/bash
 
-# Get current version from pubspec.yaml
-VERSION=$(grep 'version: ' pubspec.yaml | awk '{print $2}' | tr -d '[:space:]')
+# Lê a versão atual do arquivo pubspec.yaml
+VERSION=$(grep "version: " pubspec.yaml | awk '{print $2}')
 
-# Split version number into major, minor and patch
-MAJOR=$(echo $VERSION | cut -d. -f1)
-MINOR=$(echo $VERSION | cut -d. -f2)
-PATCH=$(echo $VERSION | cut -d. -f3)
+# Extrai o número da versão principal, secundária e de patch
+MAJOR=$(echo $VERSION | awk -F '.' '{print $1}')
+MINOR=$(echo $VERSION | awk -F '.' '{print $2}')
+PATCH=$(echo $VERSION | awk -F '.' '{print $3}' | awk -F '+' '{print $1}')
 
-# Increment patch version by 1
-# PATCH=$((PATCH+1))
+# Incrementa o número de build em 1
+FCI_BUILD_NUMBER=$(($FCI_BUILD_NUMBER + 1))
 
-# Update version in pubspec.yaml
-echo $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}
-sed -i "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER + 1}/g" pubspec.yaml
+# Atualiza a versão no arquivo pubspec.yaml
+sed -i '' "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}/g" pubspec.yaml
 
-# Commit changes
-# git add .
-# git commit -m "Incremented build version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}"
-# git push
+# Cria um commit com a nova versão
+# git add pubspec.yaml
+# git commit -m "Bump version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER} [skip ci]"
