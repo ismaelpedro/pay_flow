@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Load variables from codemagic.yaml
-source "$(dirname "$0")/../codemagic.yaml"
+source "/pay_flow/codemagic.yaml"
 
 # Get current version from pubspec.yaml
 VERSION=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
