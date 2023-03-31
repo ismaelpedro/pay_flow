@@ -10,9 +10,11 @@ PATCH=$(echo $VERSION | awk -F '.' '{print $3}' | awk -F '+' '{print $1}')
 
 # Incrementa o número de build em 1
 FCI_BUILD_NUMBER=$(($FCI_BUILD_NUMBER + 1))
+VERSION = $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}
+echo VERSION
 
 # Atualiza a versão no arquivo pubspec.yaml
-sed -i '' "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}/g" pubspec.yaml
+sed -i '' "s/version: $VERSION/version: $VERSION/g" pubspec.yaml
 
 # Cria um commit com a nova versão
 # git add pubspec.yaml
