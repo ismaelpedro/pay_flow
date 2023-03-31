@@ -7,7 +7,6 @@ workflows:
       vars:
         PACKAGE_NAME: "br.com.ismael.pay_flow"
         GOOGLE_PLAY_TRACK: production
-        FCI_BUILD_NUMBER: 1
       groups:
         - keystore_credentials
         - google_play
@@ -19,7 +18,6 @@ workflows:
       - name: Update version pubspec.yaml
         script: |
           chmod +x scripts/update_version.sh
-          export FCI_BUILD_NUMBER=${FCI_BUILD_NUMBER:-1}
           ./scripts/update_version.sh
       - name: Build AAB with Flutter
         script: |
