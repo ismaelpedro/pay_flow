@@ -21,8 +21,10 @@ else
   exit 1
 fi
 
-# if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push "https://ismaelpedro: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@github.com/ismaelpedro/pay_flow.git"; then
-if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push "https://ismaelpedro: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@github.com/ismaelpedro/pay_flow.git"; then
+git config --global user.email "http.ismaeel@gmail.com"
+git config --global user.name "Ismael Pedro"
+
+if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push "https://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@github.com/ismaelpedro/pay_flow.git"; then
   echo "Changes committed and pushed"
 else
   echo "Failed to commit and push changes"
