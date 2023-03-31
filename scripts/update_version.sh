@@ -20,5 +20,5 @@ sed -i.bak "s/version: $VERSION/version: $NEW_VERSION/g" pubspec.yaml
 rm pubspec.yaml.bak
 
 # Commit changes to git
-git add pubspec.yaml
+git add .
 git commit -m "Bump version to $NEW_VERSION"

@@ -17,7 +17,8 @@ workflows:
       - name: Grant execution permission to update_version.sh
         script: chmod +x scripts/update_version.sh
       - name: Update app version
-        script: ./scripts/update_version.sh
+        script: |
+          ./scripts/update_version.sh
       - name: Build APK
         script: flutter build apk
     artifacts:
@@ -30,7 +31,7 @@ workflows:
           - http.ismaeel@gmail.com
         notify:
           success: true
-          failure: false
+          failure: true
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: $GOOGLE_PLAY_TRACK
