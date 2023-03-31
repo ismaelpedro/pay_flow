@@ -3,7 +3,7 @@
 /// Locales: 3
 /// Strings: 63 (21 per locale)
 ///
-/// Built on 2023-02-19 at 01:28 UTC
+/// Built on 2023-03-31 at 00:52 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -71,10 +71,7 @@ class Translations {
 
 /// The provider for method B
 class TranslationProvider extends BaseTranslationProvider<AppLocale, _StringsEn> {
-	TranslationProvider({required super.child}) : super(
-		initLocale: LocaleSettings.instance.currentLocale,
-		initTranslations: LocaleSettings.instance.currentTranslations,
-	);
+	TranslationProvider({required super.child}) : super(settings: LocaleSettings.instance);
 
 	static InheritedLocaleData<AppLocale, _StringsEn> of(BuildContext context) => InheritedLocaleData.of<AppLocale, _StringsEn>(context);
 }
@@ -97,8 +94,8 @@ class LocaleSettings extends BaseFlutterLocaleSettings<AppLocale, _StringsEn> {
 	// static aliases (checkout base methods for documentation)
 	static AppLocale get currentLocale => instance.currentLocale;
 	static Stream<AppLocale> getLocaleStream() => instance.getLocaleStream();
-	static AppLocale setLocale(AppLocale locale) => instance.setLocale(locale);
-	static AppLocale setLocaleRaw(String rawLocale) => instance.setLocaleRaw(rawLocale);
+	static AppLocale setLocale(AppLocale locale, {bool? listenToDeviceLocale = false}) => instance.setLocale(locale, listenToDeviceLocale: listenToDeviceLocale);
+	static AppLocale setLocaleRaw(String rawLocale, {bool? listenToDeviceLocale = false}) => instance.setLocaleRaw(rawLocale, listenToDeviceLocale: listenToDeviceLocale);
 	static AppLocale useDeviceLocale() => instance.useDeviceLocale();
 	@Deprecated('Use [AppLocaleUtils.supportedLocales]') static List<Locale> get supportedLocales => instance.supportedLocales;
 	@Deprecated('Use [AppLocaleUtils.supportedLocalesRaw]') static List<String> get supportedLocalesRaw => instance.supportedLocalesRaw;
