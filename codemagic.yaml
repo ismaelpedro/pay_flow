@@ -17,11 +17,14 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Clean and Get Flutter packages
         script: |
-         flutter clean && flutter packages pub get
+          flutter clean && flutter packages pub get
         ignore_failure: false
+      - name: Set up local.properties
+        script: |
+          scripts/update_version.sh
       - name: Build AAB
         script: |
-           flutter build apk --release --build-name=2.0.10 --build-number=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))
+          flutter build apk --release --build-name=2.0.10 --build-number=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
