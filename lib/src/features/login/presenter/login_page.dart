@@ -44,6 +44,7 @@ class _LoginPageState extends State<LoginPage> {
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: Scaffold(
+          extendBody: true,
           backgroundColor: Colors.white,
           body: SingleChildScrollView(
             child: Stack(
@@ -170,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 20.h),
+                          SizedBox(height: 100.h),
                         ],
                       ),
                     ),

@@ -22,14 +22,6 @@
           }
         },
         {
-          "client_id": "911161269065-omn5s9auqq3ue0gooirij36k1j9d6ded.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "br.com.ismael.pay_flow",
-            "certificate_hash": "4536cc309a4892c41927102e9ff2cc6beb09204e"
-          }
-        },
-        {
           "client_id": "911161269065-skf2jv9eepkhu67cb4vdio7oa24qj0kb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
