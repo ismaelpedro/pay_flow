@@ -5,8 +5,8 @@ VERSION=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
 MAJOR=$(echo "$VERSION" | cut -d '.' -f 1)
 MINOR=$(echo "$VERSION" | cut -d '.' -f 2)
 PATCH=$(echo "$VERSION" | cut -d '.' -f 3 | cut -d '+' -f 1)
-
 PATCH=$((PATCH+1))
+
 LAST_COMMIT=$(git log --format="%H" -n 1)
 FCI_BUILD_NUMBER=$(git rev-list --count $LAST_COMMIT)
 FCI_BUILD_NUMBER=$((FCI_BUILD_NUMBER+1))
@@ -21,8 +21,7 @@ else
   exit 1
 fi
 
-# if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push; then
-if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]"; then
+if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push; then
   echo "Changes committed and pushed"
 else
   echo "Failed to commit and push changes to GitHub"
