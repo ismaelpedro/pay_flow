@@ -19,7 +19,7 @@ workflows:
       - name: Update version pubspec.yaml
         script: |
           chmod +x scripts/update_version.sh
-          ./scripts/update_version.sh
+          ./update_version.sh
       - name: Build AAB with Flutter
         script: |
           flutter build appbundle --release 
