@@ -17,7 +17,7 @@ workflows:
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Run Slang
         script: |
-          flutter pub run slang && flutter pub run build_runner build -d
+          flutter pub get && flutter pub run slang && flutter pub run build_runner build -d
         ignore_failure: false
       - name: Run auto increment script build version
         script: |
