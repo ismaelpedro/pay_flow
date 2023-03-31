@@ -12,18 +12,14 @@ workflows:
         GOOGLE_PLAY_TRACK: "production"
       flutter: stable
     scripts:
-      - name: Set up key.properties
-        script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Dar permissão de execução
-        script: |
-          chmod +x scripts/update_version.sh
-      - name: Run Slang + Run auto increment script build version
-        script: |
-          ./scripts/update_version.sh
+      - name: Set up local.properties
+        script: echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Grant execution permission to update_version.sh
+        script: chmod +x scripts/update_version.sh
+      - name: Update app version
+        script: ./scripts/update_version.sh
       - name: Build APK
-        script: |
-          flutter build apk
+        script: flutter build apk
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
