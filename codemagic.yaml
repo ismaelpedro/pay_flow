@@ -16,7 +16,7 @@ workflows:
     scripts:
       - name: Set up local.properties
         script: echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Grant execution permission to update_version.sh and execute
+      - name: Update version pubspec.yaml
         script: |
           chmod +x scripts/update_version.sh
           ./scripts/update_version.sh
