@@ -15,14 +15,14 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Clean and Get Flutter packages
+      - name: Run Slang
         script: |
-          flutter clean && flutter pub run slang && flutter pub run build_runner build -d && flutter packages pub get
+          flutter pub run slang && flutter pub run build_runner build -d
         ignore_failure: false
       - name: Run auto increment script build version
         script: |
           scripts/update_version.sh
-      - name: Build AAB
+      - name: Build APK
         script: |
           flutter build apk
     artifacts:
