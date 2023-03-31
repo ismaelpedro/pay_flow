@@ -15,5 +15,6 @@ PATCH=$((PATCH+1))
 sed -i "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}/g" pubspec.yaml
 
 # Commit changes
-git add pubspec.yaml
+git add .
 git commit -m "Incremented build version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}"
+git push
