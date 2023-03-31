@@ -21,4 +21,4 @@ rm pubspec.yaml.bak
 
 # Commit changes to git
 git add .
-git commit -m "Bump version to $NEW_VERSION"
+git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]"
