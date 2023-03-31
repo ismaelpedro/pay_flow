@@ -18,9 +18,8 @@ workflows:
         script: echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Update version pubspec.yaml
         script: |
-          chmod a+r /pay_flow/codemagic.yaml
-          chmod +x update_version.sh
-          ./update_version.sh
+          chmod +x /scripts/update_version.sh
+          ./scripts/update_version.sh
       - name: Build AAB with Flutter
         script: |
           flutter build appbundle --release 

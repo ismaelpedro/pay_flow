@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Load variables from codemagic.yaml
-source "/pay_flow/codemagic.yaml"
-
 # Get current version from pubspec.yaml
 VERSION=$(grep 'version: ' pubspec.yaml | sed 's/version: //')
 
@@ -13,9 +10,10 @@ PATCH=$(echo "$VERSION" | cut -d '.' -f 3 | cut -d '+' -f 1)
 
 # Increment patch version
 PATCH=$((PATCH+1))
+BUILD_NUMBER=$FCI_BUILD_NUMBER
 
 # Create new version number with incremented patch
-NEW_VERSION="$MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER:-1}"
+NEW_VERSION="$MAJOR.$MINOR.$PATCH+$BUILD_NUMBER"
 echo "$NEW_VERSION"
 
 # Replace version in pubspec.yaml with new version number
