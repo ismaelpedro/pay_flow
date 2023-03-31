@@ -19,12 +19,12 @@ workflows:
         script: |
           flutter clean && flutter pub run slang && flutter pub run build_runner build -d && flutter packages pub get
         ignore_failure: false
-      - name: Set up local.properties
+      - name: Run auto increment script build version
         script: |
           scripts/update_version.sh
       - name: Build AAB
         script: |
-          flutter build apk --release --build-name=2.0.10 --build-number=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))
+          flutter build apk
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
