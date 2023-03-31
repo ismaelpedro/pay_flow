@@ -7,17 +7,24 @@ workflows:
       vars:
         PACKAGE_NAME: "br.com.ismael.pay_flow"
         GOOGLE_PLAY_TRACK: production
+        FCI_BUILD_NUMBER: 10
+      groups:
+        - keystore_credentials
+        - google_play
       android_signing:
         - pay-flow-keystore
-      groups:
-        - google_credentials
-        - google_play
     scripts:
       - name: Set up local.properties
         script: echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Grant execution permission to update_version.sh and execute
+        script: |
+          chmod +x scripts/update_version.sh
+          ./scripts/update_version.sh
+      - name: Build APPBUNDLE
+        script: flutter clean && flutter pub get && flutter pub run slang && flutter build appbundle --release
       - name: Build AAB with Flutter
         script: |
-          BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))      
+          BUILD_NUMBER=$(($(google-play get-latest-build-number --package-name "$PACKAGE_NAME" --tracks="$GOOGLE_PLAY_TRACK") + 1))
           flutter build appbundle --release \
             --build-name=2.0.$BUILD_NUMBER \
             --build-number=$BUILD_NUMBER

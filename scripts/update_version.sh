@@ -12,7 +12,7 @@ PATCH=$(echo $VERSION | cut -d '.' -f 3 | cut -d '+' -f 1)
 PATCH=$((PATCH+1))
 
 # Create new version number with incremented patch
-NEW_VERSION="$MAJOR.$MINOR.$PATCH+$PATCH"
+NEW_VERSION="$MAJOR.$MINOR.$PATCH+$((FCI_BUILD_NUMBER+1))"
 echo $NEW_VERSION
 
 # Replace version in pubspec.yaml with new version number
