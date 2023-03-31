@@ -7,7 +7,7 @@ workflows:
       vars:
         PACKAGE_NAME: "br.com.ismael.pay_flow"
         GOOGLE_PLAY_TRACK: production
-        FCI_BUILD_NUMBER: $FCI_BUILD_NUMBER
+        FCI_BUILD_NUMBER: 52
       groups:
         - keystore_credentials
         - google_play
