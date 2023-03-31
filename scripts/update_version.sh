@@ -17,5 +17,5 @@ echo VERSION
 sed -i '' "s/version: $VERSION/version: $VERSION/g" pubspec.yaml
 
 # Cria um commit com a nova versão
-# git add pubspec.yaml
-# git commit -m "Bump version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER} [skip ci]"
+git add pubspec.yaml
+git commit -m "Bump version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER} [skip ci]"
