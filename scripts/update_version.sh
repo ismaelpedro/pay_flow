@@ -22,3 +22,4 @@ rm pubspec.yaml.bak
 # Commit changes to git
 git add .
 git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]"
+git push
