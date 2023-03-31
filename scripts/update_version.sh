@@ -9,12 +9,13 @@ MINOR=$(echo $VERSION | cut -d. -f2)
 PATCH=$(echo $VERSION | cut -d. -f3)
 
 # Increment patch version by 1
-PATCH=$((PATCH+1))
+# PATCH=$((PATCH+1))
 
 # Update version in pubspec.yaml
-sed -i "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}/g" pubspec.yaml
+echo $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}
+sed -i "s/version: $VERSION/version: $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER + 1}/g" pubspec.yaml
 
 # Commit changes
-git add .
-git commit -m "Incremented build version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}"
-git push
+# git add .
+# git commit -m "Incremented build version to $MAJOR.$MINOR.$PATCH+${FCI_BUILD_NUMBER}"
+# git push
