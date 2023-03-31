@@ -1,13 +1,7 @@
+#!/bin/bash
 
-# Lê o número de versão atual do arquivo pubspec.yaml
-version=$(awk '/^version:/ {print $2}' pubspec.yaml)
+# Incrementa o valor de build em 1
+build_number=$(expr ${FCI_BUILD_NUMBER} + 1)
 
-# Separa o número de versão da tag de build usando o caractere "+"
-base_version=${version%+*}
-
-# Incrementa a tag de build com o valor da variável FCI_BUILD_NUMBER
-build_number=$FCI_BUILD_NUMBER
-new_version="$base_version+$build_number"
-
-# Substitui o número de versão no arquivo pubspec.yaml
-sed -i -e "s/version:.*$/version: $new_version/g" pubspec.yaml
+# Atualiza a versão no arquivo pubspec.yaml
+sed -i '' "s/version: .*/version: $(cat pubspec.yaml | grep -o '^[ ]*version:.*' | awk '{print $2}')+$build_number/" pubspec.yaml
