@@ -4,6 +4,7 @@ workflows:
     max_build_duration: 120
     environment:
       flutter: stable
+      xcode: latest 
       vars:
         PACKAGE_NAME: "br.com.ismael.pay_flow"
         GOOGLE_PLAY_TRACK: production
