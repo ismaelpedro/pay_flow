@@ -10,6 +10,7 @@ workflows:
         GOOGLE_PLAY_TRACK: production
       groups:
         - keystore_credentials
+        - repo_credentials
         - google_play
       android_signing:
         - pay-flow-keystore
