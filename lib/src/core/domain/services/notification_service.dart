@@ -103,7 +103,6 @@ class NotificationService {
       notification.body,
       tz.TZDateTime.from(date, tz.local),
       payload: notification.payload,
-      androidAllowWhileIdle: true,
       NotificationDetails(android: _androidDetails),
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );

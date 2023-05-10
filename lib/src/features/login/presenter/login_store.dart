@@ -27,7 +27,7 @@ abstract class LoginStoreBase with Store {
       _appStore.user = loginUser;
       await _utils.getVersionApp();
       Navigator.pushReplacementNamed(
-        navigatorKey.currentState!.context,
+        navigatorKey.currentContext!,
         Routes.home,
       );
     }
