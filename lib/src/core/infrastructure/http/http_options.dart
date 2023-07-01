@@ -5,8 +5,8 @@ class HttpOptions {
   final HttpMethod method;
   final String? url;
   final Map<String, dynamic>? data;
-  final Map<String, String>? headers;
-  final Map<String, String>? query;
+  final Map<String, dynamic>? headers;
+  final Map<String, dynamic>? query;
   final Duration? timeout;
 
   const HttpOptions({

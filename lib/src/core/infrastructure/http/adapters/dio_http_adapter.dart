@@ -1,28 +1,12 @@
 import 'dart:async';
 
 import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:talker_dio_logger/talker_dio_logger.dart';
 
 import '../http.dart';
 
 class DioHttpAdapter implements HttpClient {
   final Dio client;
-  final String baseUrl;
-  final Map<String, String>? headers;
-  final List<Interceptor> interceptors = <Interceptor>[];
-
-  DioHttpAdapter({
-    required this.client,
-    required this.baseUrl,
-    this.headers = _defaultHeaders,
-  }) {
-    client
-      ..options.baseUrl = baseUrl
-      ..options.headers = _defaultHeaders
-      ..interceptors.addAll(<Interceptor>[
-        PrettyDioLogger(),
-      ]);
-  }
 
   static const Duration _defaultConnectionTimeout = Duration(seconds: 30);
   static const Map<String, String> _defaultHeaders = <String, String>{
@@ -31,9 +15,31 @@ class DioHttpAdapter implements HttpClient {
     'Cache-Control': 'no-cache',
   };
 
-  Future<HttpResponse> _handleRequest(HttpOptions httpOptions) async {
+  DioHttpAdapter({
+    required this.client,
+  }) {
+    client
+      ..options.baseUrl = client.options.baseUrl
+      ..options.headers = _defaultHeaders
+      ..interceptors.addAll(<Interceptor>[
+        TalkerDioLogger(
+          settings: const TalkerDioLoggerSettings(
+            printRequestHeaders: true,
+            printResponseHeaders: true,
+            printResponseMessage: true,
+            printRequestData: true,
+            printResponseData: true,
+          ),
+        ),
+      ]);
+  }
+
+  Future<HttpResponse> _handleRequest(
+    HttpOptions httpOptions, {
+    bool useCustomUrl = false,
+  }) async {
     Response<dynamic>? response;
-    final String url = baseUrl + httpOptions.path;
+    final String url = useCustomUrl ? httpOptions.path : client.options.baseUrl + httpOptions.path;
 
     try {
       switch (httpOptions.method) {
@@ -92,17 +98,7 @@ class DioHttpAdapter implements HttpClient {
 
       return HttpResponse(
         data: response.data,
-        status: response.statusCode?.convertToHttpStatus() ?? HttpStatus.internalServerError,
-      );
-    } on DioError catch (e) {
-      return HttpResponse(
-        data: e.response?.data,
-        status: e.response?.statusCode?.convertToHttpStatus() ?? HttpStatus.internalServerError,
-      );
-    } on TimeoutException {
-      return const HttpResponse(
-        data: 'Requisição demorou demais',
-        status: HttpStatus.timeout,
+        status: response.statusCode?.convertToHttpStatus() ?? HttpStatus.ok,
       );
     } catch (e) {
       return const HttpResponse(
@@ -115,8 +111,9 @@ class DioHttpAdapter implements HttpClient {
   @override
   Future<HttpResponse> get(
     String url, {
-    Map<String, String>? headers,
-    Map<String, String>? query,
+    bool useCustomUrl = false,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? query,
     Duration? timeout = _defaultConnectionTimeout,
   }) async {
     return _handleRequest(
@@ -124,17 +121,19 @@ class DioHttpAdapter implements HttpClient {
         path: url,
         method: HttpMethod.get,
         headers: headers,
-        timeout: timeout,
         query: query,
+        timeout: timeout,
       ),
+      useCustomUrl: useCustomUrl,
     );
   }
 
   @override
   Future<HttpResponse> post(
     String url, {
-    Map<String, String>? headers,
-    Map<String, String>? query,
+    bool useCustomUrl = false,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? query,
     Map<String, dynamic>? body,
     Duration? timeout = _defaultConnectionTimeout,
   }) async {
@@ -147,14 +146,16 @@ class DioHttpAdapter implements HttpClient {
         timeout: timeout,
         query: query,
       ),
+      useCustomUrl: useCustomUrl,
     );
   }
 
   @override
   Future<HttpResponse> put(
     String url, {
-    Map<String, String>? headers,
-    Map<String, String>? query,
+    bool useCustomUrl = false,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? query,
     Map<String, dynamic>? body,
     Duration? timeout = _defaultConnectionTimeout,
   }) async {
@@ -167,14 +168,16 @@ class DioHttpAdapter implements HttpClient {
         timeout: timeout,
         query: query,
       ),
+      useCustomUrl: useCustomUrl,
     );
   }
 
   @override
   Future<HttpResponse> patch(
     String url, {
-    Map<String, String>? headers,
-    Map<String, String>? query,
+    bool useCustomUrl = false,
+    Map<String, dynamic>? headers,
+    Map<String, dynamic>? query,
     Map<String, dynamic>? body,
     Duration? timeout = _defaultConnectionTimeout,
   }) async {
@@ -187,13 +190,15 @@ class DioHttpAdapter implements HttpClient {
         timeout: timeout,
         query: query,
       ),
+      useCustomUrl: useCustomUrl,
     );
   }
 
   @override
   Future<HttpResponse> delete(
     String url, {
-    Map<String, String>? headers,
+    bool useCustomUrl = false,
+    Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
     Map<String, dynamic>? body,
     Duration? timeout = _defaultConnectionTimeout,
@@ -205,7 +210,9 @@ class DioHttpAdapter implements HttpClient {
         data: body,
         headers: headers,
         timeout: timeout,
+        query: query,
       ),
+      useCustomUrl: useCustomUrl,
     );
   }
 }

@@ -12,13 +12,13 @@ import 'src/core/infrastructure/service_locator/service_locator.dart';
 import 'src/core/presenter/pay_flow_app.dart';
 
 Future<void> main() async {
-  runZonedGuarded<Future<void>>(() async {
+  await runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
     await MobileAds.instance.initialize();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     setUpInjections();
     await serviceLocator.get<FirebaseMessagingService>().initialize();
-    FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(const PayFlowApp());

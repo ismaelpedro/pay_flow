@@ -21,7 +21,7 @@ void setUpInjections() {
   ///[Packages]
   /// External Packages
   serviceLocator.registerLazySingleton(() => Utils());
-  serviceLocator.registerLazySingleton(() => Dio());
+  serviceLocator.registerLazySingleton(() => Dio(BaseOptions(baseUrl: 'https://api.github.com')));
 
   /// [DataSources]
   /// Consist of remote and local Data Sources. Remote Data Source will perform HTTP requests on the API. While local Data Source will cache or persist data.
@@ -31,7 +31,7 @@ void setUpInjections() {
 
   /// [Adapters]
   /// Convert the interface of a class into another interface clients expect. Adapter lets classes work together that wouldn't otherwise because of incompatible interfaces.
-  serviceLocator.registerLazySingleton(() => DioHttpAdapter(client: _i(), baseUrl: 'http://localhost'));
+  serviceLocator.registerLazySingleton(() => DioHttpAdapter(client: _i()));
   serviceLocator.registerFactory(() => GoogleSignInAdapter(GoogleSignIn()));
   serviceLocator.registerFactory(() => NotificationService());
   serviceLocator.registerLazySingleton(() => FirebaseMessagingService(_i()));

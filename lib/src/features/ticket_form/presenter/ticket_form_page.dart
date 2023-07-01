@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pay_flow/src/core/core.dart';
-import 'package:pay_flow/src/core/infrastructure/service_locator/service_locator.dart';
-import 'package:pay_flow/src/features/ticket_form/presenter/ticket_form_controller.dart';
 
+import '../../../core/core.dart';
+import '../../../core/infrastructure/service_locator/service_locator.dart';
+import 'ticket_form_controller.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
@@ -78,6 +78,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                   child: Column(
                     children: <Widget>[
                       TileFormWidget(
+                        key: const ValueKey('nameFormField'),
                         initialValue: _ticketFormStore.name,
                         imagePrefix: AppImages.ticket,
                         hintText: context.i18n.billName,
@@ -98,13 +99,11 @@ class _TicketFormPageState extends State<TicketFormPage> {
                                 height: 255.h,
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
-                                  initialDateTime:
-                                      DateTime.parse(widget.ticket!.date!),
+                                  initialDateTime: DateTime.parse(widget.ticket!.date!),
                                   backgroundColor: Colors.white,
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (DateTime value) {
-                                    _expirationEc.text =
-                                        value.formatDateDDMMYYYY();
+                                    _expirationEc.text = value.formatDateDDMMYYYY();
                                     _ticketFormStore.setExpirationDate(
                                       value.formatDateDDMMYYYY(),
                                     );
@@ -117,6 +116,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         child: IgnorePointer(
                           ignoring: true,
                           child: TileFormWidget(
+                            key: const ValueKey('expirationFormField'),
                             controller: _expirationEc,
                             readOnly: true,
                             imagePrefix: AppImages.close,
@@ -132,6 +132,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         ),
                       ),
                       TileFormWidget(
+                        key: const ValueKey('valueFormField'),
                         imagePrefix: AppImages.wallet,
                         hintText: context.i18n.value,
                         controller: _moneyController,
@@ -147,6 +148,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                         },
                       ),
                       TileFormWidget(
+                        key: const ValueKey('codeFormField'),
                         initialValue: _ticketFormStore.code,
                         imagePrefix: AppImages.barcode,
                         hintText: context.i18n.code,
@@ -184,8 +186,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                       style: AppTextStyles.buttonPrimary,
                       onPressed: _ticketFormStore.canSaveBill
                           ? () async {
-                              _ticketFormStore
-                                  .saveBill(_moneyController.numberValue);
+                              _ticketFormStore.saveBill(_moneyController.numberValue);
                             }
                           : null,
                     ),
