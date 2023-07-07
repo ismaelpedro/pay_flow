@@ -5,8 +5,6 @@ import 'package:talker_dio_logger/talker_dio_logger.dart';
 
 import '../http.dart';
 
-
-
 class DioHttpAdapter implements HttpClient {
   final Dio _client;
   static const Duration _defaultConnectionTimeout = Duration(seconds: 30);
@@ -39,20 +37,20 @@ class DioHttpAdapter implements HttpClient {
   }
 
   Future<HttpResponse> _handleRequest(
-    HttpOptions httpOptions, {
+    HttpOptions options, {
     bool useCustomUrl = false,
   }) async {
-    final String url = useCustomUrl ? httpOptions.path : _client.options.baseUrl + httpOptions.path;
+    final String url = useCustomUrl ? options.path : _client.options.baseUrl + options.path;
 
     try {
       final response = await _client
           .request(
             url,
-            data: httpOptions.data,
-            queryParameters: httpOptions.query,
+            data: options.data,
+            queryParameters: options.query,
             options: Options(
-              method: httpOptions.method.name.toUpperCase(),
-              headers: httpOptions.headers,
+              method: options.method.name.toUpperCase(),
+              headers: options.headers,
             ),
           )
           .timeout(_defaultConnectionTimeout);
@@ -62,8 +60,8 @@ class DioHttpAdapter implements HttpClient {
         status: response.statusCode?.convertToHttpStatus() ?? HttpStatus.ok,
       );
     } catch (e) {
-      return const HttpResponse(
-        data: 'Erro inesperado',
+      return HttpResponse(
+        data: e.toString(),
         status: HttpStatus.internalServerError,
       );
     }
