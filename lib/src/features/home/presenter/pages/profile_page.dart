@@ -2,11 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pay_flow/src/core/presenter/ui/widgets/translation_dropdown_widget.dart';
 
 import '../../../../core/core.dart';
 import '../../../../core/infrastructure/service_locator/service_locator.dart';
-import '../../../../core/utils/utils.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -18,12 +16,12 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   // ignore: unused_field
   late AppStore _appStore;
-  late Utils _utils;
+  late Utilities _utils;
 
   @override
   void initState() {
     _appStore = serviceLocator.get<AppStore>();
-    _utils = serviceLocator.get<Utils>();
+    _utils = serviceLocator.get<Utilities>();
     super.initState();
   }
 

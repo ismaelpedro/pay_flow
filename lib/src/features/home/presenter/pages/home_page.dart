@@ -33,9 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Observer(
-        builder: (_) {
-          return tabs[_homeStore.currentIndex];
-        },
+        builder: (_) => tabs[_homeStore.currentIndex],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(

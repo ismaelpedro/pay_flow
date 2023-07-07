@@ -16,8 +16,7 @@ class UserDto with _$UserDto {
     required String imageUrl,
   }) = _UserDto;
 
-  factory UserDto.fromJson(Map<String, dynamic> json) =>
-      _$UserDtoFromJson(json);
+  factory UserDto.fromJson(Map<String, dynamic> json) => _$UserDtoFromJson(json);
 
   /// Convert [UserDto] to [UserEntity] entity
   UserEntity toEntity() => UserEntity(

@@ -21,7 +21,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   flutter_barcode_scanner: ^2.0.0
   flutter_masked_text2: ^0.9.1
-  flutter_local_notifications: ^14.1.1
+  flutter_local_notifications: ^15.0.1
   freezed_annotation: ^2.2.0
   flutter_mobx: ^2.0.6+5
   mobx: ^2.2.0
@@ -31,6 +31,7 @@ dependencies:
   lottie: ^2.4.0
   shimmer: ^3.0.0
   intl: ^0.18.1
+  uno: ^1.1.8
   dio: ^5.2.1+1
   talker_dio_logger: ^2.1.2
   slang: ^3.19.0

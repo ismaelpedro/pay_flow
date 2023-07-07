@@ -1,4 +1,28 @@
-import 'http.dart';
+class HttpResponse {
+  final HttpStatus status;
+  final dynamic data;
+
+  const HttpResponse({
+    required this.status,
+    this.data,
+  });
+}
+
+class HttpOptions {
+  final String path;
+  final HttpMethod method;
+  final Map<String, dynamic>? data;
+  final Map<String, dynamic>? headers;
+  final Map<String, dynamic>? query;
+
+  const HttpOptions({
+    required this.path,
+    required this.method,
+    this.data,
+    this.headers,
+    this.query,
+  });
+}
 
 extension IntToHttpStatusEnum on int {
   HttpStatus convertToHttpStatus() {
@@ -30,6 +54,8 @@ extension IntToHttpStatusEnum on int {
   }
 }
 
+enum HttpMethod { delete, get, put, post, patch }
+
 enum HttpStatus {
   ok(200),
   created(201),
@@ -59,15 +85,12 @@ enum HttpStatus {
   const HttpStatus(this.code);
 }
 
-enum HttpMethod { delete, get, put, post, patch }
-
 abstract class HttpClient {
   Future<HttpResponse> get(
     String url, {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Duration? timeout,
   });
 
   Future<HttpResponse> post(
@@ -75,8 +98,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? body,
-    Duration? timeout,
+    Map<String, dynamic>? data,
   });
 
   Future<HttpResponse> put(
@@ -84,8 +106,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? body,
-    Duration? timeout,
+    Map<String, dynamic>? data,
   });
 
   Future<HttpResponse> patch(
@@ -93,8 +114,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? body,
-    Duration? timeout,
+    Map<String, dynamic>? data,
   });
 
   Future<HttpResponse> delete(
@@ -102,7 +122,6 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? body,
-    Duration? timeout,
+    Map<String, dynamic>? data,
   });
 }

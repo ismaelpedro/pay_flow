@@ -1,26 +1,16 @@
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:pay_flow/src/core/core.dart';
 
-import '../../../../../core/domain/domain.dart';
 import 'i_google_sign_in_service.dart';
 
 class GoogleSignInService implements IGoogleSignInService {
-  final GoogleSignIn? googleSignIn;
+  final GoogleSignInAdapter? googleSignIn;
   GoogleSignInService(this.googleSignIn);
 
   @override
   Future<UserEntity?> signIn() async {
     googleSignIn?.signOut();
-    final GoogleSignInAccount? googleUser = await googleSignIn?.signIn();
-    if (googleSignIn != null) {
-      UserEntity user = UserEntity(
-        id: googleUser!.id,
-        name: googleUser.displayName!,
-        email: googleUser.email,
-        imageUrl: googleUser.photoUrl!,
-      );
-      return user;
-    }
-    return null;
+    final user = await googleSignIn?.signIn();
+    return user;
   }
 
   @override

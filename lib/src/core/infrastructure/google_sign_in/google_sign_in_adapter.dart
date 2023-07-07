@@ -1,10 +1,17 @@
 import 'package:google_sign_in/google_sign_in.dart';
+
 import '../../core.dart';
 
-class GoogleSignInAdapter {
+abstract class SigInAdapter {
+  Future<UserEntity?> signIn();
+  Future<void> signOut();
+}
+
+class GoogleSignInAdapter implements SigInAdapter {
   final GoogleSignIn _googleSignIn;
   GoogleSignInAdapter(this._googleSignIn);
 
+  @override
   Future<UserEntity?> signIn() async {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
@@ -19,6 +26,7 @@ class GoogleSignInAdapter {
     return null;
   }
 
+  @override
   Future<void> signOut() async {
     await _googleSignIn.signOut();
   }

@@ -1,69 +1,48 @@
 import 'dart:async';
 
-import 'package:dio/dio.dart';
-import 'package:talker_dio_logger/talker_dio_logger.dart';
+import 'package:uno/uno.dart';
 
 import '../http.dart';
 
-
-
-class DioHttpAdapter implements HttpClient {
-  final Dio _client;
+class UnoHttpAdapter implements HttpClient {
+  final Uno _client;
   static const Duration _defaultConnectionTimeout = Duration(seconds: 30);
 
-  DioHttpAdapter({
+  UnoHttpAdapter({
     required String baseUrl,
-    List<Interceptor>? interceptors,
-  }) : _client = Dio(
-          BaseOptions(
-            baseUrl: baseUrl,
-            headers: const {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-              'Cache-Control': 'no-cache',
-            },
-          ),
-        ) {
-    _client.interceptors.addAll(interceptors ?? []);
-    _client.interceptors.add(
-      TalkerDioLogger(
-        settings: const TalkerDioLoggerSettings(
-          printRequestHeaders: true,
-          printResponseHeaders: true,
-          printResponseMessage: true,
-          printRequestData: true,
-          printResponseData: true,
-        ),
-      ),
-    );
-  }
+  }) : _client = Uno(
+          baseURL: baseUrl,
+          timeout: _defaultConnectionTimeout,
+          headers: const {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Cache-Control': 'no-cache',
+          },
+        );
 
   Future<HttpResponse> _handleRequest(
-    HttpOptions httpOptions, {
+    HttpOptions options, {
     bool useCustomUrl = false,
   }) async {
-    final String url = useCustomUrl ? httpOptions.path : _client.options.baseUrl + httpOptions.path;
+    final String url = useCustomUrl ? options.path : _client.baseURL + options.path;
 
     try {
-      final response = await _client
-          .request(
-            url,
-            data: httpOptions.data,
-            queryParameters: httpOptions.query,
-            options: Options(
-              method: httpOptions.method.name.toUpperCase(),
-              headers: httpOptions.headers,
-            ),
-          )
-          .timeout(_defaultConnectionTimeout);
+      final Response response = await _client.request(
+        Request(
+          uri: Uri.parse(url),
+          method: options.method.name.toUpperCase(),
+          headers: options.headers?.map((k, v) => MapEntry(k, v.toString())) ?? {},
+          timeout: _defaultConnectionTimeout,
+        ),
+      );
 
       return HttpResponse(
         data: response.data,
-        status: response.statusCode?.convertToHttpStatus() ?? HttpStatus.ok,
+        status: response.status.convertToHttpStatus(),
       );
     } catch (e) {
-      return const HttpResponse(
-        data: 'Erro inesperado',
+      return HttpResponse(
+        data: e.toString(),
         status: HttpStatus.internalServerError,
       );
     }

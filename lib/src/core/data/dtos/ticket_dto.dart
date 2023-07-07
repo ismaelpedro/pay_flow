@@ -20,6 +20,7 @@ class TicketDto with _$TicketDto {
 
   factory TicketDto.fromJson(Map<String, dynamic> json) => _$TicketDtoFromJson(json);
 
+  /// Convert [TicketDto] to [TicketEntity] entity
   TicketEntity toEntity() => TicketEntity(
         id: id,
         name: name,

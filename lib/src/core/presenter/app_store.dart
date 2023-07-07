@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:pay_flow/src/core/infrastructure/google_sign_in/google_sign_in_adapter.dart';
 
 import '../core.dart';
 
@@ -19,8 +18,7 @@ abstract class AppStoreBase with Store {
   List<TicketEntity> tickets = <TicketEntity>[];
 
   @action
-  void setTickets(TicketEntity newTicket) =>
-      tickets = List<TicketEntity>.from(tickets..insert(0, newTicket));
+  void setTickets(TicketEntity newTicket) => tickets = List<TicketEntity>.from(tickets..insert(0, newTicket));
 
   Future<void> logOut() async {
     await _googleSignInAdapter.signOut();
