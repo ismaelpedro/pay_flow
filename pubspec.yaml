@@ -46,7 +46,7 @@ dev_dependencies:
   build_runner: ^2.4.6
   slang_build_runner: ^3.23.0
   mobx_codegen: ^2.3.0
-  freezed: ^2.3.5
+  freezed: ^2.4.1
   json_serializable: ^6.7.1
 
 flutter:
