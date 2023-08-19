@@ -11,14 +11,14 @@ class HttpResponse {
 class HttpOptions {
   final String path;
   final HttpMethod method;
-  final Map<String, dynamic>? data;
+  final Map<String, dynamic>? body;
   final Map<String, dynamic>? headers;
   final Map<String, dynamic>? query;
 
   const HttpOptions({
     required this.path,
     required this.method,
-    this.data,
+    this.body,
     this.headers,
     this.query,
   });
@@ -98,7 +98,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   });
 
   Future<HttpResponse> put(
@@ -106,7 +106,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   });
 
   Future<HttpResponse> patch(
@@ -114,7 +114,7 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   });
 
   Future<HttpResponse> delete(
@@ -122,6 +122,6 @@ abstract class HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   });
 }

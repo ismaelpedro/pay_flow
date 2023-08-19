@@ -40,7 +40,7 @@ class TileFormWidget extends StatelessWidget {
               keyboardType: <String>[
                 context.i18n.value,
                 context.i18n.expiration,
-                context.i18n.code
+                context.i18n.code,
               ].contains(hintText)
                   ? TextInputType.number
                   : null,

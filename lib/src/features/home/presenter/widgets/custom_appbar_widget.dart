@@ -65,8 +65,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                         color: Colors.grey[200],
                         child: Image.network(
                           _appStore.user!.imageUrl,
-                          loadingBuilder:
-                              (_, Widget child, ImageChunkEvent? progress) {
+                          loadingBuilder: (_, Widget child, ImageChunkEvent? progress) {
                             if (progress == null) {
                               return child;
                             }
@@ -129,7 +128,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                             ),
                           );
                         },
-                      )
+                      ),
                     ],
                   ),
                 ],

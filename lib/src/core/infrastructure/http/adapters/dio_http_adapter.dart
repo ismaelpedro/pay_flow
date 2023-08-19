@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
@@ -7,7 +6,7 @@ import '../http.dart';
 
 class DioHttpAdapter implements HttpClient {
   final Dio _client;
-  static const Duration _defaultConnectionTimeout = Duration(seconds: 30);
+  static const Duration _defaultConnectionTimeout = Duration(seconds: 25);
 
   DioHttpAdapter({
     required String baseUrl,
@@ -41,12 +40,13 @@ class DioHttpAdapter implements HttpClient {
     bool useCustomUrl = false,
   }) async {
     final String url = useCustomUrl ? options.path : _client.options.baseUrl + options.path;
+    Response<dynamic> response;
 
     try {
-      final response = await _client
+      response = await _client
           .request(
             url,
-            data: options.data,
+            data: options.body,
             queryParameters: options.query,
             options: Options(
               method: options.method.name.toUpperCase(),
@@ -59,10 +59,10 @@ class DioHttpAdapter implements HttpClient {
         data: response.data,
         status: response.statusCode?.convertToHttpStatus() ?? HttpStatus.ok,
       );
-    } catch (e) {
+    } on DioException catch (e) {
       return HttpResponse(
-        data: e.toString(),
-        status: HttpStatus.internalServerError,
+        data: e.response?.data,
+        status: e.response?.statusCode?.convertToHttpStatus() ?? HttpStatus.badRequest,
       );
     }
   }
@@ -91,13 +91,13 @@ class DioHttpAdapter implements HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   }) {
     return _handleRequest(
       HttpOptions(
         path: url,
         method: HttpMethod.post,
-        data: data,
+        body: body,
         headers: headers,
         query: query,
       ),
@@ -111,13 +111,13 @@ class DioHttpAdapter implements HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   }) {
     return _handleRequest(
       HttpOptions(
         path: url,
         method: HttpMethod.put,
-        data: data,
+        body: body,
         headers: headers,
         query: query,
       ),
@@ -131,13 +131,13 @@ class DioHttpAdapter implements HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   }) {
     return _handleRequest(
       HttpOptions(
         path: url,
         method: HttpMethod.patch,
-        data: data,
+        body: body,
         headers: headers,
         query: query,
       ),
@@ -151,13 +151,13 @@ class DioHttpAdapter implements HttpClient {
     bool useCustomUrl = false,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? query,
-    Map<String, dynamic>? data,
+    Map<String, dynamic>? body,
   }) {
     return _handleRequest(
       HttpOptions(
         path: url,
         method: HttpMethod.delete,
-        data: data,
+        body: body,
         headers: headers,
         query: query,
       ),

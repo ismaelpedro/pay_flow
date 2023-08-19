@@ -57,7 +57,7 @@ class NotificationService {
             isDefaultAction: true,
             child: const Text('Ok'),
             onPressed: () async {},
-          )
+          ),
         ],
       ),
     );
