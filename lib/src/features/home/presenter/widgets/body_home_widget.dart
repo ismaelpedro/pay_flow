@@ -9,7 +9,7 @@ import 'custom_appbar_widget.dart';
 import 'ticket_card_widget.dart';
 
 class BodyHomeWidget extends StatefulWidget {
-  const BodyHomeWidget({Key? key}) : super(key: key);
+  const BodyHomeWidget({super.key});
 
   @override
   State<BodyHomeWidget> createState() => _BodyHomeWidgetState();

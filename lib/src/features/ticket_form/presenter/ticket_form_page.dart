@@ -13,9 +13,9 @@ import 'widgets/tile_form_widget.dart';
 class TicketFormPage extends StatefulWidget {
   final TicketEntity? ticket;
   const TicketFormPage({
-    Key? key,
+    super.key,
     this.ticket,
-  }) : super(key: key);
+  });
 
   @override
   State<TicketFormPage> createState() => _TicketFormPageState();

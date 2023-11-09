@@ -8,8 +8,8 @@ import '../../../../core/infrastructure/service_locator/service_locator.dart';
 
 class CustomAppBarWidget extends StatefulWidget {
   const CustomAppBarWidget({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<CustomAppBarWidget> createState() => _CustomAppBarWidgetState();

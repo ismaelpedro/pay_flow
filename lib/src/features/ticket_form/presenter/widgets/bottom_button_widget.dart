@@ -7,11 +7,11 @@ class BottomButtonWidget extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const BottomButtonWidget({
-    Key? key,
+    super.key,
     required this.label,
     required this.style,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

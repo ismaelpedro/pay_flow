@@ -7,9 +7,9 @@ class TranslationDropdownWidget extends StatelessWidget {
   final Color? color;
 
   const TranslationDropdownWidget({
-    Key? key,
+    super.key,
     this.color = Colors.white,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

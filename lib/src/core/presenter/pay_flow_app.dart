@@ -8,7 +8,7 @@ import 'ui/theme/app_colors.dart';
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class PayFlowApp extends StatefulWidget {
-  const PayFlowApp({Key? key}) : super(key: key);
+  const PayFlowApp({super.key});
 
   @override
   State<PayFlowApp> createState() => _PayFlowAppState();
@@ -18,7 +18,9 @@ class _PayFlowAppState extends State<PayFlowApp> {
   @override
   void initState() {
     SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
     super.initState();
   }
 

@@ -7,11 +7,11 @@ class ShimmerContainer extends StatelessWidget {
   final Widget? child;
 
   const ShimmerContainer({
-    Key? key,
+    super.key,
     this.width,
     this.height,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

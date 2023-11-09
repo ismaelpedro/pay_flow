@@ -13,7 +13,7 @@ class TileFormWidget extends StatelessWidget {
   final bool readOnly;
 
   const TileFormWidget({
-    Key? key,
+    super.key,
     this.initialValue,
     required this.onChanged,
     required this.imagePrefix,
@@ -21,7 +21,7 @@ class TileFormWidget extends StatelessWidget {
     this.controller,
     this.validator,
     this.readOnly = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
