@@ -5,8 +5,8 @@ publish_to: "none"
 version: 2.0.17+299
 
 environment:
-  sdk: ">=3.0.5 <4.0.0"
-  flutter: ">=3.13.9"
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
 
 dependencies:
   flutter:
@@ -16,24 +16,24 @@ dependencies:
   get_it: ^7.6.4
   google_sign_in: ^6.1.6
   google_mobile_ads: ^3.1.0
-  firebase_core: ^2.22.0
-  firebase_crashlytics: ^3.4.4
-  firebase_messaging: ^14.7.4
+  firebase_core: ^2.23.0
+  firebase_crashlytics: ^3.4.5
+  firebase_messaging: ^14.7.5
   flutter_screenutil: ^5.9.0
   flutter_barcode_scanner: ^2.0.0
   flutter_masked_text2: ^0.9.1
   flutter_local_notifications: ^16.1.0
   freezed_annotation: ^2.4.1
-  flutter_mobx: ^2.1.1
+  flutter_mobx: ^2.2.0
   mobx: ^2.2.1
   json_annotation: ^4.8.1
-  package_info_plus: ^4.2.0
+  package_info_plus: ^5.0.1
   timezone: ^0.9.2
   lottie: ^2.7.0
   shimmer: ^3.0.0
   intl: ^0.18.1
   uno: ^1.1.9
-  dio: ^5.3.3
+  dio: ^5.3.4
   talker_dio_logger: ^2.3.1
   slang: ^3.25.0
   slang_flutter: ^3.25.0
@@ -42,7 +42,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   faker: ^2.1.0
-  mockito: ^5.4.2
+  mockito: ^5.4.3
   flutter_lints: ^3.0.1
   build_runner: ^2.4.6
   slang_build_runner: ^3.25.0

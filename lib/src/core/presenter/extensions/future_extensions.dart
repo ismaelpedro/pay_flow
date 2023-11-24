@@ -7,8 +7,8 @@ extension FutureExtensions<T> on Future<T> {
     showDialog(
       barrierDismissible: false,
       context: navigatorKey.currentContext!,
-      builder: (_) => WillPopScope(
-        onWillPop: () async => false,
+      builder: (_) => PopScope(
+        onPopInvoked: (value) => false,
         child: const Center(
           child: CircularProgressIndicator.adaptive(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
