@@ -50,7 +50,7 @@ android {
 
     defaultConfig {
         applicationId "br.com.ismael.pay_flow"
-        minSdkVersion 21
+        minSdkVersion 33
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
