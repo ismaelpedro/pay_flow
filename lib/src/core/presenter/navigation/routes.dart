@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../features/home/presenter/pages/home_page.dart';
-import '../../../features/login/presenter/login_page.dart';
+import '../../../features/login/presenter/login_view.dart';
 import '../../../features/ticket_form/presenter/ticket_form_page.dart';
-import '../../core.dart';
+import '../../domain/entities/ticket_entity.dart';
 
 abstract class Routes {
   static const String login = '/login';
@@ -12,10 +11,8 @@ abstract class Routes {
 
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case Routes.home:
-        return MaterialPageRoute<dynamic>(builder: (_) => const HomePage());
       case Routes.login:
-        return MaterialPageRoute<dynamic>(builder: (_) => const LoginPage());
+        return MaterialPageRoute<dynamic>(builder: (_) => const LoginView());
       case Routes.ticketForm:
         return MaterialPageRoute<dynamic>(
           builder: (_) => TicketFormPage(

@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../core.dart';
+import '../../domain/entities/ticket_entity.dart';
 
 part 'ticket_dto.freezed.dart';
 part 'ticket_dto.g.dart';

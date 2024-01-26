@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../core.dart';
+import '../../assets/assets.dart';
+import '../../extensions/extensions.dart';
 
 class TranslationDropdownWidget extends StatelessWidget {
   final Color? color;
@@ -15,25 +14,25 @@ class TranslationDropdownWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DropdownButton(
       enableFeedback: true,
-      value: context.i18n.ptBr,
+      value: context.localizations.ptBr,
       onChanged: (value) {},
       items: [
         DropdownMenuItem(
-          value: context.i18n.ptBr,
+          value: context.localizations.ptBr,
           child: Row(
             children: <Widget>[
               Image.asset(
                 AppImages.br,
-                height: 25.h,
-                width: 25.w,
+                height: 25,
+                width: 25,
               ),
               const SizedBox(width: 10),
-              Text(context.i18n.ptBr),
+              Text(context.localizations.ptBr),
             ],
           ),
         ),
         DropdownMenuItem(
-          value: context.i18n.enUS,
+          value: context.localizations.enUS,
           child: Row(
             children: <Widget>[
               Image.asset(
@@ -41,22 +40,22 @@ class TranslationDropdownWidget extends StatelessWidget {
                 height: 25,
                 width: 25,
               ),
-              SizedBox(width: 10.w),
-              Text(context.i18n.enUS),
+              const SizedBox(width: 10),
+              Text(context.localizations.enUS),
             ],
           ),
         ),
         DropdownMenuItem(
-          value: context.i18n.esES,
+          value: context.localizations.esES,
           child: Row(
             children: <Widget>[
               Image.asset(
                 AppImages.es,
-                height: 25.h,
-                width: 25.w,
+                height: 25,
+                width: 25,
               ),
-              SizedBox(width: 10.w),
-              Text(context.i18n.esES),
+              const SizedBox(width: 10),
+              Text(context.localizations.esES),
             ],
           ),
         ),

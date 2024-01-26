@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BottomButtonWidget extends StatelessWidget {
   final String label;
@@ -16,7 +15,7 @@ class BottomButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 80.h,
+      height: 80,
       child: OutlinedButton(
         onPressed: onPressed,
         child: Text(

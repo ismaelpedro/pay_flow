@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../core.dart';
+import '../pay_flow_app.dart';
 
 extension FutureExtensions<T> on Future<T> {
   Future<T> onLoading() async {

@@ -1,0 +1,8 @@
+targets:
+  $default:
+    builders:
+      injectable_generator:injectable_builder:
+        options:
+          auto_register: true
+          class_name_pattern: "Usecase$|Service$|Repository$|Cubit$|Datasource$|Adapter"
+          file_name_pattern: "_usecase$|_service$|_repository$|_cubit$|_datasource$|_adapter$"

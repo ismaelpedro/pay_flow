@@ -1,16 +1,11 @@
 {
+  "@@locale": "pt",
   "loginTitleCenter": "Organize suas contas em um só lugar",
   "loginButtonText": "Entrar com Google",
   "ptBr": "Português",
   "enUS": "Inglês",
   "esES": "Espanhol",
-  "hello(rich)": "Olá, $name",
   "accountUpTodate": "Mantenha suas contas em dia",
-  "registrationsToPay(param=count)": {
-    "zero": "Você não tem contas a pagar! 😵‍💫",
-    "one": "Você tem uma conta a pagar",
-    "other": "Você tem $count contas a pagar"
-  },
   "myTickets": "Meus boletos",
   "willExpire": "Expira em $date",
   "requiredField": "Campo obrigatório",

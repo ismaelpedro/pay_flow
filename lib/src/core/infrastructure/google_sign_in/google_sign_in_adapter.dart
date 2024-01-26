@@ -1,6 +1,5 @@
 import 'package:google_sign_in/google_sign_in.dart';
-
-import '../../core.dart';
+import '../../domain/entities/user_entity.dart';
 
 abstract class SigInAdapter {
   Future<UserEntity?> signIn();

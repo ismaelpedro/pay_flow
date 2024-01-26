@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pay_flow/src/core/core.dart';
+import '../../../../core/presenter/extensions/extensions.dart';
+import '../../../../core/presenter/ui/ui.dart';
 
 class TileFormWidget extends StatelessWidget {
   final String hintText;
@@ -18,6 +18,7 @@ class TileFormWidget extends StatelessWidget {
     required this.onChanged,
     required this.imagePrefix,
     required this.hintText,
+    required thisintText,
     this.controller,
     this.validator,
     this.readOnly = false,
@@ -26,7 +27,7 @@ class TileFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 25.h),
+      padding: const EdgeInsets.only(bottom: 25),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -38,15 +39,15 @@ class TileFormWidget extends StatelessWidget {
               controller: controller,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               keyboardType: <String>[
-                context.i18n.value,
-                context.i18n.expiration,
-                context.i18n.code,
+                context.localizations.value,
+                context.localizations.expiration,
+                context.localizations.code,
               ].contains(hintText)
                   ? TextInputType.number
                   : null,
               inputFormatters: <String>[
-                context.i18n.value,
-                context.i18n.code,
+                context.localizations.value,
+                context.localizations.code,
               ].contains(hintText)
                   ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
                   : null,
@@ -61,7 +62,7 @@ class TileFormWidget extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Image.asset(imagePrefix),
-                        SizedBox(width: 15.w),
+                        const SizedBox(width: 15),
                         const VerticalDivider(
                           thickness: 1.5,
                           color: AppColors.input,

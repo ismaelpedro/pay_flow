@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/domain/entities/ticket_entity.dart';
+import '../../../core/presenter/assets/assets.dart';
+import '../../../core/presenter/extensions/extensions.dart';
+import '../../../core/presenter/ui/ui.dart';
 
-import '../../../core/core.dart';
-import '../../../core/infrastructure/service_locator/service_locator.dart';
-import 'ticket_form_controller.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
@@ -22,15 +21,11 @@ class TicketFormPage extends StatefulWidget {
 }
 
 class _TicketFormPageState extends State<TicketFormPage> {
-  late TicketFormController _ticketFormStore;
   late MoneyMaskedTextController _moneyController;
   late TextEditingController _expirationEc;
 
   @override
   void initState() {
-    _ticketFormStore = serviceLocator.get<TicketFormController>();
-    _ticketFormStore.onInitTicketFormPage(widget.ticket!);
-    _expirationEc = TextEditingController(text: _ticketFormStore.expirationDate);
     _moneyController = MoneyMaskedTextController(
       leftSymbol: 'R\$ ',
       initialValue: widget.ticket!.value!,
@@ -64,31 +59,31 @@ class _TicketFormPageState extends State<TicketFormPage> {
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              Center(
+              const Center(
                 child: Text(
                   'Preencha os dados\ndo boleto',
                   style: AppTextStyles.titleBoldHeading,
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 40.h),
+              const SizedBox(height: 40),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Form(
                   child: Column(
                     children: <Widget>[
                       TileFormWidget(
                         key: const ValueKey('nameFormField'),
-                        initialValue: _ticketFormStore.name,
                         imagePrefix: AppImages.ticket,
-                        hintText: context.i18n.billName,
-                        onChanged: _ticketFormStore.setName,
+                        hintText: context.localizations.billName,
+                        onChanged: (value) {},
                         validator: (String? value) {
                           if (value!.isEmpty) {
-                            return context.i18n.requiredField;
+                            return context.localizations.requiredField;
                           }
                           return null;
                         },
+                        thisintText: null,
                       ),
                       InkWell(
                         onTap: () {
@@ -96,7 +91,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
                             context: context,
                             builder: (BuildContext builder) {
                               return SizedBox(
-                                height: 255.h,
+                                height: 255,
                                 width: double.infinity,
                                 child: CupertinoDatePicker(
                                   initialDateTime: DateTime.parse(widget.ticket!.date!),
@@ -104,9 +99,6 @@ class _TicketFormPageState extends State<TicketFormPage> {
                                   mode: CupertinoDatePickerMode.date,
                                   onDateTimeChanged: (DateTime value) {
                                     _expirationEc.text = value.formatDateDDMMYYYY();
-                                    _ticketFormStore.setExpirationDate(
-                                      value.formatDateDDMMYYYY(),
-                                    );
                                   },
                                 ),
                               );
@@ -120,45 +112,47 @@ class _TicketFormPageState extends State<TicketFormPage> {
                             controller: _expirationEc,
                             readOnly: true,
                             imagePrefix: AppImages.close,
-                            hintText: context.i18n.expiration,
-                            onChanged: _ticketFormStore.setExpirationDate,
+                            hintText: context.localizations.expiration,
+                            onChanged: (value) {},
                             validator: (String? value) {
                               if (value!.isEmpty) {
-                                return context.i18n.requiredField;
+                                return context.localizations.requiredField;
                               }
                               return null;
                             },
+                            thisintText: null,
                           ),
                         ),
                       ),
                       TileFormWidget(
                         key: const ValueKey('valueFormField'),
                         imagePrefix: AppImages.wallet,
-                        hintText: context.i18n.value,
+                        hintText: context.localizations.value,
                         controller: _moneyController,
-                        onChanged: _ticketFormStore.setValue,
+                        onChanged: (value) {},
                         validator: (String? value) {
                           if (value!.isEmpty) {
-                            return context.i18n.requiredField;
+                            return context.localizations.requiredField;
                           }
                           if (_moneyController.numberValue < 5) {
-                            return context.i18n.minValue5;
+                            return context.localizations.minValue5;
                           }
                           return null;
                         },
+                        thisintText: null,
                       ),
                       TileFormWidget(
                         key: const ValueKey('codeFormField'),
-                        initialValue: _ticketFormStore.code,
                         imagePrefix: AppImages.barcode,
-                        hintText: context.i18n.code,
-                        onChanged: _ticketFormStore.setCode,
+                        hintText: context.localizations.code,
+                        onChanged: (value) {},
                         validator: (String? value) {
                           if (value!.isEmpty) {
-                            return context.i18n.requiredField;
+                            return context.localizations.requiredField;
                           }
                           return null;
                         },
+                        thisintText: null,
                       ),
                     ],
                   ),
@@ -171,28 +165,20 @@ class _TicketFormPageState extends State<TicketFormPage> {
           children: <Widget>[
             Expanded(
               child: BottomButtonWidget(
-                label: context.i18n.cancel,
+                label: context.localizations.cancel,
                 style: AppTextStyles.buttonGray,
                 onPressed: () => Navigator.pop(context),
               ),
             ),
-            Observer(
-              builder: (_) {
-                return Expanded(
-                  child: Opacity(
-                    opacity: _ticketFormStore.canSaveBill ? 1 : .3,
-                    child: BottomButtonWidget(
-                      label: context.i18n.register,
-                      style: AppTextStyles.buttonPrimary,
-                      onPressed: _ticketFormStore.canSaveBill
-                          ? () async {
-                              _ticketFormStore.saveBill(_moneyController.numberValue);
-                            }
-                          : null,
-                    ),
-                  ),
-                );
-              },
+            Expanded(
+              child: Opacity(
+                opacity: 1,
+                child: BottomButtonWidget(
+                  label: context.localizations.register,
+                  style: AppTextStyles.buttonPrimary,
+                  onPressed: () {},
+                ),
+              ),
             ),
           ],
         ),

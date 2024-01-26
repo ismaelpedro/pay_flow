@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'navigation/routes.dart';
 import 'ui/theme/app_colors.dart';
@@ -16,37 +16,32 @@ class PayFlowApp extends StatefulWidget {
 
 class _PayFlowAppState extends State<PayFlowApp> {
   @override
-  void initState() {
-    SystemChrome.setPreferredOrientations(<DeviceOrientation>[DeviceOrientation.portraitUp]);
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
-    );
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (BuildContext context, _) {
-        return MaterialApp(
-          locale: const Locale('en', 'US'),
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            useMaterial3: true,
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
-            scaffoldBackgroundColor: Colors.white,
-            inputDecorationTheme: const InputDecorationTheme(
-              border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.orange)),
-            ),
+    return MaterialApp(
+      initialRoute: Routes.login,
+      navigatorKey: navigatorKey,
+      onGenerateRoute: Routes.generateRoute,
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('pt'),
+        Locale('en'),
+        Locale('es'),
+      ],
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
+        scaffoldBackgroundColor: Colors.white,
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: AppColors.orange),
           ),
-          initialRoute: Routes.login,
-          navigatorKey: navigatorKey,
-          onGenerateRoute: Routes.generateRoute,
-        );
-      },
+        ),
+      ),
     );
   }
 }

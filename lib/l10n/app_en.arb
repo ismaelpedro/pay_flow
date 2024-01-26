@@ -1,0 +1,20 @@
+{
+  "@@locale": "en",
+  "loginTitleCenter": "Organize your accounts in one place",
+  "loginButtonText": "Sign in with Google",
+  "ptBr": "Portuguese",
+  "enUS": "English",
+  "esES": "Spanish",
+  "accountUpTodate": "Keep your accounts up to date",
+  "myTickets": "My Tickets",
+  "willExpire": "Expires on $date",
+  "requiredField": "Required field",
+  "minValue5": "The minimum ticket amount is R$ 5.00",
+  "billName": "Ticket Name",
+  "expiration": "Expiration",
+  "value": "Value",
+  "code": "Code",
+  "cancel": "Cancel",
+  "register": "Register",
+  "perfil": "Profile"
+}

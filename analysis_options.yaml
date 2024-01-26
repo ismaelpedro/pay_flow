@@ -10,10 +10,18 @@ analyzer:
     directives_ordering: error
     prefer_single_quotes: error
     always_declare_return_types: error
+    prefer_relative_imports: error
+    avoid_print: error
+    unused_import: error
+    unused_element: error
+    unnecessary_import: error
 
 linter:
   rules:
-    prefer_single_quotes: true
-    directives_ordering: true
     require_trailing_commas: true
+    directives_ordering: true
+    prefer_single_quotes: true
     always_declare_return_types: true
+    prefer_relative_imports: true
+    avoid_print: true
+    depend_on_referenced_packages: false
