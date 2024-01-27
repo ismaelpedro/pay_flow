@@ -93,11 +93,11 @@ class _$TicketEntityCopyWithImpl<$Res, $Val extends TicketEntity>
 }
 
 /// @nodoc
-abstract class _$$_TicketEntityCopyWith<$Res>
+abstract class _$$TicketEntityImplCopyWith<$Res>
     implements $TicketEntityCopyWith<$Res> {
-  factory _$$_TicketEntityCopyWith(
-          _$_TicketEntity value, $Res Function(_$_TicketEntity) then) =
-      __$$_TicketEntityCopyWithImpl<$Res>;
+  factory _$$TicketEntityImplCopyWith(
+          _$TicketEntityImpl value, $Res Function(_$TicketEntityImpl) then) =
+      __$$TicketEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_TicketEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TicketEntityCopyWithImpl<$Res>
-    extends _$TicketEntityCopyWithImpl<$Res, _$_TicketEntity>
-    implements _$$_TicketEntityCopyWith<$Res> {
-  __$$_TicketEntityCopyWithImpl(
-      _$_TicketEntity _value, $Res Function(_$_TicketEntity) _then)
+class __$$TicketEntityImplCopyWithImpl<$Res>
+    extends _$TicketEntityCopyWithImpl<$Res, _$TicketEntityImpl>
+    implements _$$TicketEntityImplCopyWith<$Res> {
+  __$$TicketEntityImplCopyWithImpl(
+      _$TicketEntityImpl _value, $Res Function(_$TicketEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_TicketEntityCopyWithImpl<$Res>
     Object? value = freezed,
     Object? fkUser = freezed,
   }) {
-    return _then(_$_TicketEntity(
+    return _then(_$TicketEntityImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -158,8 +158,8 @@ class __$$_TicketEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TicketEntity implements _TicketEntity {
-  _$_TicketEntity(
+class _$TicketEntityImpl implements _TicketEntity {
+  _$TicketEntityImpl(
       {this.id, this.name, this.date, this.code, this.value, this.fkUser});
 
   @override
@@ -181,10 +181,10 @@ class _$_TicketEntity implements _TicketEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TicketEntity &&
+            other is _$TicketEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
@@ -200,8 +200,8 @@ class _$_TicketEntity implements _TicketEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TicketEntityCopyWith<_$_TicketEntity> get copyWith =>
-      __$$_TicketEntityCopyWithImpl<_$_TicketEntity>(this, _$identity);
+  _$$TicketEntityImplCopyWith<_$TicketEntityImpl> get copyWith =>
+      __$$TicketEntityImplCopyWithImpl<_$TicketEntityImpl>(this, _$identity);
 }
 
 abstract class _TicketEntity implements TicketEntity {
@@ -211,7 +211,7 @@ abstract class _TicketEntity implements TicketEntity {
       final String? date,
       final String? code,
       final double? value,
-      final String? fkUser}) = _$_TicketEntity;
+      final String? fkUser}) = _$TicketEntityImpl;
 
   @override
   String? get id;
@@ -227,6 +227,6 @@ abstract class _TicketEntity implements TicketEntity {
   String? get fkUser;
   @override
   @JsonKey(ignore: true)
-  _$$_TicketEntityCopyWith<_$_TicketEntity> get copyWith =>
+  _$$TicketEntityImplCopyWith<_$TicketEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

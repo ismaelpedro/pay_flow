@@ -1,65 +1,100 @@
 import 'package:flutter/material.dart';
+
+import '../../../../../pay_flow_app.dart';
 import '../../assets/assets.dart';
 import '../../extensions/extensions.dart';
 
-class TranslationDropdownWidget extends StatelessWidget {
-  final Color? color;
-
+class TranslationDropdownWidget extends StatefulWidget {
   const TranslationDropdownWidget({
     super.key,
-    this.color = Colors.white,
   });
 
   @override
+  State<TranslationDropdownWidget> createState() => _TranslationDropdownWidgetState();
+}
+
+class _TranslationDropdownWidgetState extends State<TranslationDropdownWidget> {
+  late String currentLang;
+  late PayFlowAppState? appState;
+
+  @override
+  void didChangeDependencies() {
+    appState = context.findAncestorStateOfType<PayFlowAppState>();
+    currentLang = appState?.appLocale?.languageCode ?? 'en';
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return DropdownButton(
-      enableFeedback: true,
-      value: context.localizations.ptBr,
-      onChanged: (value) {},
-      items: [
-        DropdownMenuItem(
-          value: context.localizations.ptBr,
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                AppImages.br,
-                height: 25,
-                width: 25,
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.orange, width: 1),
+        borderRadius: BorderRadius.circular(4),
+        color: Colors.white,
+      ),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          buttonTheme: ButtonTheme.of(context).copyWith(alignedDropdown: true),
+        ),
+        child: DropdownButtonHideUnderline(
+          child: DropdownButton<String>(
+            enableFeedback: true,
+            value: currentLang,
+            icon: const Icon(
+              Icons.keyboard_arrow_down_rounded,
+              color: Colors.orange,
+            ),
+            onChanged: (String? newValue) {
+              appState?.setLocale(Locale(newValue!));
+              setState(() => currentLang = newValue!);
+            },
+            items: [
+              DropdownMenuItem(
+                value: 'pt',
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      AppImages.br,
+                      height: 25,
+                      width: 25,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(context.localizations.ptBr),
+                  ],
+                ),
               ),
-              const SizedBox(width: 10),
-              Text(context.localizations.ptBr),
+              DropdownMenuItem(
+                value: 'en',
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      AppImages.eua,
+                      height: 25,
+                      width: 25,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(context.localizations.enUS),
+                  ],
+                ),
+              ),
+              DropdownMenuItem(
+                value: 'es',
+                child: Row(
+                  children: <Widget>[
+                    Image.asset(
+                      AppImages.es,
+                      height: 25,
+                      width: 25,
+                    ),
+                    const SizedBox(width: 10),
+                    Text(context.localizations.esES),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
-        DropdownMenuItem(
-          value: context.localizations.enUS,
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                AppImages.eua,
-                height: 25,
-                width: 25,
-              ),
-              const SizedBox(width: 10),
-              Text(context.localizations.enUS),
-            ],
-          ),
-        ),
-        DropdownMenuItem(
-          value: context.localizations.esES,
-          child: Row(
-            children: <Widget>[
-              Image.asset(
-                AppImages.es,
-                height: 25,
-                width: 25,
-              ),
-              const SizedBox(width: 10),
-              Text(context.localizations.esES),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

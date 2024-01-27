@@ -97,10 +97,11 @@ class _$TicketDtoCopyWithImpl<$Res, $Val extends TicketDto>
 }
 
 /// @nodoc
-abstract class _$$_TicketDtoCopyWith<$Res> implements $TicketDtoCopyWith<$Res> {
-  factory _$$_TicketDtoCopyWith(
-          _$_TicketDto value, $Res Function(_$_TicketDto) then) =
-      __$$_TicketDtoCopyWithImpl<$Res>;
+abstract class _$$TicketDtoImplCopyWith<$Res>
+    implements $TicketDtoCopyWith<$Res> {
+  factory _$$TicketDtoImplCopyWith(
+          _$TicketDtoImpl value, $Res Function(_$TicketDtoImpl) then) =
+      __$$TicketDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -113,11 +114,11 @@ abstract class _$$_TicketDtoCopyWith<$Res> implements $TicketDtoCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_TicketDtoCopyWithImpl<$Res>
-    extends _$TicketDtoCopyWithImpl<$Res, _$_TicketDto>
-    implements _$$_TicketDtoCopyWith<$Res> {
-  __$$_TicketDtoCopyWithImpl(
-      _$_TicketDto _value, $Res Function(_$_TicketDto) _then)
+class __$$TicketDtoImplCopyWithImpl<$Res>
+    extends _$TicketDtoCopyWithImpl<$Res, _$TicketDtoImpl>
+    implements _$$TicketDtoImplCopyWith<$Res> {
+  __$$TicketDtoImplCopyWithImpl(
+      _$TicketDtoImpl _value, $Res Function(_$TicketDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +131,7 @@ class __$$_TicketDtoCopyWithImpl<$Res>
     Object? value = null,
     Object? fkUser = null,
   }) {
-    return _then(_$_TicketDto(
+    return _then(_$TicketDtoImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -161,8 +162,8 @@ class __$$_TicketDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TicketDto extends _TicketDto {
-  _$_TicketDto(
+class _$TicketDtoImpl extends _TicketDto {
+  _$TicketDtoImpl(
       {this.id,
       this.name,
       required this.date,
@@ -171,8 +172,8 @@ class _$_TicketDto extends _TicketDto {
       required this.fkUser})
       : super._();
 
-  factory _$_TicketDto.fromJson(Map<String, dynamic> json) =>
-      _$$_TicketDtoFromJson(json);
+  factory _$TicketDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$TicketDtoImplFromJson(json);
 
   @override
   final String? id;
@@ -193,10 +194,10 @@ class _$_TicketDto extends _TicketDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TicketDto &&
+            other is _$TicketDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.date, date) || other.date == date) &&
@@ -213,12 +214,12 @@ class _$_TicketDto extends _TicketDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TicketDtoCopyWith<_$_TicketDto> get copyWith =>
-      __$$_TicketDtoCopyWithImpl<_$_TicketDto>(this, _$identity);
+  _$$TicketDtoImplCopyWith<_$TicketDtoImpl> get copyWith =>
+      __$$TicketDtoImplCopyWithImpl<_$TicketDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TicketDtoToJson(
+    return _$$TicketDtoImplToJson(
       this,
     );
   }
@@ -231,11 +232,11 @@ abstract class _TicketDto extends TicketDto {
       required final String date,
       required final String code,
       required final double value,
-      required final String fkUser}) = _$_TicketDto;
+      required final String fkUser}) = _$TicketDtoImpl;
   _TicketDto._() : super._();
 
   factory _TicketDto.fromJson(Map<String, dynamic> json) =
-      _$_TicketDto.fromJson;
+      _$TicketDtoImpl.fromJson;
 
   @override
   String? get id;
@@ -251,6 +252,6 @@ abstract class _TicketDto extends TicketDto {
   String get fkUser;
   @override
   @JsonKey(ignore: true)
-  _$$_TicketDtoCopyWith<_$_TicketDto> get copyWith =>
+  _$$TicketDtoImplCopyWith<_$TicketDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

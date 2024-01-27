@@ -75,22 +75,22 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
 }
 
 /// @nodoc
-abstract class _$$_UserEntityCopyWith<$Res>
+abstract class _$$UserEntityImplCopyWith<$Res>
     implements $UserEntityCopyWith<$Res> {
-  factory _$$_UserEntityCopyWith(
-          _$_UserEntity value, $Res Function(_$_UserEntity) then) =
-      __$$_UserEntityCopyWithImpl<$Res>;
+  factory _$$UserEntityImplCopyWith(
+          _$UserEntityImpl value, $Res Function(_$UserEntityImpl) then) =
+      __$$UserEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, String email, String imageUrl});
 }
 
 /// @nodoc
-class __$$_UserEntityCopyWithImpl<$Res>
-    extends _$UserEntityCopyWithImpl<$Res, _$_UserEntity>
-    implements _$$_UserEntityCopyWith<$Res> {
-  __$$_UserEntityCopyWithImpl(
-      _$_UserEntity _value, $Res Function(_$_UserEntity) _then)
+class __$$UserEntityImplCopyWithImpl<$Res>
+    extends _$UserEntityCopyWithImpl<$Res, _$UserEntityImpl>
+    implements _$$UserEntityImplCopyWith<$Res> {
+  __$$UserEntityImplCopyWithImpl(
+      _$UserEntityImpl _value, $Res Function(_$UserEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_UserEntityCopyWithImpl<$Res>
     Object? email = null,
     Object? imageUrl = null,
   }) {
-    return _then(_$_UserEntity(
+    return _then(_$UserEntityImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_UserEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UserEntity implements _UserEntity {
-  _$_UserEntity(
+class _$UserEntityImpl implements _UserEntity {
+  _$UserEntityImpl(
       {required this.id,
       required this.name,
       required this.email,
@@ -146,10 +146,10 @@ class _$_UserEntity implements _UserEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserEntity &&
+            other is _$UserEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
@@ -163,8 +163,8 @@ class _$_UserEntity implements _UserEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserEntityCopyWith<_$_UserEntity> get copyWith =>
-      __$$_UserEntityCopyWithImpl<_$_UserEntity>(this, _$identity);
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
+      __$$UserEntityImplCopyWithImpl<_$UserEntityImpl>(this, _$identity);
 }
 
 abstract class _UserEntity implements UserEntity {
@@ -172,7 +172,7 @@ abstract class _UserEntity implements UserEntity {
       {required final String id,
       required final String name,
       required final String email,
-      required final String imageUrl}) = _$_UserEntity;
+      required final String imageUrl}) = _$UserEntityImpl;
 
   @override
   String get id;
@@ -184,6 +184,6 @@ abstract class _UserEntity implements UserEntity {
   String get imageUrl;
   @override
   @JsonKey(ignore: true)
-  _$$_UserEntityCopyWith<_$_UserEntity> get copyWith =>
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

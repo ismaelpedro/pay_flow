@@ -16,5 +16,10 @@
   "code": "Code",
   "cancel": "Cancel",
   "register": "Register",
-  "perfil": "Profile"
+  "perfil": "Profile",
+  "emailInput": "Enter your e-mail",
+  "passwordInput": "Your password",
+  "forgotPassword": "Forgot your password?",
+  "loginButton": "Login",
+  "orSignInWith": "or sign in with"
 }
