@@ -14,6 +14,7 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		B3D5AE110972744473FBF357 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02F1FAD6DCDF20842EA8841E /* GoogleService-Info.plist */; };
 		D62ABE7E2923EB4100A48CFC /* Downloads in Resources */ = {isa = PBXBuildFile; fileRef = D62ABE7D2923EB4100A48CFC /* Downloads */; };
 		D62ABE802923EB5A00A48CFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62ABE7F2923EB5A00A48CFC /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02F1FAD6DCDF20842EA8841E /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		36884E3BF7F73490908988C1 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				97C146EF1CF9000F007C117D /* Products */,
 				CB44A48289BFCF6A925351E5 /* Pods */,
 				B9C7D8F3E6C071FD14264616 /* Frameworks */,
+				02F1FAD6DCDF20842EA8841E /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +204,7 @@
 				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
 				D62ABE7E2923EB4100A48CFC /* Downloads in Resources */,
 				D62ABE802923EB5A00A48CFC /* GoogleService-Info.plist in Resources */,
+				B3D5AE110972744473FBF357 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +418,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.payFlow;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.payflow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -546,7 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.payFlow;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.pay_flow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -570,7 +574,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.payFlow;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.ismael.pay_flow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
