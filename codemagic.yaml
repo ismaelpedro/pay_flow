@@ -15,11 +15,11 @@ workflows:
       - name: Set up local.properties
         script: |
           echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      - name: Update version pubspec.yaml
-        script: |
-          chmod +x $CM_BUILD_DIR/scripts/update_version.sh
-          cd $CM_BUILD_DIR
-          ./scripts/update_version.sh
+      # - name: Update version pubspec.yaml
+      #   script: |
+      #     chmod +x $CM_BUILD_DIR/scripts/update_version.sh
+      #     cd $CM_BUILD_DIR
+      #     ./scripts/update_version.sh
       - name: Build AAB with Flutter
         script: |
           flutter build appbundle --release
