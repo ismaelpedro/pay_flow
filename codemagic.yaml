@@ -4,26 +4,25 @@ workflows:
     max_build_duration: 120
     environment:
       flutter: stable
-      xcode: latest 
-      vars:
-        PACKAGE_NAME: "br.com.ismael.pay_flow"
-        GOOGLE_PLAY_TRACK: production
+      xcode: latest
       groups:
-        - keystore_credentials
+        # - keystore_credentials
         - repo_credentials
         - google_play
       android_signing:
         - pay-flow-keystore
     scripts:
       - name: Set up local.properties
-        script: echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
       - name: Update version pubspec.yaml
         script: |
-          chmod +x scripts/update_version.sh
+          chmod +x $CM_BUILD_DIR/scripts/update_version.sh
+          cd $CM_BUILD_DIR
           ./scripts/update_version.sh
       - name: Build AAB with Flutter
         script: |
-          flutter build appbundle --release 
+          flutter build appbundle --release
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
@@ -37,5 +36,5 @@ workflows:
           failure: true
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
+        track: production
         submit_as_draft: false

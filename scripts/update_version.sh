@@ -27,7 +27,7 @@ fi
 
 # Commit and push the changes
 if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]"; then
-  if git push "https://ismaelpedro:${APP_PASSWORD}@github.com/ismaelpedro/pay_flow.git"; then
+  if git push "https://ismaelpedro:${GH_PASSWORD}@github.com/ismaelpedro/pay_flow.git"; then
     echo "Changes committed and pushed"
   else
     echo "Failed to push changes"
