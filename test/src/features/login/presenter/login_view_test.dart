@@ -37,66 +37,71 @@ void main() {
     );
   }
 
-  testWidgets('Login screen is displayed correctly', (WidgetTester tester) async {
-    await tester.pumpWidget(createTestableWidget(const LoginView()));
-    expect(find.text('Login'), findsOneWidget);
-    expect(find.text('Forgot your password?'), findsOneWidget);
-    expect(find.text('or sign in with'), findsOneWidget);
-    expect(find.byType(TextFormField), findsNWidgets(2));
-    expect(find.widgetWithText(ElevatedButton, 'Login'), findsOneWidget);
-    expect(find.byType(TranslationDropdownWidget), findsOneWidget);
-    expect(find.byType(InkWell), findsNWidgets(7));
-    expect(find.byType(Image), findsWidgets);
-  });
-
-  testWidgets('Text fields accept input', (WidgetTester tester) async {
-    final email = faker.internet.email();
-    final password = faker.internet.password();
-
-    await tester.pumpWidget(createTestableWidget(const LoginView()));
-    await tester.enterText(find.byType(TextFormField).first, email);
-    await tester.enterText(find.byType(TextFormField).last, password);
-    expect(find.text(email), findsOneWidget);
-    expect(find.text(password), findsOneWidget);
-  });
-
-  testWidgets('Password visibility toggle works', (WidgetTester tester) async {
-    await tester.pumpWidget(createTestableWidget(const LoginView()));
-    var passwordField = find.byType(TextFormField).last;
-
-    await tester.tap(find.byIcon(Icons.visibility_outlined));
-    await tester.pump();
-    var textField = tester.widget<TextField>(
-      find.descendant(of: passwordField, matching: find.byType(TextField)),
-    );
-    expect(textField.obscureText, isFalse);
-    await tester.tap(find.byIcon(Icons.visibility_off_outlined));
-    await tester.pump();
-    textField = tester.widget<TextField>(
-      find.descendant(of: passwordField, matching: find.byType(TextField)),
-    );
-    expect(textField.obscureText, isTrue);
-  });
-
   group(
-    'Should change language works correctly',
+    'LoginView',
     () {
-      testWidgets('Change English to Spanish', (
-        WidgetTester tester,
-      ) async {
-        await setupPayFlowApp(tester);
-        await tester.tap(find.text('Spanish').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Español'), findsOneWidget);
+      testWidgets('Login screen is displayed correctly', (WidgetTester tester) async {
+        await tester.pumpWidget(createTestableWidget(const LoginView()));
+        expect(find.text('Login'), findsOneWidget);
+        expect(find.text('Forgot your password?'), findsOneWidget);
+        expect(find.text('or sign in with'), findsOneWidget);
+        expect(find.byType(TextFormField), findsNWidgets(2));
+        expect(find.widgetWithText(ElevatedButton, 'Login'), findsOneWidget);
+        expect(find.byType(TranslationDropdownWidget), findsOneWidget);
+        expect(find.byType(InkWell), findsNWidgets(7));
+        expect(find.byType(Image), findsWidgets);
       });
-      testWidgets('Change English to Portuguese', (
-        WidgetTester tester,
-      ) async {
-        await setupPayFlowApp(tester);
-        await tester.tap(find.text('Portuguese').last);
-        await tester.pumpAndSettle();
-        expect(find.text('Português'), findsOneWidget);
+
+      testWidgets('Text fields accept input', (WidgetTester tester) async {
+        final email = faker.internet.email();
+        final password = faker.internet.password();
+
+        await tester.pumpWidget(createTestableWidget(const LoginView()));
+        await tester.enterText(find.byType(TextFormField).first, email);
+        await tester.enterText(find.byType(TextFormField).last, password);
+        expect(find.text(email), findsOneWidget);
+        expect(find.text(password), findsOneWidget);
       });
+
+      testWidgets('Password visibility toggle works', (WidgetTester tester) async {
+        await tester.pumpWidget(createTestableWidget(const LoginView()));
+        var passwordField = find.byType(TextFormField).last;
+
+        await tester.tap(find.byIcon(Icons.visibility_outlined));
+        await tester.pump();
+        var textField = tester.widget<TextField>(
+          find.descendant(of: passwordField, matching: find.byType(TextField)),
+        );
+        expect(textField.obscureText, isFalse);
+        await tester.tap(find.byIcon(Icons.visibility_off_outlined));
+        await tester.pump();
+        textField = tester.widget<TextField>(
+          find.descendant(of: passwordField, matching: find.byType(TextField)),
+        );
+        expect(textField.obscureText, isTrue);
+      });
+
+      group(
+        'Should change language works correctly',
+        () {
+          testWidgets('Change English to Spanish', (
+            WidgetTester tester,
+          ) async {
+            await setupPayFlowApp(tester);
+            await tester.tap(find.text('Spanish').last);
+            await tester.pumpAndSettle();
+            expect(find.text('Español'), findsOneWidget);
+          });
+          testWidgets('Change English to Portuguese', (
+            WidgetTester tester,
+          ) async {
+            await setupPayFlowApp(tester);
+            await tester.tap(find.text('Portuguese').last);
+            await tester.pumpAndSettle();
+            expect(find.text('Português'), findsOneWidget);
+          });
+        },
+      );
     },
   );
 }

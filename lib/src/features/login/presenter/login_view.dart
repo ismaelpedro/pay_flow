@@ -83,112 +83,83 @@ class _LoginViewState extends State<LoginView> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  children: <Widget>[
-                    const SizedBox(height: 16),
-                    const Align(
-                      alignment: Alignment.centerRight,
-                      child: TranslationDropdownWidget(),
-                    ),
-                    const SizedBox(height: 16),
-                    TextFormField(
-                      controller: _cubit.emailEC,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.email_outlined),
-                        labelText: context.localizations.emailInput,
+                child: Form(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  onChanged: () {},
+                  child: Column(
+                    children: <Widget>[
+                      const SizedBox(height: 16),
+                      const Align(
+                        alignment: Alignment.centerRight,
+                        child: TranslationDropdownWidget(),
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    ValueListenableBuilder(
-                      valueListenable: _cubit.ocultPassword,
-                      builder: (_, value, ___) => TextFormField(
-                        controller: _cubit.passwordEC,
-                        obscureText: value,
-                        obscuringCharacter: '*',
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _cubit.emailEC,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          labelText: context.localizations.passwordInput,
-                          suffixIcon: IconButton(
-                            onPressed: _cubit.changeOcultPassword,
-                            icon: Icon(
-                              !value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                          suffixIcon: const Icon(Icons.email_outlined),
+                          labelText: context.localizations.emailInput,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      ValueListenableBuilder(
+                        valueListenable: _cubit.ocultPassword,
+                        builder: (_, value, ___) => TextFormField(
+                          controller: _cubit.passwordEC,
+                          obscureText: value,
+                          obscuringCharacter: '*',
+                          decoration: InputDecoration(
+                            labelText: context.localizations.passwordInput,
+                            suffixIcon: IconButton(
+                              onPressed: _cubit.changeOcultPassword,
+                              icon: Icon(
+                                !value ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        child: Text(context.localizations.forgotPassword),
-                        onPressed: () {},
-                      ),
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.orange,
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          child: Text(context.localizations.forgotPassword),
+                          onPressed: () {},
                         ),
-                        child: Text(
-                          context.localizations.loginButton,
-                          style: AppTextStyles.trailingBold.copyWith(color: Colors.white),
-                        ),
-                        onPressed: () {},
                       ),
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      children: <Widget>[
-                        const Flexible(child: Divider(thickness: 1)),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.orange,
+                          ),
                           child: Text(
-                            context.localizations.orSignInWith,
-                            style: AppTextStyles.trailingRegular,
+                            context.localizations.loginButton,
+                            style: AppTextStyles.trailingBold.copyWith(color: Colors.white),
                           ),
+                          onPressed: () {},
                         ),
-                        const Flexible(child: Divider(thickness: 1)),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        InkWell(
-                          onTap: () {},
-                          child: Ink(
-                            child: Container(
-                              height: 56,
-                              width: 56,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(color: AppColors.orange),
-                              ),
-                              child: Image.asset(AppImages.facebook),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: <Widget>[
+                          const Flexible(child: Divider(thickness: 1)),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              context.localizations.orSignInWith,
+                              style: AppTextStyles.trailingRegular,
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        InkWell(
-                          onTap: () {},
-                          child: Ink(
-                            child: Container(
-                              height: 56,
-                              width: 56,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                border: Border.all(color: AppColors.orange),
-                              ),
-                              child: Image.asset(AppImages.google),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Opacity(
-                          opacity: Platform.isAndroid ? 0.3 : 1,
-                          child: InkWell(
-                            onTap: Platform.isAndroid ? null : () {},
+                          const Flexible(child: Divider(thickness: 1)),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          InkWell(
+                            onTap: () {},
                             child: Ink(
                               child: Container(
                                 height: 56,
@@ -197,20 +168,53 @@ class _LoginViewState extends State<LoginView> {
                                   borderRadius: BorderRadius.circular(4),
                                   border: Border.all(color: AppColors.orange),
                                 ),
-                                child: Image.asset(AppImages.apple),
+                                child: Image.asset(AppImages.facebook),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 16),
-                    const Text(
-                      'v2.0.0',
-                      style: AppTextStyles.trailingRegular,
-                    ),
-                    const SizedBox(height: 24),
-                  ],
+                          const SizedBox(width: 10),
+                          InkWell(
+                            onTap: () {},
+                            child: Ink(
+                              child: Container(
+                                height: 56,
+                                width: 56,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(4),
+                                  border: Border.all(color: AppColors.orange),
+                                ),
+                                child: Image.asset(AppImages.google),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Opacity(
+                            opacity: Platform.isAndroid ? 0.3 : 1,
+                            child: InkWell(
+                              onTap: Platform.isAndroid ? null : () {},
+                              child: Ink(
+                                child: Container(
+                                  height: 56,
+                                  width: 56,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    border: Border.all(color: AppColors.orange),
+                                  ),
+                                  child: Image.asset(AppImages.apple),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      const Text(
+                        'v2.0.0',
+                        style: AppTextStyles.trailingRegular,
+                      ),
+                      const SizedBox(height: 24),
+                    ],
+                  ),
                 ),
               ),
             ],
