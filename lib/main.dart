@@ -15,9 +15,12 @@ Future<void> main() async {
   await runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
     configureDependencies();
-    await MobileAds.instance.initialize();
-    await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
+    await Future.wait([
+      MobileAds.instance.initialize(),
+      Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
+      FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true),
+    ]);
+
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(

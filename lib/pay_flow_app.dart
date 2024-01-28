@@ -8,7 +8,7 @@ import 'src/core/presenter/navigation/routes.dart';
 import 'src/core/presenter/ui/theme/app_colors.dart';
 import 'src/features/login/presenter/login_view.dart';
 
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class PayFlowApp extends StatefulWidget {
   const PayFlowApp({super.key});

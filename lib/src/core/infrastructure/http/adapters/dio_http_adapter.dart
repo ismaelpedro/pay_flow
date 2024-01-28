@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:talker_dio_logger/talker_dio_logger.dart';
 
@@ -62,7 +61,7 @@ class DioHttpAdapter implements HttpClient {
     } on DioException catch (e) {
       return HttpResponse(
         data: e.response?.data,
-        status: e.response?.statusCode?.convertToHttpStatus() ?? HttpStatus.badRequest,
+        status: e.response?.statusCode?.convertToHttpStatus() ?? HttpStatus.unknown,
       );
     }
   }

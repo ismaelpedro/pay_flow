@@ -59,9 +59,6 @@ PODS:
   - Firebase/Performance (10.18.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 10.18.0)
-  - Firebase/RemoteConfig (10.18.0):
-    - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 10.18.0)
   - Firebase/Storage (10.18.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.18.0)
@@ -82,10 +79,6 @@ PODS:
     - Flutter
   - firebase_performance (0.9.3-8):
     - Firebase/Performance (= 10.18.0)
-    - firebase_core
-    - Flutter
-  - firebase_remote_config (4.3.8):
-    - Firebase/RemoteConfig (= 10.18.0)
     - firebase_core
     - Flutter
   - firebase_storage (11.6.0):
@@ -332,7 +325,6 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - firebase_performance (from `.symlinks/plugins/firebase_performance/ios`)
-  - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - Flutter (from `Flutter`)
   - flutter_barcode_scanner (from `.symlinks/plugins/flutter_barcode_scanner/ios`)
@@ -404,8 +396,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_crashlytics/ios"
   firebase_performance:
     :path: ".symlinks/plugins/firebase_performance/ios"
-  firebase_remote_config:
-    :path: ".symlinks/plugins/firebase_remote_config/ios"
   firebase_storage:
     :path: ".symlinks/plugins/firebase_storage/ios"
   Flutter:
@@ -450,7 +440,6 @@ SPEC CHECKSUMS:
   firebase_core: 0af4a2b24f62071f9bf283691c0ee41556dcb3f5
   firebase_crashlytics: 4b91b8ad60ee7c168fe88979f84c9573a729de7a
   firebase_performance: 2183122a3c7a650c80d8c164e9e28f13c4c62fc7
-  firebase_remote_config: 14ad7a3c99810d373ba1ad4a754a8cf26c91d476
   firebase_storage: 2b932fa5461f4efac36a2dcfbe240898b190b5b1
   FirebaseABTesting: 1d5d49804bcfc5fa782bc2491a8c1364e2cf7241
   FirebaseAnalytics: 4d310b35c48eaa4a058ddc04bdca6bdb5dc0fe80

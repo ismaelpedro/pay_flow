@@ -1,26 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
+
 import '../../../core/domain/entities/ticket_entity.dart';
 import '../../../core/presenter/assets/assets.dart';
 import '../../../core/presenter/extensions/extensions.dart';
-import '../../../core/presenter/ui/ui.dart';
-
+import '../../../core/presenter/ui/theme/app_colors.dart';
+import '../../../core/presenter/ui/theme/app_text_styles.dart';
 import 'widgets/bottom_button_widget.dart';
 import 'widgets/tile_form_widget.dart';
 
-class TicketFormPage extends StatefulWidget {
+class TicketFormView extends StatefulWidget {
   final TicketEntity? ticket;
-  const TicketFormPage({
+  const TicketFormView({
     super.key,
     this.ticket,
   });
 
   @override
-  State<TicketFormPage> createState() => _TicketFormPageState();
+  State<TicketFormView> createState() => _TicketFormViewState();
 }
 
-class _TicketFormPageState extends State<TicketFormPage> {
+class _TicketFormViewState extends State<TicketFormView> {
   late MoneyMaskedTextController _moneyController;
   late TextEditingController _expirationEc;
 
@@ -43,7 +44,7 @@ class _TicketFormPageState extends State<TicketFormPage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () => context.unfocus(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: AppColors.background,

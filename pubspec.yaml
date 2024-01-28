@@ -2,10 +2,10 @@ name: pay_flow
 description: A new Flutter project.
 
 publish_to: "none"
-version: 2.0.17+299
+version: 2.0.18+301
 
 environment:
-  sdk: ">=3.2.5 <4.0.0"
+  sdk: ">=3.2.6 <4.0.0"
   flutter: ">=3.16.9"
 
 dependencies:
@@ -41,7 +41,6 @@ dependencies:
   firebase_analytics: ^10.8.0
   firebase_crashlytics: ^3.4.9
   firebase_performance: ^0.9.3+8
-  firebase_remote_config: ^4.3.8
   firebase_auth: ^4.16.0
   firebase_storage: ^11.6.0
   onesignal_flutter: ^5.0.4

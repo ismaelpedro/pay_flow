@@ -6,7 +6,9 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
 import '../../../core/presenter/assets/assets.dart';
 import '../../../core/presenter/extensions/extensions.dart';
-import '../../../core/presenter/ui/ui.dart';
+import '../../../core/presenter/ui/theme/app_colors.dart';
+import '../../../core/presenter/ui/theme/app_text_styles.dart';
+import '../../../core/presenter/ui/widgets/translation_dropdown_widget.dart';
 import 'cubits/login_cubit.dart';
 
 class LoginView extends StatefulWidget {
