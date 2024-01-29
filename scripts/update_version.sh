@@ -21,7 +21,7 @@ else
   exit 1
 fi
 
-if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push https://ismaelpedro:$GH_PASSWORD@github.com/ismaelpedro/pay_flow.git; then
+if git add . && git commit -m "chore: Increment version to $NEW_VERSION [SCRIPT]" && git push https://ismaelpedro:$GH_TOKEND@github.com/ismaelpedro/pay_flow.git; then
   echo "Changes committed and pushed"
 else
   echo "Failed to commit and push changes"
