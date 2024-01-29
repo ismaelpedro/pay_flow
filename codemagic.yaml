@@ -8,27 +8,26 @@ workflows:
       groups:
         - repo_credentials
         - google_play
+        - shorebird
       android_signing:
         - pay-flow-keystore
     scripts:
-      #   - name: Set up local.properties
-      #     script: |
-      #       echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
-      # - name: Update version pubspec.yaml
-      #   script: |
-      #     chmod +x $CM_BUILD_DIR/scripts/update_version.sh
-      #     cd $CM_BUILD_DIR
-      #     ./scripts/update_version.sh
-      - name: New release ShoreBird
+      - name: Set up local.properties
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/android/local.properties"
+      - name: Update version pubspec.yaml
+        script: |
+          chmod +x $CM_BUILD_DIR/scripts/update_version.sh
+          cd $CM_BUILD_DIR
+          ./scripts/update_version.sh
+      - name: 🐦 Setup Shorebird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-          export PATH="/Users/builder/.shorebird/bin:$PATH"
-          echo $SHOREBIRD_CREDENTIALS | base64 --decode > ~/.shorebird/credentials.json
-          shorebird login:ci
+          echo PATH="$HOME/.shorebird/bin:$PATH" >> $CM_ENV
           yes | shorebird release android
-      # - name: Build AAB with Flutter
-      #   script: |
-      #     flutter build appbundle --release --no-tree-shake-icons
+      - name: Build AAB with Flutter
+        script: |
+          flutter build appbundle --release --no-tree-shake-icons
     artifacts:
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
