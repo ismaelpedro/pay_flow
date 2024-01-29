@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
+import 'package:upgrader/upgrader.dart';
 
 import 'src/core/presenter/navigation/routes.dart';
 import 'src/core/presenter/ui/theme/app_colors.dart';
@@ -36,12 +40,37 @@ class PayFlowAppState extends State<PayFlowApp> {
     });
   }
 
+  final _routerConfig = GoRouter(
+    navigatorKey: navigatorKey,
+    initialLocation: Routes.login,
+    routes: [
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) => const LoginView(),
+      ),
+    ],
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      locale: appLocale ?? DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      locale: appLocale ?? (kDebugMode ? DevicePreview.locale(context) : null),
+      routerConfig: _routerConfig,
+      builder: (context, child) {
+        return UpgradeAlert(
+          upgrader: Upgrader(
+            debugDisplayAlways: kDebugMode,
+            languageCode: appLocale?.languageCode ?? 'en',
+          ),
+          showLater: false,
+          showIgnore: false,
+          canDismissDialog: kDebugMode,
+          dialogStyle: Platform.isIOS ? UpgradeDialogStyle.cupertino : UpgradeDialogStyle.material,
+          navigatorKey: _routerConfig.routerDelegate.navigatorKey,
+          child: child,
+        );
+      },
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -61,16 +90,6 @@ class PayFlowAppState extends State<PayFlowApp> {
             borderSide: BorderSide(color: AppColors.orange),
           ),
         ),
-      ),
-      routerConfig: GoRouter(
-        navigatorKey: navigatorKey,
-        initialLocation: Routes.login,
-        routes: [
-          GoRoute(
-            path: Routes.login,
-            builder: (context, state) => const LoginView(),
-          ),
-        ],
       ),
     );
   }

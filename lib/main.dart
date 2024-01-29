@@ -22,10 +22,11 @@ Future<void> main() async {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(
-      DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => const PayFlowApp(),
-      ),
+      kDebugMode
+          ? DevicePreview(
+              builder: (context) => const PayFlowApp(),
+            )
+          : const PayFlowApp(),
     );
   }, (Object error, StackTrace stack) {
     if (kReleaseMode) {

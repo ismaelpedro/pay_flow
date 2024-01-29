@@ -8,6 +8,8 @@ import 'login_states.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
+  String appVersion = 'v1.0.0';
+  final isLoginButtonEnabled = ValueNotifier<bool>(false);
   final ocultPassword = ValueNotifier<bool>(true);
   final emailEC = TextEditingController();
   final passwordEC = TextEditingController();
@@ -18,6 +20,13 @@ class LoginCubit extends Cubit<LoginState> {
     listener: const BannerAdListener(),
     request: const AdRequest(),
   );
+
+  void validateForm() {
+    isLoginButtonEnabled.value = RegExp(
+          r'^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+',
+        ).hasMatch(emailEC.text) &&
+        passwordEC.text.isNotEmpty;
+  }
 
   void changeOcultPassword() {
     ocultPassword.value = !ocultPassword.value;

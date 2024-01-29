@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../core/infrastructure/service_locator/service_locator.dart';
 import '../../../core/presenter/assets/assets.dart';
@@ -25,7 +26,15 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     _cubit = locator.get<LoginCubit>();
     _cubit.bottomAds.load();
+    _initPackageInfo();
     super.initState();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _cubit.appVersion = info.version;
+    });
   }
 
   @override
@@ -85,7 +94,7 @@ class _LoginViewState extends State<LoginView> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Form(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  onChanged: () {},
+                  onChanged: _cubit.validateForm,
                   child: Column(
                     children: <Widget>[
                       const SizedBox(height: 16),
@@ -127,18 +136,23 @@ class _LoginViewState extends State<LoginView> {
                           onPressed: () {},
                         ),
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.orange,
-                          ),
-                          child: Text(
-                            context.localizations.loginButton,
-                            style: AppTextStyles.trailingBold.copyWith(color: Colors.white),
-                          ),
-                          onPressed: () {},
-                        ),
+                      ValueListenableBuilder<bool>(
+                        valueListenable: _cubit.isLoginButtonEnabled,
+                        builder: (context, isButtonEnabled, _) {
+                          return SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppColors.orange,
+                              ),
+                              onPressed: isButtonEnabled ? () {} : null,
+                              child: Text(
+                                context.localizations.loginButton,
+                                style: AppTextStyles.trailingBold.copyWith(color: Colors.white),
+                              ),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(height: 16),
                       Row(
@@ -208,8 +222,8 @@ class _LoginViewState extends State<LoginView> {
                         ],
                       ),
                       const SizedBox(height: 16),
-                      const Text(
-                        'v2.0.0',
+                      Text(
+                        _cubit.appVersion,
                         style: AppTextStyles.trailingRegular,
                       ),
                       const SizedBox(height: 24),
