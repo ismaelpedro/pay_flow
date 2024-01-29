@@ -23,7 +23,7 @@ workflows:
       - name: 🐦 Setup Shorebird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-          echo export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
+          echo PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV    
           yes | shorebird release android
       # - name: Build AAB with Flutter
       #   script: |
