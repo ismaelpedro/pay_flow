@@ -22,6 +22,7 @@ workflows:
       - name: New release ShoreBird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
+          export PATH="/Users/builder/.shorebird/bin:$PATH"
           echo $SHOREBIRD_CREDENTIALS | base64 --decode > ~/.shorebird/credentials.json
           shorebird login --no-launch-browser
           yes | shorebird release android
