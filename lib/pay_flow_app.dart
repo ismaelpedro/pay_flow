@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
@@ -19,6 +20,14 @@ class PayFlowApp extends StatefulWidget {
 
 class PayFlowAppState extends State<PayFlowApp> {
   Locale? appLocale;
+
+  @override
+  void initState() {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+    );
+    super.initState();
+  }
 
   void setLocale(Locale newLocale) {
     if (!mounted) return;

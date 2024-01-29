@@ -5,8 +5,8 @@ publish_to: "none"
 version: 2.0.19+307
 
 environment:
-  sdk: ">=3.2.6 <4.0.0"
-  flutter: ">=3.16.9"
+  sdk: ">=3.2.4 <4.0.0"
+  # flutter: ">=3.16.8"
 
 dependencies:
   flutter:
@@ -96,6 +96,7 @@ flutter:
     - assets/images/
     - assets/lotties/
     - assets/mocks/
+    - shorebird.yaml
 
   fonts:
     - family: Inter
