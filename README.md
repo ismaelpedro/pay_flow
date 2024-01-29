@@ -13,20 +13,34 @@ This project was developed with the following technologies:
 - [Flutter](https://flutter.dev/)
 - [Dart](https://dart.dev/)
 - [Firebase](https://firebase.google.com/)
+- [Codemagic](https://codemagic.io/)
+- [Shorebird](https://shorebird.dev/)
+
+<h2>CI/CD Pipeline 🚀</h2>
+For continuous integration and continuous delivery, this project utilizes Codemagic. This allows for automated building, testing, and releasing of the app with efficiency and consistency. Key features include:
+
+Automated builds for each commit.
+Running unit and widget tests to ensure code quality.
+Seamless deployment to app stores or distribution to testers.
+Furthermore, we integrate CodePush Shorebird for dynamic updates to the app, enabling us to push updates directly to our users without going through app store approval processes. This ensures that users always have the latest version with minimal downtime.
 
 <h2>Project 💻</h2>
 
 It was developed to facilitate the handling and storage of boletos, a very common means of payment in Brazil. 
 PayFlow contains features such as using Camera, Sign In, Custom Animations and Stylizations. 
+
 I'm using: 
-- Clean Architecture; 
+- MVC; 
 - Unitary Tests;
+- Widgets Tests;
+- Integrations Tests;
 
 <h2> Features implemented 🔥 </h2>
 
 - Login with Google;
 - Payment with Google Pay
-- CI/CD with CodeMagic
+- CI/CD with Codemagic
+- Dynamic Updates with CodePush Shorebird
 - BLoC State Management
 - Firebase crashlytics & analytics
 - Notifications
@@ -42,7 +56,7 @@ I'm using:
 - Enter the project folder;
 - Run `flutter pub get` to install all project dependencies/packages;
 - Launch a mobile device emulator or connect your smartphone to the computer <br>
-  `(make sure your device has USB Debugging enabled and Flutter version equal to or greater than 3.3.8)`;
+  `(make sure your device has USB Debugging enabled and Flutter version equal to or greater than 3.16.9)`;
 - Run `flutter run` to run the app on your connected (or emulated) device;
 
 
