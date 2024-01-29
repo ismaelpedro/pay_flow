@@ -20,10 +20,11 @@ workflows:
       #     chmod +x $CM_BUILD_DIR/scripts/update_version.sh
       #     cd $CM_BUILD_DIR
       #     ./scripts/update_version.sh
+      # echo PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
       - name: 🐦 Setup Shorebird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-          echo PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV    
+          export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
           yes | shorebird release android
       # - name: Build AAB with Flutter
       #   script: |
