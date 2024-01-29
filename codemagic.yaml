@@ -19,7 +19,7 @@ workflows:
         script: |
           chmod +x $CM_BUILD_DIR/update_version.sh
           cd $CM_BUILD_DIR
-          update_version.sh
+          ./update_version.sh
       - name: New Release Shorebird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
