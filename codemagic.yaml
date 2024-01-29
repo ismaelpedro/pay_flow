@@ -20,6 +20,11 @@ workflows:
           chmod +x $CM_BUILD_DIR/update_version.sh
           cd $CM_BUILD_DIR
           ./update_version.sh
+      - name: Unitary & Widget tests
+        script: | 
+          mkdir -p test-results
+          flutter test --machine > test-results/flutter.json
+        test_report: test-results/flutter.json
       - name: New Release Shorebird
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
