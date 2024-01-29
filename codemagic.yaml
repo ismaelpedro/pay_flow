@@ -24,7 +24,7 @@ workflows:
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
           export PATH="/Users/builder/.shorebird/bin:$PATH"
           echo $SHOREBIRD_CREDENTIALS | base64 --decode > ~/.shorebird/credentials.json
-          shorebird login --no-launch-browser
+          shorebird login:ci
           yes | shorebird release android
       # - name: Build AAB with Flutter
       #   script: |
