@@ -235,7 +235,7 @@ class _LoginViewState extends State<LoginView> {
           ),
         ),
         bottomNavigationBar: SizedBox(
-          height: 50,
+          height: _cubit.bottomAds.size.height.toDouble(),
           width: double.infinity,
           child: Platform.isIOS ? const Placeholder() : AdWidget(ad: _cubit.bottomAds),
         ),

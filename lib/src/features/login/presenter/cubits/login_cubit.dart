@@ -15,7 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
   final passwordEC = TextEditingController();
 
   final BannerAd bottomAds = BannerAd(
-    size: AdSize.banner,
+    size: AdSize.leaderboard,
     adUnitId: AdmobId.loginBottom,
     listener: const BannerAdListener(),
     request: const AdRequest(),
