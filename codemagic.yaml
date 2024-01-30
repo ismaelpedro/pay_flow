@@ -25,14 +25,12 @@ workflows:
           mkdir -p test-results
           flutter test --machine > test-results/flutter.json
         test_report: test-results/flutter.json
-      - name: New Release Shorebird
+      - name: New Release Shorebird (Build AAB)
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
           export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
+          echo >>> Running shorebird release android --artifact aab
           yes | shorebird release android --artifact aab
-      # - name: Build AAB with Flutter
-      #   script: |
-      #     flutter build appbundle --release --no-tree-shake-icons
     artifacts:
       - build/**/outputs/**/*.aab
     publishing:
