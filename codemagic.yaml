@@ -21,7 +21,7 @@ workflows:
           cd $CM_BUILD_DIR
           ./update_version.sh
       - name: Unitary & Widget tests
-        script: | 
+        script: |
           mkdir -p test-results
           flutter test --machine > test-results/flutter.json
         test_report: test-results/flutter.json
@@ -29,10 +29,10 @@ workflows:
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
           export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
-          yes | shorebird release android
-      - name: Build AAB with Flutter
-        script: |
-          flutter build appbundle --release --no-tree-shake-icons
+          yes | shorebird release android --artifact aab
+      # - name: Build AAB with Flutter
+      #   script: |
+      #     flutter build appbundle --release --no-tree-shake-icons
     artifacts:
       - build/**/outputs/**/*.aab
     publishing:
