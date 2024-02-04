@@ -7,6 +7,9 @@ class AuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+  User? get getCurrentUser => _firebaseAuth.currentUser;
+  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+
   Future<UserCredential> signUp(
     String email,
     String password,
@@ -69,8 +72,4 @@ class AuthService {
     }
     return null;
   }
-
-  User? getCurrentUser() => _firebaseAuth.currentUser;
-
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 }
