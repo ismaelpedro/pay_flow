@@ -1,12 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../../core/infrastructure/auth/auth_service.dart';
 import '../../../../core/utils/admob_id.dart';
 import 'login_states.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitial());
+  final AuthService _authService;
+  LoginCubit(this._authService) : super(LoginInitial());
 
   String appVersion = 'v1.0.0';
   final isLoginButtonEnabled = ValueNotifier<bool>(false);
@@ -28,7 +31,13 @@ class LoginCubit extends Cubit<LoginState> {
         passwordEC.text.isNotEmpty;
   }
 
-  void changeOcultPassword() {
-    ocultPassword.value = !ocultPassword.value;
+  void changeOcultPassword() => ocultPassword.value = !ocultPassword.value;
+
+  Future<UserCredential?> loginWithGoogle() async {
+    return await _authService.signInWithGoogle();
+  }
+
+  Future<UserCredential?> loginWithApple() async {
+    return await _authService.signInWithApple();
   }
 }

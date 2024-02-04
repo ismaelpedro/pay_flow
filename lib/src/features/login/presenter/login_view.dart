@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -170,49 +171,55 @@ class _LoginViewState extends State<LoginView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          InkWell(
-                            onTap: () {},
-                            child: Ink(
-                              child: Container(
-                                height: 56,
-                                width: 56,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(color: AppColors.orange),
+                          Opacity(
+                            opacity: .3,
+                            child: InkWell(
+                              onTap: null,
+                              child: Ink(
+                                child: Container(
+                                  height: 56,
+                                  width: 56,
+                                  padding: const EdgeInsets.all(14),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(4),
+                                    border: Border.all(color: AppColors.orange),
+                                  ),
+                                  child: SvgPicture.asset(AppImages.facebook),
                                 ),
-                                child: Image.asset(AppImages.facebook),
                               ),
                             ),
                           ),
                           const SizedBox(width: 10),
                           InkWell(
-                            onTap: () {},
+                            onTap: () => _cubit.loginWithGoogle(),
                             child: Ink(
                               child: Container(
                                 height: 56,
                                 width: 56,
+                                padding: const EdgeInsets.all(14),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
                                   border: Border.all(color: AppColors.orange),
                                 ),
-                                child: Image.asset(AppImages.google),
+                                child: SvgPicture.asset(AppImages.google),
                               ),
                             ),
                           ),
                           const SizedBox(width: 10),
                           Opacity(
-                            opacity: Platform.isAndroid ? 0.3 : 1,
+                            opacity: Platform.isAndroid ? .3 : 1,
                             child: InkWell(
-                              onTap: Platform.isAndroid ? null : () {},
+                              onTap: Platform.isAndroid ? null : () => _cubit.loginWithApple(),
                               child: Ink(
                                 child: Container(
                                   height: 56,
                                   width: 56,
+                                  padding: const EdgeInsets.all(14),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4),
                                     border: Border.all(color: AppColors.orange),
                                   ),
-                                  child: Image.asset(AppImages.apple),
+                                  child: SvgPicture.asset(AppImages.apple),
                                 ),
                               ),
                             ),

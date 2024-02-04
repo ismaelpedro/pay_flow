@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../pay_flow_app.dart';
 import '../../assets/assets.dart';
@@ -53,7 +54,7 @@ class _TranslationDropdownWidgetState extends State<TranslationDropdownWidget> {
                 value: 'pt',
                 child: Row(
                   children: <Widget>[
-                    Image.asset(
+                    SvgPicture.asset(
                       AppImages.br,
                       height: 25,
                       width: 25,
@@ -67,7 +68,7 @@ class _TranslationDropdownWidgetState extends State<TranslationDropdownWidget> {
                 value: 'en',
                 child: Row(
                   children: <Widget>[
-                    Image.asset(
+                    SvgPicture.asset(
                       AppImages.eua,
                       height: 25,
                       width: 25,
@@ -81,7 +82,7 @@ class _TranslationDropdownWidgetState extends State<TranslationDropdownWidget> {
                 value: 'es',
                 child: Row(
                   children: <Widget>[
-                    Image.asset(
+                    SvgPicture.asset(
                       AppImages.es,
                       height: 25,
                       width: 25,
