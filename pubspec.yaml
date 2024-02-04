@@ -5,8 +5,9 @@ publish_to: "none"
 version: 2.0.22+310
 
 environment:
-  sdk: ">=3.2.4 <4.0.0"
-  # flutter: ">=3.16.8"
+  sdk: ">=3.2.0 <4.0.0"
+  # sdk: ">=3.2.5 <4.0.0"
+  # flutter: ">=3.16.9"
 
 dependencies:
   flutter:
@@ -37,13 +38,13 @@ dependencies:
   google_mobile_ads: ^4.0.0
 
   # FIREBASE/ONESIGNAL
-  firebase_core: ^2.24.2
-  firebase_analytics: ^10.8.0
-  firebase_crashlytics: ^3.4.9
-  firebase_performance: ^0.9.3+8
-  firebase_auth: ^4.16.0
-  firebase_storage: ^11.6.0
-  onesignal_flutter: ^5.0.4
+  firebase_core: ^2.25.3
+  firebase_analytics: ^10.8.4
+  firebase_crashlytics: ^3.4.13
+  firebase_performance: ^0.9.3+12
+  firebase_auth: ^4.17.3
+  firebase_storage: ^11.6.4
+  onesignal_flutter: ^5.1.0
 
   # UI
   cupertino_icons: ^1.0.6
@@ -83,7 +84,7 @@ dev_dependencies:
 
   # CODE GENERATION
   build_runner: ^2.4.8
-  freezed: ^2.4.6
+  freezed: ^2.4.7
   json_serializable: ^6.7.1
   injectable_generator: ^2.4.1
 

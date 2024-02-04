@@ -18,7 +18,6 @@ Future<void> main() async {
     await MobileAds.instance.initialize();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
-
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
     runApp(

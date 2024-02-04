@@ -32,9 +32,7 @@ class _LoginViewState extends State<LoginView> {
 
   Future<void> _initPackageInfo() async {
     final info = await PackageInfo.fromPlatform();
-    setState(() {
-      _cubit.appVersion = info.version;
-    });
+    setState(() => _cubit.appVersion = info.version);
   }
 
   @override
@@ -237,7 +235,7 @@ class _LoginViewState extends State<LoginView> {
         bottomNavigationBar: SizedBox(
           height: _cubit.bottomAds.size.height.toDouble(),
           width: double.infinity,
-          child: Platform.isIOS ? const Placeholder() : AdWidget(ad: _cubit.bottomAds),
+          child: AdWidget(ad: _cubit.bottomAds),
         ),
       ),
     );

@@ -35,9 +35,7 @@ class PayFlowAppState extends State<PayFlowApp> {
 
   void setLocale(Locale newLocale) {
     if (!mounted) return;
-    setState(() {
-      appLocale = newLocale;
-    });
+    setState(() => appLocale = newLocale);
   }
 
   final _routerConfig = GoRouter(

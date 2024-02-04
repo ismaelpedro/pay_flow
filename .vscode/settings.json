@@ -41,4 +41,5 @@
   },
   "files.autoSave": "afterDelay",
   "workbench.activityBar.location": "top",
+  "dart.flutterSdkPath": "~/development/flutter",
 }
