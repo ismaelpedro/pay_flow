@@ -29,8 +29,9 @@ class _TicketFormViewState extends State<TicketFormView> {
   void initState() {
     _moneyController = MoneyMaskedTextController(
       leftSymbol: 'R\$ ',
-      initialValue: widget.ticket!.value!,
+      initialValue: widget.ticket?.value ?? 0,
     );
+    _expirationEc = TextEditingController(text: widget.ticket?.date);
     super.initState();
   }
 

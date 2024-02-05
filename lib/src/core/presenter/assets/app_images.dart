@@ -1,6 +1,6 @@
 abstract class AppImages {
   static const String logoFull = 'assets/images/logofull.png';
-  static const String logomini = 'assets/images/logomini.png';
+  static const String logomini = 'assets/images/logomini.svg';
   static const String union = 'assets/images/union.png';
   static const String person = 'assets/images/person.png';
   static const String google = 'assets/images/google.svg';

@@ -21,5 +21,12 @@
   "passwordInput": "Su contraseña",
   "forgotPassword": "¿Olvidó su contraseña?",
   "loginButton": "Iniciar sesión",
-  "orSignInWith": "o ingrese con"
+  "orSignInWith": "o ingrese con",
+  "language": "Idioma",
+  "notifications": "Notificaciones",
+  "aboutDev": "Acerca del desarrollador",
+  "logout": "Cerrar sesión",
+  "darkTheme": "Tema oscuro",
+  "donate": "Donar",
+  "registrationsToPay": "Tienes {count, plural, =0 {ninguna factura por pagar! 😵‍💫} =1 {una factura por pagar} other {{count} facturas por pagar}}"
 }

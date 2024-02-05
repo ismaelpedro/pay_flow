@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../pay_flow_app.dart';
 
 extension FutureExtensions<T> on Future<T> {
@@ -9,7 +10,7 @@ extension FutureExtensions<T> on Future<T> {
       builder: (_) => PopScope(
         onPopInvoked: (value) => false,
         child: const Center(
-          child: CircularProgressIndicator.adaptive(
+          child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
           ),
         ),

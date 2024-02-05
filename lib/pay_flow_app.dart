@@ -1,19 +1,20 @@
-import 'dart:io';
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:go_router/go_router.dart';
 import 'package:upgrader/upgrader.dart';
 
+import 'src/core/infrastructure/auth/auth_service.dart';
+import 'src/core/infrastructure/service_locator/service_locator.dart';
 import 'src/core/presenter/navigation/routes.dart';
 import 'src/core/presenter/ui/theme/app_colors.dart';
+import 'src/features/home/presenter/views/home_view.dart';
 import 'src/features/login/presenter/login_view.dart';
+import 'src/features/ticket_form/presenter/ticket_form_view.dart';
 
-final navigatorKey = GlobalKey<NavigatorState>();
+var navigatorKey = GlobalKey<NavigatorState>();
 
 class PayFlowApp extends StatefulWidget {
   const PayFlowApp({super.key});
@@ -24,12 +25,14 @@ class PayFlowApp extends StatefulWidget {
 
 class PayFlowAppState extends State<PayFlowApp> {
   Locale? appLocale;
+  late AuthService authService;
 
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
+    authService = locator.get<AuthService>();
     super.initState();
   }
 
@@ -38,23 +41,12 @@ class PayFlowAppState extends State<PayFlowApp> {
     setState(() => appLocale = newLocale);
   }
 
-  final _routerConfig = GoRouter(
-    navigatorKey: navigatorKey,
-    initialLocation: Routes.login,
-    routes: [
-      GoRoute(
-        path: Routes.login,
-        builder: (context, state) => const LoginView(),
-      ),
-    ],
-  );
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: appLocale ?? (kDebugMode ? DevicePreview.locale(context) : null),
-      routerConfig: _routerConfig,
+      navigatorKey: navigatorKey,
       builder: (context, child) {
         return UpgradeAlert(
           upgrader: Upgrader(
@@ -64,8 +56,7 @@ class PayFlowAppState extends State<PayFlowApp> {
           showLater: false,
           showIgnore: false,
           canDismissDialog: kDebugMode,
-          dialogStyle: Platform.isIOS ? UpgradeDialogStyle.cupertino : UpgradeDialogStyle.material,
-          navigatorKey: _routerConfig.routerDelegate.navigatorKey,
+          navigatorKey: navigatorKey,
           child: child,
         );
       },
@@ -81,6 +72,7 @@ class PayFlowAppState extends State<PayFlowApp> {
         Locale('es'),
       ],
       theme: ThemeData(
+        primaryColor: AppColors.orange,
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.orange),
         scaffoldBackgroundColor: Colors.white,
         inputDecorationTheme: const InputDecorationTheme(
@@ -89,6 +81,12 @@ class PayFlowAppState extends State<PayFlowApp> {
           ),
         ),
       ),
+      initialRoute: Routes.login,
+      routes: {
+        Routes.login: (_) => const LoginView(),
+        Routes.ticketForm: (_) => const TicketFormView(),
+        Routes.home: (_) => const HomeView(),
+      },
     );
   }
 }

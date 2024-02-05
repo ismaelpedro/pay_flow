@@ -5,4 +5,5 @@ extension BuildContextExtensions on BuildContext {
   Size get dimension => MediaQuery.of(this).size;
   AppLocalizations get localizations => AppLocalizations.of(this)!;
   void unfocus() => FocusScope.of(this).unfocus();
+  ThemeData get theme => Theme.of(this);
 }

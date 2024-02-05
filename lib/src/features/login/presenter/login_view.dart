@@ -8,7 +8,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import '../../../core/infrastructure/service_locator/service_locator.dart';
 import '../../../core/presenter/assets/assets.dart';
 import '../../../core/presenter/extensions/extensions.dart';
-import '../../../core/presenter/ui/theme/app_colors.dart';
 import '../../../core/presenter/ui/theme/app_text_styles.dart';
 import '../../../core/presenter/ui/widgets/translation_dropdown_widget.dart';
 import 'cubits/login_cubit.dart';
@@ -56,14 +55,14 @@ class _LoginViewState extends State<LoginView> {
                 height: 220,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: AppColors.orange,
+                  color: context.theme.primaryColor,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(85),
                     bottomRight: Radius.circular(85),
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withOpacity(0.5),
                       spreadRadius: 1,
                       blurRadius: 3,
                       offset: const Offset(5, 5),
@@ -142,7 +141,7 @@ class _LoginViewState extends State<LoginView> {
                             width: double.infinity,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.orange,
+                                backgroundColor: context.theme.primaryColor,
                               ),
                               onPressed: isButtonEnabled ? () {} : null,
                               child: Text(
@@ -182,7 +181,7 @@ class _LoginViewState extends State<LoginView> {
                                   padding: const EdgeInsets.all(14),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4),
-                                    border: Border.all(color: AppColors.orange),
+                                    border: Border.all(color: context.theme.primaryColor),
                                   ),
                                   child: SvgPicture.asset(AppImages.facebook),
                                 ),
@@ -199,7 +198,7 @@ class _LoginViewState extends State<LoginView> {
                                 padding: const EdgeInsets.all(14),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(4),
-                                  border: Border.all(color: AppColors.orange),
+                                  border: Border.all(color: context.theme.primaryColor),
                                 ),
                                 child: SvgPicture.asset(AppImages.google),
                               ),
@@ -217,7 +216,7 @@ class _LoginViewState extends State<LoginView> {
                                   padding: const EdgeInsets.all(14),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(4),
-                                    border: Border.all(color: AppColors.orange),
+                                    border: Border.all(color: context.theme.primaryColor),
                                   ),
                                   child: SvgPicture.asset(AppImages.apple),
                                 ),
@@ -228,7 +227,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        _cubit.appVersion,
+                        'v${_cubit.appVersion}',
                         style: AppTextStyles.trailingRegular,
                       ),
                       const SizedBox(height: 24),

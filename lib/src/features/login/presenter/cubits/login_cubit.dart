@@ -1,9 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
+import '../../../../../pay_flow_app.dart';
 import '../../../../core/infrastructure/auth/auth_service.dart';
+import '../../../../core/presenter/extensions/extensions.dart';
+import '../../../../core/presenter/navigation/routes.dart';
 import '../../../../core/utils/admob_id.dart';
 import 'login_states.dart';
 
@@ -33,11 +37,18 @@ class LoginCubit extends Cubit<LoginState> {
 
   void changeOcultPassword() => ocultPassword.value = !ocultPassword.value;
 
-  Future<UserCredential?> loginWithGoogle() async {
-    return await _authService.signInWithGoogle();
+  void _toHomeView() => Navigator.pushNamed(
+        navigatorKey.currentContext!,
+        Routes.home,
+      );
+
+  Future<void> loginWithGoogle() async {
+    await _authService.signInWithGoogle().onLoading();
+    _toHomeView();
   }
 
-  Future<UserCredential?> loginWithApple() async {
-    return await _authService.signInWithApple();
+  Future<void> loginWithApple() async {
+    await _authService.signInWithApple().onLoading();
+    _toHomeView();
   }
 }

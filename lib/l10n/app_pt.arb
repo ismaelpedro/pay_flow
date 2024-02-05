@@ -21,5 +21,12 @@
   "passwordInput": "Sua senha",
   "forgotPassword": "Esqueceu a senha?",
   "loginButton": "Entrar",
-  "orSignInWith": "ou entre com"
+  "orSignInWith": "ou entre com",
+  "language": "Idioma",
+  "notifications": "Notificações",
+  "aboutDev": "Sobre o Dev",
+  "logout": "Sair",
+  "darkTheme": "Tema dark",
+  "donate": "Doar",
+  "registrationsToPay": "Você tem {count, plural, =0 {nenhuma conta a pagar! 😵‍💫} =1 {uma conta a pagar} other {{count} contas a pagar}}"
 }
