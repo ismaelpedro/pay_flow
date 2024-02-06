@@ -52,6 +52,7 @@ class AuthService {
 
       await _firebaseAuth.signInWithCredential(credential);
     } catch (e) {
+      _firebaseAuth.currentUser!.delete();
       debugPrint(e.toString());
     }
   }

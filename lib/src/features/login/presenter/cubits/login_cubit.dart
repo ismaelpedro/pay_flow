@@ -46,11 +46,15 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> loginWithGoogle() async {
     await _authService.signInWithGoogle().onLoading();
-    _toHomeView();
+    if (_authService.user != null) {
+      _toHomeView();
+    }
   }
 
   Future<void> loginWithApple() async {
     await _authService.signInWithApple().onLoading();
-    _toHomeView();
+    if (_authService.user != null) {
+      _toHomeView();
+    }
   }
 }
