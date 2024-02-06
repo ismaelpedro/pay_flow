@@ -29,7 +29,6 @@ workflows:
         script: |
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
           export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
-          echo >>> Running shorebird release android --artifact aab
           yes | shorebird release android --artifact aab
     artifacts:
       - build/**/outputs/**/*.aab
@@ -39,7 +38,7 @@ workflows:
           - http.ismaeel@gmail.com
         notify:
           success: true
-          failure: false
+          failure: true
       google_play:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: production
@@ -87,10 +86,3 @@ workflows:
         notify:
           success: true
           failure: false
-app_store_connect:
-  credentials: $APP_STORE_CONNECT_PRIVATE_KEY
-  key_id: $APP_STORE_CONNECT_KEY_ID
-  issuer_id: $APP_STORE_CONNECT_ISSUER_ID
-  app_identifier: com.example.myapp
-  submit_for_review: false
-  release: true
