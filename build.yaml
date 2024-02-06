@@ -4,5 +4,7 @@ targets:
       injectable_generator:injectable_builder:
         options:
           auto_register: true
-          class_name_pattern: "Usecase$|Service$|Repository$|Cubit$|Datasource$|Adapter"
-          file_name_pattern: "_usecase$|_service$|_repository$|_cubit$|_datasource$|_adapter$"
+          class_name_pattern: "Usecase$|Repository$|Cubit$|Datasource$"
+          file_name_pattern: "_usecase$|_repository$|_cubit$|_datasource$"
+          # class_name_pattern: "Usecase$|Service$|Repository$|Cubit$|Datasource$|Adapter"
+          # file_name_pattern: "_usecase$|_service$|_repository$|_cubit$|_datasource$|_adapter$"

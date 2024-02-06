@@ -5,9 +5,8 @@ publish_to: "none"
 version: 2.0.24+313
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
-  # sdk: ">=3.2.5 <4.0.0"
-  # flutter: ">=3.16.9"
+  sdk: ">=3.2.5 <4.0.0"
+  flutter: ">=3.16.9"
 
 dependencies:
   flutter:
@@ -38,13 +37,13 @@ dependencies:
   google_mobile_ads: ^4.0.0
 
   # FIREBASE/ONESIGNAL
-  firebase_core: ^2.25.3
-  firebase_analytics: ^10.8.4
-  firebase_crashlytics: ^3.4.13
-  firebase_performance: ^0.9.3+12
-  firebase_auth: ^4.17.3
-  firebase_storage: ^11.6.4
-  onesignal_flutter: ^5.1.0
+  firebase_core: ^2.25.4
+  firebase_analytics: ^10.8.5
+  firebase_crashlytics: ^3.4.14
+  firebase_performance: ^0.9.3+13
+  firebase_auth: ^4.17.4
+  firebase_storage: ^11.6.5
+  # onesignal_flutter: ^5.1.0
 
   # UI
   cupertino_icons: ^1.0.6
@@ -78,6 +77,8 @@ dev_dependencies:
   # TESTING
   mocktail: ^1.0.3
   mocktail_image_network: ^1.1.0
+  firebase_auth_mocks: ^0.13.0
+  google_sign_in_mocks: ^0.3.0
   mockingjay: ^0.5.0
   faker: ^2.1.0
 

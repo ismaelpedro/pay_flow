@@ -7,10 +7,15 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import '../../../../pay_flow_app.dart';
 import '../../presenter/navigation/routes.dart';
 
-@Singleton()
+@singleton
 class AuthService {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _firebaseAuth;
+  final GoogleSignIn _googleSignIn;
+
+  AuthService(
+    this._firebaseAuth,
+    this._googleSignIn,
+  );
 
   User? get user => _firebaseAuth.currentUser;
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();

@@ -9,21 +9,18 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i5;
+import 'package:firebase_auth/firebase_auth.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
+import 'package:google_sign_in/google_sign_in.dart' as _i4;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:pay_flow/src/core/data/datasources/ticket_datasource/i_ticket_datasource.dart'
-    as _i8;
-import 'package:pay_flow/src/core/data/datasources/user_datasource/i_user_datasource.dart'
-    as _i10;
-import 'package:pay_flow/src/core/data/repositories/ticket_repository.dart'
-    as _i7;
-import 'package:pay_flow/src/core/data/repositories/user_repository.dart'
-    as _i9;
-import 'package:pay_flow/src/core/infrastructure/auth/auth_service.dart' as _i3;
-import 'package:pay_flow/src/core/infrastructure/http/adapters/dio_http_adapter.dart'
-    as _i4;
-import 'package:pay_flow/src/features/login/presenter/cubits/login_cubit.dart'
-    as _i6;
+
+import '../../../features/login/presenter/cubits/login_cubit.dart' as _i8;
+import '../auth/auth_service.dart' as _i6;
+import '../http/http_client.dart' as _i7;
+import 'pay_flow_module.dart' as _i9;
+
+const String _prod = 'prod';
+const String _test = 'test';
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -36,16 +33,42 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.singleton<_i3.AuthService>(_i3.AuthService());
-    gh.factory<_i4.DioHttpAdapter>(() => _i4.DioHttpAdapter(
-          baseUrl: gh<String>(),
-          interceptors: gh<List<_i5.Interceptor>>(),
+    final payFlowModule = _$PayFlowModule();
+    gh.lazySingleton<_i3.FirebaseAuth>(
+      () => payFlowModule.firebaseAuth,
+      registerFor: {_prod},
+    );
+    gh.lazySingleton<_i3.FirebaseAuth>(
+      () => payFlowModule.firebaseAuthTest,
+      registerFor: {_test},
+    );
+    gh.lazySingleton<_i4.GoogleSignIn>(
+      () => payFlowModule.googleSignIn,
+      registerFor: {_prod},
+    );
+    gh.lazySingleton<_i4.GoogleSignIn>(
+      () => payFlowModule.googleSignInTest,
+      registerFor: {_test},
+    );
+    gh.factory<List<_i5.Interceptor>>(
+      () => payFlowModule.interceptors,
+      instanceName: 'Interceptors',
+    );
+    gh.factory<String>(
+      () => payFlowModule.baseUrl,
+      instanceName: 'BaseUrl',
+    );
+    gh.singleton<_i6.AuthService>(_i6.AuthService(
+      gh<_i3.FirebaseAuth>(),
+      gh<_i4.GoogleSignIn>(),
+    ));
+    gh.lazySingleton<_i7.HttpClient>(() => payFlowModule.httpAdapter(
+          gh<String>(instanceName: 'BaseUrl'),
+          gh<List<_i5.Interceptor>>(instanceName: 'Interceptors'),
         ));
-    gh.factory<_i6.LoginCubit>(() => _i6.LoginCubit(gh<_i3.AuthService>()));
-    gh.factory<_i7.TicketRepository>(
-        () => _i7.TicketRepository(gh<_i8.ITicketDatasource>()));
-    gh.factory<_i9.UserRepository>(
-        () => _i9.UserRepository(gh<_i10.IUserDatasource>()));
+    gh.factory<_i8.LoginCubit>(() => _i8.LoginCubit(gh<_i6.AuthService>()));
     return this;
   }
 }
+
+class _$PayFlowModule extends _i9.PayFlowModule {}

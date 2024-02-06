@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pay_flow/pay_flow_app.dart';
 import 'package:pay_flow/src/core/infrastructure/service_locator/service_locator.dart';
 import 'package:pay_flow/src/core/presenter/ui/widgets/translation_dropdown_widget.dart';
@@ -10,7 +11,9 @@ import 'package:pay_flow/src/features/login/presenter/login_view.dart';
 
 void main() {
   final faker = Faker();
-  setUpAll(() => configureDependencies());
+  setUpAll(() async {
+    configureDependencies(Environment.test);
+  });
 
   Future<void> setupPayFlowApp(WidgetTester tester) async {
     await tester.pumpWidget(const PayFlowApp());

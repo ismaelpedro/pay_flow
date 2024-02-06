@@ -7,6 +7,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:injectable/injectable.dart';
+
+// import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'firebase_options.dart';
 import 'pay_flow_app.dart';
@@ -17,7 +20,7 @@ Future<void> main() async {
     WidgetsFlutterBinding.ensureInitialized();
     await MobileAds.instance.initialize();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-    configureDependencies();
+    configureDependencies(Environment.prod);
     await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
