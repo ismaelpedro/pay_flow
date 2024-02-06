@@ -43,46 +43,45 @@ workflows:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: production
         submit_as_draft: false
-  ios-workflow:
-    name: iOS Workflow
-    max_build_duration: 120
-    environment:
-      flutter: stable
-      xcode: latest
-      groups:
-        - repo_credentials
-        - app_store_connect
-        - shorebird
-    scripts:
-      - name: Set up local.properties
-        script: |
-          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/ios/Flutter/Generated.xcconfig"
-      - name: Update version pubspec.yaml
-        script: |
-          chmod +x $CM_BUILD_DIR/update_version.sh
-          cd $CM_BUILD_DIR
-          ./update_version.sh
-      - name: Unitary & Widget tests
-        script: |
-          mkdir -p test-results
-          flutter test --machine > test-results/flutter.json
-        test_report: test-results/flutter.json
-      - name: CocoaPods install
-        script: |
-          cd $CM_BUILD_DIR/ios
-          pod install
-      - name: New Release Shorebird (Build IPA)
-        script: |
-          curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-          export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
-          echo >>> Running shorebird release ios --artifact ipa
-          yes | shorebird release ios --artifact ipa
-    artifacts:
-      - build/**/outputs/**/*.ipa
-    publishing:
-      email:
-        recipients:
-          - http.ismaeel@gmail.com
-        notify:
-          success: true
-          failure: false
+  # ios-workflow:
+  #   name: iOS Workflow
+  #   max_build_duration: 120
+  #   environment:
+  #     flutter: stable
+  #     xcode: latest
+  #     groups:
+  #       - repo_credentials
+  #       - app_store_connect
+  #       - shorebird
+  #   scripts:
+  #     - name: Set up local.properties
+  #       script: |
+  #         echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/ios/Flutter/Generated.xcconfig"
+  #     - name: Update version pubspec.yaml
+  #       script: |
+  #         chmod +x $CM_BUILD_DIR/update_version.sh
+  #         cd $CM_BUILD_DIR
+  #         ./update_version.sh
+  #     - name: Unitary & Widget tests
+  #       script: |
+  #         mkdir -p test-results
+  #         flutter test --machine > test-results/flutter.json
+  #       test_report: test-results/flutter.json
+  #     - name: CocoaPods install
+  #       script: |
+  #         cd $CM_BUILD_DIR/ios
+  #         pod install
+  #     - name: New Release Shorebird (Build IPA)
+  #       script: |
+  #         curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
+  #         export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
+  #         yes | shorebird release ios --artifact ipa
+  #   artifacts:
+  #     - build/**/outputs/**/*.ipa
+  #   publishing:
+  #     email:
+  #       recipients:
+  #         - http.ismaeel@gmail.com
+  #       notify:
+  #         success: true
+  #         failure: true
