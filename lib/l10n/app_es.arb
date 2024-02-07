@@ -28,5 +28,6 @@
   "logout": "Cerrar sesión",
   "darkTheme": "Tema oscuro",
   "donate": "Donar",
+  "hi": "¡Hola, usuario!",
   "registrationsToPay": "Tienes {count, plural, =0 {ninguna factura por pagar! 😵‍💫} =1 {una factura por pagar} other {{count} facturas por pagar}}"
 }

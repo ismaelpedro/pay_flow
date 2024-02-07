@@ -42,6 +42,7 @@ class AuthService {
 
   Future<void> signInWithGoogle() async {
     try {
+      await _googleSignIn.signOut();
       final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
 
@@ -52,8 +53,7 @@ class AuthService {
 
       await _firebaseAuth.signInWithCredential(credential);
     } catch (e) {
-      _firebaseAuth.currentUser!.delete();
-      debugPrint(e.toString());
+      debugPrint('>>> $e');
     }
   }
 

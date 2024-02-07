@@ -28,5 +28,6 @@
   "logout": "Sair",
   "darkTheme": "Tema dark",
   "donate": "Doar",
+  "hi": "Olá, usuário!",
   "registrationsToPay": "Você tem {count, plural, =0 {nenhuma conta a pagar! 😵‍💫} =1 {uma conta a pagar} other {{count} contas a pagar}}"
 }

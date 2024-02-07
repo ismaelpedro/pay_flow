@@ -140,6 +140,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   Icons.handyman_outlined,
                   color: context.theme.primaryColor,
                 ),
+                minLeadingWidth: 40,
                 title: Text(
                   context.localizations.aboutDev,
                   style: AppTextStyles.buttonHeading,

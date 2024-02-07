@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentIndex,
         onDestinationSelected: (int value) => setState(() => currentIndex = value),
-        height: 60,
+        height: 50,
         destinations: const <Widget>[
           Padding(
             padding: EdgeInsets.only(top: 25),

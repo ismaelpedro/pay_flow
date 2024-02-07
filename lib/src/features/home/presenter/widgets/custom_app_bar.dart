@@ -49,7 +49,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       children: <Widget>[
                         RichText(
                           text: TextSpan(
-                            text: authService.user?.displayName ?? '',
+                            text: authService.user?.displayName ?? context.localizations.hi,
                             style: AppTextStyles.titleBoldBackground,
                           ),
                         ),
@@ -66,7 +66,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
                         width: 60,
                         color: Colors.grey[200],
                         child: CachedNetworkImage(
-                          imageUrl: authService.user?.photoURL ?? '',
+                          imageUrl: authService.user?.photoURL ??
+                              'https://media.istockphoto.com/id/1300845620/pt/vetorial/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=7TO9d1_F-zi74bCZGEUzpa-nXT1JbcVglYMk_4MSwdg=',
                           progressIndicatorBuilder: (_, __, ___) {
                             return const Center(child: CupertinoActivityIndicator());
                           },
