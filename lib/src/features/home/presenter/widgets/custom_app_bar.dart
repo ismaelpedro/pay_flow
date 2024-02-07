@@ -105,20 +105,15 @@ class _CustomAppBarState extends State<CustomAppBar> {
                       width: 2,
                     ),
                   ),
-                  const SizedBox(width: 24),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      RichText(
-                        overflow: TextOverflow.ellipsis,
-                        text: TextSpan(
-                          text: context.localizations.registrationsToPay(0),
-                          style: AppTextStyles.captionShape,
-                        ),
-                      ),
-                    ],
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Text(
+                      context.localizations.registrationsToPay(0),
+                      style: AppTextStyles.captionShape,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
+                  const SizedBox(width: 8),
                 ],
               ),
             ),

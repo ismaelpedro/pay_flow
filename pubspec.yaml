@@ -5,7 +5,7 @@ publish_to: "none"
 version: 2.0.27+316
 
 environment:
-  sdk: ">=3.2.5 <4.0.0"
+  sdk: ">=3.2.6 <4.0.0"
   flutter: ">=3.16.9"
 
 dependencies:
@@ -20,7 +20,7 @@ dependencies:
 
   # NETWORKING
   dio: ^5.4.0
-  talker_dio_logger: ^4.0.0
+  talker_dio_logger: ^4.0.1
   cached_network_image: ^3.3.1
 
   # ASSETS MANAGEMENT

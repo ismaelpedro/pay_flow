@@ -32,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
           child: const Icon(
             Icons.add_box_outlined,
             color: Colors.white,
-            size: 40,
+            size: 30,
           ),
           onPressed: () {},
         ),
