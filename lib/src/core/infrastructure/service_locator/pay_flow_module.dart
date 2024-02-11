@@ -36,7 +36,13 @@ abstract class PayFlowModule {
 
   @lazySingleton
   @prod
-  GoogleSignIn get googleSignIn => GoogleSignIn();
+  GoogleSignIn get googleSignIn => GoogleSignIn(
+        scopes: [
+          'email',
+          'openid',
+          'profile',
+        ],
+      );
 
   @lazySingleton
   @test

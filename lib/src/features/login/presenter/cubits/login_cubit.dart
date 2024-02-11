@@ -39,7 +39,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   void changeOcultPassword() => ocultPassword.value = !ocultPassword.value;
 
-  void _toHomeView() => Navigator.pushNamed(
+  void _toHomeView() => Navigator.pushReplacementNamed(
         navigatorKey.currentContext!,
         Routes.home,
       );
