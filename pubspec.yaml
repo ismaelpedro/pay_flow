@@ -15,8 +15,8 @@ dependencies:
     sdk: flutter
 
   # STATE MANAGEMENT
-  flutter_bloc: ^8.1.3
-  bloc: ^8.1.2
+  flutter_bloc: ^8.1.4
+  bloc: ^8.1.3
 
   # NETWORKING
   dio: ^5.4.0
