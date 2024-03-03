@@ -30,6 +30,9 @@ workflows:
           curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
           export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
           yes | shorebird release android --artifact aab
+      # - name: New Release
+      #   script: |
+      #    flutter build appbundle --release
     artifacts:
       - build/**/outputs/**/*.aab
     publishing:
@@ -43,45 +46,48 @@ workflows:
         credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
         track: production
         submit_as_draft: false
-  # ios-workflow:
-  #   name: iOS Workflow
-  #   max_build_duration: 120
-  #   environment:
-  #     flutter: stable
-  #     xcode: latest
-  #     groups:
-  #       - repo_credentials
-  #       - app_store_connect
-  #       - shorebird
-  #   scripts:
-  #     - name: Set up local.properties
-  #       script: |
-  #         echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/ios/Flutter/Generated.xcconfig"
-  #     - name: Update version pubspec.yaml
-  #       script: |
-  #         chmod +x $CM_BUILD_DIR/update_version.sh
-  #         cd $CM_BUILD_DIR
-  #         ./update_version.sh
-  #     - name: Unitary & Widget tests
-  #       script: |
-  #         mkdir -p test-results
-  #         flutter test --machine > test-results/flutter.json
-  #       test_report: test-results/flutter.json
-  #     - name: CocoaPods install
-  #       script: |
-  #         cd $CM_BUILD_DIR/ios
-  #         pod install
-  #     - name: New Release Shorebird (Build IPA)
-  #       script: |
-  #         curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
-  #         export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
-  #         yes | shorebird release ios --artifact ipa
-  #   artifacts:
-  #     - build/**/outputs/**/*.ipa
-  #   publishing:
-  #     email:
-  #       recipients:
-  #         - http.ismaeel@gmail.com
-  #       notify:
-  #         success: true
-  #         failure: true
+
+  ios-workflow:
+    name: iOS Workflow
+    integrations:
+      app_store_connect: <App Store Connect API key name>
+    scripts:
+      - name: Set up Generated.xcconfig
+        script: |
+          echo "flutter.sdk=$HOME/programs/flutter" > "$CM_BUILD_DIR/ios/Flutter/Generated.xcconfig"
+      - name: Update version pubspec.yaml
+        script: |
+          chmod +x $CM_BUILD_DIR/update_version.sh
+          cd $CM_BUILD_DIR
+          ./update_version.sh
+      - name: Unitary & Widget tests
+        script: |
+          mkdir -p test-results
+          flutter test --machine > test-results/flutter.json
+        test_report: test-results/flutter.json
+      - name: CocoaPods install
+        script: |
+          cd $CM_BUILD_DIR/ios
+          pod deintegrate && pod update && pod repo update && pod install
+      - name: New Release Shorebird (Build IPA)
+        script: |
+          curl --proto '=https' --tlsv1.2 https://raw.githubusercontent.com/shorebirdtech/install/main/install.sh -sSf | bash
+          export PATH="/Users/builder/.shorebird/bin:$PATH" >> $CM_ENV
+          yes | shorebird release ios --artifact ipa
+      # - name: New Release
+      #   script: |
+      #    flutter build ios --release
+    artifacts:
+      - build/**/outputs/**/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration 
+        submit_to_testflight: true
+        expire_build_submitted_for_review: true
+        beta_groups: 
+          - group name 1
+          - group name 2
+        submit_to_app_store: false
+        cancel_previous_submissions: true
+        # Optional, defaults to MANUAL. Supported values: MANUAL, AFTER_APPROVAL or SCHEDULED
+        release_type: AFTER_APPROVAL
