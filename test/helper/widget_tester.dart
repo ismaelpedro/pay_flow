@@ -31,8 +31,8 @@ class TestAssetBundle extends CachingAssetBundle {
 }
 
 extension HelperTest on WidgetTester {
-  Future<void> pumpPage(
-    Widget page, {
+  Future<void> pumpView(
+    Widget view, {
     Map<String, Widget Function(BuildContext)>? routes,
     List<NavigatorObserver>? navigatorObservers,
   }) async {
@@ -52,10 +52,10 @@ extension HelperTest on WidgetTester {
             Locale('pt', 'BR'),
           ],
           locale: const Locale('pt', 'BR'),
-          home: page,
+          home: view,
         ),
       ),
     );
-    await pump();
+    await pumpAndSettle();
   }
 }
