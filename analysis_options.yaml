@@ -15,9 +15,12 @@ analyzer:
     unused_import: error
     unused_element: error
     unnecessary_import: error
+    missing_return: error
+    sized_box_for_whitespace: error
 
 linter:
   rules:
+    sized_box_for_whitespace: true
     require_trailing_commas: true
     directives_ordering: true
     prefer_single_quotes: true
