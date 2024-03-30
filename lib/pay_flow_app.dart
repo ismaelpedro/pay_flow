@@ -6,8 +6,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:upgrader/upgrader.dart';
 
-import 'src/core/infrastructure/auth/auth_service.dart';
-import 'src/core/infrastructure/service_locator/service_locator.dart';
 import 'src/core/presenter/navigation/routes.dart';
 import 'src/core/presenter/ui/theme/app_colors.dart';
 import 'src/features/home/presenter/views/home_view.dart';
@@ -25,14 +23,12 @@ class PayFlowApp extends StatefulWidget {
 
 class PayFlowAppState extends State<PayFlowApp> {
   Locale? appLocale;
-  late AuthService authService;
 
   @override
   void initState() {
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
-    authService = locator.get<AuthService>();
     super.initState();
   }
 
@@ -55,7 +51,6 @@ class PayFlowAppState extends State<PayFlowApp> {
           ),
           showLater: false,
           showIgnore: false,
-          canDismissDialog: kDebugMode,
           navigatorKey: navigatorKey,
           child: child,
         );

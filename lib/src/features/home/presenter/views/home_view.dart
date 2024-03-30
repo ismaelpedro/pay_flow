@@ -34,7 +34,9 @@ class _HomeViewState extends State<HomeView> {
             color: Colors.white,
             size: 30,
           ),
-          onPressed: () {},
+          onPressed: () {
+            // Navigator.pushNamed(context, Routes.ticketForm);
+          },
         ),
       ),
       bottomNavigationBar: NavigationBar(

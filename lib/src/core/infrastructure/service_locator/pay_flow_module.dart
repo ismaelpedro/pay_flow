@@ -39,8 +39,7 @@ abstract class PayFlowModule {
   GoogleSignIn get googleSignIn => GoogleSignIn(
         scopes: [
           'email',
-          'openid',
-          'profile',
+          'https://www.googleapis.com/auth/contacts.readonly',
         ],
       );
 
