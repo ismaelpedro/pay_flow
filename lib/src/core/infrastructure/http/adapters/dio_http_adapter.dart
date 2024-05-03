@@ -5,7 +5,7 @@ import '../http.dart';
 
 class DioHttpAdapter implements HttpClient {
   final Dio _client;
-  static const Duration _defaultConnectionTimeout = Duration(seconds: 25);
+  static const Duration _defaultConnectionTimeout = Duration(seconds: 5);
 
   DioHttpAdapter({
     required String baseUrl,
