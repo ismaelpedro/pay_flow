@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'firebase_options.dart';
 import 'pay_flow_app.dart';
@@ -16,6 +17,7 @@ import 'src/core/infrastructure/service_locator/service_locator.dart';
 Future<void> main() async {
   await runZonedGuarded<Future<void>>(() async {
     WidgetsFlutterBinding.ensureInitialized();
+    initializeDateFormatting();
     await MobileAds.instance.initialize();
     await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     configureDependencies(Environment.prod);
