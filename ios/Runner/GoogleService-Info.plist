@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>911161269065-1gamcv9d3lk6effqk4r3v6gfffrmo493.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.911161269065-1gamcv9d3lk6effqk4r3v6gfffrmo493</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>911161269065-2ivlmt3ivig9o27o3kjc04po2ej24lbn.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDVK4Ns1xMulJf3tS51Rje5XS_0PiI9gxM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>911161269065</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>br.com.ismael.payFlow</string>
+	<key>PROJECT_ID</key>
+	<string>payflow-333802</string>
+	<key>STORAGE_BUCKET</key>
+	<string>payflow-333802.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:911161269065:ios:d91e61602735ce9c275898</string>
+</dict>
+</plist>

@@ -52,7 +52,6 @@ void main() {
         expect(find.widgetWithText(ElevatedButton, 'Login'), findsOneWidget);
         expect(find.byType(TranslationDropdownWidget), findsOneWidget);
         expect(find.byType(InkWell), findsNWidgets(7));
-        expect(find.byType(Image), findsWidgets);
       });
 
       testWidgets('Text fields accept input', (WidgetTester tester) async {

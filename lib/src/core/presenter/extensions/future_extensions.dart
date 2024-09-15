@@ -8,7 +8,7 @@ extension FutureExtensions<T> on Future<T> {
       barrierDismissible: false,
       context: navigatorKey.currentContext!,
       builder: (_) => PopScope(
-        onPopInvoked: (value) => false,
+        onPopInvokedWithResult: (value, _) => false,
         child: const Center(
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
