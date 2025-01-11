@@ -77,6 +77,7 @@ class NotificationService {
     final date = DateTime.now().add(duration);
 
     localNotificationsPlugin.zonedSchedule(
+      androidScheduleMode: AndroidScheduleMode.exact,
       notification.id,
       notification.title,
       notification.body,
