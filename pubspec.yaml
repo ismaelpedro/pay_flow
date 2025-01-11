@@ -5,12 +5,15 @@ publish_to: "none"
 version: 2.0.28+317
 
 environment:
-  sdk: ">=3.5.3 <4.0.0"
-  flutter: ">=3.24.3"
+  sdk: ">=3.6.0"
+  flutter: ">=3.27.1"
 
 dependency_overrides:
   meta: ^1.12.0
   archive: ^3.6.1
+  source_gen: ^1.5.0
+  dart_style: ^3.0.1
+  analyzer: ^5.2.0
 
 dependencies:
   flutter:
@@ -24,59 +27,59 @@ dependencies:
 
   # NETWORKING
   dio: ^5.7.0
-  talker_dio_logger: ^4.4.1
+  talker_dio_logger: ^4.6.0
   cached_network_image: ^3.4.1
 
   # ASSETS MANAGEMENT
   image_picker: ^1.1.2
-  file_picker: ^8.1.2
-  path_provider: ^2.1.4
+  file_picker: ^8.1.7
+  path_provider: ^2.1.5
   camera: ^0.11.0
   boleto_utils: ^1.0.3
   flutter_barcode_scanner: ^2.0.0
 
   # GOOGLE/APPLE
-  sign_in_with_apple: ^6.1.2
-  google_sign_in: ^6.2.1
-  google_mobile_ads: ^5.1.0
+  sign_in_with_apple: ^6.1.4
+  google_sign_in: ^6.2.2
+  google_mobile_ads: ^5.2.0
 
   # FIREBASE
-  firebase_core: ^3.4.1
-  firebase_analytics: ^11.3.1
-  firebase_crashlytics: ^4.1.1
-  firebase_performance: ^0.10.0
-  firebase_auth: ^5.2.1
-  firebase_messaging: ^15.1.1
+  firebase_core: ^3.10.0
+  firebase_analytics: ^11.4.0
+  firebase_crashlytics: ^4.3.0
+  firebase_performance: ^0.10.1
+  firebase_auth: ^5.4.0
+  firebase_messaging: ^15.2.0
 
   # NOTIFICATIONS
-  flutter_local_notifications: ^17.2.2
-  timezone: ^0.9.4
-  flutter_timezone: ^3.0.1
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.10.0
+  flutter_timezone: ^4.0.0
 
   # UI
   cupertino_icons: ^1.0.8
   shimmer: ^3.0.0
   device_preview: ^1.2.0
-  flutter_svg: ^2.0.10
+  flutter_svg: ^2.0.17
   mask_text_input_formatter: ^2.9.0
   flutter_masked_text2: ^0.9.1
-  lottie: ^3.1.2   
+  lottie: ^3.3.1   
   
   # UTILITIES
-  package_info_plus: ^8.0.2
-  intl: ^0.19.0
-  url_launcher: ^6.3.0
-  upgrader: ^11.1.0
+  package_info_plus: ^8.1.2
+  intl: 0.19.0
+  url_launcher: ^6.3.1
+  upgrader: ^11.3.1
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
   # DI/ARCHITECTURE
-  get_it: ^7.7.0
-  injectable: ^2.4.4
-  shared_preferences: ^2.3.2
+  get_it: ^8.0.3
+  injectable: ^2.5.0
+  shared_preferences: ^2.3.5
 
 dev_dependencies:
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
   integration_test:
@@ -91,9 +94,9 @@ dev_dependencies:
   faker: ^2.2.0
 
   # CODE GENERATION
-  build_runner: ^2.4.12
-  freezed: ^2.5.7
-  json_serializable: ^6.8.0
+  build_runner: ^2.4.14
+  freezed: ^2.5.8
+  json_serializable: ^6.9.2
   injectable_generator: ^2.6.2
 
 flutter:

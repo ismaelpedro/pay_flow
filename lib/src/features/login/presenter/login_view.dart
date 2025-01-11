@@ -62,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.5),
+                      color: Colors.black.withValues(alpha: .5),
                       spreadRadius: 1,
                       blurRadius: 3,
                       offset: const Offset(5, 5),
